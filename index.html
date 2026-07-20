@@ -912,10 +912,9 @@ function buildBurndownData(sprintStartStr, sprintEndStr) {
   const end=new Date(sprintEndStr.split('T')[0]);
   const now=new Date(); now.setHours(23,59,59,999);
 
-  // Escopo = Story Points das ISSUES PAI (sem subtarefas) — igual à barra "Progresso
-  // do sprint" do Jira, que soma apenas os SP das issues pai. Ex. Sprint 5: 98 SP,
-  // 2 concluídos (OE-219) = 2%, 21 não iniciados (OE-202+203) = 21%, 75 em and. = 77%.
-  const all=[...activeIssues,...doneIssues];
+  // Escopo = Story Points de TODAS as issues do sprint (pais + subtarefas, sem cancelados),
+  // por categoria de status — mesma metodologia da barra "Progresso do sprint" do Jira.
+  const all=[...activeIssues,...doneIssues,...subtaskIssues];
   const doneAll=all.filter(isDoneCat);
   const totalSP=all.reduce((s,i)=>s+getSP(i),0);
   const doneSP=doneAll.reduce((s,i)=>s+getSP(i),0);
@@ -963,7 +962,7 @@ function renderBurndown() {
   if(totalSP>0){
     const pctDone  =Math.round(doneSP/totalSP*100);
     const pctActive=Math.round(activeSP/totalSP*100);
-    const pctTodo  =Math.max(0,100-pctDone-pctActive);
+    const pctTodo  =Math.round(todoSP/totalSP*100);
     document.getElementById('bsp-done').style.width   =pctDone+'%';
     document.getElementById('bsp-active').style.width =pctActive+'%';
     document.getElementById('bsp-todo').style.width   =pctTodo+'%';
