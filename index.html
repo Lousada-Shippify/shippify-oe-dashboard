@@ -1,0 +1,1536 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Dashboard Produtos · Operation Experience</title>
+<script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous"></script>
+<style>
+/* ── Shippify Design System — tokens ───────────────────────────────────────── */
+:root {
+  color-scheme: light;
+  /* Backgrounds */
+  --bg:           #DAD7D1;  /* Cinza Shippify */
+  --bg-surface:   #CAC7C1;
+  --bg-card:      #FFFFFF;  /* Branco */
+  --bg-card-el:   #F5F4F2;
+  --bg-header:    #151515;  /* Preto Shippify */
+  --border:       rgba(21,21,21,0.10);
+  /* Text */
+  --text:         #151515;  /* Preto Shippify */
+  --text-muted:   #6B6860;
+  --text-disabled:#9B9890;
+  /* Brand / semantic */
+  --green:  #1B9B6E;        /* sucesso, concluído */
+  --yellow: #FEDD29;        /* Amarelo Shippify — botão, atenção */
+  --yellow-dark: #B8920B;   /* amarelo legível em texto */
+  --orange: #FE8C5A;        /* Pêssego — alerta */
+  --red:    #D4343F;        /* Vermelho Shippify — crítico */
+  --blue:   #0E8FAD;        /* turquesa escuro */
+  --purple: #6B5CE7;        /* em andamento */
+  --accent: #FEDD29;        /* brand primary */
+  /* Semantic bg (brand complementares) */
+  --green-bg:  #C3F0E6;     /* Verde complementar */
+  --yellow-bg: #FEF3C0;
+  --red-bg:    rgba(212,52,63,0.10);
+  --blue-bg:   rgba(14,143,173,0.10);
+  --purple-bg: #BFB5F4;     /* Lilás complementar */
+  --orange-bg: rgba(254,140,90,0.15);
+  --radius: 8px;
+  --shadow: 0 2px 8px rgba(0,0,0,0.08);
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Montserrat', Inter, Arial, sans-serif;
+  font-size: 13px;
+  background: var(--bg);
+  color: var(--text);
+  line-height: 1.5;
+  min-height: 100vh;
+}
+
+/* ── Header ──────────────────────────────────────────────────────────────── */
+.app-header {
+  background: var(--bg-header);
+  color: #FFFFFF;
+  padding: 12px 24px;
+  display: flex; align-items: center; justify-content: space-between;
+  position: sticky; top: 0; z-index: 100;
+  border-bottom: none;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.25);
+}
+.header-left { display: flex; align-items: center; gap: 14px; }
+.header-logo {
+  display: flex; align-items: center; flex-shrink: 0;
+}
+.header-left h1 {
+  font-family: 'Montserrat', sans-serif;
+  font-size: 14px; font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 0.01em;
+}
+.header-left h1 span.oe-label {
+  color: var(--yellow);
+  font-weight: 800;
+}
+.header-left .subtitle { font-size: 11px; color: rgba(255,255,255,0.55); margin-top: 2px; font-family: 'Montserrat', sans-serif; }
+.header-right { display: flex; align-items: center; gap: 12px; }
+.last-updated { font-size: 11px; color: rgba(255,255,255,0.45); font-family: 'Montserrat', sans-serif; }
+.refresh-btn {
+  background: var(--yellow);
+  color: #151515;
+  border: none;
+  border-radius: 6px; padding: 7px 18px;
+  cursor: pointer; font-size: 12px; font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  transition: background .15s, transform .1s;
+  display: flex; align-items: center; gap: 6px;
+  letter-spacing: 0.02em;
+}
+.refresh-btn:hover { background: #e5c924; transform: translateY(-1px); }
+.refresh-btn:active { transform: translateY(0); }
+.refresh-btn:disabled { opacity: .5; cursor: not-allowed; transform: none; }
+
+/* ── Sprint Banner ── */
+.sprint-banner {
+  margin: 16px 24px 0;
+  background: var(--bg-card);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  padding: 14px 20px;
+  display: flex; align-items: center; gap: 20px; flex-wrap: wrap;
+  box-shadow: var(--shadow);
+  border-left: 4px solid var(--yellow);
+}
+.status-badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 14px; border-radius: 99px;
+  font-size: 11px; font-weight: 700;
+  font-family: 'Montserrat', sans-serif;
+  letter-spacing: 0.04em; text-transform: uppercase;
+  white-space: nowrap;
+}
+.sb-green  { background: var(--green-bg);  color: #0d6b4a; }
+.sb-yellow { background: var(--yellow-bg); color: #7a5f00; }
+.sb-red    { background: var(--red-bg);    color: var(--red); }
+.sb-loading { background: rgba(21,21,21,0.06); color: var(--text-muted); }
+.banner-divider { width: 1px; background: var(--border); height: 36px; flex-shrink: 0; }
+.banner-tldr {
+  flex: 1; font-size: 13px; color: var(--text-muted);
+  font-style: italic; min-width: 180px;
+  font-family: 'Montserrat', sans-serif;
+}
+.banner-metrics { display: flex; gap: 24px; flex-wrap: wrap; }
+.banner-metric .val {
+  font-size: 18px; font-weight: 700; color: var(--text); line-height: 1.1;
+  font-family: 'Montserrat', sans-serif;
+}
+.banner-metric .lbl {
+  font-size: 10px; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.06em;
+  font-family: 'Montserrat', sans-serif; font-weight: 600;
+  margin-top: 2px;
+}
+
+/* ── Progress Bar ── */
+.progress-bar-wrap { display: flex; align-items: center; gap: 12px; padding: 12px 24px 0; }
+.progress-bar-bg { flex: 1; height: 6px; background: rgba(21,21,21,0.12); border-radius: 99px; overflow: hidden; }
+.progress-bar-fill {
+  height: 100%; border-radius: 99px;
+  background: linear-gradient(90deg, #FEDD29, #B8920B);
+  transition: width .6s ease; width: 0%;
+}
+.progress-label {
+  font-size: 11px; color: var(--text-muted); white-space: nowrap; min-width: 80px; text-align: right;
+  font-family: 'Montserrat', sans-serif; font-weight: 600; letter-spacing: 0.02em;
+}
+
+/* ── Metric Cards ── */
+.cards-row { display: grid; grid-template-columns: repeat(6,1fr); gap: 10px; margin: 12px 24px 0; }
+@media (max-width:1000px) { .cards-row { grid-template-columns: repeat(3,1fr); } }
+.metric-card {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); padding: 16px 18px;
+  box-shadow: var(--shadow); border-top: 3px solid var(--border);
+  transition: border-color .15s, box-shadow .15s;
+}
+.metric-card:hover { box-shadow: 0 4px 16px rgba(0,0,0,0.12); }
+.metric-card.green  { border-top-color: var(--green); }
+.metric-card.blue   { border-top-color: var(--blue); }
+.metric-card.purple { border-top-color: var(--purple); }
+.metric-card.yellow { border-top-color: var(--yellow); }
+.metric-card.red    { border-top-color: var(--red); }
+.metric-card.neutral { border-top-color: var(--text-muted); }
+.metric-card .val {
+  font-size: 32px; font-weight: 800; line-height: 1;
+  color: var(--text-muted);
+  font-family: 'Montserrat', sans-serif;
+}
+.metric-card.green .val  { color: var(--green); }
+.metric-card.blue .val   { color: var(--blue); }
+.metric-card.purple .val { color: var(--purple); }
+.metric-card.red .val    { color: var(--red); }
+.metric-card.yellow .val { color: var(--yellow); }
+.metric-card .lbl {
+  font-size: 10px; color: var(--text-muted); margin-top: 6px;
+  text-transform: uppercase; letter-spacing: 0.06em;
+  font-family: 'Montserrat', sans-serif; font-weight: 600;
+}
+
+/* ── Burndown Panel ── */
+.burndown-panel {
+  margin: 12px 24px 0; background: var(--bg-card);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  box-shadow: var(--shadow); overflow: hidden;
+}
+.burndown-inner { padding: 16px 20px; position: relative; height: 230px; }
+
+/* ── SP Progress (inside burndown panel) ── */
+.burndown-sp-section { padding: 14px 20px 12px; border-bottom: 1px solid var(--border); }
+.bsp-bar { display: flex; height: 8px; border-radius: 99px; overflow: hidden; background: rgba(21,21,21,0.08); }
+.bsp-seg { height: 100%; transition: width .7s ease; }
+.bsp-done   { background: #1B9B6E; }
+.bsp-active { background: #BFB5F4; }
+.bsp-todo   { background: rgba(21,21,21,0.10); }
+.bsp-labels { display: flex; gap: 28px; margin-top: 12px; }
+.bsp-label  { display: flex; flex-direction: column; gap: 3px; }
+.bsp-val    { font-size: 22px; font-weight: 800; line-height: 1; font-family: 'Montserrat', sans-serif; }
+.bsp-val-done   { color: var(--green); }
+.bsp-val-active { color: var(--purple); }
+.bsp-val-todo   { color: var(--text-muted); }
+.bsp-key    { font-size: 10px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; font-family: 'Montserrat', sans-serif; }
+.burndown-sp-sub { font-size: 12px; color: var(--text-muted); padding: 8px 20px 0; font-family: 'Montserrat', sans-serif; }
+#burndown-loading {
+  position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
+  font-size: 12px; color: var(--text-muted); background: var(--bg-card); z-index: 2;
+  font-family: 'Montserrat', sans-serif;
+}
+
+/* ── Main Grid ── */
+.main-grid { display: grid; grid-template-columns: 1fr 290px; gap: 12px; margin: 12px 24px 0; }
+@media (max-width:900px) { .main-grid { grid-template-columns: 1fr; } }
+
+/* ── Panel ── */
+.panel {
+  background: var(--bg-card); border: 1px solid var(--border);
+  border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden;
+}
+.panel-header h2 { display: flex; align-items: center; gap: 8px; }
+.ph-icon { width: 18px; height: 18px; flex-shrink: 0; opacity: 0.75; }
+.panel-header {
+  padding: 11px 16px 10px; border-bottom: 1px solid var(--border);
+  display: flex; align-items: center; justify-content: space-between;
+  background: var(--bg-card-el);
+}
+.panel-header h2 {
+  font-size: 11px; font-weight: 700; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.07em;
+  font-family: 'Montserrat', sans-serif;
+}
+.panel-header a { font-size: 11px; color: var(--green); text-decoration: none; font-family: 'Montserrat', sans-serif; }
+.panel-header a:hover { text-decoration: underline; }
+.panel-header span.meta { font-size: 11px; color: var(--text-muted); font-family: 'Montserrat', sans-serif; }
+
+/* ── Filter Bar ── */
+.filter-bar {
+  display: flex; align-items: center; gap: 7px;
+  padding: 9px 14px; border-bottom: 1px solid var(--border);
+  background: var(--bg-card-el); flex-wrap: wrap;
+}
+.filter-bar input[type="text"] {
+  padding: 5px 10px; border: 1px solid var(--border);
+  border-radius: 6px; font-size: 12px;
+  background: var(--bg); color: var(--text);
+  width: 150px; outline: none; transition: border-color .15s;
+  font-family: 'Montserrat', sans-serif;
+}
+.filter-bar input[type="text"]:focus { border-color: var(--green); box-shadow: 0 0 0 2px rgba(78,203,113,0.12); }
+.filter-bar input[type="text"]::placeholder { color: var(--text-disabled); }
+.filter-bar select {
+  padding: 5px 8px; border: 1px solid var(--border);
+  border-radius: 6px; font-size: 12px;
+  background: var(--bg); color: var(--text);
+  cursor: pointer; outline: none; max-width: 140px;
+  font-family: 'Montserrat', sans-serif;
+}
+.filter-bar select:focus { border-color: var(--green); }
+.filter-count { margin-left: auto; font-size: 11px; color: var(--text-muted); white-space: nowrap; font-family: 'Montserrat', sans-serif; font-weight: 600; }
+
+/* ── Issues Table ── */
+.issues-table-wrap { overflow-x: auto; max-height: 430px; overflow-y: auto; }
+table { width: 100%; border-collapse: collapse; font-size: 12px; }
+th {
+  padding: 8px 12px; text-align: left;
+  font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em;
+  color: var(--text-muted); background: var(--bg-card-el);
+  border-bottom: 1px solid var(--border);
+  white-space: nowrap; cursor: pointer; user-select: none;
+  position: sticky; top: 0; z-index: 1;
+  font-family: 'Montserrat', sans-serif;
+}
+th:hover { color: var(--text); }
+td { padding: 8px 12px; border-bottom: 1px solid var(--border); vertical-align: middle; font-family: 'Montserrat', sans-serif; }
+tr:last-child td { border-bottom: none; }
+tr:hover td { background: rgba(255,255,255,0.03); }
+tr.row-blocked td { background: rgba(193,30,66,0.05); }
+tr.row-blocked:hover td { background: rgba(193,30,66,0.09); }
+tr.row-done td { opacity: .55; }
+.issue-key { font-family: 'SFMono-Regular', Consolas, monospace; font-size: 11px; color: var(--blue); white-space: nowrap; font-weight: 700; }
+.issue-key a { color: inherit; text-decoration: none; }
+.issue-key a:hover { text-decoration: underline; }
+.issue-summary { max-width: 280px; }
+.issue-summary a { color: var(--text); text-decoration: none; }
+.issue-summary a:hover { color: var(--green); }
+
+/* ── Status Pills ── */
+.status-pill {
+  display: inline-flex; align-items: center;
+  padding: 2px 8px; border-radius: 4px;
+  font-size: 10px; font-weight: 700; white-space: nowrap;
+  font-family: 'Montserrat', sans-serif; letter-spacing: 0.04em; text-transform: uppercase;
+}
+.sp-todo      { background: rgba(170,170,170,0.1); color: var(--text-muted); }
+.sp-inprogress{ background: var(--purple-bg); color: var(--purple); }
+.sp-review    { background: var(--blue-bg);   color: var(--blue); }
+.sp-qa        { background: var(--yellow-bg); color: var(--yellow); }
+.sp-deploy    { background: var(--orange-bg); color: var(--orange); }
+.sp-blocked   { background: var(--red-bg);    color: var(--red); }
+.sp-done      { background: var(--green-bg);  color: var(--green); }
+
+/* ── Priority ── */
+.priority-label { display: flex; align-items: center; gap: 5px; white-space: nowrap; font-size: 11px; font-family: 'Montserrat', sans-serif; }
+.priority-dot { width: 7px; height: 7px; border-radius: 50%; display: inline-block; flex-shrink: 0; }
+.pd-highest { background: var(--red); }
+.pd-high    { background: var(--orange); }
+.pd-medium  { background: var(--yellow); }
+.pd-low     { background: var(--text-muted); }
+.pd-lowest  { background: var(--text-disabled); }
+
+/* ── Type Badge ── */
+.type-badge { display: inline-flex; align-items: center; justify-content: center; width: 18px; height: 18px; border-radius: 3px; font-size: 10px; font-weight: 700; flex-shrink: 0; font-family: 'Montserrat', sans-serif; }
+.tb-story   { background: var(--blue-bg);   color: var(--blue); }
+.tb-bug     { background: var(--red-bg);    color: var(--red); }
+.tb-task    { background: rgba(170,170,170,0.1); color: var(--text-muted); }
+.tb-subtask { background: var(--purple-bg); color: var(--purple); }
+.tb-epic    { background: var(--yellow-bg); color: var(--yellow); }
+
+/* ── Assignee ── */
+.assignee-chip { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
+.assignee-avatar { width: 22px; height: 22px; border-radius: 50%; color: #151515; font-size: 9px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: 'Montserrat', sans-serif; }
+
+/* ── Due Date ── */
+.due-date { white-space: nowrap; font-size: 11px; font-family: 'Montserrat', sans-serif; }
+.due-date.overdue { color: var(--red); font-weight: 600; }
+.due-date.near    { color: var(--yellow); font-weight: 600; }
+
+/* ── Sidebar ── */
+.sidebar { display: flex; flex-direction: column; gap: 12px; }
+
+/* ── Calendar ── */
+.cal-list { max-height: 260px; overflow-y: auto; }
+.cal-event { padding: 10px 16px; border-bottom: 1px solid var(--border); display: flex; gap: 10px; align-items: flex-start; }
+.cal-event:last-child { border-bottom: none; }
+.cal-event.now { background: rgba(78,203,113,0.06); border-left: 3px solid var(--green); padding-left: 13px; }
+.cal-event.past { opacity: .4; }
+.cal-time { font-size: 11px; color: var(--text-muted); white-space: nowrap; min-width: 82px; font-feature-settings: 'tnum'; font-family: 'Montserrat', sans-serif; }
+.cal-now-badge { display: inline-block; font-size: 9px; font-weight: 700; color: var(--green); letter-spacing: 0.06em; margin-top: 2px; font-family: 'Montserrat', sans-serif; text-transform: uppercase; }
+.cal-title { font-size: 12px; font-weight: 600; color: var(--text); font-family: 'Montserrat', sans-serif; }
+.cal-title a { color: inherit; text-decoration: none; }
+.cal-title a:hover { color: var(--green); }
+.cal-meta { font-size: 10px; color: var(--text-muted); margin-top: 2px; font-family: 'Montserrat', sans-serif; }
+
+/* ── Blocked ── */
+.blocked-list { max-height: 220px; overflow-y: auto; }
+.blocked-item { padding: 10px 16px; border-bottom: 1px solid var(--border); }
+.blocked-item:last-child { border-bottom: none; }
+.blocked-key a { font-family: monospace; font-size: 11px; color: var(--red); font-weight: 700; text-decoration: none; }
+.blocked-key a:hover { text-decoration: underline; }
+.blocked-summary { font-size: 12px; color: var(--text); margin-top: 3px; font-family: 'Montserrat', sans-serif; }
+.blocked-assignee { font-size: 11px; color: var(--text-muted); margin-top: 2px; font-family: 'Montserrat', sans-serif; }
+
+/* ── Bottom Grid ── */
+.bottom-grid { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 12px; margin: 12px 24px 24px; }
+@media (max-width:900px) { .bottom-grid { grid-template-columns: 1fr; } }
+
+/* ── Email ── */
+.email-list { max-height: 220px; overflow-y: auto; }
+.email-item { padding: 10px 16px; border-bottom: 1px solid var(--border); }
+.email-item:last-child { border-bottom: none; }
+.email-subject { font-size: 12px; font-weight: 600; color: var(--text); display: flex; align-items: center; gap: 6px; font-family: 'Montserrat', sans-serif; }
+.unread-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--green); display: inline-block; flex-shrink: 0; }
+.email-snippet { font-size: 11px; color: var(--text-muted); margin-top: 3px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 2; -webkit-box-orient: vertical; font-family: 'Montserrat', sans-serif; }
+
+/* ── Slack ── */
+.slack-list { max-height: 220px; overflow-y: auto; }
+.slack-item { padding: 10px 16px; border-bottom: 1px solid var(--border); }
+.slack-item:last-child { border-bottom: none; }
+.slack-from { font-size: 11px; font-weight: 700; color: var(--text); font-family: 'Montserrat', sans-serif; }
+.slack-chan { color: var(--text-muted); font-weight: 400; }
+.slack-text { font-size: 11px; color: var(--text-muted); margin-top: 3px; overflow: hidden; display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; font-family: 'Montserrat', sans-serif; }
+
+/* ── Focus ── */
+.focus-item { padding: 14px 16px; border-bottom: 1px solid var(--border); display: flex; gap: 12px; align-items: flex-start; }
+.focus-item:last-child { border-bottom: none; }
+.focus-num {
+  width: 22px; height: 22px; border-radius: 50%;
+  background: var(--green); color: #151515;
+  font-size: 11px; font-weight: 800;
+  display: flex; align-items: center; justify-content: center;
+  flex-shrink: 0; margin-top: 1px; font-family: 'Montserrat', sans-serif;
+}
+.focus-text { font-size: 12px; color: var(--text); line-height: 1.6; font-family: 'Montserrat', sans-serif; }
+
+/* ── States ── */
+.loading, .empty { padding: 24px; text-align: center; color: var(--text-muted); font-size: 12px; font-family: 'Montserrat', sans-serif; }
+.error-msg { padding: 10px 14px; color: var(--red); font-size: 12px; background: var(--red-bg); border-radius: 4px; margin: 8px; font-family: 'Montserrat', sans-serif; }
+.no-issues { padding: 32px; text-align: center; color: var(--text-muted); font-size: 12px; font-family: 'Montserrat', sans-serif; }
+
+/* ── Spinner ── */
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner { display: inline-block; border: 2px solid rgba(78,203,113,0.2); border-top-color: var(--green); border-radius: 50%; animation: spin .7s linear infinite; vertical-align: middle; flex-shrink: 0; }
+.spinner-sm { width: 12px; height: 12px; }
+.spinner-md { width: 16px; height: 16px; }
+
+/* ── Scrollbar (Webkit) ── */
+::-webkit-scrollbar { width: 5px; height: 5px; }
+::-webkit-scrollbar-track { background: var(--bg); }
+::-webkit-scrollbar-thumb { background: var(--border); border-radius: 3px; }
+::-webkit-scrollbar-thumb:hover { background: #3E3E3E; }
+
+/* ── Productivity Panel ── */
+.prod-panel { margin: 12px 24px 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
+.prod-table-wrap { overflow-x: auto; }
+.prod-table { width: 100%; border-collapse: collapse; font-size: 12px; }
+.prod-table thead th { padding: 8px 12px; text-align: right; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); background: var(--bg-card-el); border-bottom: 1px solid var(--border); white-space: nowrap; font-family: 'Montserrat', sans-serif; }
+.prod-table thead th:first-child { text-align: left; min-width: 150px; }
+.prod-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); font-family: 'Montserrat', sans-serif; vertical-align: middle; text-align: right; font-variant-numeric: tabular-nums; font-size: 12px; }
+.prod-table td:first-child { text-align: left; }
+.prod-table tfoot td { font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 12px; background: var(--bg-card-el); border-top: 2px solid var(--border); border-bottom: none; }
+.prod-table tbody tr:hover td { background: rgba(255,255,255,0.025); }
+.prod-table tbody tr:last-child td { border-bottom: none; }
+.prod-dev { font-weight: 600; color: var(--text); }
+.prod-dev-sem { color: var(--text-muted); font-weight: 400; font-style: italic; }
+.prod-sp-done { font-weight: 700; color: var(--green); }
+.prod-sp-high { font-weight: 700; color: var(--yellow); }
+.prod-nosp { color: var(--text-disabled); }
+.prod-pct { font-weight: 800; font-family: 'Montserrat', sans-serif; }
+.prod-insights { padding: 14px 20px; border-top: 1px solid var(--border); background: rgba(255,255,255,0.02); }
+.prod-insights-title { font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 10px; font-family: 'Montserrat', sans-serif; }
+.prod-insights-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
+.prod-insights-list li { font-size: 12px; color: var(--text-muted); line-height: 1.6; font-family: 'Montserrat', sans-serif; padding-left: 14px; position: relative; }
+.prod-insights-list li::before { content: '·'; position: absolute; left: 0; color: var(--green); font-weight: 900; }
+.prod-insights-list li strong { color: var(--text); }
+</style>
+</head>
+<body>
+
+<!-- ── Header ── -->
+<header class="app-header">
+  <div class="header-left">
+    <!-- Shippify ICONE BRANCO -->
+    <div style="display:flex;align-items:center;gap:14px;">
+      <img src="data:image/png;base64,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" width="38" height="38" style="display:block;flex-shrink:0;object-fit:contain" alt="Shippify"/>
+      <div>
+        <h1>Dashboard Produtos &nbsp;<span class="oe-label">Operation Experience</span></h1>
+        <div class="subtitle" id="date-display">—</div>
+      </div>
+    </div>
+  </div>
+  <div class="header-right">
+    <span class="last-updated" id="last-updated"></span>
+    <button class="refresh-btn" id="refresh-btn" onclick="loadData()">
+      <span id="refresh-icon">⟳</span> Atualizar
+    </button>
+  </div>
+</header>
+
+<!-- ── Sprint Banner ── -->
+<div class="sprint-banner">
+  <span id="status-badge" class="status-badge sb-loading"><span class="spinner spinner-sm"></span>&nbsp;Carregando</span>
+  <div class="banner-divider"></div>
+  <div class="banner-tldr" id="banner-tldr" style="color:var(--text-muted)">Buscando dados da sprint no Jira…</div>
+  <div class="banner-divider"></div>
+  <div class="banner-metrics">
+    <div class="banner-metric"><div class="val" id="bm-progress">—</div><div class="lbl">Concluídas</div></div>
+    <div class="banner-metric"><div class="val" id="bm-days">—</div><div class="lbl">Dias Rest.</div></div>
+    <div class="banner-metric"><div class="val" id="bm-sprint" style="font-size:13px">—</div><div class="lbl">Sprint</div></div>
+  </div>
+</div>
+
+<!-- ── Progress Bar ── -->
+<div class="progress-bar-wrap">
+  <div class="progress-bar-bg"><div class="progress-bar-fill" id="progress-fill"></div></div>
+  <div class="progress-label" id="progress-label">0% completo</div>
+</div>
+
+<!-- ── Metric Cards ── -->
+<div class="cards-row">
+  <div class="metric-card green"><div class="val" id="mc-done">—</div><div class="lbl">Concluídas</div></div>
+  <div class="metric-card purple"><div class="val" id="mc-inprogress">—</div><div class="lbl">Em Andamento</div></div>
+  <div class="metric-card blue"><div class="val" id="mc-review">—</div><div class="lbl">Review / QA</div></div>
+  <div class="metric-card yellow"><div class="val" id="mc-todo">—</div><div class="lbl">Não Iniciadas</div></div>
+  <div class="metric-card red"><div class="val" id="mc-blocked">—</div><div class="lbl">Bloqueadas</div></div>
+  <div class="metric-card neutral"><div class="val" id="mc-days" style="color:var(--text-muted)">—</div><div class="lbl">Dias Restantes</div></div>
+</div>
+
+<!-- ── Burndown Chart ── -->
+<div class="burndown-panel">
+  <div class="panel-header">
+    <h2><svg class="ph-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M16 3C14.3431 3 13 4.34315 13 6V16C13 16.5523 13.4477 17 14 17C14.5523 17 15 16.5523 15 16V6C15 5.44772 15.4477 5 16 5C16.5523 5 17 5.44772 17 6V16C17 16.5523 17.4477 17 18 17C18.5523 17 19 16.5523 19 16V6C19 4.34315 17.6569 3 16 3Z" fill="#12131A"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8 9C6.34315 9 5 10.3431 5 12V16C5 16.5523 5.44772 17 6 17C6.55228 17 7 16.5523 7 16V12C7 11.4477 7.44772 11 8 11C8.55228 11 9 11.4477 9 12V16C9 16.5523 9.44772 17 10 17C10.5523 17 11 16.5523 11 16V12C11 10.3431 9.65685 9 8 9Z" fill="#12131A"/><path fill-rule="evenodd" clip-rule="evenodd" d="M3 20C3 19.4477 3.44772 19 4 19H20C20.5523 19 21 19.4477 21 20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20Z" fill="#12131A"/></svg>Progresso &amp; Burndown da Sprint</h2>
+    <span class="meta" id="burndown-meta"></span>
+  </div>
+  <!-- SP Progress Bar -->
+  <div class="burndown-sp-section">
+    <div class="bsp-bar">
+      <div class="bsp-seg bsp-done"   id="bsp-done"   style="width:0%"></div>
+      <div class="bsp-seg bsp-active" id="bsp-active" style="width:0%"></div>
+      <div class="bsp-seg bsp-todo"   id="bsp-todo"   style="width:100%"></div>
+    </div>
+    <div class="bsp-labels">
+      <div class="bsp-label"><span class="bsp-val bsp-val-done"   id="bsp-pct-done">—</span><span class="bsp-key">Concluído</span></div>
+      <div class="bsp-label"><span class="bsp-val bsp-val-active" id="bsp-pct-active">—</span><span class="bsp-key">Em andamento</span></div>
+      <div class="bsp-label"><span class="bsp-val bsp-val-todo"   id="bsp-pct-todo">—</span><span class="bsp-key">Não iniciado</span></div>
+    </div>
+  </div>
+  <div class="burndown-sp-sub" id="burndown-sp-sub"></div>
+  <!-- Burndown Chart -->
+  <div class="burndown-inner">
+    <div id="burndown-loading"><span class="spinner spinner-sm" style="margin-right:6px"></span>Aguardando dados do Jira…</div>
+    <canvas id="burndown-chart"></canvas>
+  </div>
+</div>
+
+<!-- ── Main Grid ── -->
+<div class="main-grid">
+  <div class="panel">
+    <div class="panel-header">
+      <h2><svg class="ph-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M3 20C3 19.4477 3.44772 19 4 19H20C20.5523 19 21 19.4477 21 20C21 20.5523 20.5523 21 20 21H4C3.44772 21 3 20.5523 3 20Z" fill="#12131A"/><path fill-rule="evenodd" clip-rule="evenodd" d="M16 3C14.3431 3 13 4.34315 13 6V16C13 16.5523 13.4477 17 14 17C14.5523 17 15 16.5523 15 16V6C15 5.44772 15.4477 5 16 5C16.5523 5 17 5.44772 17 6V16C17 16.5523 17.4477 17 18 17C18.5523 17 19 16.5523 19 16V6C19 4.34315 17.6569 3 16 3Z" fill="#12131A"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8 9C6.34315 9 5 10.3431 5 12V16C5 16.5523 5.44772 17 6 17C6.55228 17 7 16.5523 7 16V12C7 11.4477 7.44772 11 8 11C8.55228 11 9 11.4477 9 12V16C9 16.5523 9.44772 17 10 17C10.5523 17 11 16.5523 11 16V12C11 10.3431 9.65685 9 8 9Z" fill="#12131A"/></svg>Issues da Sprint</h2>
+      <a id="jira-link" href="https://shippify.atlassian.net/jira/software/projects/OE/boards" target="_blank">Abrir no Jira ↗</a>
+    </div>
+    <div class="filter-bar">
+      <input type="text" id="f-search" placeholder="🔍 Buscar…" oninput="renderIssues()">
+      <select id="f-status" onchange="saveFilters();renderIssues()"><option value="">Status: Todos</option></select>
+      <select id="f-assignee" onchange="saveFilters();renderIssues()"><option value="">Responsável: Todos</option></select>
+      <select id="f-priority" onchange="saveFilters();renderIssues()">
+        <option value="">Prioridade: Todas</option>
+        <option value="Highest">🔴 Highest</option>
+        <option value="High">🟠 High</option>
+        <option value="Medium">🟡 Medium</option>
+        <option value="Low">🔵 Low</option>
+        <option value="Lowest">⚪ Lowest</option>
+      </select>
+      <select id="f-type" onchange="saveFilters();renderIssues()">
+        <option value="">Tipo: Todos</option>
+        <option value="Story">Story</option>
+        <option value="Bug">Bug</option>
+        <option value="Task">Task</option>
+        <option value="Sub-task">Sub-task</option>
+        <option value="Epic">Epic</option>
+      </select>
+      <select id="f-show" onchange="saveFilters();renderIssues()">
+        <option value="active">Ativas</option>
+        <option value="all">Todas (incl. Done)</option>
+        <option value="done">Só Done</option>
+      </select>
+      <span class="filter-count" id="filter-count"></span>
+    </div>
+    <div class="issues-table-wrap" id="issues-table-wrap">
+      <div class="loading"><span class="spinner spinner-md" style="margin-right:8px"></span>Buscando issues do Jira…</div>
+    </div>
+  </div>
+
+  <div class="sidebar">
+    <div class="panel">
+      <div class="panel-header"><h2><svg class="ph-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M4 9H20V11H4V9Z" fill="#12131A"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8.7587 5H15.2413C16.0463 4.99999 16.7106 4.99998 17.2518 5.04419C17.8139 5.09012 18.3306 5.18868 18.816 5.43597C19.5686 5.81947 20.1805 6.43139 20.564 7.18404C20.8113 7.66937 20.9099 8.18608 20.9558 8.74817C21 9.28936 21 9.95372 21 10.7587V15.2413C21 16.0463 21 16.7106 20.9558 17.2518C20.9099 17.8139 20.8113 18.3306 20.564 18.816C20.1805 19.5686 19.5686 20.1805 18.816 20.564C18.3306 20.8113 17.8139 20.9099 17.2518 20.9558C16.7106 21 16.0463 21 15.2413 21H8.75873C7.95374 21 7.28938 21 6.74817 20.9558C6.18608 20.9099 5.66937 20.8113 5.18404 20.564C4.43139 20.1805 3.81947 19.5686 3.43597 18.816C3.18868 18.3306 3.09012 17.8139 3.04419 17.2518C2.99998 16.7106 2.99999 16.0463 3 15.2413V10.7587C2.99999 9.95373 2.99998 9.28937 3.04419 8.74818C3.09012 8.18608 3.18868 7.66937 3.43597 7.18404C3.81947 6.43139 4.43139 5.81947 5.18404 5.43597C5.66937 5.18868 6.18608 5.09012 6.74817 5.04419C7.28937 4.99998 7.95373 4.99999 8.7587 5ZM6.91104 7.03755C6.47262 7.07337 6.24842 7.1383 6.09202 7.21799C5.7157 7.40973 5.40973 7.7157 5.21799 8.09202C5.1383 8.24842 5.07337 8.47262 5.03755 8.91104C5.00078 9.36113 5 9.94342 5 10.8V15.2C5 16.0566 5.00078 16.6389 5.03755 17.089C5.07337 17.5274 5.1383 17.7516 5.21799 17.908C5.40973 18.2843 5.7157 18.5903 6.09202 18.782C6.24842 18.8617 6.47262 18.9266 6.91104 18.9624C7.36113 18.9992 7.94342 19 8.8 19H15.2C16.0566 19 16.6389 18.9992 17.089 18.9624C17.5274 18.9266 17.7516 18.8617 17.908 18.782C18.2843 18.5903 18.5903 18.2843 18.782 17.908C18.8617 17.7516 18.9266 17.5274 18.9624 17.089C18.9992 16.6389 19 16.0566 19 15.2V10.8C19 9.94342 18.9992 9.36113 18.9624 8.91104C18.9266 8.47262 18.8617 8.24842 18.782 8.09202C18.5903 7.7157 18.2843 7.40973 17.908 7.21799C17.7516 7.1383 17.5274 7.07337 17.089 7.03755C16.6389 7.00078 16.0566 7 15.2 7H8.8C7.94342 7 7.36113 7.00078 6.91104 7.03755Z" fill="#12131A"/><path d="M9 4C9 3.44772 8.55228 3 8 3C7.44772 3 7 3.44772 7 4V6C7 6.55228 7.44772 7 8 7C8.55228 7 9 6.55228 9 6V4Z" fill="#12131A"/><path d="M17 4C17 3.44772 16.5523 3 16 3C15.4477 3 15 3.44772 15 4V6C15 6.55228 15.4477 7 16 7C16.5523 7 17 6.55228 17 6V4Z" fill="#12131A"/></svg>Agenda de Hoje</h2></div>
+      <div class="cal-list" id="calendar-content"><div class="loading"><span class="spinner spinner-sm"></span></div></div>
+    </div>
+    <div class="panel">
+      <div class="panel-header"><h2><svg class="ph-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 6C8.13401 6 5 9.13401 5 13C5 16.866 8.13401 20 12 20C15.866 20 19 16.866 19 13C19 9.13401 15.866 6 12 6ZM3 13C3 8.02944 7.02944 4 12 4C16.9706 4 21 8.02944 21 13C21 17.9706 16.9706 22 12 22C7.02944 22 3 17.9706 3 13Z" fill="#12131A"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 8C12.5523 8 13 8.44772 13 9V12.5858L14.7071 14.2929C15.0976 14.6834 15.0976 15.3166 14.7071 15.7071C14.3166 16.0976 13.6834 16.0976 13.2929 15.7071L11.2929 13.7071C11.1054 13.5196 11 13.2652 11 13V9C11 8.44772 11.4477 8 12 8Z" fill="#12131A"/><path d="M4.60006 5.30006C4.15823 5.63143 3.53143 5.54189 3.20006 5.10006C2.86869 4.65823 2.95823 4.03143 3.40006 3.70006L5.40006 2.20006C5.84189 1.86869 6.46869 1.95823 6.80006 2.40006C7.13143 2.84189 7.04189 3.46869 6.60006 3.80006L4.60006 5.30006Z" fill="#12131A"/><path d="M18.6001 2.20018C18.1582 1.86881 17.5314 1.95835 17.2001 2.40018C16.8687 2.842 16.9582 3.46881 17.4001 3.80018L19.4001 5.30018C19.8419 5.63155 20.4687 5.542 20.8001 5.10018C21.1314 4.65835 21.0419 4.03155 20.6001 3.70018L18.6001 2.20018Z" fill="#12131A"/></svg>Bloqueios &amp; Atenção</h2></div>
+      <div class="blocked-list" id="blocked-content"><div class="loading"><span class="spinner spinner-sm"></span></div></div>
+    </div>
+  </div>
+</div>
+
+<!-- ── Productivity Panel ── -->
+<div class="prod-panel">
+  <div class="panel-header">
+    <h2><svg class="ph-icon" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 0C11.0147 0 9 2.015 9 4.5C9 6.985 11.0147 9 13.5 9C15.9853 9 18 6.985 18 4.5C18 2.015 15.9853 0 13.5 0ZM6 1C3.7909 1 2 2.791 2 5C2 7.209 3.7909 9 6 9C6.8294 9 7.615 8.74701 8.2812 8.28101C8.7339 7.96501 8.8476 7.328 8.5312 6.875C8.2148 6.422 7.6089 6.34001 7.1562 6.65601C6.8233 6.88901 6.4162 7 6 7C4.8954 7 4 6.105 4 5C4 3.895 4.8954 3 6 3C6.3262 3 6.6246 3.07199 6.9062 3.21899C7.3962 3.47399 8.0264 3.30201 8.2812 2.81201C8.5361 2.32301 8.3337 1.69199 7.8438 1.43799C7.2787 1.14399 6.6494 1 6 1ZM13.5 2C14.8807 2 16 3.119 16 4.5C16 5.881 14.8807 7 13.5 7C12.1193 7 11 5.881 11 4.5C11 3.119 12.1193 2 13.5 2ZM3.0625 10.344C1.2284 11.101 0 12.956 0 15V17C0 17.552 0.4477 18 1 18H5C5.5523 18 6 17.552 6 17C6 16.448 5.5523 16 5 16H2V15C2 13.876 2.6667 12.844 3.433 12.39C4.1537 12.694 4.9161 12.924 5.5941 12.981C6.1445 13.028 6.6408 12.613 6.6875 12.062C6.7342 11.512 6.3365 11.046 5.7862 10.999C5.3472 10.962 4.8674 10.83 4.3125 10.594C4.1785 10.537 4.1007 10.492 3.8438 10.375C3.5919 10.26 3.3183 10.238 3.0625 10.344ZM10.0625 10.344C8.2284 11.101 7 12.956 7 15V17C7 17.552 7.4477 18 8 18H19C19.5523 18 20 17.552 20 17V15C20 13.004 18.7648 11.194 16.9375 10.406C16.6803 10.295 16.3806 10.292 16.125 10.406C15.2402 10.803 14.3782 11 13.5 11C12.6248 11 11.7598 10.792 10.8438 10.375C10.5919 10.26 10.3183 10.238 10.0625 10.344ZM10.447 12.39C11.3918 12.748 12.5309 13 13.5 13C14.4615 13 15.5535 12.765 16.4792 12.423C17.3818 12.937 18 13.899 18 15V16H9V15C9 13.835 9.6559 12.853 10.447 12.39Z" fill="#151515"/></svg>Produtividade por Dev — Story Points × Entrega</h2>
+    <span class="meta" id="prod-meta"></span>
+  </div>
+  <div id="productivity-content">
+    <div class="loading"><span class="spinner spinner-sm" style="margin-right:6px"></span>Aguardando dados do Jira…</div>
+  </div>
+</div>
+
+<!-- ── Bottom Grid ── -->
+<div class="bottom-grid">
+  <div class="panel">
+    <div class="panel-header"><h2><svg class="ph-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M7.7587 4H16.2413C17.0463 3.99999 17.7106 3.99998 18.2518 4.04419C18.8139 4.09012 19.3306 4.18868 19.816 4.43597C20.5686 4.81947 21.1805 5.43139 21.564 6.18404C21.8113 6.66937 21.9099 7.18608 21.9558 7.74817C22 8.28936 22 8.95372 22 9.75868V14.2413C22 15.0463 22 15.7106 21.9558 16.2518C21.9099 16.8139 21.8113 17.3306 21.564 17.816C21.1805 18.5686 20.5686 19.1805 19.816 19.564C19.3306 19.8113 18.8139 19.9099 18.2518 19.9558C17.7106 20 17.0463 20 16.2413 20H7.75872C6.95374 20 6.28938 20 5.74817 19.9558C5.18608 19.9099 4.66937 19.8113 4.18404 19.564C3.43139 19.1805 2.81947 18.5686 2.43597 17.816C2.18868 17.3306 2.09012 16.8139 2.04419 16.2518C1.99998 15.7106 1.99999 15.0463 2 14.2413V9.7587C1.99999 8.95373 1.99998 8.28937 2.04419 7.74818C2.09012 7.18608 2.18868 6.66937 2.43597 6.18404C2.81947 5.43139 3.43139 4.81947 4.18404 4.43597C4.66937 4.18868 5.18608 4.09012 5.74817 4.04419C6.28937 3.99998 6.95373 3.99999 7.7587 4ZM5.91104 6.03755C5.47262 6.07337 5.24842 6.1383 5.09202 6.21799C4.7157 6.40973 4.40973 6.7157 4.21799 7.09202C4.1383 7.24842 4.07337 7.47262 4.03755 7.91104C4.00078 8.36113 4 8.94342 4 9.8V14.2C4 15.0566 4.00078 15.6389 4.03755 16.089C4.07337 16.5274 4.1383 16.7516 4.21799 16.908C4.40973 17.2843 4.7157 17.5903 5.09202 17.782C5.24842 17.8617 5.47262 17.9266 5.91104 17.9624C6.36113 17.9992 6.94342 18 7.8 18H16.2C17.0566 18 17.6389 17.9992 18.089 17.9624C18.5274 17.9266 18.7516 17.8617 18.908 17.782C19.2843 17.5903 19.5903 17.2843 19.782 16.908C19.8617 16.7516 19.9266 16.5274 19.9624 16.089C19.9992 15.6389 20 15.0566 20 14.2V9.8C20 8.94342 19.9992 8.36113 19.9624 7.91104C19.9266 7.47262 19.8617 7.24842 19.782 7.09202C19.5903 6.7157 19.2843 6.40973 18.908 6.21799C18.7516 6.1383 18.5274 6.07337 18.089 6.03755C17.6389 6.00078 17.0566 6 16.2 6H7.8C6.94342 6 6.36113 6.00078 5.91104 6.03755Z" fill="#12131A"/><path fill-rule="evenodd" clip-rule="evenodd" d="M6.17538 8.43428C6.4878 7.97886 7.11027 7.86293 7.56569 8.17535L11.4343 10.8292C11.7752 11.0631 12.2248 11.0631 12.5657 10.8292L16.4343 8.17535C16.8897 7.86293 17.5122 7.97886 17.8246 8.43428C18.137 8.88971 18.0211 9.51217 17.5657 9.82459L13.6971 12.4785C12.6744 13.18 11.3256 13.18 10.3029 12.4785L6.43431 9.82459C5.97889 9.51217 5.86296 8.88971 6.17538 8.43428Z" fill="#12131A"/></svg>E-mails Não Lidos</h2></div>
+    <div class="email-list" id="email-content"><div class="loading"><span class="spinner spinner-sm"></span></div></div>
+  </div>
+  <div class="panel">
+    <div class="panel-header"><h2><svg class="ph-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path fill-rule="evenodd" clip-rule="evenodd" d="M10.3572 3H14.0355C14.9373 2.99999 15.6647 2.99999 16.2567 3.04038C16.8654 3.08191 17.4037 3.16948 17.9134 3.3806C19.1386 3.88807 20.1119 4.86144 20.6194 6.08658C20.8305 6.59628 20.9181 7.13456 20.9596 7.74331C21 8.33531 21 9.06272 21 9.96448V10.0355C21 10.9373 21 11.6647 20.9596 12.2567C20.9181 12.8654 20.8305 13.4037 20.6194 13.9134C20.1119 15.1386 19.1386 16.1119 17.9134 16.6194C17.4037 16.8305 16.8654 16.9181 16.2567 16.9596C15.6647 17 14.9373 17 14.0355 17H11.4286C10.969 17 10.8774 17.0046 10.8026 17.0197C10.6284 17.0548 10.4667 17.1356 10.3342 17.2539C10.2773 17.3047 10.2186 17.3752 9.94286 17.7429L9.92131 17.7716C9.31559 18.5792 8.8329 19.2228 8.43791 19.6881C8.06664 20.1255 7.64696 20.5654 7.14609 20.7725C5.76787 21.3422 4.1804 20.813 3.41966 19.5303C3.14319 19.0641 3.07138 18.4604 3.03679 17.8878C2.99999 17.2785 3 16.474 3 15.4645V10.3572C2.99999 9.27341 2.99998 8.39926 3.05782 7.69138C3.11737 6.96253 3.24318 6.32234 3.54497 5.73005C4.02433 4.78924 4.78924 4.02433 5.73005 3.54497C6.32234 3.24318 6.96253 3.11737 7.69138 3.05782C8.39926 2.99998 9.27341 2.99999 10.3572 3ZM7.85424 5.05118C7.24907 5.10062 6.90138 5.19279 6.63803 5.32698C6.07354 5.6146 5.6146 6.07354 5.32698 6.63803C5.19279 6.90138 5.10062 7.24907 5.05118 7.85424C5.00078 8.47108 5 9.26339 5 10.4V15.4286C5 16.4821 5.00045 17.2257 5.03315 17.7672C5.04933 18.035 5.07195 18.2233 5.09854 18.356C5.12107 18.4685 5.14072 18.5106 5.1418 18.5133C5.39548 18.9375 5.92112 19.1127 6.37856 18.9256C6.38104 18.9241 6.42204 18.9021 6.50757 18.8257C6.60844 18.7355 6.73951 18.5984 6.91318 18.3938C7.26422 17.9803 7.71074 17.3857 8.34286 16.5429C8.35735 16.5235 8.37171 16.5044 8.38594 16.4853C8.59427 16.2071 8.77734 15.9626 9.00255 15.7617C9.40023 15.4068 9.88528 15.1642 10.4078 15.059C10.7037 14.9994 11.0091 14.9997 11.3567 15C11.3805 15 11.4044 15 11.4286 15H14C14.9456 15 15.6047 14.9995 16.1206 14.9643C16.6275 14.9297 16.9227 14.865 17.1481 14.7716C17.8831 14.4672 18.4672 13.8831 18.7716 13.1481C18.865 12.9227 18.9297 12.6275 18.9643 12.1206C18.9995 11.6047 19 10.9456 19 10C19 9.05444 18.9995 8.39534 18.9643 7.87945C18.9297 7.37254 18.865 7.07734 18.7716 6.85195C18.4672 6.11687 17.8831 5.53284 17.1481 5.22836C16.9227 5.135 16.6275 5.07033 16.1206 5.03574C15.6047 5.00054 14.9456 5 14 5H10.4C9.26339 5 8.47108 5.00078 7.85424 5.05118Z" fill="#12131A"/></svg>Slack Recente</h2></div>
+    <div class="slack-list" id="slack-content"><div class="loading"><span class="spinner spinner-sm"></span></div></div>
+  </div>
+  <div class="panel">
+    <div class="panel-header"><h2><svg class="ph-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.9973 1.95319C8.13125 1.95319 4.99725 5.08719 4.99725 8.95319C4.99725 10.9122 5.54225 12.0792 6.74725 13.4842C6.80325 13.5502 7.01027 13.8012 7.05927 13.8592C7.77027 14.6882 7.99725 15.1402 7.99725 15.9532V17.9532C7.99725 20.1622 9.78825 21.9532 11.9973 21.9532C14.2063 21.9532 15.9973 20.1622 15.9973 17.9532V15.9532C15.9973 15.1402 16.2242 14.6882 16.9352 13.8592C16.9842 13.8012 17.1913 13.5502 17.2473 13.4842C18.4523 12.0792 18.9973 10.9122 18.9973 8.95319C18.9973 5.08719 15.8633 1.95319 11.9973 1.95319ZM11.9973 3.95319C14.7583 3.95319 16.9973 6.19219 16.9973 8.95319C16.9973 10.3692 16.6673 11.0982 15.7473 12.1722C15.6953 12.2322 15.4573 12.4842 15.4033 12.5472C14.6903 13.3792 14.2752 14.1272 14.0942 14.9592C12.8262 14.9592 11.1652 14.9642 9.89725 14.9642C9.71625 14.1312 9.30425 13.3792 8.59125 12.5472C8.53725 12.4842 8.29925 12.2322 8.24725 12.1722C7.32725 11.0982 6.99725 10.3692 6.99725 8.95319C6.99725 6.19219 9.23625 3.95319 11.9973 3.95319ZM11.9973 5.95319C10.3403 5.95319 8.99725 7.29619 8.99725 8.95319C8.99725 9.50519 9.44525 9.95319 9.99725 9.95319C10.5493 9.95319 10.9973 9.50519 10.9973 8.95319C10.9973 8.40119 11.4453 7.95319 11.9973 7.95319C12.5493 7.95319 12.9973 7.50519 12.9973 6.95319C12.9973 6.40119 12.5493 5.95319 11.9973 5.95319ZM9.99725 16.9532C11.2333 16.9532 12.7613 16.9532 13.9973 16.9532V17.9532C13.9973 19.0582 13.1023 19.9532 11.9973 19.9532C10.8923 19.9532 9.99725 19.0582 9.99725 17.9532V16.9532Z" fill="#151515"/></svg>Foco do Dia</h2></div>
+    <div id="focus-content"><div class="loading"><span class="spinner spinner-sm"></span></div></div>
+  </div>
+</div>
+
+<script>
+// ── Config ─────────────────────────────────────────────────────────────────
+const CLOUD_ID   = 'shippify.atlassian.net';
+const JIRA_BASE  = 'https://shippify.atlassian.net/browse/';
+const JIRA_TOOL  = 'mcp__3fb2a7a0-782a-45ec-913e-b171f0c68891__searchJiraIssuesUsingJql';
+const CAL_TOOL   = 'mcp__8c541314-0f6c-418c-ba36-b1963e5d3b29__list_events';
+const GMAIL_TOOL = 'mcp__034cac31-5601-4932-b119-e4d9c64a60ee__search_threads';
+const SLACK_TOOL = 'mcp__161b720b-5bfb-412d-a3fa-0b268e06ee46__slack_search_public_and_private';
+
+// ── Static data bridge (GitHub Pages) ───────────────────────────────────────
+// Em vez dos conectores ao vivo do Cowork, o site lê tudo de ./data.json.
+// Jira é atualizado pelo GitHub Action; Agenda/Gmail/Slack são snapshot.
+let SNAP = { jira:{active:[],done:[]}, calendar:[], emails:[], slack:'' };
+async function loadSnapshot() {
+  try {
+    const r = await fetch('./data.json', { cache:'no-store' });
+    if (r.ok) SNAP = await r.json();
+  } catch (e) { console.warn('data.json indisponível', e); }
+  // Carimbo de atualização no cabeçalho
+  try {
+    const el = document.getElementById('last-updated');
+    if (el) {
+      const jt = SNAP.jiraGeneratedAt ? new Date(SNAP.jiraGeneratedAt) : null;
+      el.textContent = jt ? ('Jira atualizado ' + jt.toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})) : 'Dados carregados';
+    }
+    const sn = document.getElementById('snapshot-note');
+    if (sn && SNAP.generatedAt) {
+      const g = new Date(SNAP.generatedAt);
+      sn.textContent = 'Agenda/Gmail/Slack: snapshot de ' + g.toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'});
+    }
+  } catch(e){}
+}
+async function mcpBridge(tool, args) {
+  await Promise.resolve();
+  if (tool === JIRA_TOOL) {
+    const jql = (args && args.jql) || '';
+    const isDoneQ = /statusCategory\s*=\s*Done/i.test(jql);
+    const nodes = isDoneQ ? (SNAP.jira?.done || []) : (SNAP.jira?.active || []);
+    return { isError:false, structuredContent:{ issues:{ nodes, pageInfo:{ hasNextPage:false, endCursor:null } } } };
+  }
+  if (tool === CAL_TOOL)   return { isError:false, structuredContent:{ events: SNAP.calendar || [] } };
+  if (tool === GMAIL_TOOL) return { isError:false, structuredContent:{ threads: SNAP.emails || [] } };
+  if (tool === SLACK_TOOL) return { isError:false, structuredContent:{ results: (typeof SNAP.slack==='string'?SNAP.slack:'') } };
+  return { isError:true };
+}
+
+// ── State ───────────────────────────────────────────────────────────────────
+let allIssues     = [];
+let activeIssues  = [];
+let doneIssues    = [];
+let subtaskIssues = [];  // subtasks — for Dev SP attribution
+let doneHasMore   = false;
+let sortCol      = 'priority';
+let sortDir      = 'asc';
+let burndownChart = null;
+
+// ── Utilities ───────────────────────────────────────────────────────────────
+function parseMcp(r) {
+  if (!r || r.isError) return null;
+  if (r.structuredContent) return r.structuredContent;
+  try { return JSON.parse(Array.isArray(r.content) ? r.content[0]?.text : null); } catch { return null; }
+}
+function escHtml(s) {
+  return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');
+}
+function todayStr() { return new Date().toISOString().split('T')[0]; }
+function fmtDate(s) { if (!s) return ''; return new Date(s).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'}); }
+function fmtTime(dt) { if (!dt) return ''; return new Date(dt).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit',timeZone:'America/Sao_Paulo'}); }
+function daysUntil(d) { if (!d) return null; const t=new Date(); t.setHours(0,0,0,0); return Math.ceil((new Date(String(d).split('T')[0])-t)/86400000); }
+function initials(n) { return (n||'?').split(' ').map(p=>p[0]||'').join('').slice(0,2).toUpperCase(); }
+const AVATAR_COLORS=['#6366f1','#8b5cf6','#ec4899','#f97316','#14b8a6','#3b82f6','#22c55e','#a855f7','#06b6d4'];
+function avatarColor(n) { let h=0; for(const c of(n||'')) h=(h*31+c.charCodeAt(0))%AVATAR_COLORS.length; return AVATAR_COLORS[h]; }
+function firstName(n) { return (n||'').split(' ')[0]; }
+
+// ── Issue Classifiers ───────────────────────────────────────────────────────
+function isDone(i) { const s=(i.fields?.status?.statusCategory?.name||i.fields?.status?.name||'').toLowerCase(); return ['done','closed','complete','completed','resolved'].some(x=>s.includes(x)); }
+function isBlocked(i) { return (i.fields?.status?.name||'').toLowerCase().includes('block'); }
+function isInReview(i) { if(isDone(i)||isBlocked(i)) return false; const s=(i.fields?.status?.name||'').toLowerCase(); return s.includes('review')||s.includes('qa')||s.includes('test')||s.includes('deploy')||s.includes('ready')||s.includes('release'); }
+function isInProgress(i) { if(isDone(i)||isBlocked(i)||isInReview(i)) return false; const s=(i.fields?.status?.name||'').toLowerCase(); return s.includes('progress')||s.includes('doing')||s.includes('development')||s.includes('started')||s.includes('working')||s.includes('sendo')||s.includes('waiting for task')||s.includes('em desenvolvimento'); }
+function isTodo(i) { return !isDone(i)&&!isBlocked(i)&&!isInReview(i)&&!isInProgress(i); }
+function priorityOrder(p) { return {highest:0,high:1,medium:2,low:3,lowest:4}[(p||'').toLowerCase()]??5; }
+function statusPillClass(s) {
+  const sl=(s||'').toLowerCase();
+  if(sl.includes('block')) return 'sp-blocked';
+  if(sl.includes('done')||sl.includes('closed')||sl.includes('complet')||sl.includes('resolved')) return 'sp-done';
+  if(sl.includes('deploy')||sl.includes('ready')||sl.includes('release')) return 'sp-deploy';
+  if(sl.includes('qa')||sl.includes('test')) return 'sp-qa';
+  if(sl.includes('review')||sl.includes('code')) return 'sp-review';
+  if(sl.includes('progress')||sl.includes('doing')||sl.includes('working')||sl.includes('development')||sl.includes('sendo')||sl.includes('waiting for task')||sl.includes('em desenvolvimento')) return 'sp-inprogress';
+  return 'sp-todo';
+}
+function typeMeta(t) {
+  const tl=(t||'').toLowerCase();
+  if(tl.includes('bug')) return {cls:'tb-bug',lbl:'B'};
+  if(tl.includes('story')||tl.includes('história')) return {cls:'tb-story',lbl:'S'};
+  if(tl.includes('sub')) return {cls:'tb-subtask',lbl:'↳'};
+  if(tl.includes('epic')) return {cls:'tb-epic',lbl:'E'};
+  return {cls:'tb-task',lbl:'T'};
+}
+function priorityDotClass(p) { return {highest:'pd-highest',high:'pd-high',medium:'pd-medium',low:'pd-low',lowest:'pd-lowest'}[(p||'').toLowerCase()]||'pd-lowest'; }
+
+// ── Sprint Field Helper ─────────────────────────────────────────────────────
+// Jira Cloud returns sprint as customfield_10020 (sometimes an array)
+function getSprintInfo(issue) {
+  if (!issue) return null;
+  const f = issue.fields || {};
+  // Try both field names; sprint can be an array when issues span multiple sprints
+  let s = f.sprint || f.customfield_10020;
+  if (Array.isArray(s)) {
+    // Prefer active sprint, otherwise last one
+    s = s.find(x => x.state === 'active') || s[s.length - 1] || null;
+  }
+  return s || null;
+}
+
+// Find sprint info from any loaded issue
+function findSprintInfo() {
+  const candidates = [...activeIssues, ...doneIssues];
+  for (const i of candidates) {
+    const s = getSprintInfo(i);
+    if (s && (s.startDate || s.endDate || s.name)) return s;
+  }
+  return null;
+}
+
+// ── Date Setup ──────────────────────────────────────────────────────────────
+function setupDate() {
+  const d=new Date();
+  const days=['domingo','segunda-feira','terça-feira','quarta-feira','quinta-feira','sexta-feira','sábado'];
+  const months=['janeiro','fevereiro','março','abril','maio','junho','julho','agosto','setembro','outubro','novembro','dezembro'];
+  document.getElementById('date-display').textContent=`${days[d.getDay()]}, ${d.getDate()} de ${months[d.getMonth()]} de ${d.getFullYear()}`;
+}
+
+// ── Jira Fetch ──────────────────────────────────────────────────────────────
+async function fetchJiraPage(jql, fields, maxResults=100, cursor=null) {
+  const args={cloudId:CLOUD_ID,jql,fields,maxResults,searchResultMode:'issues'};
+  if(cursor) args.nextPageToken=cursor;
+  const r=await mcpBridge(JIRA_TOOL,args);
+  const data=parseMcp(r);
+  if(!data) return {nodes:[],hasNextPage:false,endCursor:null};
+  const iss=data.issues||data;
+  const pi=iss.pageInfo||{};
+  return {nodes:iss.nodes||[],hasNextPage:pi.hasNextPage||false,endCursor:pi.endCursor||null};
+}
+
+async function loadJira() {
+  const ACTIVE_FIELDS = ['summary','status','assignee','issuetype','priority','duedate','sprint','customfield_10020','customfield_10028','customfield_10546','parent'];
+  const DONE_FIELDS   = ['summary','status','assignee','issuetype','priority','sprint','customfield_10020','customfield_10028','customfield_10546','resolutiondate','updated','parent'];
+
+  const JQL_ACTIVE = 'sprint in openSprints() AND project = "OE" AND statusCategory != Done ORDER BY priority ASC, updated DESC';
+  const JQL_DONE   = 'sprint in openSprints() AND project = "OE" AND statusCategory = Done ORDER BY resolutiondate ASC';
+
+  // Active: fetch all pages (100 per page)
+  let active=[], acur=null;
+  for(let i=0;i<10;i++){
+    const p=await fetchJiraPage(JQL_ACTIVE, ACTIVE_FIELDS, 100, acur);
+    active=[...active,...p.nodes];
+    if(p.hasNextPage&&p.endCursor) acur=p.endCursor; else break;
+  }
+
+  // Done: fetch all pages
+  let done=[], dcur=null;
+  for(let i=0;i<10;i++){
+    const p=await fetchJiraPage(JQL_DONE, DONE_FIELDS, 100, dcur);
+    done=[...done,...p.nodes];
+    if(p.hasNextPage&&p.endCursor) dcur=p.endCursor; else break;
+  }
+  const doneHasMore=false;
+
+  // ── Exclude cancelled issues (cat=done but status name = cancel/descart) ───
+  const cancelled = i => {
+    const cat = i.fields?.status?.statusCategory?.key||'';
+    const sn  = (i.fields?.status?.name||'').toLowerCase();
+    return cat==='done' && /cancel|discard|descart/i.test(sn);
+  };
+
+  // ── Save subtasks before filtering — needed for Dev attribution ────────────
+  // hierarchyLevel: -1 = subtask, 0 = Tarefa/Bug/Error/Story, 1 = Epic
+  const isNonSubtask = i => (i.fields?.issuetype?.hierarchyLevel ?? 0) !== -1;
+  // Subtarefas canceladas (ex.: CANCEL) não são trabalho real e no Jira ficam sem responsável;
+  // excluí-las evita a linha fantasma "Sem responsável" na produtividade.
+  const subtasks = [...active, ...done].filter(i => !isNonSubtask(i) && !cancelled(i));
+  active = active.filter(isNonSubtask);
+  done   = done.filter(isNonSubtask);
+
+  done = done.filter(i => !cancelled(i));
+
+  // ── Sprint filter: if multiple open sprints exist, keep the OE board one ───
+  const BOARD_ID = 474; // OE board
+  const getActiveSprints = i => {
+    const sf=i.fields?.customfield_10020||i.fields?.sprint;
+    const sps=Array.isArray(sf)?sf:(sf?[sf]:[]);
+    return sps.filter(s=>s?.state==='active'&&s?.id);
+  };
+  const getBoardSprints = i => {
+    const sf=i.fields?.customfield_10020||i.fields?.sprint;
+    const sps=Array.isArray(sf)?sf:(sf?[sf]:[]);
+    return sps.filter(s=>s?.state==='active'&&s?.id&&s?.boardId===BOARD_ID);
+  };
+  // Prefer board-specific active sprint; fall back to most-common sprint
+  const boardSprintCounts={};
+  [...active,...done].forEach(i=>getBoardSprints(i).forEach(s=>{
+    boardSprintCounts[s.id]=(boardSprintCounts[s.id]||0)+1;
+  }));
+  const boardIds=Object.keys(boardSprintCounts);
+  if(boardIds.length>=1){
+    const primaryId=boardIds.sort((a,b)=>boardSprintCounts[b]-boardSprintCounts[a])[0];
+    const inPrimary=i=>getActiveSprints(i).some(s=>String(s.id)===String(primaryId));
+    active=active.filter(inPrimary);
+    done=done.filter(inPrimary);
+  } else {
+    // Fallback: keep sprint with most issues
+    const sprintCounts={};
+    [...active,...done].forEach(i=>getActiveSprints(i).forEach(s=>{
+      sprintCounts[s.id]=(sprintCounts[s.id]||0)+1;
+    }));
+    const sprintIds=Object.keys(sprintCounts);
+    if(sprintIds.length>1){
+      const primaryId=sprintIds.sort((a,b)=>sprintCounts[b]-sprintCounts[a])[0];
+      const inPrimary=i=>getActiveSprints(i).some(s=>String(s.id)===String(primaryId));
+      active=active.filter(inPrimary);
+      done=done.filter(inPrimary);
+    }
+  }
+
+  return {active, done, subtasks, doneHasMore};
+}
+
+// ── Calendar Fetch ──────────────────────────────────────────────────────────
+async function loadCalendar() {
+  const t=todayStr();
+  const r=await mcpBridge(CAL_TOOL,{startTime:`${t}T00:00:00`,endTime:`${t}T23:59:59`,timeZone:'America/Sao_Paulo',pageSize:20,orderBy:'startTime'});
+  return parseMcp(r)?.events||[];
+}
+
+// ── Email Fetch ─────────────────────────────────────────────────────────────
+async function loadEmails() {
+  const r=await mcpBridge(GMAIL_TOOL,{query:'is:unread newer_than:2d -category:promotions -category:social',pageSize:8,view:'THREAD_VIEW_MINIMAL'});
+  return parseMcp(r)?.threads||[];
+}
+
+// ── Slack Fetch ─────────────────────────────────────────────────────────────
+async function loadSlack() {
+  const r=await mcpBridge(SLACK_TOOL,{query:'to:me after:'+todayStr(),limit:10,sort:'timestamp',sort_dir:'desc',response_format:'concise',include_context:false});
+  const data=parseMcp(r);
+  return typeof data?.results==='string'?data.results:'';
+}
+
+// ── Render Metrics ──────────────────────────────────────────────────────────
+function renderMetrics() {
+  const blocked=activeIssues.filter(isBlocked);
+  const review=activeIssues.filter(isInReview);
+  const inProgress=activeIssues.filter(isInProgress);
+  const todo=activeIssues.filter(isTodo);
+  const totalDone=doneIssues.length;
+  const total=activeIssues.length+totalDone;
+  const pct=total>0?Math.round(totalDone/total*100):0;
+  const doneLabel=doneHasMore?`${totalDone}+`:`${totalDone}`;
+
+  document.getElementById('mc-done').textContent=doneLabel;
+  document.getElementById('mc-inprogress').textContent=inProgress.length;
+  document.getElementById('mc-review').textContent=review.length;
+  document.getElementById('mc-todo').textContent=todo.length;
+  document.getElementById('mc-blocked').textContent=blocked.length;
+
+  const sprintInfo=findSprintInfo();
+  let daysLeft='—',sprintName='—';
+  if(sprintInfo){
+    sprintName=sprintInfo.name||'—';
+    if(sprintInfo.endDate){ const d=daysUntil(sprintInfo.endDate); daysLeft=d!==null?`${d}d`:'—'; }
+  }
+  document.getElementById('mc-days').textContent=daysLeft;
+  document.getElementById('bm-sprint').textContent=sprintName;
+  document.getElementById('bm-progress').textContent=`${doneLabel} / ${total>0?total:'?'}`;
+  document.getElementById('bm-days').textContent=daysLeft;
+  document.getElementById('progress-fill').style.width=`${pct}%`;
+  document.getElementById('progress-label').textContent=`${pct}% completo`;
+
+  let badgeHtml,tldr;
+  if(blocked.length>=3||pct<20){
+    badgeHtml=`<span class="status-badge sb-red"><svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8.29289 8.29289C8.68342 7.90237 9.31658 7.90237 9.70711 8.29289L12 10.5858L14.2929 8.29289C14.6834 7.90237 15.3166 7.90237 15.7071 8.29289C16.0976 8.68342 16.0976 9.31658 15.7071 9.70711L13.4142 12L15.7071 14.2929C16.0976 14.6834 16.0976 15.3166 15.7071 15.7071C15.3166 16.0976 14.6834 16.0976 14.2929 15.7071L12 13.4142L9.70711 15.7071C9.31658 16.0976 8.68342 16.0976 8.29289 15.7071C7.90237 15.3166 7.90237 14.6834 8.29289 14.2929L10.5858 12L8.29289 9.70711C7.90237 9.31658 7.90237 8.68342 8.29289 8.29289Z" fill="currentColor"/></svg> Fora do Prazo</span>`;
+    tldr=`${blocked.length} issues bloqueadas e apenas ${pct}% concluído. Ação imediata necessária.`;
+  } else if(blocked.length>0||(pct<45&&daysLeft!=='—'&&parseInt(daysLeft)<=5)){
+    badgeHtml=`<span class="status-badge sb-yellow"><svg width="14" height="12" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path d="M17 5.26675e-06C15.513 0.00300527 14.516 1.10502 14.406 1.18702C13.817 1.63002 13.177 2.03701 12.5 2.37501C11.078 3.08601 9.536 3.52501 8 3.78101C7.462 3.87101 6.97601 3.937 6.53101 3.969C6.27101 3.987 6.085 4.00001 6 4.00001H3.93799C1.73299 4.00001 0 5.78601 0 8.00001C0 10.209 1.791 12 4 12V13C4 14.657 5.343 16 7 16C8.657 16 10 14.657 10 13L10.006 12.659C10.848 12.901 11.71 13.229 12.5 13.625C13.173 13.962 13.82 14.373 14.406 14.812C14.516 14.895 15.63 16.009 17 16C18.642 15.989 20 14.724 20 13.125V2.87501C20 1.27601 18.662 -0.00299473 17 5.26675e-06ZM17 2.00001C17.567 2.00001 18 2.41201 18 2.87501V13.125C18 13.588 17.567 14 17 14C16.433 14 16 13.588 16 13.125C16 10.597 16 5.40301 16 2.87501C16 2.41201 16.433 2.00001 17 2.00001ZM14 3.82102C14 6.33602 13.991 9.639 13.991 12.154C13.785 12.039 13.619 11.95 13.406 11.844C11.789 11.033 10.064 10.506 8.34399 10.219C7.30799 10.046 6.486 10 6 10V6.00001C6.486 6.00001 7.30899 5.95401 8.34399 5.78101C10.063 5.49501 11.79 4.96401 13.406 4.15601C13.62 4.04901 13.793 3.93702 14 3.82102ZM3.93799 6.00001H4V10C2.895 10 2 9.10501 2 8.00001C2 6.87901 2.84899 6.00001 3.93799 6.00001ZM6 12C6.085 12 6.27101 12.013 6.53101 12.031C6.97601 12.063 7.462 12.129 8 12.219V13C8 13.552 7.552 14 7 14C6.448 14 6 13.552 6 13V12Z" fill="currentColor"/></svg> Em Risco</span>`;
+    tldr=`${blocked.length>0?blocked.length+' issue'+(blocked.length>1?'s':'')+' bloqueada'+(blocked.length>1?'s':'')+'. ':''}WIP alto: ${inProgress.length+review.length} itens em andamento. Priorize conclusões.`;
+  } else {
+    badgeHtml=`<span class="status-badge sb-green"><svg width="13" height="14" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path d="M5 0C2.2386 0 0 2.239 0 5C0 7.362 1.3343 9.798 4.1875 13.594C6.9285 17.24 7.5875 17.853 8.8523 18.002C8.9371 18.012 9.0648 18.015 9.1586 18.002C10.4125 17.84 11.1008 17.208 13.8125 13.594C16.6611 9.797 18 7.353 18 5C18 2.239 15.7614 0 13 0C11.31 0 9.8288 0.869001 8.9978 1.998C8.1754 0.869001 6.69 0 5 0ZM5 2C6.6568 2 8 3.343 8 5C8 6.333 10 6.333 10 5C10 3.343 11.3431 2 13 2C14.6568 2 16 3.343 16 5C16 6.745 14.7596 8.97801 12.1875 12.406C10.0371 15.272 9.4354 15.948 9.0312 16C9.0228 16.001 8.976 16.001 8.9688 16C8.5694 15.953 7.9765 15.285 5.8125 12.406C3.2356 8.97801 2 6.754 2 5C2 3.343 3.3431 2 5 2Z" fill="currentColor"/></svg> No Prazo</span>`;
+    tldr=`Sprint saudável. ${doneLabel} de ${total} issues concluídas (${pct}%). Ritmo adequado.`;
+  }
+  document.getElementById('status-badge').innerHTML=badgeHtml;
+  document.getElementById('banner-tldr').textContent=tldr;
+  document.getElementById('banner-tldr').style.color='var(--text)';
+
+  return blocked;
+}
+
+// ── Burndown ────────────────────────────────────────────────────────────────
+function buildBurndownData(sprintStartStr, sprintEndStr) {
+  const getSP=i=>{const v=i?.fields?.customfield_10028; return(v!==null&&v!==undefined&&!isNaN(Number(v)))?Number(v):0;};
+  const isDoneCat=i=>(i.fields?.status?.statusCategory?.key||'')==='done';
+  const isActiveCat=i=>(i.fields?.status?.statusCategory?.key||'')==='indeterminate';
+
+  const start=new Date(sprintStartStr.split('T')[0]);
+  const end=new Date(sprintEndStr.split('T')[0]);
+  const now=new Date(); now.setHours(23,59,59,999);
+
+  // Escopo = Story Points das ISSUES PAI (sem subtarefas) — igual à barra "Progresso
+  // do sprint" do Jira, que soma apenas os SP das issues pai. Ex. Sprint 5: 98 SP,
+  // 2 concluídos (OE-219) = 2%, 21 não iniciados (OE-202+203) = 21%, 75 em and. = 77%.
+  const all=[...activeIssues,...doneIssues];
+  const doneAll=all.filter(isDoneCat);
+  const totalSP=all.reduce((s,i)=>s+getSP(i),0);
+  const doneSP=doneAll.reduce((s,i)=>s+getSP(i),0);
+  const activeSP=all.filter(isActiveCat).reduce((s,i)=>s+getSP(i),0);
+  const todoSP=Math.max(0,totalSP-doneSP-activeSP);
+
+  const days=[];
+  const d=new Date(start);
+  while(d<=end){ days.push(new Date(d)); d.setDate(d.getDate()+1); }
+
+  const labels=days.map(d=>d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'}));
+
+  // Ideal (Diretriz): linear 100% → 0%
+  const ideal=days.map((_,i)=>+(100*(1-i/(days.length-1))).toFixed(1));
+
+  // Actual (Trabalho restante): % SP remaining per day up to today
+  const actual=days.map(day=>{
+    if(day>now) return null;
+    const doneSPByDay=doneAll.filter(i=>{
+      const rd=i.fields?.resolutiondate||i.fields?.updated;
+      return rd&&new Date(rd)<=day;
+    }).reduce((s,i)=>s+getSP(i),0);
+    return totalSP>0?+(100*(totalSP-doneSPByDay)/totalSP).toFixed(1):0;
+  });
+
+  return {labels,ideal,actual,totalSP,doneSP,activeSP,todoSP,days};
+}
+
+function renderBurndown() {
+  const sprintInfo=findSprintInfo();
+
+  if(!sprintInfo?.startDate||!sprintInfo?.endDate){
+    const el=document.getElementById('burndown-loading');
+    el.style.display='flex';
+    el.innerHTML='Datas da sprint não disponíveis no Jira';
+    return;
+  }
+
+  const {labels,ideal,actual,totalSP,doneSP,activeSP,todoSP,days}=buildBurndownData(sprintInfo.startDate,sprintInfo.endDate);
+
+  // ── Barra de progresso — por STORY POINTS (não por contagem), igual ao Jira ──
+  // Jira calcula "Progresso do sprint" sobre os SP do escopo (pais + subtarefas),
+  // por isso "concluído" é baixo mesmo com muitas issues fechadas.
+  const fmtSP=v=>Number.isInteger(v)?String(v):v.toFixed(1).replace('.',',');
+  if(totalSP>0){
+    const pctDone  =Math.round(doneSP/totalSP*100);
+    const pctActive=Math.round(activeSP/totalSP*100);
+    const pctTodo  =Math.max(0,100-pctDone-pctActive);
+    document.getElementById('bsp-done').style.width   =pctDone+'%';
+    document.getElementById('bsp-active').style.width =pctActive+'%';
+    document.getElementById('bsp-todo').style.width   =pctTodo+'%';
+    document.getElementById('bsp-pct-done').textContent   =pctDone+'%';
+    document.getElementById('bsp-pct-active').textContent =pctActive+'%';
+    document.getElementById('bsp-pct-todo').textContent   =pctTodo+'%';
+  }
+  if(totalSP>0){
+    const remaining=totalSP-doneSP;
+    document.getElementById('burndown-sp-sub').textContent=
+      `${fmtSP(doneSP)} pontos concluídos, ${fmtSP(remaining)} pontos para concluir`;
+  }
+
+  document.getElementById('burndown-meta').textContent=
+    `${sprintInfo.name||''} · ${fmtDate(sprintInfo.startDate)} → ${fmtDate(sprintInfo.endDate)}`;
+
+  // Hide loading overlay
+  document.getElementById('burndown-loading').style.display='none';
+
+  const ctx=document.getElementById('burndown-chart');
+
+  // Today marker index
+  const todayIdx=days.findIndex(d=>{
+    const t=new Date(); t.setHours(0,0,0,0);
+    const dd=new Date(d); dd.setHours(0,0,0,0);
+    return dd.getTime()===t.getTime();
+  });
+
+  if(burndownChart){ burndownChart.destroy(); burndownChart=null; }
+
+  burndownChart=new Chart(ctx,{
+    type:'line',
+    data:{
+      labels,
+      datasets:[
+        {
+          label:'Diretriz',
+          data:ideal,
+          borderColor:'#4E4E4E',
+          borderDash:[5,4],
+          borderWidth:1.5,
+          pointRadius:0,
+          fill:false,
+          tension:0,
+          order:3
+        },
+        {
+          label:'Trabalho restante',
+          data:actual,
+          borderColor:'#1EA4C1',
+          backgroundColor:'rgba(30,164,193,0.10)',
+          borderWidth:2.5,
+          pointRadius:(c)=>c.dataIndex===todayIdx?5:2,
+          pointBackgroundColor:'#1EA4C1',
+          pointBorderColor:'#151515',
+          pointBorderWidth:(c)=>c.dataIndex===todayIdx?2:0,
+          fill:true,
+          tension:0.15,
+          spanGaps:false,
+          order:1
+        }
+      ]
+    },
+    options:{
+      responsive:true,
+      maintainAspectRatio:false,
+      animation:{duration:600},
+      plugins:{
+        legend:{
+          display:true,
+          position:'bottom',
+          labels:{font:{size:11,family:'Geologica,Montserrat,sans-serif'},padding:14,usePointStyle:true,pointStyleWidth:10,color:'#AAAAAA'}
+        },
+        tooltip:{
+          mode:'index',
+          intersect:false,
+          backgroundColor:'rgba(30,30,30,0.95)',
+          titleColor:'#EEEEEE',
+          bodyColor:'#AAAAAA',
+          borderColor:'#2E2E2E',
+          borderWidth:1,
+          padding:10,
+          callbacks:{
+            title:items=>`📅 ${items[0].label}`,
+            label:c=>{
+              if(c.parsed.y===null) return null;
+              const v=c.parsed.y;
+              const spAbs=totalSP>0?(v/100*totalSP).toFixed(1):v;
+              const icon=c.dataset.label==='Diretriz'?'—':'●';
+              return ` ${icon} ${c.dataset.label}: ${v}% (${spAbs} SP)`;
+            }
+          }
+        }
+      },
+      scales:{
+        x:{
+          grid:{color:'#2E2E2E',drawBorder:false},
+          ticks:{font:{size:10,family:'Montserrat,sans-serif'},color:'#AAAAAA',maxRotation:0,autoSkip:true,maxTicksLimit:10}
+        },
+        y:{
+          min:0,
+          max:100,
+          grid:{color:'#2E2E2E',drawBorder:false},
+          ticks:{
+            font:{size:10,family:'Montserrat,sans-serif'},
+            color:'#AAAAAA',
+            stepSize:20,
+            callback:v=>v+'%'
+          },
+          title:{display:true,text:'% SP restante',font:{size:10,family:'Geologica,sans-serif'},color:'#AAAAAA'}
+        }
+      },
+      interaction:{mode:'nearest',axis:'x',intersect:false}
+    },
+    plugins:[{
+      id:'todayLine',
+      afterDraw(chart){
+        if(todayIdx<0) return;
+        const {ctx,chartArea:{top,bottom},scales:{x}}=chart;
+        const xPos=x.getPixelForValue(todayIdx);
+        ctx.save();
+        ctx.beginPath();
+        ctx.strokeStyle='rgba(193,157,30,0.5)';
+        ctx.lineWidth=1.5;
+        ctx.setLineDash([4,3]);
+        ctx.moveTo(xPos,top);
+        ctx.lineTo(xPos,bottom);
+        ctx.stroke();
+        ctx.setLineDash([]);
+        ctx.fillStyle='#C19D1E';
+        ctx.font='bold 9px Geologica,sans-serif';
+        ctx.textAlign='center';
+        ctx.fillText('hoje',xPos,top-4);
+        ctx.restore();
+      }
+    }]
+  });
+}
+
+// ── Populate Filters ─────────────────────────────────────────────────────────
+function populateFilters() {
+  const statuses=[...new Set(allIssues.map(i=>i.fields?.status?.name).filter(Boolean))].sort();
+  const assignees=[...new Set(allIssues.map(i=>i.fields?.assignee?.displayName||'Sem responsável').filter(Boolean))].sort();
+  const fsEl=document.getElementById('f-status');
+  const prev=fsEl.value;
+  fsEl.innerHTML='<option value="">Status: Todos</option>'+statuses.map(s=>`<option value="${escHtml(s)}"${s===prev?' selected':''}>${escHtml(s)}</option>`).join('');
+  const faEl=document.getElementById('f-assignee');
+  const prevA=faEl.value;
+  faEl.innerHTML='<option value="">Responsável: Todos</option>'+assignees.map(a=>`<option value="${escHtml(a)}"${a===prevA?' selected':''}>${escHtml(a)}</option>`).join('');
+}
+
+// ── Render Issues ────────────────────────────────────────────────────────────
+function getFiltered() {
+  const search=document.getElementById('f-search').value.toLowerCase();
+  const status=document.getElementById('f-status').value;
+  const assignee=document.getElementById('f-assignee').value;
+  const priority=document.getElementById('f-priority').value;
+  const type=document.getElementById('f-type').value;
+  const show=document.getElementById('f-show').value;
+  let pool=show==='done'?doneIssues:show==='all'?allIssues:activeIssues;
+  return pool.filter(i=>{
+    const f=i.fields||{};
+    if(search&&!((i.key||'').toLowerCase().includes(search)||(f.summary||'').toLowerCase().includes(search)||(f.assignee?.displayName||'').toLowerCase().includes(search))) return false;
+    if(status&&f.status?.name!==status) return false;
+    if(priority&&f.priority?.name!==priority) return false;
+    if(type&&f.issuetype?.name!==type) return false;
+    if(assignee){const n=f.assignee?.displayName||'Sem responsável';if(n!==assignee)return false;}
+    return true;
+  });
+}
+
+function renderIssues() {
+  const filtered=getFiltered();
+  document.getElementById('filter-count').textContent=`${filtered.length} issue${filtered.length!==1?'s':''}`;
+  if(!filtered.length){ document.getElementById('issues-table-wrap').innerHTML='<div class="no-issues">Nenhuma issue com os filtros selecionados.</div>'; return; }
+
+  const sorted=[...filtered].sort((a,b)=>{
+    const fa=a.fields||{},fb=b.fields||{};
+    if(sortCol==='priority'){ const pa=priorityOrder(fa.priority?.name),pb=priorityOrder(fb.priority?.name); return sortDir==='asc'?pa-pb:pb-pa; }
+    if(sortCol==='key'){ const ka=parseInt((a.key||'').replace(/\D/g,'')),kb=parseInt((b.key||'').replace(/\D/g,'')); return sortDir==='asc'?ka-kb:kb-ka; }
+    let va='',vb='';
+    if(sortCol==='status'){va=fa.status?.name||'';vb=fb.status?.name||'';}
+    if(sortCol==='assignee'){va=fa.assignee?.displayName||'zzz';vb=fb.assignee?.displayName||'zzz';}
+    return sortDir==='asc'?va.localeCompare(vb):vb.localeCompare(va);
+  });
+
+  const arrow=col=>sortCol===col?(sortDir==='asc'?'↑':'↓'):'<span style="opacity:.25">↕</span>';
+
+  const rows=sorted.map(i=>{
+    const f=i.fields||{};
+    const an=f.assignee?.displayName||'';
+    const tm=typeMeta(f.issuetype?.name);
+    const dd=f.duedate;
+    const du=daysUntil(dd);
+    const dueCls=du!==null?(du<0?'overdue':du<=2?'near':''):'';
+    const col=avatarColor(an);
+    const rowCls=isBlocked(i)?'row-blocked':isDone(i)?'row-done':'';
+    return `<tr class="${rowCls}">
+      <td><span class="issue-key"><a href="${JIRA_BASE}${i.key}" target="_blank">${escHtml(i.key||'')}</a></span></td>
+      <td><div class="issue-summary"><a href="${JIRA_BASE}${i.key}" target="_blank">${escHtml(f.summary||'')}</a></div></td>
+      <td><div class="assignee-chip">${an?`<span class="assignee-avatar" style="background:${col}">${initials(an)}</span><span>${escHtml(firstName(an))}</span>`:'<span style="color:#94a3b8;font-size:11px">—</span>'}</div></td>
+      <td><span class="status-pill ${statusPillClass(f.status?.name)}">${escHtml(f.status?.name||'')}</span></td>
+      <td><div class="priority-label"><span class="priority-dot ${priorityDotClass(f.priority?.name)}"></span>${escHtml(f.priority?.name||'—')}</div></td>
+      <td><span class="type-badge ${tm.cls}" title="${escHtml(f.issuetype?.name||'')}">${tm.lbl}</span></td>
+      <td><span class="due-date ${dueCls}">${dd?fmtDate(dd):''}</span></td>
+    </tr>`;
+  }).join('');
+
+  document.getElementById('issues-table-wrap').innerHTML=`
+    <table>
+      <thead><tr>
+        <th onclick="setSort('key')">Key ${arrow('key')}</th>
+        <th>Título</th>
+        <th onclick="setSort('assignee')">Responsável ${arrow('assignee')}</th>
+        <th onclick="setSort('status')">Status ${arrow('status')}</th>
+        <th onclick="setSort('priority')">Prioridade ${arrow('priority')}</th>
+        <th>Tipo</th><th>Vence</th>
+      </tr></thead>
+      <tbody>${rows}</tbody>
+    </table>`;
+}
+
+function setSort(col) {
+  if(sortCol===col) sortDir=sortDir==='asc'?'desc':'asc'; else{sortCol=col;sortDir='asc';}
+  renderIssues();
+}
+
+// ── Render Blocked ───────────────────────────────────────────────────────────
+function renderBlocked(blockedIssues) {
+  const el=document.getElementById('blocked-content');
+  const unassHigh=activeIssues.filter(i=>!i.fields?.assignee&&['Highest','High'].includes(i.fields?.priority?.name)&&!isDone(i));
+  const SVG_REMOVE=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;vertical-align:middle"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8.29289 8.29289C8.68342 7.90237 9.31658 7.90237 9.70711 8.29289L12 10.5858L14.2929 8.29289C14.6834 7.90237 15.3166 7.90237 15.7071 8.29289C16.0976 8.68342 16.0976 9.31658 15.7071 9.70711L13.4142 12L15.7071 14.2929C16.0976 14.6834 16.0976 15.3166 15.7071 15.7071C15.3166 16.0976 14.6834 16.0976 14.2929 15.7071L12 13.4142L9.70711 15.7071C9.31658 16.0976 8.68342 16.0976 8.29289 15.7071C7.90237 15.3166 7.90237 14.6834 8.29289 14.2929L10.5858 12L8.29289 9.70711C7.90237 9.31658 7.90237 8.68342 8.29289 8.29289Z" fill="currentColor"/></svg>`;
+  const SVG_USER=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;vertical-align:middle"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 16C7.34315 16 6 17.3431 6 19C6 19.5523 6.44772 20 7 20H17C17.5523 20 18 19.5523 18 19C18 17.3431 16.6569 16 15 16H9ZM4 19C4 16.2386 6.23858 14 9 14H15C17.7614 14 20 16.2386 20 19C20 20.6569 18.6569 22 17 22H7C5.34315 22 4 20.6569 4 19Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C10.3431 4 9 5.34315 9 7C9 8.65685 10.3431 10 12 10C13.6569 10 15 8.65685 15 7C15 5.34315 13.6569 4 12 4ZM7 7C7 4.23858 9.23858 2 12 2C14.7614 2 17 4.23858 17 7C17 9.76142 14.7614 12 12 12C9.23858 12 7 9.76142 7 7Z" fill="currentColor"/></svg>`;
+  const SVG_MEGA=`<svg width="13" height="11" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;vertical-align:middle"><path d="M17 5.26675e-06C15.513 0.00300527 14.516 1.10502 14.406 1.18702C13.817 1.63002 13.177 2.03701 12.5 2.37501C11.078 3.08601 9.536 3.52501 8 3.78101C7.462 3.87101 6.97601 3.937 6.53101 3.969C6.27101 3.987 6.085 4.00001 6 4.00001H3.93799C1.73299 4.00001 0 5.78601 0 8.00001C0 10.209 1.791 12 4 12V13C4 14.657 5.343 16 7 16C8.657 16 10 14.657 10 13L10.006 12.659C10.848 12.901 11.71 13.229 12.5 13.625C13.173 13.962 13.82 14.373 14.406 14.812C14.516 14.895 15.63 16.009 17 16C18.642 15.989 20 14.724 20 13.125V2.87501C20 1.27601 18.662 -0.00299473 17 5.26675e-06ZM17 2.00001C17.567 2.00001 18 2.41201 18 2.87501V13.125C18 13.588 17.567 14 17 14C16.433 14 16 13.588 16 13.125C16 10.597 16 5.40301 16 2.87501C16 2.41201 16.433 2.00001 17 2.00001ZM14 3.82102C14 6.33602 13.991 9.639 13.991 12.154C13.785 12.039 13.619 11.95 13.406 11.844C11.789 11.033 10.064 10.506 8.34399 10.219C7.30799 10.046 6.486 10 6 10V6.00001C6.486 6.00001 7.30899 5.95401 8.34399 5.78101C10.063 5.49501 11.79 4.96401 13.406 4.15601C13.62 4.04901 13.793 3.93702 14 3.82102ZM3.93799 6.00001H4V10C2.895 10 2 9.10501 2 8.00001C2 6.87901 2.84899 6.00001 3.93799 6.00001ZM6 12C6.085 12 6.27101 12.013 6.53101 12.031C6.97601 12.063 7.462 12.129 8 12.219V13C8 13.552 7.552 14 7 14C6.448 14 6 13.552 6 13V12Z" fill="currentColor"/></svg>`;
+  const SVG_HEART=`<svg width="13" height="13" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;vertical-align:middle"><path d="M5 0C2.2386 0 0 2.239 0 5C0 7.362 1.3343 9.798 4.1875 13.594C6.9285 17.24 7.5875 17.853 8.8523 18.002C8.9371 18.012 9.0648 18.015 9.1586 18.002C10.4125 17.84 11.1008 17.208 13.8125 13.594C16.6611 9.797 18 7.353 18 5C18 2.239 15.7614 0 13 0C11.31 0 9.8288 0.869001 8.9978 1.998C8.1754 0.869001 6.69 0 5 0ZM5 2C6.6568 2 8 3.343 8 5C8 6.333 10 6.333 10 5C10 3.343 11.3431 2 13 2C14.6568 2 16 3.343 16 5C16 6.745 14.7596 8.97801 12.1875 12.406C10.0371 15.272 9.4354 15.948 9.0312 16C9.0228 16.001 8.976 16.001 8.9688 16C8.5694 15.953 7.9765 15.285 5.8125 12.406C3.2356 8.97801 2 6.754 2 5C2 3.343 3.3431 2 5 2Z" fill="currentColor"/></svg>`;
+  if(!blockedIssues.length&&!unassHigh.length){ el.innerHTML=`<div class="empty" style="color:var(--green);display:flex;align-items:center;gap:6px">${SVG_HEART.replace('currentColor','#1B9B6E')} Sem bloqueios identificados</div>`; return; }
+  el.innerHTML=blockedIssues.map(i=>{const f=i.fields||{};return `<div class="blocked-item"><div class="blocked-key"><a href="${JIRA_BASE}${i.key}" target="_blank" style="display:inline-flex;align-items:center;gap:4px;color:var(--red)">${SVG_REMOVE.replace('currentColor','#D4343F')} ${escHtml(i.key)}</a></div><div class="blocked-summary">${escHtml(f.summary||'')}</div><div class="blocked-assignee" style="display:flex;align-items:center;gap:4px">${f.assignee?.displayName?SVG_USER.replace('currentColor','var(--text-muted)')+' '+escHtml(f.assignee.displayName):SVG_MEGA.replace('currentColor','#b45309')+' <span style="color:#b45309">Sem responsável</span>'}</div></div>`;}).join('')
+  +unassHigh.map(i=>{const f=i.fields||{};return `<div class="blocked-item" style="border-left:2px solid #f59e0b;padding-left:10px"><div class="blocked-key"><a href="${JIRA_BASE}${i.key}" target="_blank" style="display:inline-flex;align-items:center;gap:4px;color:#b45309">${SVG_MEGA.replace('currentColor','#b45309')} ${escHtml(i.key)}</a></div><div class="blocked-summary">${escHtml(f.summary||'')}</div><div class="blocked-assignee" style="color:#b45309;display:flex;align-items:center;gap:4px">${SVG_USER.replace('currentColor','#b45309')} Sem responsável · ${escHtml(f.priority?.name||'')}</div></div>`;}).join('');
+}
+
+// ── Render Calendar ──────────────────────────────────────────────────────────
+function renderCalendar(events) {
+  const el=document.getElementById('calendar-content');
+  if(!events?.length){el.innerHTML='<div class="empty">Nenhum evento hoje</div>';return;}
+  const now=new Date();
+  const sorted=[...events].filter(e=>e.summary).sort((a,b)=>(a.start?.dateTime||a.start?.date||'').localeCompare(b.start?.dateTime||b.start?.date||''));
+  el.innerHTML=sorted.map(e=>{
+    const sd=e.start?.dateTime||e.start?.date, ed=e.end?.dateTime||e.end?.date;
+    const isNow=sd&&ed&&new Date(sd)<=now&&new Date(ed)>=now;
+    const isPast=ed&&new Date(ed)<now;
+    const cnt=(e.attendees||[]).length;
+    return `<div class="cal-event ${isNow?'now':''} ${isPast?'past':''}">
+      <div class="cal-time">${fmtTime(sd)}–${fmtTime(ed)}${isNow?'<div class="cal-now-badge">● AGORA</div>':''}</div>
+      <div style="flex:1;min-width:0">
+        <div class="cal-title">${e.conferenceUrl?`<a href="${escHtml(e.conferenceUrl)}" target="_blank">🎥 ${escHtml(e.summary)}</a>`:(e.location?`📍 ${escHtml(e.summary)}`:escHtml(e.summary))}</div>
+        <div class="cal-meta">${cnt>1?`${cnt} participantes`:''}</div>
+      </div>
+    </div>`;
+  }).join('');
+}
+
+// ── Render Email ─────────────────────────────────────────────────────────────
+function renderEmails(threads) {
+  const el=document.getElementById('email-content');
+  if(!threads?.length){el.innerHTML='<div class="empty">✅ Sem e-mails não lidos relevantes</div>';return;}
+  el.innerHTML=threads.map(t=>{
+    const msg=t.messages?.[0]||{};
+    const unread=msg.labelIds?.includes('UNREAD');
+    return `<div class="email-item"><div class="email-subject">${unread?'<span class="unread-dot"></span>':''}${escHtml(msg.subject||'(sem assunto)')}</div><div class="email-snippet">${escHtml(msg.snippet||'')}</div></div>`;
+  }).join('');
+}
+
+// ── Render Slack ─────────────────────────────────────────────────────────────
+function renderSlack(text) {
+  const el=document.getElementById('slack-content');
+  if(!text||text.includes('No results found')){el.innerHTML='<div class="empty">Sem mensagens recentes para você</div>';return;}
+  const lines=text.split('\n').filter(l=>l.trim());
+  const items=[]; let cur=null;
+  for(const line of lines){
+    const m=line.match(/^\d+\.\s+(.+?),?\s+\S+\s+-\s+(.+?):\s*(.*)/);
+    if(m){if(cur)items.push(cur);cur={channel:m[1].replace(/^DM with /,'DM · '),author:m[2],text:m[3]};}
+    else if(cur&&line.trim()&&!line.startsWith('#')&&!line.startsWith('(')){cur.text=(cur.text+' '+line.trim()).substring(0,280);}
+  }
+  if(cur)items.push(cur);
+  if(!items.length){el.innerHTML='<div class="empty">Sem atividade recente relevante</div>';return;}
+  el.innerHTML=items.slice(0,6).map(i=>`<div class="slack-item"><div class="slack-from">${escHtml(i.author)} <span class="slack-chan">· ${escHtml(i.channel)}</span></div><div class="slack-text">${escHtml(i.text)}</div></div>`).join('');
+}
+
+// ── Render Focus ─────────────────────────────────────────────────────────────
+function renderFocus(blockedIssues) {
+  const el=document.getElementById('focus-content');
+  const focuses=[];
+  const unassigned=activeIssues.filter(i=>!i.fields?.assignee&&!isDone(i));
+  const highPrio=activeIssues.filter(i=>['Highest','High'].includes(i.fields?.priority?.name)&&!isDone(i)&&!isBlocked(i));
+  const reviewCnt=activeIssues.filter(isInReview).length;
+  const sprintInfo=findSprintInfo();
+  const dLeft=sprintInfo?.endDate?daysUntil(sprintInfo.endDate):null;
+
+  if(blockedIssues.length>0) focuses.push(`Destravar ${blockedIssues.length} issue${blockedIssues.length>1?'s':''} bloqueada${blockedIssues.length>1?'s':''}: ${blockedIssues.map(i=>i.key).join(', ')} — identifique o impedimento e remova hoje.`);
+  if(unassigned.length>0){const highU=unassigned.filter(i=>['Highest','High'].includes(i.fields?.priority?.name));focuses.push(`Atribuir responsável para ${unassigned.length} issue${unassigned.length>1?'s':''} sem dono${highU.length>0?' — '+highU.length+' delas de alta prioridade':''}.`);}
+  else if(highPrio.length>0) focuses.push(`Acompanhar ${highPrio.length} issue${highPrio.length>1?'s':''} de alta prioridade: garantir progresso sem bloqueios.`);
+  if(reviewCnt>5) focuses.push(`WIP alto em Review/QA (${reviewCnt} issues). Finalize antes de puxar novos tickets para não sobrecarregar o pipeline.`);
+  else if(dLeft!==null&&dLeft<=5) focuses.push(`Sprint encerra em ${dLeft} dia${dLeft!==1?'s':''}. Valide o que tem chance real de entrega e faça descoping do restante.`);
+  else focuses.push('Revisar progresso no stand-up e alinhar dependências entre membros do time.');
+  while(focuses.length<3) focuses.push('Revisar backlogs e prioridades com stakeholders antes do próximo ciclo.');
+  el.innerHTML=focuses.slice(0,3).map((f,i)=>`<div class="focus-item"><div class="focus-num">${i+1}</div><div class="focus-text">${escHtml(f)}</div></div>`).join('');
+}
+
+// ── Productivity Board ────────────────────────────────────────────────────────
+function renderProductivity() {
+  const el = document.getElementById('productivity-content');
+  if (!el) return;
+
+  const mainAll = [...activeIssues, ...doneIssues];
+  if (!mainAll.length) { el.innerHTML = '<div class="empty">Aguardando dados do Jira…</div>'; return; }
+
+  // SP getter — customfield_10028 (Story Points, usado por Dev)
+  const getSP = issue => {
+    const v = issue?.fields?.customfield_10028;
+    return (v !== null && v !== undefined) ? Number(v) : null;
+  };
+  // QA SP getter — customfield_10546 ("Story point QA"), campo próprio de estimativa de QA
+  const getQASP = issue => {
+    const v = issue?.fields?.customfield_10546;
+    return (v !== null && v !== undefined) ? Number(v) : null;
+  };
+  const spSum = (arr, role) => arr.reduce((s, i) => s + ((role === 'QA' ? getQASP(i) : getSP(i)) ?? 0), 0);
+
+  const fmtSP = v => {
+    if (v === null || v === undefined || isNaN(v)) return '—';
+    if (v === Math.floor(v)) return String(v);
+    return v.toFixed(1).replace('.', ',');
+  };
+  const pctColor = p => p === null ? 'var(--text-muted)' : p >= 60 ? 'var(--green)' : p >= 35 ? 'var(--yellow)' : 'var(--red)';
+
+  // ── QA status detection (language-flexible) ─────────────────────────────────
+  const isQAStatus = i => {
+    const s = (i.fields?.status?.name || '').toLowerCase();
+    return s.includes('qa') || s.includes('pending qa') || s.includes('on going qa') || s.includes('rejected');
+  };
+
+  // ── Build set of parent keys that have subtasks ──────────────────────────────
+  const parentKeysWithSubtasks = new Set();
+  for (const sub of subtaskIssues) {
+    const pk = sub.fields?.parent?.key;
+    if (pk) parentKeysWithSubtasks.add(pk);
+  }
+
+  // ── Attribution map ──────────────────────────────────────────────────────────
+  // role: 'QA' or 'Dev'
+  const personMap = new Map(); // name → { name, role, qaIssues[], devIssues[], doneQA[], doneDev[], ... }
+
+  const getPerson = (name, role) => {
+    const key = `${name}::${role}`;
+    if (!personMap.has(key)) personMap.set(key, {
+      key, name, role,
+      all:[], done:[], active:[], todo:[]
+    });
+    return personMap.get(key);
+  };
+
+  // activeTest opcional: define o que conta como "SP em andamento" para a linha.
+  // Default (Dev): categoria 'indeterminate'/'review'/bloqueada = andamento; 'new' não bloqueada = não iniciado.
+  // QA: "SP em andamento" = está HOJE em um status relacionado a QA (isQAStatus), independente da categoria Jira.
+  const addIssue = (person, issue, activeTest) => {
+    person.all.push(issue);
+    const cat = (issue.fields?.status?.statusCategory?.key || '').toLowerCase();
+    const sn  = (issue.fields?.status?.name || '').toLowerCase();
+    const isDoneI = cat === 'done' || sn.includes('done') || sn.includes('closed') || sn.includes('resolved');
+    if (isDoneI) { person.done.push(issue); return; }
+    if (activeTest) {
+      if (activeTest(issue)) person.active.push(issue);
+      else person.todo.push(issue);
+      return;
+    }
+    const isTodoI = cat === 'new' && !sn.includes('blocked');
+    if (isTodoI) person.todo.push(issue);
+    else person.active.push(issue);
+  };
+
+  // QA attribution: TODAS as issues pai (qualquer status) → sempre Nataly (única QA da squad).
+  // "SP em andamento" para a linha de QA = soma específica dos SP que estão hoje em
+  // status relacionado a QA (Pending QA, On Going QA, Rejected...), não apenas status "in progress" genérico.
+  const QA_NAME = 'Nataly Brasiliano';
+  const qaPerson = getPerson(QA_NAME, 'QA');
+  for (const issue of mainAll) {
+    addIssue(qaPerson, issue, isQAStatus);
+  }
+
+  // Dev attribution: subtasks → dev assignee (sempre, qualquer status)
+  for (const sub of subtaskIssues) {
+    const name = sub.fields?.assignee?.displayName || 'Sem responsável';
+    addIssue(getPerson(name, 'Dev'), sub);
+  }
+
+  // Dev attribution: issues pai sem subtarefa alguma → dev assignee (fallback de segurança;
+  // na prática toda história tem subtarefas, então este bucket deve ficar vazio)
+  for (const issue of mainAll) {
+    if (!parentKeysWithSubtasks.has(issue.key)) {
+      const name = issue.fields?.assignee?.displayName || 'Sem responsável';
+      addIssue(getPerson(name, 'Dev'), issue);
+    }
+  }
+
+  // ── Build rows ───────────────────────────────────────────────────────────────
+  const qaRows  = [];
+  const devRows = [];
+  let totQA  = { issuesTotal:0, issuesDone:0, spTotal:0, spDone:0, spActive:0, spTodo:0, noSP:0 };
+  let totDev = { issuesTotal:0, issuesDone:0, spTotal:0, spDone:0, spActive:0, spTodo:0, noSP:0 };
+
+  const buildRow = (p, tot) => {
+    const spDone   = spSum(p.done, p.role);
+    const spActive = spSum(p.active, p.role);
+    const spTodo   = spSum(p.todo, p.role);
+    const spTotal  = spDone + spActive + spTodo;
+    const noSP     = p.all.filter(i => (p.role === 'QA' ? getQASP(i) : getSP(i)) === null).length;
+    const row = { name: p.name, role: p.role, issuesTotal: p.all.length, issuesDone: p.done.length, spTotal, spDone, spActive, spTodo, noSP };
+    tot.issuesTotal += p.all.length; tot.issuesDone += p.done.length;
+    tot.spTotal += spTotal; tot.spDone += spDone; tot.spActive += spActive; tot.spTodo += spTodo; tot.noSP += noSP;
+    return row;
+  };
+
+  const sortRows = arr => arr.sort((a,b) => {
+    if (a.name === 'Sem responsável') return 1;
+    if (b.name === 'Sem responsável') return -1;
+    return b.spTotal - a.spTotal;
+  });
+
+  for (const p of personMap.values()) {
+    if (p.role === 'QA') qaRows.push(buildRow(p, totQA));
+    else devRows.push(buildRow(p, totDev));
+  }
+  sortRows(qaRows); sortRows(devRows);
+
+  // Auto-generated insights
+  const insights = [];
+  const allRows = [...qaRows, ...devRows];
+  const withSP = allRows.filter(r => r.spTotal > 0 && r.name !== 'Sem responsável');
+  if (withSP.length) {
+    const topQA = qaRows.filter(r => r.spTotal > 0 && r.name !== 'Sem responsável');
+    if (topQA.length) {
+      const t = [...topQA].sort((a,b) => b.spActive - a.spActive)[0];
+      if (t.spActive > 0) insights.push(`<strong>QA · ${escHtml(t.name.split(' ')[0])}</strong> tem ${fmtSP(t.spActive)} SP em validação — maior carga de teste no sprint.`);
+    }
+    const topDevDone = devRows.filter(r => r.spDone > 0 && r.name !== 'Sem responsável');
+    if (topDevDone.length) {
+      const t = [...topDevDone].sort((a,b) => b.spDone - a.spDone)[0];
+      insights.push(`<strong>Dev · ${escHtml(t.name.split(' ')[0])}</strong> lidera em SP entregues (${fmtSP(t.spDone)} SP de subtarefas concluídas).`);
+    }
+    const bottleneck = devRows.filter(r => r.spActive >= 8 && r.name !== 'Sem responsável');
+    if (bottleneck.length) {
+      const t = [...bottleneck].sort((a,b) => b.spActive - a.spActive)[0];
+      insights.push(`<strong>${escHtml(t.name.split(' ')[0])}</strong> com ${fmtSP(t.spActive)} SP em andamento — risco de gargalo. Verifique desbloqueios.`);
+    }
+  }
+  const allNoSP = subtaskIssues.filter(i => getSP(i) === null);
+  if (allNoSP.length) {
+    insights.push(`<strong>${allNoSP.length} subtarefa${allNoSP.length>1?'s':''} sem SP</strong>: ${allNoSP.slice(0,5).map(i=>i.key).join(', ')}${allNoSP.length>5?'…':''}. Pontue no próximo refinamento.`);
+  }
+
+  // Sprint meta
+  const sprint = findSprintInfo();
+  if (sprint) {
+    const start = sprint.startDate ? fmtDate(sprint.startDate) : '?';
+    const end   = sprint.endDate   ? fmtDate(sprint.endDate)   : '?';
+    const dLeft = sprint.endDate ? daysUntil(sprint.endDate) : null;
+    document.getElementById('prod-meta').textContent =
+      `${sprint.name || ''} · ${start}–${end}${dLeft!==null ? ` · ~${dLeft} dia${dLeft!==1?'s':''} restantes` : ''} · ${mainAll.length} issues pai · ${subtaskIssues.length} subtarefas`;
+  }
+
+  const totPctRaw = (totQA.spTotal + totDev.spTotal) > 0 ? Math.round((totQA.spDone + totDev.spDone)/(totQA.spTotal + totDev.spTotal)*100) : null;
+
+  const mkRows = (rows) => rows.map(r => {
+    const pctRaw = r.spTotal > 0 ? Math.round(r.spDone/r.spTotal*100) : null;
+    const isSem  = r.name === 'Sem responsável';
+    const roleBadge = r.role === 'QA'
+      ? `<span style="background:var(--purple-bg);color:#5b4cce;font-size:9px;font-weight:700;padding:2px 7px;border-radius:99px;letter-spacing:.04em;font-family:'Montserrat',sans-serif">QA</span>`
+      : `<span style="background:var(--blue-bg);color:var(--blue);font-size:9px;font-weight:700;padding:2px 7px;border-radius:99px;letter-spacing:.04em;font-family:'Montserrat',sans-serif">Dev</span>`;
+    return `<tr>
+      <td class="prod-dev ${isSem?'prod-dev-sem':''}" style="display:flex;align-items:center;gap:6px">${roleBadge}${escHtml(r.name)}</td>
+      <td>${r.issuesTotal}</td>
+      <td>${r.issuesDone}</td>
+      <td>${fmtSP(r.spTotal)}</td>
+      <td class="prod-sp-done">${fmtSP(r.spDone)}</td>
+      <td class="${r.spActive>=8?'prod-sp-high':''}">${fmtSP(r.spActive)}</td>
+      <td>${fmtSP(r.spTodo)}</td>
+      <td class="prod-nosp">${r.noSP||'0'}</td>
+      <td class="prod-pct" style="color:${pctColor(pctRaw)}">${pctRaw!==null?pctRaw+'%':'—'}</td>
+    </tr>`;
+  }).join('');
+
+  // Linha única, sem seções separadas — Nataly (QA) sempre por último, apenas com o badge de papel a destacando
+  const combinedRows = [...devRows, ...qaRows];
+  const tableRows = `<tbody>${mkRows(combinedRows)}</tbody>`;
+
+  el.innerHTML = `
+    <div class="prod-table-wrap">
+      <table class="prod-table">
+        <thead><tr>
+          <th>Pessoa / Papel</th><th>Issues atrib.</th><th>Issues concl.</th>
+          <th>SP atribuídos</th><th>SP entregues</th>
+          <th>SP em andamento</th><th>SP não inic.</th>
+          <th>Sem SP</th><th>% SP entregue</th>
+        </tr></thead>
+        ${tableRows}
+        <tfoot><tr>
+          <td>TOTAL</td>
+          <td>${totQA.issuesTotal + totDev.issuesTotal}</td><td>${totQA.issuesDone + totDev.issuesDone}</td>
+          <td>${fmtSP(totQA.spTotal + totDev.spTotal)}</td>
+          <td class="prod-sp-done">${fmtSP(totQA.spDone + totDev.spDone)}</td>
+          <td>${fmtSP(totQA.spActive + totDev.spActive)}</td><td>${fmtSP(totQA.spTodo + totDev.spTodo)}</td>
+          <td>${totQA.noSP + totDev.noSP}</td>
+          <td class="prod-pct" style="color:${pctColor(totPctRaw)}">${totPctRaw!==null?totPctRaw+'%':'—'}</td>
+        </tr></tfoot>
+      </table>
+      <div style="font-size:10px;color:var(--text-muted);padding:6px 4px 0;font-family:'Montserrat',sans-serif">
+        Linha <strong>QA</strong> usa o campo Jira "Story point QA" (issues pai, qualquer status) · linhas <strong>Dev</strong> usam "Story Points" das subtarefas atribuídas.
+      </div>
+    </div>
+    ${insights.length?`<div class="prod-insights">
+      <div class="prod-insights-title">Leitura de produtividade (SP entregue × alocado)</div>
+      <ul class="prod-insights-list">${insights.map(i=>`<li>${i}</li>`).join('')}</ul>
+    </div>`:''}`;
+}
+
+// ── Filter State ─────────────────────────────────────────────────────────────
+function saveFilters() {
+  try{localStorage.setItem('oe-dash-filters',JSON.stringify({status:document.getElementById('f-status').value,assignee:document.getElementById('f-assignee').value,priority:document.getElementById('f-priority').value,type:document.getElementById('f-type').value,show:document.getElementById('f-show').value}));}catch{}
+}
+function restoreFilters() {
+  try{const s=JSON.parse(localStorage.getItem('oe-dash-filters')||'{}');if(s.status)document.getElementById('f-status').value=s.status;if(s.assignee)document.getElementById('f-assignee').value=s.assignee;if(s.priority)document.getElementById('f-priority').value=s.priority;if(s.type)document.getElementById('f-type').value=s.type;if(s.show)document.getElementById('f-show').value=s.show;}catch{}
+}
+
+// ── Main Load ────────────────────────────────────────────────────────────────
+async function loadData() {
+  const btn=document.getElementById('refresh-btn');
+  const icon=document.getElementById('refresh-icon');
+  btn.disabled=true;
+  icon.innerHTML='<span class="spinner spinner-sm"></span>';
+
+  // Reset
+  document.getElementById('issues-table-wrap').innerHTML='<div class="loading"><span class="spinner spinner-md" style="margin-right:8px"></span>Buscando issues do Jira…</div>';
+  document.getElementById('status-badge').innerHTML='<span class="status-badge sb-loading"><span class="spinner spinner-sm"></span>&nbsp;Carregando</span>';
+  document.getElementById('banner-tldr').textContent='Buscando dados da sprint…';
+  document.getElementById('banner-tldr').style.color='var(--text-muted)';
+  const bl=document.getElementById('burndown-loading');
+  bl.style.display='flex';
+  bl.innerHTML='<span class="spinner spinner-sm" style="margin-right:6px"></span>Aguardando dados do Jira…';
+
+  try {
+    await loadSnapshot();
+    const [jiraRes,calRes,emailRes,slackRes]=await Promise.allSettled([loadJira(),loadCalendar(),loadEmails(),loadSlack()]);
+
+    if(jiraRes.status==='fulfilled'){
+      const jd=jiraRes.value;
+      activeIssues=jd.active; doneIssues=jd.done; subtaskIssues=jd.subtasks||[]; doneHasMore=jd.doneHasMore;
+      allIssues=[...activeIssues,...doneIssues];
+      const blockedIssues=renderMetrics();
+      renderBurndown();
+      renderProductivity();
+      populateFilters(); restoreFilters(); renderIssues();
+      renderBlocked(blockedIssues); renderFocus(blockedIssues);
+    } else {
+      console.error('Jira error:',jiraRes.reason);
+      document.getElementById('issues-table-wrap').innerHTML='<div class="error-msg">⚠️ Erro ao carregar Jira. Tente novamente.</div>';
+      document.getElementById('status-badge').innerHTML='<span class="status-badge sb-red">⚠️ Erro Jira</span>';
+      document.getElementById('blocked-content').innerHTML='<div class="error-msg">Não foi possível carregar</div>';
+      document.getElementById('focus-content').innerHTML='<div class="empty">Aguardando dados do Jira</div>';
+      bl.innerHTML='⚠️ Erro ao carregar dados do Jira';
+    }
+
+    renderCalendar(calRes.status==='fulfilled'?calRes.value:[]);
+    renderEmails(emailRes.status==='fulfilled'?emailRes.value:[]);
+    renderSlack(slackRes.status==='fulfilled'?slackRes.value:'');
+
+    document.getElementById('last-updated').textContent=`Atualizado às ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}`;
+  } catch(e){ console.error('loadData fatal:',e); }
+
+  btn.disabled=false;
+  icon.textContent='⟳';
+}
+
+// ── Init ─────────────────────────────────────────────────────────────────────
+setupDate();
+loadData();
+</script>
+<!-- PUBLIC_HIDE_PERSONAL -->
+<script>
+// Versao publica: oculta paineis pessoais (Agenda/Gmail/Slack) que ficam vazios.
+window.addEventListener("DOMContentLoaded",function(){
+  ["calendar-content","email-content","slack-content"].forEach(function(id){
+    var e=document.getElementById(id); var p=e&&e.closest(".panel");
+    if(p) p.style.display="none";
+  });
+});
+</script>
+</body>
+</html>
