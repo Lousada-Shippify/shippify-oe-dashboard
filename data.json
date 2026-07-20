@@ -1,9 +1,74 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-07-20T20:08:13.820Z",
+  "jiraGeneratedAt": "2026-07-20T21:34:03.615Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
+      {
+        "key": "OE-189",
+        "fields": {
+          "summary": "Bug in search report filter",
+          "customfield_10028": 3,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10098",
+            "id": "10098",
+            "description": "Un problema o error.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
+            "name": "Error",
+            "subtask": false,
+            "avatarId": 10303,
+            "hierarchyLevel": 0
+          },
+          "customfield_10546": 1,
+          "duedate": "2026-07-09",
+          "customfield_10020": [
+            {
+              "id": 1198,
+              "name": "Sprint 5",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Continuação da construção da Torre de Controle, este é nosso Objetivo Macro.",
+              "startDate": "2026-07-14T21:35:58.169Z",
+              "endDate": "2026-07-28T21:35:55.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
+            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
+            "emailAddress": "robson.dias@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
+            },
+            "displayName": "Robson Dias Santana Junior",
+            "active": true,
+            "timeZone": "America/Sao_Paulo",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "REJECTED BY QA",
+            "id": "10568",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        }
+      },
       {
         "key": "OE-196",
         "fields": {
@@ -96,108 +161,6 @@
             "iconUrl": "https://shippify.atlassian.net/",
             "name": "REJECTED BY QA",
             "id": "10568",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        }
-      },
-      {
-        "key": "OE-193",
-        "fields": {
-          "summary": "Replicação de motivos de cancelamento - Conta 10823",
-          "customfield_10028": 4,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10098",
-            "id": "10098",
-            "description": "Un problema o error.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
-            "name": "Error",
-            "subtask": false,
-            "avatarId": 10303,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "49655",
-            "key": "OE-32",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/49655",
-            "fields": {
-              "summary": "[Operation - Tech Support] Q2 2026 – Operational Fixes & Critical Corrections (From May 19th Onward)",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 2,
-          "duedate": "2026-07-16",
-          "customfield_10020": [
-            {
-              "id": 1198,
-              "name": "Sprint 5",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Continuação da construção da Torre de Controle, este é nosso Objetivo Macro.",
-              "startDate": "2026-07-14T21:35:58.169Z",
-              "endDate": "2026-07-28T21:35:55.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
-            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
-            "emailAddress": "raphael.souza.t@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
-            },
-            "displayName": "Raphael Souza",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10567",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "APPROVED BY QA",
-            "id": "10567",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -1294,71 +1257,6 @@
               "key": "new",
               "colorName": "blue-gray",
               "name": "Itens Pendentes"
-            }
-          }
-        }
-      },
-      {
-        "key": "OE-189",
-        "fields": {
-          "summary": "Bug in search report filter",
-          "customfield_10028": 3,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10098",
-            "id": "10098",
-            "description": "Un problema o error.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
-            "name": "Error",
-            "subtask": false,
-            "avatarId": 10303,
-            "hierarchyLevel": 0
-          },
-          "customfield_10546": 1,
-          "duedate": "2026-07-09",
-          "customfield_10020": [
-            {
-              "id": 1198,
-              "name": "Sprint 5",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Continuação da construção da Torre de Controle, este é nosso Objetivo Macro.",
-              "startDate": "2026-07-14T21:35:58.169Z",
-              "endDate": "2026-07-28T21:35:55.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
-            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
-            "emailAddress": "robson.dias@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
-            },
-            "displayName": "Robson Dias Santana Junior",
-            "active": true,
-            "timeZone": "America/Sao_Paulo",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "ON GOING QA",
-            "id": "10672",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
             }
           }
         }
@@ -2942,11 +2840,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Trip Detail",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10673",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "CODE REVIEW REJECTED",
-                "id": "10673",
+                "name": "CODE REVIEW",
+                "id": "10565",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -3054,11 +2952,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Trip Detail",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10673",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "CODE REVIEW REJECTED",
-                "id": "10673",
+                "name": "CODE REVIEW",
+                "id": "10565",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -3166,11 +3064,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Trip Detail",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10673",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "CODE REVIEW REJECTED",
-                "id": "10673",
+                "name": "CODE REVIEW",
+                "id": "10565",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -3278,11 +3176,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Trip Detail",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10673",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "CODE REVIEW REJECTED",
-                "id": "10673",
+                "name": "CODE REVIEW",
+                "id": "10565",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -3390,11 +3288,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Trip Detail",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10673",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "CODE REVIEW REJECTED",
-                "id": "10673",
+                "name": "CODE REVIEW",
+                "id": "10565",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -3902,11 +3800,11 @@
             "id": "1"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10673",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "CODE REVIEW REJECTED",
-            "id": "10673",
+            "name": "CODE REVIEW",
+            "id": "10565",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -4412,6 +4310,109 @@
             "iconUrl": "https://shippify.atlassian.net/",
             "name": "CANCEL",
             "id": "10577",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+              "id": 3,
+              "key": "done",
+              "colorName": "green",
+              "name": "Itens concluídos"
+            }
+          }
+        }
+      },
+      {
+        "key": "OE-193",
+        "fields": {
+          "summary": "Replicação de motivos de cancelamento - Conta 10823",
+          "customfield_10028": 4,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10098",
+            "id": "10098",
+            "description": "Un problema o error.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
+            "name": "Error",
+            "subtask": false,
+            "avatarId": 10303,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "49655",
+            "key": "OE-32",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/49655",
+            "fields": {
+              "summary": "[Operation - Tech Support] Q2 2026 – Operational Fixes & Critical Corrections (From May 19th Onward)",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": 2,
+          "resolutiondate": null,
+          "customfield_10020": [
+            {
+              "id": 1198,
+              "name": "Sprint 5",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Continuação da construção da Torre de Controle, este é nosso Objetivo Macro.",
+              "startDate": "2026-07-14T21:35:58.169Z",
+              "endDate": "2026-07-28T21:35:55.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
+            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
+            "emailAddress": "raphael.souza.t@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
+            },
+            "displayName": "Raphael Souza",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "updated": "2026-07-20T17:26:20.354-0400",
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+            "name": "Concluído",
+            "id": "10294",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
               "id": 3,
@@ -4962,11 +4963,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Trip Detail",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10673",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "CODE REVIEW REJECTED",
-                "id": "10673",
+                "name": "CODE REVIEW",
+                "id": "10565",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -5075,11 +5076,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Trip Detail",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10673",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "CODE REVIEW REJECTED",
-                "id": "10673",
+                "name": "CODE REVIEW",
+                "id": "10565",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
