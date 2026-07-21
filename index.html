@@ -609,21 +609,45 @@ const CAL_TOOL   = 'mcp__8c541314-0f6c-418c-ba36-b1963e5d3b29__list_events';
 const GMAIL_TOOL = 'mcp__034cac31-5601-4932-b119-e4d9c64a60ee__search_threads';
 const SLACK_TOOL = 'mcp__161b720b-5bfb-412d-a3fa-0b268e06ee46__slack_search_public_and_private';
 
-// ── Static data bridge (GitHub Pages) ───────────────────────────────────────
-// Em vez dos conectores ao vivo do Cowork, o site lê tudo de ./data.json.
-// Jira é atualizado pelo GitHub Action; Agenda/Gmail/Slack são snapshot.
+// ── Data bridge (GitHub Pages) ──────────────────────────────────────────────
+// Jira: tenta ao vivo via proxy Cloudflare Worker (token nunca exposto no site);
+// se o Worker estiver fora do ar, cai no snapshot ./data.json (atualizado pelo
+// GitHub Action a cada 5 min). Agenda/Gmail/Slack sempre vêm do snapshot.
+const WORKER_URL = 'https://REPLACE-ME.workers.dev'; // preenchido por worker/deploy-worker.sh
 let SNAP = { jira:{active:[],done:[]}, calendar:[], emails:[], slack:'' };
+let jiraLive = false;
 async function loadSnapshot() {
   try {
-    const r = await fetch('./data.json', { cache:'no-store' });
+    const r = await fetch('./data.json?t=' + Date.now(), { cache:'no-store' });
     if (r.ok) SNAP = await r.json();
   } catch (e) { console.warn('data.json indisponível', e); }
+
+  // Tenta Jira ao vivo (clique em Atualizar força uma consulta nova de verdade).
+  jiraLive = false;
+  if (WORKER_URL && !WORKER_URL.includes('REPLACE-ME')) {
+    try {
+      const ctrl = new AbortController();
+      const to = setTimeout(() => ctrl.abort(), 9000);
+      const wr = await fetch(WORKER_URL + '/jira?t=' + Date.now(), { signal: ctrl.signal, cache:'no-store' });
+      clearTimeout(to);
+      if (wr.ok) {
+        const live = await wr.json();
+        if (live && Array.isArray(live.active) && Array.isArray(live.done)) {
+          SNAP.jira = { active: live.active, done: live.done };
+          SNAP.jiraGeneratedAt = live.generatedAt || new Date().toISOString();
+          jiraLive = true;
+        }
+      }
+    } catch (e) { console.warn('Jira ao vivo indisponível, usando snapshot:', e); }
+  }
+
   // Carimbo de atualização no cabeçalho
   try {
     const el = document.getElementById('last-updated');
     if (el) {
       const jt = SNAP.jiraGeneratedAt ? new Date(SNAP.jiraGeneratedAt) : null;
-      el.textContent = jt ? ('Jira atualizado ' + jt.toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})) : 'Dados carregados';
+      const prefix = jiraLive ? 'Jira ao vivo · atualizado ' : 'Jira atualizado ';
+      el.textContent = jt ? (prefix + jt.toLocaleString('pt-BR',{day:'2-digit',month:'2-digit',hour:'2-digit',minute:'2-digit'})) : 'Dados carregados';
     }
     const sn = document.getElementById('snapshot-note');
     if (sn && SNAP.generatedAt) {
@@ -1564,7 +1588,6 @@ async function loadData() {
     renderEmails(emailRes.status==='fulfilled'?emailRes.value:[]);
     renderSlack(slackRes.status==='fulfilled'?slackRes.value:'');
 
-    document.getElementById('last-updated').textContent=`Atualizado às ${new Date().toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}`;
   } catch(e){ console.error('loadData fatal:',e); }
 
   btn.disabled=false;
