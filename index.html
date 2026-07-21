@@ -1436,6 +1436,21 @@ function renderProductivity() {
     }
   }
 
+  // ── Rejeições — olha TODAS as issues (pai + subtarefas), cada uma pelo seu
+  // próprio responsável. Neste fluxo a rejeição normalmente acontece na issue-pai,
+  // mas uma subtarefa também pode ser rejeitada isoladamente — contamos as duas.
+  const rejByDev = new Map(); // name → { total, rejCode, rejQA }
+  const bumpRej = (issue) => {
+    const name = issue.fields?.assignee?.displayName || 'Sem responsável';
+    if (!rejByDev.has(name)) rejByDev.set(name, { total: 0, rejCode: 0, rejQA: 0 });
+    const rec = rejByDev.get(name);
+    rec.total++;
+    if (isCodeRejected(issue)) rec.rejCode++;
+    if (isQARejected(issue))   rec.rejQA++;
+  };
+  for (const issue of mainAll) bumpRej(issue);
+  for (const sub of subtaskIssues) bumpRej(sub);
+
   // ── Build rows ───────────────────────────────────────────────────────────────
   const qaRows  = [];
   const devRows = [];
@@ -1448,12 +1463,13 @@ function renderProductivity() {
     const spTodo   = spSum(p.todo, p.role);
     const spTotal  = spDone + spActive + spTodo;
     const noSP     = p.all.filter(i => (p.role === 'QA' ? getQASP(i) : getSP(i)) === null).length;
-    // Rejeições — só faz sentido como indicador de performance individual para Dev
-    // (é o dev quem teve o código/entrega rejeitado). Para a linha de QA fica de fora.
-    const rejCode  = p.role === 'Dev' ? p.all.filter(isCodeRejected).length : 0;
-    const rejQA    = p.role === 'Dev' ? p.all.filter(isQARejected).length   : 0;
+    // Rejeições — baseadas nas issues-pai atribuídas a esta pessoa (ver rejByDev acima).
+    // Só faz sentido como indicador de performance individual para Dev.
+    const rej      = p.role === 'Dev' ? (rejByDev.get(p.name) || { total:0, rejCode:0, rejQA:0 }) : { total:0, rejCode:0, rejQA:0 };
+    const rejCode  = rej.rejCode;
+    const rejQA    = rej.rejQA;
     const rejTotal = rejCode + rejQA;
-    const rejPct   = (p.role === 'Dev' && p.all.length > 0) ? Math.round(rejTotal/p.all.length*100) : null;
+    const rejPct   = (p.role === 'Dev' && rej.total > 0) ? Math.round(rejTotal/rej.total*100) : null;
     const row = { name: p.name, role: p.role, issuesTotal: p.all.length, issuesDone: p.done.length, spTotal, spDone, spActive, spTodo, noSP, rejCode, rejQA, rejTotal, rejPct };
     tot.issuesTotal += p.all.length; tot.issuesDone += p.done.length;
     tot.spTotal += spTotal; tot.spDone += spDone; tot.spActive += spActive; tot.spTodo += spTodo; tot.noSP += noSP;
@@ -1568,7 +1584,7 @@ function renderProductivity() {
       </table>
       <div style="font-size:10px;color:var(--text-muted);padding:6px 4px 0;font-family:'Montserrat',sans-serif">
         Linha <strong>QA</strong> usa o campo Jira "Story point QA" (issues pai, qualquer status) · linhas <strong>Dev</strong> usam "Story Points" das subtarefas atribuídas.
-        <strong>Rejeições</strong> conta tarefas do dev hoje em status de rejeição de código (PR/code review negado) ou de QA · <strong>Performance</strong> é melhor quanto menor a % de rejeitadas (baseado no status atual da sprint).
+        <strong>Rejeições</strong> conta todas as issues do dev (pai e subtarefas) que estão hoje em status de rejeição de código (PR/code review negado) ou de QA · <strong>Performance</strong> é melhor quanto menor a % de issues rejeitadas (baseado no status atual da sprint).
       </div>
     </div>
     ${insights.length?`<div class="prod-insights">
