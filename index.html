@@ -936,9 +936,9 @@ function buildBurndownData(sprintStartStr, sprintEndStr) {
   const end=new Date(sprintEndStr.split('T')[0]);
   const now=new Date(); now.setHours(23,59,59,999);
 
-  // Escopo = Story Points de TODAS as issues do sprint (pais + subtarefas, sem cancelados),
-  // por categoria de status — mesma metodologia da barra "Progresso do sprint" do Jira.
-  const all=[...activeIssues,...doneIssues,...subtaskIssues];
+  // Escopo = Story Points apenas das issues-pai do sprint (sem subtarefas) —
+  // confirmado com o Jira: o painel "Progresso do sprint" sempre soma só os pais.
+  const all=[...activeIssues,...doneIssues];
   const doneAll=all.filter(isDoneCat);
   const totalSP=all.reduce((s,i)=>s+getSP(i),0);
   const doneSP=doneAll.reduce((s,i)=>s+getSP(i),0);
