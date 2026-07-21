@@ -1,6 +1,6 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-07-21T20:27:18.599Z",
+  "jiraGeneratedAt": "2026-07-21T20:53:06.157Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
@@ -1287,11 +1287,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "ON GOING QA",
-                "id": "10672",
+                "name": "REJECTED BY QA",
+                "id": "10568",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1399,11 +1399,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "ON GOING QA",
-                "id": "10672",
+                "name": "REJECTED BY QA",
+                "id": "10568",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1511,11 +1511,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "ON GOING QA",
-                "id": "10672",
+                "name": "REJECTED BY QA",
+                "id": "10568",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -3744,11 +3744,11 @@
             "id": "1"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "ON GOING QA",
-            "id": "10672",
+            "name": "REJECTED BY QA",
+            "id": "10568",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -5339,11 +5339,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "ON GOING QA",
-                "id": "10672",
+                "name": "REJECTED BY QA",
+                "id": "10568",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -5452,11 +5452,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "ON GOING QA",
-                "id": "10672",
+                "name": "REJECTED BY QA",
+                "id": "10568",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -5565,11 +5565,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "ON GOING QA",
-                "id": "10672",
+                "name": "REJECTED BY QA",
+                "id": "10568",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
