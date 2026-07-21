@@ -1348,6 +1348,25 @@ function renderProductivity() {
   };
   const pctColor = p => p === null ? 'var(--text-muted)' : p >= 60 ? 'var(--green)' : p >= 35 ? 'var(--yellow)' : 'var(--red)';
 
+  // ── Rejection detection (language-flexible) ──────────────────────────────────
+  // Rejeição de código: status de "denied"/"reject" no fluxo de PR/code review (não-QA).
+  // Rejeição de QA: status de "reject" que menciona QA (ex.: "REJECTED BY QA").
+  const isCodeRejected = i => {
+    const s = (i.fields?.status?.name || '').toLowerCase();
+    return (s.includes('denied') || s.includes('reject')) && !s.includes('qa');
+  };
+  const isQARejected = i => {
+    const s = (i.fields?.status?.name || '').toLowerCase();
+    return s.includes('reject') && s.includes('qa');
+  };
+  const perfInfo = pct => {
+    if (pct === null || pct === undefined) return { label: '—', color: 'var(--text-muted)' };
+    if (pct === 0)  return { label: 'Excelente', color: 'var(--green)' };
+    if (pct <= 10)  return { label: 'Boa',       color: 'var(--green)' };
+    if (pct <= 25)  return { label: 'Atenção',   color: 'var(--yellow)' };
+    return             { label: 'Crítica',    color: 'var(--red)' };
+  };
+
   // ── QA status detection (language-flexible) ─────────────────────────────────
   const isQAStatus = i => {
     const s = (i.fields?.status?.name || '').toLowerCase();
@@ -1420,8 +1439,8 @@ function renderProductivity() {
   // ── Build rows ───────────────────────────────────────────────────────────────
   const qaRows  = [];
   const devRows = [];
-  let totQA  = { issuesTotal:0, issuesDone:0, spTotal:0, spDone:0, spActive:0, spTodo:0, noSP:0 };
-  let totDev = { issuesTotal:0, issuesDone:0, spTotal:0, spDone:0, spActive:0, spTodo:0, noSP:0 };
+  let totQA  = { issuesTotal:0, issuesDone:0, spTotal:0, spDone:0, spActive:0, spTodo:0, noSP:0, rejCode:0, rejQA:0 };
+  let totDev = { issuesTotal:0, issuesDone:0, spTotal:0, spDone:0, spActive:0, spTodo:0, noSP:0, rejCode:0, rejQA:0 };
 
   const buildRow = (p, tot) => {
     const spDone   = spSum(p.done, p.role);
@@ -1429,9 +1448,16 @@ function renderProductivity() {
     const spTodo   = spSum(p.todo, p.role);
     const spTotal  = spDone + spActive + spTodo;
     const noSP     = p.all.filter(i => (p.role === 'QA' ? getQASP(i) : getSP(i)) === null).length;
-    const row = { name: p.name, role: p.role, issuesTotal: p.all.length, issuesDone: p.done.length, spTotal, spDone, spActive, spTodo, noSP };
+    // Rejeições — só faz sentido como indicador de performance individual para Dev
+    // (é o dev quem teve o código/entrega rejeitado). Para a linha de QA fica de fora.
+    const rejCode  = p.role === 'Dev' ? p.all.filter(isCodeRejected).length : 0;
+    const rejQA    = p.role === 'Dev' ? p.all.filter(isQARejected).length   : 0;
+    const rejTotal = rejCode + rejQA;
+    const rejPct   = (p.role === 'Dev' && p.all.length > 0) ? Math.round(rejTotal/p.all.length*100) : null;
+    const row = { name: p.name, role: p.role, issuesTotal: p.all.length, issuesDone: p.done.length, spTotal, spDone, spActive, spTodo, noSP, rejCode, rejQA, rejTotal, rejPct };
     tot.issuesTotal += p.all.length; tot.issuesDone += p.done.length;
     tot.spTotal += spTotal; tot.spDone += spDone; tot.spActive += spActive; tot.spTodo += spTodo; tot.noSP += noSP;
+    tot.rejCode += rejCode; tot.rejQA += rejQA;
     return row;
   };
 
@@ -1467,6 +1493,11 @@ function renderProductivity() {
       const t = [...bottleneck].sort((a,b) => b.spActive - a.spActive)[0];
       insights.push(`<strong>${escHtml(t.name.split(' ')[0])}</strong> com ${fmtSP(t.spActive)} SP em andamento — risco de gargalo. Verifique desbloqueios.`);
     }
+    const rejected = devRows.filter(r => r.rejTotal > 0 && r.name !== 'Sem responsável');
+    if (rejected.length) {
+      const t = [...rejected].sort((a,b) => b.rejPct - a.rejPct)[0];
+      insights.push(`<strong>${escHtml(t.name.split(' ')[0])}</strong> com ${t.rejPct}% das tarefas rejeitadas (${t.rejCode} código · ${t.rejQA} QA) — performance "${perfInfo(t.rejPct).label}".`);
+    }
   }
   const allNoSP = subtaskIssues.filter(i => getSP(i) === null);
   if (allNoSP.length) {
@@ -1491,6 +1522,8 @@ function renderProductivity() {
     const roleBadge = r.role === 'QA'
       ? `<span style="background:var(--purple-bg);color:#5b4cce;font-size:9px;font-weight:700;padding:2px 7px;border-radius:99px;letter-spacing:.04em;font-family:'Montserrat',sans-serif">QA</span>`
       : `<span style="background:var(--blue-bg);color:var(--blue);font-size:9px;font-weight:700;padding:2px 7px;border-radius:99px;letter-spacing:.04em;font-family:'Montserrat',sans-serif">Dev</span>`;
+    const perf = r.role === 'Dev' ? perfInfo(r.rejPct) : { label: '—', color: 'var(--text-muted)' };
+    const rejTitle = r.role === 'Dev' ? `${r.rejCode} rejeição(ões) de código · ${r.rejQA} rejeição(ões) de QA` : '';
     return `<tr>
       <td class="prod-dev ${isSem?'prod-dev-sem':''}" style="display:flex;align-items:center;gap:6px">${roleBadge}${escHtml(r.name)}</td>
       <td>${r.issuesTotal}</td>
@@ -1501,6 +1534,8 @@ function renderProductivity() {
       <td>${fmtSP(r.spTodo)}</td>
       <td class="prod-nosp">${r.noSP||'0'}</td>
       <td class="prod-pct" style="color:${pctColor(pctRaw)}">${pctRaw!==null?pctRaw+'%':'—'}</td>
+      <td title="${escHtml(rejTitle)}">${r.role==='Dev' ? (r.rejTotal||'0') : '—'}${r.role==='Dev' && r.rejTotal>0 ? ` <span style="color:var(--text-muted);font-size:10px">(${r.rejCode}C/${r.rejQA}QA)</span>` : ''}</td>
+      <td><span style="background:${perf.color}22;color:${perf.color};font-size:10px;font-weight:700;padding:3px 8px;border-radius:99px;font-family:'Montserrat',sans-serif">${perf.label}${r.role==='Dev'&&r.rejPct!==null?` · ${r.rejPct}%`:''}</span></td>
     </tr>`;
   }).join('');
 
@@ -1516,6 +1551,7 @@ function renderProductivity() {
           <th>SP atribuídos</th><th>SP entregues</th>
           <th>SP em andamento</th><th>SP não inic.</th>
           <th>Sem SP</th><th>% SP entregue</th>
+          <th>Rejeições</th><th>Performance</th>
         </tr></thead>
         ${tableRows}
         <tfoot><tr>
@@ -1526,10 +1562,13 @@ function renderProductivity() {
           <td>${fmtSP(totQA.spActive + totDev.spActive)}</td><td>${fmtSP(totQA.spTodo + totDev.spTodo)}</td>
           <td>${totQA.noSP + totDev.noSP}</td>
           <td class="prod-pct" style="color:${pctColor(totPctRaw)}">${totPctRaw!==null?totPctRaw+'%':'—'}</td>
+          <td>${totDev.rejCode + totDev.rejQA || '0'}</td>
+          <td>—</td>
         </tr></tfoot>
       </table>
       <div style="font-size:10px;color:var(--text-muted);padding:6px 4px 0;font-family:'Montserrat',sans-serif">
         Linha <strong>QA</strong> usa o campo Jira "Story point QA" (issues pai, qualquer status) · linhas <strong>Dev</strong> usam "Story Points" das subtarefas atribuídas.
+        <strong>Rejeições</strong> conta tarefas do dev hoje em status de rejeição de código (PR/code review negado) ou de QA · <strong>Performance</strong> é melhor quanto menor a % de rejeitadas (baseado no status atual da sprint).
       </div>
     </div>
     ${insights.length?`<div class="prod-insights">
