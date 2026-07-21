@@ -62,6 +62,47 @@ export default {
     }
 
     const url = new URL(request.url);
+
+    // Diagnóstico temporário — não expõe o token, só presença de segredos e a
+    // resposta crua do Jira para descobrir por que active/done vêm vazios.
+    if (url.pathname === '/debug') {
+      const BASE = (env.JIRA_BASE_URL || '').replace(/\/+$/, '');
+      const info = {
+        hasBaseUrl: !!env.JIRA_BASE_URL,
+        hasEmail: !!env.JIRA_EMAIL,
+        hasToken: !!env.JIRA_API_TOKEN,
+        baseUrlHost: BASE ? (() => { try { return new URL(BASE).host; } catch { return 'URL INVÁLIDA: ' + BASE; } })() : '(vazio)',
+      };
+      const AUTH = 'Basic ' + btoa(`${env.JIRA_EMAIL}:${env.JIRA_API_TOKEN}`);
+
+      // Quem o token diz que é (não expõe segredo, só identidade autenticada).
+      try {
+        const meRes = await fetch(`${BASE}/rest/api/3/myself`, {
+          headers: { Authorization: AUTH, Accept: 'application/json' },
+        });
+        info.myselfStatus = meRes.status;
+        info.myselfBody = (await meRes.text()).slice(0, 500);
+      } catch (e) {
+        info.myselfError = String(e && e.message || e);
+      }
+
+      const testJql = url.searchParams.get('jql') || JQL_ACTIVE;
+      info.testJql = testJql;
+      try {
+        const res = await fetch(`${BASE}/rest/api/3/search/jql`, {
+          method: 'POST',
+          headers: { Authorization: AUTH, 'Content-Type': 'application/json', Accept: 'application/json' },
+          body: JSON.stringify({ jql: testJql, fields: ['summary','status'], maxResults: 10 }),
+        });
+        const text = await res.text();
+        info.jiraStatus = res.status;
+        info.jiraBodyPreview = text.slice(0, 800);
+      } catch (e) {
+        info.fetchError = String(e && e.message || e);
+      }
+      return new Response(JSON.stringify(info, null, 2), { status: 200, headers: { ...headers, 'Content-Type': 'application/json' } });
+    }
+
     if (url.pathname !== '/jira') {
       return new Response(JSON.stringify({ error: 'not found' }), { status: 404, headers: { ...headers, 'Content-Type': 'application/json' } });
     }

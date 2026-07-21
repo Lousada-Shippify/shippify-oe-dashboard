@@ -613,7 +613,7 @@ const SLACK_TOOL = 'mcp__161b720b-5bfb-412d-a3fa-0b268e06ee46__slack_search_publ
 // Jira: tenta ao vivo via proxy Cloudflare Worker (token nunca exposto no site);
 // se o Worker estiver fora do ar, cai no snapshot ./data.json (atualizado pelo
 // GitHub Action a cada 5 min). Agenda/Gmail/Slack sempre vêm do snapshot.
-const WORKER_URL = 'https://REPLACE-ME.workers.dev'; // preenchido por worker/deploy-worker.sh
+const WORKER_URL = 'https://dashboard-operation-experience.vitor-lousada-t.workers.dev'; // preenchido por worker/deploy-worker.sh
 let SNAP = { jira:{active:[],done:[]}, calendar:[], emails:[], slack:'' };
 let jiraLive = false;
 async function loadSnapshot() {
