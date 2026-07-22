@@ -1,6 +1,6 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-07-22T12:58:31.734Z",
+  "jiraGeneratedAt": "2026-07-22T15:02:17.832Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
@@ -92,11 +92,116 @@
             "id": "3"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10569",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "ON GOING QA",
-            "id": "10672",
+            "name": "WAITING FOR DEPLOY/RELEASE",
+            "id": "10569",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 1
+      },
+      {
+        "id": "51122",
+        "key": "OE-195",
+        "fields": {
+          "summary": "Import de archivos falla por versión de xlsx",
+          "customfield_10028": 4,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10098",
+            "id": "10098",
+            "description": "Un problema o error.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
+            "name": "Error",
+            "subtask": false,
+            "avatarId": 10303,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "51116",
+            "key": "OE-194",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/51116",
+            "fields": {
+              "summary": "Fixes en la versión 3.0.0 de Import",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": 2,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1198,
+              "name": "Sprint 5",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Continuação da construção da Torre de Controle, este é nosso Objetivo Macro.",
+              "startDate": "2026-07-14T21:35:58.169Z",
+              "endDate": "2026-07-28T21:35:55.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "emailAddress": "guilherme.santos@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
+            },
+            "displayName": "Guilherme Macedo Bento Santos",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10569",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "WAITING FOR DEPLOY/RELEASE",
+            "id": "10569",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -525,111 +630,6 @@
         },
         "_rejCode": 0,
         "_rejQA": 0
-      },
-      {
-        "id": "51122",
-        "key": "OE-195",
-        "fields": {
-          "summary": "Import de archivos falla por versión de xlsx",
-          "customfield_10028": 4,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10098",
-            "id": "10098",
-            "description": "Un problema o error.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
-            "name": "Error",
-            "subtask": false,
-            "avatarId": 10303,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "51116",
-            "key": "OE-194",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/51116",
-            "fields": {
-              "summary": "Fixes en la versión 3.0.0 de Import",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 2,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1198,
-              "name": "Sprint 5",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Continuação da construção da Torre de Controle, este é nosso Objetivo Macro.",
-              "startDate": "2026-07-14T21:35:58.169Z",
-              "endDate": "2026-07-28T21:35:55.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "emailAddress": "guilherme.santos@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
-            },
-            "displayName": "Guilherme Macedo Bento Santos",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10567",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "APPROVED BY QA",
-            "id": "10567",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 1
       },
       {
         "id": "51258",
@@ -1209,11 +1209,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1324,11 +1324,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "PENDING QA",
+                "id": "10566",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1439,11 +1439,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "PENDING QA",
+                "id": "10566",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1554,11 +1554,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "PENDING QA",
+                "id": "10566",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1899,11 +1899,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2014,11 +2014,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2129,11 +2129,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2244,11 +2244,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2359,11 +2359,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -3733,11 +3733,11 @@
             "id": "2"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "CODE REVIEW",
-            "id": "10565",
+            "name": "PENDING QA",
+            "id": "10566",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -3847,11 +3847,11 @@
             "id": "1"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "REJECTED BY QA",
-            "id": "10568",
+            "name": "PENDING QA",
+            "id": "10566",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -3961,11 +3961,11 @@
             "id": "1"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "REJECTED BY QA",
-            "id": "10568",
+            "name": "ON GOING QA",
+            "id": "10672",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -5490,11 +5490,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "PENDING QA",
+                "id": "10566",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -5606,11 +5606,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "PENDING QA",
+                "id": "10566",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -5722,11 +5722,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "PENDING QA",
+                "id": "10566",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -5838,11 +5838,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -5954,11 +5954,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -6070,11 +6070,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
