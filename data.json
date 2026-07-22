@@ -1,10 +1,11 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-07-22T11:30:02.789Z",
+  "jiraGeneratedAt": "2026-07-22T11:53:19.980Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
       {
+        "id": "51272",
         "key": "OE-212",
         "fields": {
           "summary": "FE: Show ETA atual / ETA original on the trip detail page",
@@ -104,9 +105,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "51256",
         "key": "OE-204",
         "fields": {
           "summary": "[MM3] Full route visualization on trip detail map",
@@ -205,9 +209,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "51254",
         "key": "OE-203",
         "fields": {
           "summary": "[MM3] Persist and display current/original destination ETA via price_detail (owned by INF)",
@@ -306,9 +313,12 @@
               "name": "Itens Pendentes"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "51252",
         "key": "OE-202",
         "fields": {
           "summary": "[MM3] Act Now panel — real-time alert updates via session-scoped channels",
@@ -407,9 +417,12 @@
               "name": "Itens Pendentes"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "51124",
         "key": "OE-196",
         "fields": {
           "summary": "Match de columnas obliga correo del destinatario aunque ya se matcheó teléfono",
@@ -509,9 +522,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 1
       },
       {
+        "id": "51122",
         "key": "OE-195",
         "fields": {
           "summary": "Import de archivos falla por versión de xlsx",
@@ -611,9 +627,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 1
       },
       {
+        "id": "51258",
         "key": "OE-205",
         "fields": {
           "summary": "FE: Implement session-scoped Alerts channel resolution (ALERTS_ACCOUNT vs ALERTS_OPERATION)",
@@ -713,9 +732,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "51268",
         "key": "OE-210",
         "fields": {
           "summary": "BE: Expose original and current destination ETA via API",
@@ -815,9 +837,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50832",
         "key": "OE-179",
         "fields": {
           "summary": "[FE] mm-trip-detail MFE scaffold (1st)",
@@ -927,9 +952,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50703",
         "key": "OE-159",
         "fields": {
           "summary": "[FE] Live map — driver position + dock markers",
@@ -1039,9 +1067,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50706",
         "key": "OE-162",
         "fields": {
           "summary": "[BE/FE] Consume trip detail / position / geofence contracts",
@@ -1151,9 +1182,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50692",
         "key": "OE-148",
         "fields": {
           "summary": "[FE] Severity row coloring + alert pill",
@@ -1263,9 +1297,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50696",
         "key": "OE-152",
         "fields": {
           "summary": "[FE] Alert card component + severity ordering",
@@ -1375,9 +1412,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50695",
         "key": "OE-151",
         "fields": {
           "summary": "[FE] Act Now MFE scaffold + panel container",
@@ -1487,9 +1527,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50700",
         "key": "OE-156",
         "fields": {
           "summary": "[BE] Unify & extend GET /v1/control/mm/alerts",
@@ -1599,9 +1642,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50702",
         "key": "OE-158",
         "fields": {
           "summary": "[FE] Journey timeline + photo evidence (read-only)",
@@ -1711,9 +1757,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50701",
         "key": "OE-157",
         "fields": {
           "summary": "[FE] Trip detail layout + driver/vehicle data",
@@ -1823,9 +1872,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50687",
         "key": "OE-143",
         "fields": {
           "summary": "[FE] Server route /views/middle-mile-tower + EJS template",
@@ -1935,9 +1987,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50686",
         "key": "OE-142",
         "fields": {
           "summary": "[FE] Scaffold middle-mile-tower micro-frontend",
@@ -2047,9 +2102,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50688",
         "key": "OE-144",
         "fields": {
           "summary": "[FE] Dash nav entry \"Torre de Controle\" with access control",
@@ -2159,9 +2217,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50691",
         "key": "OE-147",
         "fields": {
           "summary": "[FE] Trips table UI — tabs, counters, columns",
@@ -2271,9 +2332,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50690",
         "key": "OE-146",
         "fields": {
           "summary": "[FE] Trips data layer",
@@ -2383,9 +2447,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "51270",
         "key": "OE-211",
         "fields": {
           "summary": "FE: Show current ETA with SLA delta in the Control Tower table",
@@ -2485,9 +2552,12 @@
               "name": "Itens Pendentes"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50834",
         "key": "OE-180",
         "fields": {
           "summary": "[MM F3] Discovery — Torre de Controle",
@@ -2596,9 +2666,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "51264",
         "key": "OE-208",
         "fields": {
           "summary": "FE: Resynchronize the queue on socket reconnection",
@@ -2698,9 +2771,12 @@
               "name": "Itens Pendentes"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "51262",
         "key": "OE-207",
         "fields": {
           "summary": "FE: Fade out and remove resolved alerts from the queue",
@@ -2800,9 +2876,12 @@
               "name": "Itens Pendentes"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "51260",
         "key": "OE-206",
         "fields": {
           "summary": "FE: Consume mm:alert events and reorder the Act Now queue in real time",
@@ -2902,9 +2981,12 @@
               "name": "Itens Pendentes"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "51280",
         "key": "OE-216",
         "fields": {
           "summary": "FE: Store the trace and render it on the map via ShyMapRoutes",
@@ -3004,9 +3086,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "51278",
         "key": "OE-215",
         "fields": {
           "summary": "FE: Calculate the route trace via routing service with Google Directions fallback",
@@ -3106,9 +3191,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "51276",
         "key": "OE-214",
         "fields": {
           "summary": "FE: Load ordered route steps when opening trip detail",
@@ -3208,9 +3296,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50848",
         "key": "OE-187",
         "fields": {
           "summary": "[DISC] How alerts are displayed in Trip Detail",
@@ -3320,9 +3411,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50844",
         "key": "OE-185",
         "fields": {
           "summary": "[DISC] Real-time updates for MM deliveries in the trips table",
@@ -3432,9 +3526,12 @@
               "name": "Itens Pendentes"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50838",
         "key": "OE-182",
         "fields": {
           "summary": "[DISC] Operator actions + inline action log per alert",
@@ -3544,9 +3641,12 @@
               "name": "Itens Pendentes"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "51147",
         "key": "OE-201",
         "fields": {
           "summary": "[Slots] Corregir filtrado de fechas en getSlotByTaskId: usar start_date/end_date (UTC) del slot en vez de columnas de shift en hora local",
@@ -3646,9 +3746,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50684",
         "key": "OE-140",
         "fields": {
           "summary": "[MM F3][Tower] Act Now action queue",
@@ -3757,9 +3860,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 1,
+        "_rejQA": 2
       },
       {
+        "id": "50683",
         "key": "OE-139",
         "fields": {
           "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
@@ -3868,9 +3974,12 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 2
       },
       {
+        "id": "50685",
         "key": "OE-141",
         "fields": {
           "summary": "[MM F3][Tower] Trip Detail",
@@ -3979,11 +4088,14 @@
               "name": "Em andamento"
             }
           }
-        }
+        },
+        "_rejCode": 1,
+        "_rejQA": 0
       }
     ],
     "done": [
       {
+        "id": "51347",
         "key": "OE-219",
         "fields": {
           "summary": "Drivers de EDSP con fecha incorrecta de categorización",
@@ -4084,9 +4196,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "51345",
         "key": "OE-218",
         "fields": {
           "summary": "Validar cambios de categorización/fechas EDSP (SD-3211, SD-3216, SD-3217)",
@@ -4187,9 +4302,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "51274",
         "key": "OE-213",
         "fields": {
           "summary": "Implement conditional \"Recalculate ETA\" button for stale-GPS edge cases (Option C)",
@@ -4276,9 +4394,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "51266",
         "key": "OE-209",
         "fields": {
           "summary": "BE: Persist destination ETA on every evaluation (UPSERT by delivery_reference)",
@@ -4365,9 +4486,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "51112",
         "key": "OE-193",
         "fields": {
           "summary": "Replicação de motivos de cancelamento - Conta 10823",
@@ -4468,9 +4592,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50864",
         "key": "OE-189",
         "fields": {
           "summary": "Bug in search report filter",
@@ -4571,9 +4698,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 1
       },
       {
+        "id": "50863",
         "key": "OE-188",
         "fields": {
           "summary": "“Unarchive Images” button for the company  8784 | LindtSprungli BRasil",
@@ -4637,9 +4767,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50846",
         "key": "OE-186",
         "fields": {
           "summary": "[DISC] Real-time updates for alerts in the Act Now panel",
@@ -4750,9 +4883,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50842",
         "key": "OE-184",
         "fields": {
           "summary": "[DISC] Recalculate ETA action (INF contract)",
@@ -4863,9 +4999,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50840",
         "key": "OE-183",
         "fields": {
           "summary": "[DISC] Full route visualization on trip detail map",
@@ -4976,9 +5115,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50836",
         "key": "OE-181",
         "fields": {
           "summary": "[DISC] Alert reference_code / external alert codes",
@@ -5089,9 +5231,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50705",
         "key": "OE-161",
         "fields": {
           "summary": "[JOLOU][FE] Communication thread ↔ Action Log",
@@ -5202,9 +5347,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50704",
         "key": "OE-160",
         "fields": {
           "summary": "[FE] Recalcular ETA action",
@@ -5315,9 +5463,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50699",
         "key": "OE-155",
         "fields": {
           "summary": "[FE] Inline action log per card + audit footer",
@@ -5428,9 +5579,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50698",
         "key": "OE-154",
         "fields": {
           "summary": "[JOLOU][FE] Integrate JOLOU chat in Act Now",
@@ -5541,9 +5695,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50697",
         "key": "OE-153",
         "fields": {
           "summary": "[FE] Operator actions wired to action-log / notification",
@@ -5654,9 +5811,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50694",
         "key": "OE-150",
         "fields": {
           "summary": "[BE/FE] Integrate alert feed contract in the trips list",
@@ -5767,9 +5927,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50693",
         "key": "OE-149",
         "fields": {
           "summary": "[FE] Row quick-view popup (journey, evidence, log)",
@@ -5880,9 +6043,12 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       },
       {
+        "id": "50689",
         "key": "OE-145",
         "fields": {
           "summary": "[FE] Migrate Middle Mile trips out of monitor",
@@ -5993,7 +6159,9 @@
               "name": "Itens concluídos"
             }
           }
-        }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0
       }
     ]
   },
