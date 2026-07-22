@@ -1436,20 +1436,29 @@ function renderProductivity() {
     }
   }
 
-  // ── Rejeições — olha TODAS as issues (pai + subtarefas), cada uma pelo seu
-  // próprio responsável. Neste fluxo a rejeição normalmente acontece na issue-pai,
-  // mas uma subtarefa também pode ser rejeitada isoladamente — contamos as duas.
-  const rejByDev = new Map(); // name → { total, rejCode, rejQA }
+  // ── Rejeições — via HISTÓRICO do Jira (changelog) ────────────────────────────
+  // Cada issue traz _rejCode / _rejQA = nº de vezes que ela transicionou PARA um
+  // status de rejeição de código ("CODE REVIEW REJECTED") ou de QA ("REJECTED BY QA").
+  // Contamos por responsável, em TODAS as issues (pai + subtarefas). Isso captura
+  // rejeições já corrigidas e múltiplas rejeições da mesma tarefa.
+  const rejCodeOf = i => Number(i?._rejCode) || 0;
+  const rejQAOf   = i => Number(i?._rejQA)   || 0;
+  const rejByDev = new Map(); // name → { issues, rejCode, rejQA }
+  const rejCards = [];        // issues rejeitadas ao menos 1x (para destaque)
   const bumpRej = (issue) => {
     const name = issue.fields?.assignee?.displayName || 'Sem responsável';
-    if (!rejByDev.has(name)) rejByDev.set(name, { total: 0, rejCode: 0, rejQA: 0 });
+    if (!rejByDev.has(name)) rejByDev.set(name, { issues: 0, rejCode: 0, rejQA: 0 });
     const rec = rejByDev.get(name);
-    rec.total++;
-    if (isCodeRejected(issue)) rec.rejCode++;
-    if (isQARejected(issue))   rec.rejQA++;
+    rec.issues++;
+    const c = rejCodeOf(issue), q = rejQAOf(issue);
+    rec.rejCode += c; rec.rejQA += q;
+    if (c + q > 0) rejCards.push({ key: issue.key, summary: issue.fields?.summary || '', assignee: name, status: issue.fields?.status?.name || '', rejCode: c, rejQA: q, total: c + q });
   };
   for (const issue of mainAll) bumpRej(issue);
   for (const sub of subtaskIssues) bumpRej(sub);
+  rejCards.sort((a, b) => b.total - a.total);
+  const multi  = rejCards.filter(c => c.total >= 2);
+  const single = rejCards.filter(c => c.total === 1);
 
   // ── Build rows ───────────────────────────────────────────────────────────────
   const qaRows  = [];
@@ -1463,13 +1472,12 @@ function renderProductivity() {
     const spTodo   = spSum(p.todo, p.role);
     const spTotal  = spDone + spActive + spTodo;
     const noSP     = p.all.filter(i => (p.role === 'QA' ? getQASP(i) : getSP(i)) === null).length;
-    // Rejeições — baseadas nas issues-pai atribuídas a esta pessoa (ver rejByDev acima).
-    // Só faz sentido como indicador de performance individual para Dev.
-    const rej      = p.role === 'Dev' ? (rejByDev.get(p.name) || { total:0, rejCode:0, rejQA:0 }) : { total:0, rejCode:0, rejQA:0 };
+    // Rejeições (via changelog) — só como indicador de performance para Dev.
+    const rej      = p.role === 'Dev' ? (rejByDev.get(p.name) || { issues:0, rejCode:0, rejQA:0 }) : { issues:0, rejCode:0, rejQA:0 };
     const rejCode  = rej.rejCode;
     const rejQA    = rej.rejQA;
     const rejTotal = rejCode + rejQA;
-    const rejPct   = (p.role === 'Dev' && rej.total > 0) ? Math.round(rejTotal/rej.total*100) : null;
+    const rejPct   = (p.role === 'Dev' && rej.issues > 0) ? Math.round(rejTotal/rej.issues*100) : null;
     const row = { name: p.name, role: p.role, issuesTotal: p.all.length, issuesDone: p.done.length, spTotal, spDone, spActive, spTodo, noSP, rejCode, rejQA, rejTotal, rejPct };
     tot.issuesTotal += p.all.length; tot.issuesDone += p.done.length;
     tot.spTotal += spTotal; tot.spDone += spDone; tot.spActive += spActive; tot.spTodo += spTodo; tot.noSP += noSP;
@@ -1488,6 +1496,28 @@ function renderProductivity() {
     else devRows.push(buildRow(p, totDev));
   }
   sortRows(qaRows); sortRows(devRows);
+
+  // ── Ranking Top Devs — Entrega (throughput) × Qualidade (rejeições) ──────────
+  // Índice de performance (0–100): 60% entrega + 40% qualidade.
+  //   entrega  = SP entregues do dev, normalizado pelo maior SP entregue da squad.
+  //   qualidade= 100 − (rejeições × 20), piso em 0 (cada rejeição pesa −20).
+  const rankDevs = devRows.filter(r => r.name !== 'Sem responsável');
+  const maxDone = Math.max(1, ...rankDevs.map(r => r.spDone));
+  for (const r of rankDevs) {
+    const throughput = Math.round(r.spDone / maxDone * 100);
+    const quality    = Math.max(0, 100 - r.rejTotal * 20);
+    r.throughputScore = throughput;
+    r.qualityScore    = quality;
+    r.perfScore       = Math.round(0.6 * throughput + 0.4 * quality);
+  }
+  rankDevs.sort((a, b) =>
+    b.perfScore - a.perfScore ||
+    b.spDone - a.spDone ||
+    a.rejTotal - b.rejTotal ||
+    a.name.localeCompare(b.name)
+  );
+  const scoreColor = s => s >= 75 ? 'var(--green)' : s >= 50 ? 'var(--yellow-dark)' : 'var(--red)';
+  const medal = i => i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `${i+1}º`;
 
   // Auto-generated insights
   const insights = [];
@@ -1509,10 +1539,17 @@ function renderProductivity() {
       const t = [...bottleneck].sort((a,b) => b.spActive - a.spActive)[0];
       insights.push(`<strong>${escHtml(t.name.split(' ')[0])}</strong> com ${fmtSP(t.spActive)} SP em andamento — risco de gargalo. Verifique desbloqueios.`);
     }
-    const rejected = devRows.filter(r => r.rejTotal > 0 && r.name !== 'Sem responsável');
-    if (rejected.length) {
-      const t = [...rejected].sort((a,b) => b.rejPct - a.rejPct)[0];
-      insights.push(`<strong>${escHtml(t.name.split(' ')[0])}</strong> com ${t.rejPct}% das tarefas rejeitadas (${t.rejCode} código · ${t.rejQA} QA) — performance "${perfInfo(t.rejPct).label}".`);
+    if (rankDevs.length) {
+      const top = rankDevs[0];
+      insights.push(`<strong>🏆 ${escHtml(top.name.split(' ')[0])}</strong> lidera o ranking (índice ${top.perfScore}): ${fmtSP(top.spDone)} SP entregues e ${top.rejTotal} rejeiç${top.rejTotal===1?'ão':'ões'} no histórico.`);
+    }
+    const worstRej = rankDevs.filter(r => r.rejTotal > 0);
+    if (worstRej.length) {
+      const t = [...worstRej].sort((a,b) => b.rejTotal - a.rejTotal)[0];
+      insights.push(`<strong>${escHtml(t.name.split(' ')[0])}</strong> concentra o maior retrabalho: ${t.rejTotal} rejeiç${t.rejTotal===1?'ão':'ões'} (${t.rejCode} de código · ${t.rejQA} de QA). Vale revisar causa-raiz.`);
+    }
+    if (multi.length) {
+      insights.push(`<strong>${multi.length} card${multi.length>1?'s':''}</strong> com 2+ rejeições — foco de retrabalho da sprint: ${multi.slice(0,4).map(c=>c.key).join(', ')}${multi.length>4?'…':''}.`);
     }
   }
   const allNoSP = subtaskIssues.filter(i => getSP(i) === null);
@@ -1559,8 +1596,55 @@ function renderProductivity() {
   const combinedRows = [...devRows, ...qaRows];
   const tableRows = `<tbody>${mkRows(combinedRows)}</tbody>`;
 
+  // ── Ranking cards (Top Devs) ─────────────────────────────────────────────────
+  const rankHtml = rankDevs.map((r, i) => {
+    const first = escHtml(r.name.split(' ')[0]);
+    const isTop = i === 0;
+    const sc = scoreColor(r.perfScore);
+    return `<div style="flex:1 1 158px;min-width:158px;background:var(--bg-card);border:1px solid var(--border);${isTop?'border-color:var(--yellow);box-shadow:0 0 0 3px var(--yellow-bg);':''}border-radius:14px;padding:13px 15px">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
+        <span style="font-size:22px;line-height:1">${medal(i)}</span>
+        <span style="font-size:28px;font-weight:800;color:${sc};font-family:'Montserrat',sans-serif;line-height:1">${r.perfScore}</span>
+      </div>
+      <div style="font-weight:700;font-size:13px">${first}</div>
+      <div style="font-size:9px;color:var(--text-muted);letter-spacing:.03em;margin-bottom:9px;font-family:'Montserrat',sans-serif;text-transform:uppercase">Índice de performance</div>
+      <div style="height:6px;background:var(--border);border-radius:99px;overflow:hidden;margin-bottom:9px"><div style="width:${r.perfScore}%;height:100%;background:${sc}"></div></div>
+      <div style="display:flex;gap:5px;flex-wrap:wrap">
+        <span style="font-size:10px;background:var(--green-bg);color:#0d6b4a;padding:2px 7px;border-radius:99px;font-weight:700">${fmtSP(r.spDone)} SP entregues</span>
+        <span style="font-size:10px;background:${r.rejTotal>0?'var(--red-bg)':'rgba(21,21,21,0.06)'};color:${r.rejTotal>0?'var(--red)':'var(--text-muted)'};padding:2px 7px;border-radius:99px;font-weight:700">${r.rejTotal} rejeiç${r.rejTotal===1?'ão':'ões'}</span>
+      </div>
+    </div>`;
+  }).join('');
+
+  // ── Cards com múltiplas rejeições (2+) e demais rejeitados ───────────────────
+  const rejRow = c => `<div style="display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--border);border-left:3px solid var(--red);border-radius:8px;background:var(--bg-card)">
+      <span style="font-weight:800;color:var(--red);font-family:'Montserrat',sans-serif;font-size:15px;min-width:32px;text-align:center">${c.total}×</span>
+      <div style="flex:1;min-width:0">
+        <div style="font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"><a href="${JIRA_BASE}${c.key}" target="_blank" style="color:var(--blue);text-decoration:none">${escHtml(c.key)}</a> · ${escHtml(c.summary)}</div>
+        <div style="font-size:10px;color:var(--text-muted)">${escHtml(c.assignee)} · ${c.rejCode} de código / ${c.rejQA} de QA · agora em ${escHtml(c.status)}</div>
+      </div>
+    </div>`;
+  const rejBlock = rejCards.length ? `
+    <div style="margin-top:16px">
+      <div style="font-size:12px;font-weight:700;font-family:'Montserrat',sans-serif;letter-spacing:.02em;margin-bottom:8px;display:flex;align-items:center;gap:8px">
+        🔁 Cards com retrabalho por rejeição
+        ${multi.length?`<span style="font-size:10px;background:var(--red-bg);color:var(--red);padding:2px 8px;border-radius:99px">${multi.length} com 2+ rejeições</span>`:''}
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px">
+        ${(multi.length?multi:single).map(rejRow).join('')}
+      </div>
+      ${multi.length && single.length?`<div style="font-size:10px;color:var(--text-muted);margin-top:6px;font-family:'Montserrat',sans-serif">+ ${single.length} card${single.length>1?'s':''} com 1 rejeição.</div>`:''}
+    </div>` : `
+    <div style="margin-top:16px;font-size:11px;color:var(--text-muted);font-family:'Montserrat',sans-serif">✅ Nenhum card sofreu rejeição de código ou QA nesta sprint.</div>`;
+
   el.innerHTML = `
-    <div class="prod-table-wrap">
+    <div style="margin-bottom:16px">
+      <div style="font-size:12px;font-weight:700;font-family:'Montserrat',sans-serif;letter-spacing:.02em;margin-bottom:9px">🏆 Ranking de performance — entrega × qualidade</div>
+      <div style="display:flex;gap:10px;flex-wrap:wrap">${rankHtml || '<div class="empty">Sem devs com atividade.</div>'}</div>
+      <div style="font-size:10px;color:var(--text-muted);margin-top:7px;font-family:'Montserrat',sans-serif">Índice = 60% entrega (SP concluídos, relativo ao maior da squad) + 40% qualidade (100 − 20 por rejeição no histórico do Jira).</div>
+    </div>
+    ${rejBlock}
+    <div class="prod-table-wrap" style="margin-top:16px">
       <table class="prod-table">
         <thead><tr>
           <th>Pessoa / Papel</th><th>Issues atrib.</th><th>Issues concl.</th>
@@ -1584,11 +1668,11 @@ function renderProductivity() {
       </table>
       <div style="font-size:10px;color:var(--text-muted);padding:6px 4px 0;font-family:'Montserrat',sans-serif">
         Linha <strong>QA</strong> usa o campo Jira "Story point QA" (issues pai, qualquer status) · linhas <strong>Dev</strong> usam "Story Points" das subtarefas atribuídas.
-        <strong>Rejeições</strong> conta todas as issues do dev (pai e subtarefas) que estão hoje em status de rejeição de código (PR/code review negado) ou de QA · <strong>Performance</strong> é melhor quanto menor a % de issues rejeitadas (baseado no status atual da sprint).
+        <strong>Rejeições</strong> vem do histórico do Jira (changelog): nº de vezes que as issues do dev entraram em "CODE REVIEW REJECTED" (código) ou "REJECTED BY QA" (QA) — inclui rejeições já corrigidas e reincidências · <strong>Performance</strong> na tabela = % de rejeição por issue trabalhada (menor é melhor).
       </div>
     </div>
     ${insights.length?`<div class="prod-insights">
-      <div class="prod-insights-title">Leitura de produtividade (SP entregue × alocado)</div>
+      <div class="prod-insights-title">Leitura de produtividade</div>
       <ul class="prod-insights-list">${insights.map(i=>`<li>${i}</li>`).join('')}</ul>
     </div>`:''}`;
 }
