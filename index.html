@@ -1339,7 +1339,15 @@ function renderProductivity() {
     const v = issue?.fields?.customfield_10546;
     return (v !== null && v !== undefined) ? Number(v) : null;
   };
-  const spSum = (arr, role) => arr.reduce((s, i) => s + ((role === 'QA' ? getQASP(i) : getSP(i)) ?? 0), 0);
+  // Dev SP = Story Points do pai MENOS a parte de QA ("Story point QA").
+  // Assim DEV + QA reconcilia exatamente com o total de Story Points do progresso (98).
+  const getDevSP = issue => {
+    const sp = getSP(issue);
+    if (sp === null) return null;
+    const qa = getQASP(issue) || 0;
+    return Math.max(0, sp - qa);
+  };
+  const spSum = (arr, role) => arr.reduce((s, i) => s + ((role === 'QA' ? getQASP(i) : getDevSP(i)) ?? 0), 0);
 
   const fmtSP = v => {
     if (v === null || v === undefined || isNaN(v)) return '—';
@@ -1421,19 +1429,12 @@ function renderProductivity() {
     addIssue(qaPerson, issue, isQAStatus);
   }
 
-  // Dev attribution: subtasks → dev assignee (sempre, qualquer status)
-  for (const sub of subtaskIssues) {
-    const name = sub.fields?.assignee?.displayName || 'Sem responsável';
-    addIssue(getPerson(name, 'Dev'), sub);
-  }
-
-  // Dev attribution: issues pai sem subtarefa alguma → dev assignee (fallback de segurança;
-  // na prática toda história tem subtarefas, então este bucket deve ficar vazio)
+  // Dev attribution: issues PAI (histórias/tarefas) → dev responsável do pai.
+  // Usa os mesmos Story Points do "Progresso da sprint" (customfield_10028 dos pais),
+  // então a soma de SP dos devs reconcilia exatamente com o total do progresso (98).
   for (const issue of mainAll) {
-    if (!parentKeysWithSubtasks.has(issue.key)) {
-      const name = issue.fields?.assignee?.displayName || 'Sem responsável';
-      addIssue(getPerson(name, 'Dev'), issue);
-    }
+    const name = issue.fields?.assignee?.displayName || 'Sem responsável';
+    addIssue(getPerson(name, 'Dev'), issue);
   }
 
   // ── Rejeições — via HISTÓRICO do Jira (changelog) ────────────────────────────
@@ -1497,28 +1498,6 @@ function renderProductivity() {
   }
   sortRows(qaRows); sortRows(devRows);
 
-  // ── Ranking Top Devs — Entrega (throughput) × Qualidade (rejeições) ──────────
-  // Índice de performance (0–100): 60% entrega + 40% qualidade.
-  //   entrega  = SP entregues do dev, normalizado pelo maior SP entregue da squad.
-  //   qualidade= 100 − (rejeições × 20), piso em 0 (cada rejeição pesa −20).
-  const rankDevs = devRows.filter(r => r.name !== 'Sem responsável');
-  const maxDone = Math.max(1, ...rankDevs.map(r => r.spDone));
-  for (const r of rankDevs) {
-    const throughput = Math.round(r.spDone / maxDone * 100);
-    const quality    = Math.max(0, 100 - r.rejTotal * 20);
-    r.throughputScore = throughput;
-    r.qualityScore    = quality;
-    r.perfScore       = Math.round(0.6 * throughput + 0.4 * quality);
-  }
-  rankDevs.sort((a, b) =>
-    b.perfScore - a.perfScore ||
-    b.spDone - a.spDone ||
-    a.rejTotal - b.rejTotal ||
-    a.name.localeCompare(b.name)
-  );
-  const scoreColor = s => s >= 75 ? 'var(--green)' : s >= 50 ? 'var(--yellow-dark)' : 'var(--red)';
-  const medal = i => i === 0 ? '🥇' : i === 1 ? '🥈' : i === 2 ? '🥉' : `${i+1}º`;
-
   // Auto-generated insights
   const insights = [];
   const allRows = [...qaRows, ...devRows];
@@ -1539,11 +1518,7 @@ function renderProductivity() {
       const t = [...bottleneck].sort((a,b) => b.spActive - a.spActive)[0];
       insights.push(`<strong>${escHtml(t.name.split(' ')[0])}</strong> com ${fmtSP(t.spActive)} SP em andamento — risco de gargalo. Verifique desbloqueios.`);
     }
-    if (rankDevs.length) {
-      const top = rankDevs[0];
-      insights.push(`<strong>🏆 ${escHtml(top.name.split(' ')[0])}</strong> lidera o ranking (índice ${top.perfScore}): ${fmtSP(top.spDone)} SP entregues e ${top.rejTotal} rejeiç${top.rejTotal===1?'ão':'ões'} no histórico.`);
-    }
-    const worstRej = rankDevs.filter(r => r.rejTotal > 0);
+    const worstRej = devRows.filter(r => r.rejTotal > 0 && r.name !== 'Sem responsável');
     if (worstRej.length) {
       const t = [...worstRej].sort((a,b) => b.rejTotal - a.rejTotal)[0];
       insights.push(`<strong>${escHtml(t.name.split(' ')[0])}</strong> concentra o maior retrabalho: ${t.rejTotal} rejeiç${t.rejTotal===1?'ão':'ões'} (${t.rejCode} de código · ${t.rejQA} de QA). Vale revisar causa-raiz.`);
@@ -1596,26 +1571,6 @@ function renderProductivity() {
   const combinedRows = [...devRows, ...qaRows];
   const tableRows = `<tbody>${mkRows(combinedRows)}</tbody>`;
 
-  // ── Ranking cards (Top Devs) ─────────────────────────────────────────────────
-  const rankHtml = rankDevs.map((r, i) => {
-    const first = escHtml(r.name.split(' ')[0]);
-    const isTop = i === 0;
-    const sc = scoreColor(r.perfScore);
-    return `<div style="flex:1 1 158px;min-width:158px;background:var(--bg-card);border:1px solid var(--border);${isTop?'border-color:var(--yellow);box-shadow:0 0 0 3px var(--yellow-bg);':''}border-radius:14px;padding:13px 15px">
-      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:6px">
-        <span style="font-size:22px;line-height:1">${medal(i)}</span>
-        <span style="font-size:28px;font-weight:800;color:${sc};font-family:'Montserrat',sans-serif;line-height:1">${r.perfScore}</span>
-      </div>
-      <div style="font-weight:700;font-size:13px">${first}</div>
-      <div style="font-size:9px;color:var(--text-muted);letter-spacing:.03em;margin-bottom:9px;font-family:'Montserrat',sans-serif;text-transform:uppercase">Índice de performance</div>
-      <div style="height:6px;background:var(--border);border-radius:99px;overflow:hidden;margin-bottom:9px"><div style="width:${r.perfScore}%;height:100%;background:${sc}"></div></div>
-      <div style="display:flex;gap:5px;flex-wrap:wrap">
-        <span style="font-size:10px;background:var(--green-bg);color:#0d6b4a;padding:2px 7px;border-radius:99px;font-weight:700">${fmtSP(r.spDone)} SP entregues</span>
-        <span style="font-size:10px;background:${r.rejTotal>0?'var(--red-bg)':'rgba(21,21,21,0.06)'};color:${r.rejTotal>0?'var(--red)':'var(--text-muted)'};padding:2px 7px;border-radius:99px;font-weight:700">${r.rejTotal} rejeiç${r.rejTotal===1?'ão':'ões'}</span>
-      </div>
-    </div>`;
-  }).join('');
-
   // ── Cards com múltiplas rejeições (2+) e demais rejeitados ───────────────────
   const rejRow = c => `<div style="display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--border);border-left:3px solid var(--red);border-radius:8px;background:var(--bg-card)">
       <span style="font-weight:800;color:var(--red);font-family:'Montserrat',sans-serif;font-size:15px;min-width:32px;text-align:center">${c.total}×</span>
@@ -1638,11 +1593,6 @@ function renderProductivity() {
     <div style="margin-top:16px;font-size:11px;color:var(--text-muted);font-family:'Montserrat',sans-serif">✅ Nenhum card sofreu rejeição de código ou QA nesta sprint.</div>`;
 
   el.innerHTML = `
-    <div style="margin-bottom:16px">
-      <div style="font-size:12px;font-weight:700;font-family:'Montserrat',sans-serif;letter-spacing:.02em;margin-bottom:9px">🏆 Ranking de performance — entrega × qualidade</div>
-      <div style="display:flex;gap:10px;flex-wrap:wrap">${rankHtml || '<div class="empty">Sem devs com atividade.</div>'}</div>
-      <div style="font-size:10px;color:var(--text-muted);margin-top:7px;font-family:'Montserrat',sans-serif">Índice = 60% entrega (SP concluídos, relativo ao maior da squad) + 40% qualidade (100 − 20 por rejeição no histórico do Jira).</div>
-    </div>
     ${rejBlock}
     <div class="prod-table-wrap" style="margin-top:16px">
       <table class="prod-table">
@@ -1667,7 +1617,7 @@ function renderProductivity() {
         </tr></tfoot>
       </table>
       <div style="font-size:10px;color:var(--text-muted);padding:6px 4px 0;font-family:'Montserrat',sans-serif">
-        Linha <strong>QA</strong> usa o campo Jira "Story point QA" (issues pai, qualquer status) · linhas <strong>Dev</strong> usam "Story Points" das subtarefas atribuídas.
+        SP por história-pai: <strong>QA</strong> = "Story point QA" · <strong>Dev</strong> = Story Points − parte de QA. Assim <strong>DEV + QA = 98</strong>, o mesmo total do Progresso da sprint.
         <strong>Rejeições</strong> vem do histórico do Jira (changelog): nº de vezes que as issues do dev entraram em "CODE REVIEW REJECTED" (código) ou "REJECTED BY QA" (QA) — inclui rejeições já corrigidas e reincidências · <strong>Performance</strong> na tabela = % de rejeição por issue trabalhada (menor é melhor).
       </div>
     </div>
