@@ -1,6 +1,6 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-07-23T18:49:28.080Z",
+  "jiraGeneratedAt": "2026-07-23T20:02:39.640Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
@@ -1084,11 +1084,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Trip Detail",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1199,11 +1199,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Trip Detail",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1314,11 +1314,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Trip Detail",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1889,11 +1889,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Trip Detail",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2004,11 +2004,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Trip Detail",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -3452,7 +3452,7 @@
             "hierarchyLevel": 0
           },
           "customfield_10546": 3,
-          "duedate": null,
+          "duedate": "2026-07-27",
           "customfield_10020": [
             {
               "id": 1198,
@@ -3705,11 +3705,11 @@
             "id": "1"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "PENDING QA",
-            "id": "10566",
+            "name": "ON GOING QA",
+            "id": "10672",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -5328,11 +5328,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Trip Detail",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -5444,11 +5444,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Trip Detail",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
