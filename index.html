@@ -471,7 +471,7 @@ td.sub-key a { color: var(--text-muted); font-size: 11px; }
   <div class="banner-divider"></div>
   <div class="banner-metrics">
     <div class="banner-metric"><div class="val" id="bm-progress">—</div><div class="lbl">Concluídas</div></div>
-    <div class="banner-metric"><div class="val" id="bm-days">—</div><div class="lbl">Dias Rest.</div></div>
+    <div class="banner-metric"><div class="val" id="bm-days">—</div><div class="lbl">Dias úteis rest.</div></div>
     <div class="banner-metric"><div class="val" id="bm-sprint" style="font-size:13px">—</div><div class="lbl">Sprint</div></div>
   </div>
 </div>
@@ -489,7 +489,7 @@ td.sub-key a { color: var(--text-muted); font-size: 11px; }
   <div class="metric-card blue"><div class="val" id="mc-review">—</div><div class="lbl">Review / QA</div></div>
   <div class="metric-card yellow"><div class="val" id="mc-todo">—</div><div class="lbl">Não Iniciadas</div></div>
   <div class="metric-card red"><div class="val" id="mc-blocked">—</div><div class="lbl">Bloqueadas</div></div>
-  <div class="metric-card neutral"><div class="val" id="mc-days" style="color:var(--text-muted)">—</div><div class="lbl">Dias Restantes</div></div>
+  <div class="metric-card neutral"><div class="val" id="mc-days" style="color:var(--text-muted)">—</div><div class="lbl">Dias úteis restantes</div></div>
 </div>
 
 <!-- ── Burndown Chart ── -->
@@ -694,6 +694,16 @@ function todayStr() { return new Date().toISOString().split('T')[0]; }
 function fmtDate(s) { if (!s) return ''; return new Date(s).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'}); }
 function fmtTime(dt) { if (!dt) return ''; return new Date(dt).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit',timeZone:'America/Sao_Paulo'}); }
 function daysUntil(d) { if (!d) return null; const t=new Date(); t.setHours(0,0,0,0); return Math.ceil((new Date(String(d).split('T')[0])-t)/86400000); }
+// Dias ÚTEIS restantes (exclui sábados e domingos) — de amanhã até a data-fim inclusive.
+function businessDaysUntil(d) {
+  if (!d) return null;
+  const end=new Date(String(d).split('T')[0]); end.setHours(0,0,0,0);
+  const cur=new Date(); cur.setHours(0,0,0,0);
+  if (end<=cur) return 0;
+  let count=0; const c=new Date(cur);
+  while (c<end) { c.setDate(c.getDate()+1); const dow=c.getDay(); if (dow!==0 && dow!==6) count++; }
+  return count;
+}
 function initials(n) { return (n||'?').split(' ').map(p=>p[0]||'').join('').slice(0,2).toUpperCase(); }
 const AVATAR_COLORS=['#6366f1','#8b5cf6','#ec4899','#f97316','#14b8a6','#3b82f6','#22c55e','#a855f7','#06b6d4'];
 function avatarColor(n) { let h=0; for(const c of(n||'')) h=(h*31+c.charCodeAt(0))%AVATAR_COLORS.length; return AVATAR_COLORS[h]; }
@@ -899,7 +909,7 @@ function renderMetrics() {
   let daysLeft='—',sprintName='—';
   if(sprintInfo){
     sprintName=sprintInfo.name||'—';
-    if(sprintInfo.endDate){ const d=daysUntil(sprintInfo.endDate); daysLeft=d!==null?`${d}d`:'—'; }
+    if(sprintInfo.endDate){ const d=businessDaysUntil(sprintInfo.endDate); daysLeft=d!==null?`${d}d`:'—'; }
   }
   document.getElementById('mc-days').textContent=daysLeft;
   document.getElementById('bm-sprint').textContent=sprintName;
@@ -1309,13 +1319,13 @@ function renderFocus(blockedIssues) {
   const highPrio=activeIssues.filter(i=>['Highest','High'].includes(i.fields?.priority?.name)&&!isDone(i)&&!isBlocked(i));
   const reviewCnt=activeIssues.filter(isInReview).length;
   const sprintInfo=findSprintInfo();
-  const dLeft=sprintInfo?.endDate?daysUntil(sprintInfo.endDate):null;
+  const dLeft=sprintInfo?.endDate?businessDaysUntil(sprintInfo.endDate):null;
 
   if(blockedIssues.length>0) focuses.push(`Destravar ${blockedIssues.length} issue${blockedIssues.length>1?'s':''} bloqueada${blockedIssues.length>1?'s':''}: ${blockedIssues.map(i=>i.key).join(', ')} — identifique o impedimento e remova hoje.`);
   if(unassigned.length>0){const highU=unassigned.filter(i=>['Highest','High'].includes(i.fields?.priority?.name));focuses.push(`Atribuir responsável para ${unassigned.length} issue${unassigned.length>1?'s':''} sem dono${highU.length>0?' — '+highU.length+' delas de alta prioridade':''}.`);}
   else if(highPrio.length>0) focuses.push(`Acompanhar ${highPrio.length} issue${highPrio.length>1?'s':''} de alta prioridade: garantir progresso sem bloqueios.`);
   if(reviewCnt>5) focuses.push(`WIP alto em Review/QA (${reviewCnt} issues). Finalize antes de puxar novos tickets para não sobrecarregar o pipeline.`);
-  else if(dLeft!==null&&dLeft<=5) focuses.push(`Sprint encerra em ${dLeft} dia${dLeft!==1?'s':''}. Valide o que tem chance real de entrega e faça descoping do restante.`);
+  else if(dLeft!==null&&dLeft<=5) focuses.push(`Sprint encerra em ${dLeft} dia${dLeft!==1?'s':''} útil${dLeft!==1?'eis':''}. Valide o que tem chance real de entrega e faça descoping do restante.`);
   else focuses.push('Revisar progresso no stand-up e alinhar dependências entre membros do time.');
   while(focuses.length<3) focuses.push('Revisar backlogs e prioridades com stakeholders antes do próximo ciclo.');
   el.innerHTML=focuses.slice(0,3).map((f,i)=>`<div class="focus-item"><div class="focus-num">${i+1}</div><div class="focus-text">${escHtml(f)}</div></div>`).join('');
@@ -1537,9 +1547,9 @@ function renderProductivity() {
   if (sprint) {
     const start = sprint.startDate ? fmtDate(sprint.startDate) : '?';
     const end   = sprint.endDate   ? fmtDate(sprint.endDate)   : '?';
-    const dLeft = sprint.endDate ? daysUntil(sprint.endDate) : null;
+    const dLeft = sprint.endDate ? businessDaysUntil(sprint.endDate) : null;
     document.getElementById('prod-meta').textContent =
-      `${sprint.name || ''} · ${start}–${end}${dLeft!==null ? ` · ~${dLeft} dia${dLeft!==1?'s':''} restantes` : ''} · ${mainAll.length} issues pai · ${subtaskIssues.length} subtarefas`;
+      `${sprint.name || ''} · ${start}–${end}${dLeft!==null ? ` · ~${dLeft} dia${dLeft!==1?'s':''} útil${dLeft!==1?'eis':''} restante${dLeft!==1?'s':''}` : ''} · ${mainAll.length} issues pai · ${subtaskIssues.length} subtarefas`;
   }
 
   const totPctRaw = (totQA.spTotal + totDev.spTotal) > 0 ? Math.round((totQA.spDone + totDev.spDone)/(totQA.spTotal + totDev.spTotal)*100) : null;
