@@ -695,9 +695,11 @@ function fmtDate(s) { if (!s) return ''; return new Date(s).toLocaleDateString('
 function fmtTime(dt) { if (!dt) return ''; return new Date(dt).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit',timeZone:'America/Sao_Paulo'}); }
 function daysUntil(d) { if (!d) return null; const t=new Date(); t.setHours(0,0,0,0); return Math.ceil((new Date(String(d).split('T')[0])-t)/86400000); }
 // Dias ÚTEIS restantes (exclui sábados e domingos) — de amanhã até a data-fim inclusive.
+// Parseia a data em horário LOCAL (evita o deslocamento de 1 dia do new Date('YYYY-MM-DD') UTC).
 function businessDaysUntil(d) {
   if (!d) return null;
-  const end=new Date(String(d).split('T')[0]); end.setHours(0,0,0,0);
+  const p=String(d).split('T')[0].split('-').map(Number);
+  const end=new Date(p[0], p[1]-1, p[2]);
   const cur=new Date(); cur.setHours(0,0,0,0);
   if (end<=cur) return 0;
   let count=0; const c=new Date(cur);
@@ -1325,7 +1327,7 @@ function renderFocus(blockedIssues) {
   if(unassigned.length>0){const highU=unassigned.filter(i=>['Highest','High'].includes(i.fields?.priority?.name));focuses.push(`Atribuir responsável para ${unassigned.length} issue${unassigned.length>1?'s':''} sem dono${highU.length>0?' — '+highU.length+' delas de alta prioridade':''}.`);}
   else if(highPrio.length>0) focuses.push(`Acompanhar ${highPrio.length} issue${highPrio.length>1?'s':''} de alta prioridade: garantir progresso sem bloqueios.`);
   if(reviewCnt>5) focuses.push(`WIP alto em Review/QA (${reviewCnt} issues). Finalize antes de puxar novos tickets para não sobrecarregar o pipeline.`);
-  else if(dLeft!==null&&dLeft<=5) focuses.push(`Sprint encerra em ${dLeft} dia${dLeft!==1?'s':''} útil${dLeft!==1?'eis':''}. Valide o que tem chance real de entrega e faça descoping do restante.`);
+  else if(dLeft!==null&&dLeft<=5) focuses.push(`Sprint encerra em ${dLeft} dia${dLeft!==1?'s':''} ${dLeft!==1?'úteis':'útil'}. Valide o que tem chance real de entrega e faça descoping do restante.`);
   else focuses.push('Revisar progresso no stand-up e alinhar dependências entre membros do time.');
   while(focuses.length<3) focuses.push('Revisar backlogs e prioridades com stakeholders antes do próximo ciclo.');
   el.innerHTML=focuses.slice(0,3).map((f,i)=>`<div class="focus-item"><div class="focus-num">${i+1}</div><div class="focus-text">${escHtml(f)}</div></div>`).join('');
@@ -1549,7 +1551,7 @@ function renderProductivity() {
     const end   = sprint.endDate   ? fmtDate(sprint.endDate)   : '?';
     const dLeft = sprint.endDate ? businessDaysUntil(sprint.endDate) : null;
     document.getElementById('prod-meta').textContent =
-      `${sprint.name || ''} · ${start}–${end}${dLeft!==null ? ` · ~${dLeft} dia${dLeft!==1?'s':''} útil${dLeft!==1?'eis':''} restante${dLeft!==1?'s':''}` : ''} · ${mainAll.length} issues pai · ${subtaskIssues.length} subtarefas`;
+      `${sprint.name || ''} · ${start}–${end}${dLeft!==null ? ` · ~${dLeft} dia${dLeft!==1?'s':''} ${dLeft!==1?'úteis':'útil'} restante${dLeft!==1?'s':''}` : ''} · ${mainAll.length} issues pai · ${subtaskIssues.length} subtarefas`;
   }
 
   const totPctRaw = (totQA.spTotal + totDev.spTotal) > 0 ? Math.round((totQA.spDone + totDev.spDone)/(totQA.spTotal + totDev.spTotal)*100) : null;
