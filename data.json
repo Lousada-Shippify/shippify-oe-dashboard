@@ -1,6 +1,6 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-07-23T10:52:47.771Z",
+  "jiraGeneratedAt": "2026-07-23T12:16:11.616Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
@@ -1314,11 +1314,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1429,11 +1429,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1544,11 +1544,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1659,11 +1659,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2004,11 +2004,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2119,11 +2119,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2234,11 +2234,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2349,11 +2349,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2464,11 +2464,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -3637,11 +3637,11 @@
             "id": "1"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "PENDING QA",
-            "id": "10566",
+            "name": "ON GOING QA",
+            "id": "10672",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -3751,11 +3751,11 @@
             "id": "1"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "PENDING QA",
-            "id": "10566",
+            "name": "ON GOING QA",
+            "id": "10672",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -5492,11 +5492,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -5608,11 +5608,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -5724,11 +5724,11 @@
             "fields": {
               "summary": "[MM F3][Tower] Act Now action queue",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -5840,11 +5840,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -5956,11 +5956,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -6072,11 +6072,11 @@
             "fields": {
               "summary": "[MM F3][Tower] New \"Torre de Controle\" view in Dash + Trips list",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
