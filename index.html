@@ -1502,6 +1502,8 @@ function renderProductivity() {
   const totRejCode = mainAll.reduce((s,i)=>s+rejCodeOf(i),0);
   const irq = baseQA > 0 ? totRejQA / baseQA : null;
   const irc = baseCR > 0 ? totRejCode / baseCR : null;
+  const cardsQA = mainAll.filter(i => rejQAOf(i) > 0).length;    // cards afetados por retorno de QA
+  const cardsCR = mainAll.filter(i => rejCodeOf(i) > 0).length;  // cards afetados por rejeição de código
   // Base por pessoa (mesma regra, só nos cards de cada responsável)
   const baseByDev = new Map();
   for (const i of mainAll) {
@@ -1526,12 +1528,12 @@ function renderProductivity() {
   const factor = v => (v === null || v === undefined || isNaN(v)) ? '—' : ('×' + (1 + v).toFixed(2).replace('.', ','));
   // Marcador na escala 0 → 1,5 (acima de 1,5 fica no fim da barra)
   const scaleMark = v => Math.min(100, Math.max(0, (v || 0) / 1.5 * 100));
-  const retTile = (title, v, base, rejN, hint) => { const b = retBand(v);
+  const retTile = (title, v, base, rejN, hint, affected, reading) => { const b = retBand(v);
     return `<div style="background:var(--bg-card-el);border:1px solid var(--border);border-left:3px solid ${b.color};border-radius:8px;padding:12px 14px">
       <div style="font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)">${title}</div>
       <div style="font-size:34px;font-weight:800;line-height:1.05;margin:4px 0 2px;color:${b.color};font-variant-numeric:tabular-nums">${fmtIdx(v)}</div>
       <span style="background:${b.color}1F;color:${b.color};font-size:9px;font-weight:800;padding:2px 8px;border-radius:99px;letter-spacing:.04em">${b.label}</span>
-      <div style="font-size:10px;color:var(--text-muted);line-height:1.45;margin-top:8px">${rejN} ${rejN===1?'retorno':'retornos'} ÷ ${base} card${base===1?'':'s'} ${hint}</div>
+      <div style="font-size:10px;color:var(--text-muted);line-height:1.45;margin-top:8px">${rejN} ${rejN===1?'retorno':'retornos'} ÷ ${base} card${base===1?'':'s'} ${hint} · ${affected} card${affected===1?'':'s'} afetado${affected===1?'':'s'}${reading?`<br><span style="color:var(--text-disabled)">${reading}</span>`:''}</div>
       <div style="display:flex;height:5px;border-radius:99px;overflow:hidden;margin-top:10px">
         <i style="flex:1;background:var(--green)"></i><i style="flex:1.5;background:var(--yellow)"></i><i style="flex:1.5;background:var(--orange)"></i><i style="flex:3;background:var(--red)"></i>
       </div>
@@ -1546,8 +1548,10 @@ function renderProductivity() {
         <span style="font-size:10px;background:var(--blue-bg);color:var(--blue);padding:2px 8px;border-radius:99px">sprint atual</span>
       </div>
       <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px">
-        ${retTile('↩︎ Retorno QA (IRQ)', irq, baseQA, totRejQA, 'que chegaram ao QA')}
-        ${retTile('↩︎ Retorno de código (IRC)', irc, baseCR, totRejCode, 'que entraram em code review')}
+        ${retTile('↩︎ Retorno QA (IRQ)', irq, baseQA, totRejQA, 'que chegaram ao QA', cardsQA,
+          irq!==null?`Cada card testado volta ~${fmtIdx(irq)}× antes de passar`:'')}
+        ${retTile('↩︎ Retorno de código (IRC)', irc, baseCR, totRejCode, 'que entraram em code review', cardsCR,
+          irc?`1 em cada ${Math.round(1/irc)} PRs volta`:(irc===0?'Nenhum PR voltou nesta sprint':''))}
         <div style="background:var(--bg-header);border-radius:8px;padding:12px 14px">
           <div style="font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)">Fator de re-estimativa sugerido</div>
           <div style="font-size:26px;font-weight:800;color:#fff;margin:8px 0 2px;font-variant-numeric:tabular-nums">QA ${factor(irq)} <span style="color:#666;font-size:16px">/</span> Dev ${factor(irc)}</div>
