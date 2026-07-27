@@ -1457,18 +1457,107 @@ function renderProductivity() {
   const rejCodeOf = i => Number(i?._rejCode) || 0;
   const rejQAOf   = i => Number(i?._rejQA)   || 0;
   const rejByDev = new Map(); // name → { issues, rejCode, rejQA }
+  // Só o nível de CARD (história/tarefa/bug) alimenta o índice de retorno — mesma granularidade
+  // do Weekly Product Hub, para os dois dashboards mostrarem o mesmo número para a mesma squad.
+  const rejCardByDev = new Map(); // name → { rejCode, rejQA }
   const rejCards = [];        // issues rejeitadas ao menos 1x (para destaque)
-  const bumpRej = (issue) => {
+  const bumpRej = (issue, isCard) => {
     const name = issue.fields?.assignee?.displayName || 'Sem responsável';
     if (!rejByDev.has(name)) rejByDev.set(name, { issues: 0, rejCode: 0, rejQA: 0 });
     const rec = rejByDev.get(name);
     rec.issues++;
     const c = rejCodeOf(issue), q = rejQAOf(issue);
     rec.rejCode += c; rec.rejQA += q;
+    if (isCard) {
+      if (!rejCardByDev.has(name)) rejCardByDev.set(name, { rejCode: 0, rejQA: 0 });
+      const rc = rejCardByDev.get(name); rc.rejCode += c; rc.rejQA += q;
+    }
     if (c + q > 0) rejCards.push({ key: issue.key, summary: issue.fields?.summary || '', assignee: name, status: issue.fields?.status?.name || '', rejCode: c, rejQA: q, total: c + q });
   };
-  for (const issue of mainAll) bumpRej(issue);
-  for (const sub of subtaskIssues) bumpRej(sub);
+  for (const issue of mainAll) bumpRej(issue, true);
+  for (const sub of subtaskIssues) bumpRej(sub, false);
+
+  // ── ÍNDICE DE RETORNO (retrabalho médio por card) ────────────────────────────
+  // IRQ = retornos de QA ÷ nº de cards que CHEGARAM ao fluxo de QA.
+  // IRC = rejeições de code review ÷ nº de cards que CHEGARAM ao code review.
+  // 0 = ótimo. 1,00 significa "em média cada card volta uma vez inteira".
+  // Base (denominador) vem do changelog (_touchQA/_touchCR); se o snapshot for antigo,
+  // cai no fallback pelo status atual — o índice nunca fica indefinido por isso.
+  const QA_STAGE_RE = /(PENDING\s*QA|ON\s*GOING\s*QA|ON\s*TESTING|APPROVED\s*BY\s*QA|QA\s*VERIFIED|REJECTED\s*BY\s*QA|QA\s*DENIED)/i;
+  const CR_STAGE_RE = /(CODE\s*REVIEW|PR\s*REVIEW|PULL\s*REQUEST)/i;
+  // Pós-estágio: quem está aguardando deploy/release ou já concluiu necessariamente passou por QA
+  // (e, antes dele, pelo code review). Usado só quando o snapshot ainda não traz a flag do changelog.
+  const POST_QA_RE = /(WAITING\s*FOR\s*DEPLOY|RELEASE|CONCLU|DONE|CLOSED|RESOLVED)/i;
+  const touchedQA = i => i._touchQA === undefined
+    ? (rejQAOf(i) > 0 || QA_STAGE_RE.test(i.fields?.status?.name || '') || POST_QA_RE.test(i.fields?.status?.name || ''))
+    : !!(i._touchQA || rejQAOf(i) > 0);
+  const touchedCR = i => i._touchCR === undefined
+    ? (rejCodeOf(i) > 0 || CR_STAGE_RE.test(i.fields?.status?.name || '') || QA_STAGE_RE.test(i.fields?.status?.name || '') || POST_QA_RE.test(i.fields?.status?.name || ''))
+    : !!(i._touchCR || rejCodeOf(i) > 0);
+  // Granularidade do índice = CARD (história/tarefa/bug). Subtarefas não entram na base: o
+  // retrabalho de QA/review acontece no card, e é assim que o Weekly Product Hub calcula.
+  const baseQA = mainAll.filter(touchedQA).length;
+  const baseCR = mainAll.filter(touchedCR).length;
+  const totRejQA   = mainAll.reduce((s,i)=>s+rejQAOf(i),0);
+  const totRejCode = mainAll.reduce((s,i)=>s+rejCodeOf(i),0);
+  const irq = baseQA > 0 ? totRejQA / baseQA : null;
+  const irc = baseCR > 0 ? totRejCode / baseCR : null;
+  // Base por pessoa (mesma regra, só nos cards de cada responsável)
+  const baseByDev = new Map();
+  for (const i of mainAll) {
+    const nm = i.fields?.assignee?.displayName || 'Sem responsável';
+    if (!baseByDev.has(nm)) baseByDev.set(nm, { qa: 0, cr: 0 });
+    const b = baseByDev.get(nm);
+    if (touchedQA(i)) b.qa++;
+    if (touchedCR(i)) b.cr++;
+  }
+  const fmtIdx = v => (v === null || v === undefined || isNaN(v)) ? '—' : v.toFixed(2).replace('.', ',');
+  // Faixas: 0 = ótimo · até 0,25 bom · até 0,50 atenção · até 1,00 ruim · acima disso crítico
+  const retBand = v => {
+    if (v === null || v === undefined || isNaN(v)) return { label: 'sem base', color: 'var(--text-muted)' };
+    if (v === 0)     return { label: 'ÓTIMO',    color: 'var(--green)' };
+    if (v <= 0.25)   return { label: 'BOM',      color: 'var(--yellow-dark)' };
+    if (v <= 0.5)    return { label: 'ATENÇÃO',  color: 'var(--orange)' };
+    if (v <= 1)      return { label: 'RUIM',     color: 'var(--red)' };
+    return               { label: 'CRÍTICO',  color: 'var(--red)' };
+  };
+  const retPill = v => { const b = retBand(v);
+    return `<span style="background:${b.color}1F;color:${b.color};font-size:10px;font-weight:700;padding:3px 8px;border-radius:99px;font-family:'Montserrat',sans-serif">${fmtIdx(v)}</span>`; };
+  const factor = v => (v === null || v === undefined || isNaN(v)) ? '—' : ('×' + (1 + v).toFixed(2).replace('.', ','));
+  // Marcador na escala 0 → 1,5 (acima de 1,5 fica no fim da barra)
+  const scaleMark = v => Math.min(100, Math.max(0, (v || 0) / 1.5 * 100));
+  const retTile = (title, v, base, rejN, hint) => { const b = retBand(v);
+    return `<div style="background:var(--bg-card-el);border:1px solid var(--border);border-left:3px solid ${b.color};border-radius:8px;padding:12px 14px">
+      <div style="font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)">${title}</div>
+      <div style="font-size:34px;font-weight:800;line-height:1.05;margin:4px 0 2px;color:${b.color};font-variant-numeric:tabular-nums">${fmtIdx(v)}</div>
+      <span style="background:${b.color}1F;color:${b.color};font-size:9px;font-weight:800;padding:2px 8px;border-radius:99px;letter-spacing:.04em">${b.label}</span>
+      <div style="font-size:10px;color:var(--text-muted);line-height:1.45;margin-top:8px">${rejN} ${rejN===1?'retorno':'retornos'} ÷ ${base} card${base===1?'':'s'} ${hint}</div>
+      <div style="display:flex;height:5px;border-radius:99px;overflow:hidden;margin-top:10px">
+        <i style="flex:1;background:var(--green)"></i><i style="flex:1.5;background:var(--yellow)"></i><i style="flex:1.5;background:var(--orange)"></i><i style="flex:3;background:var(--red)"></i>
+      </div>
+      <div style="position:relative;height:12px;margin-top:2px;font-size:8px">
+        <span style="position:absolute;left:${scaleMark(v)}%;transform:translateX(-50%);font-weight:800;color:${b.color}">▲ ${fmtIdx(v)}</span>
+      </div>
+    </div>`; };
+  const idxBlock = `
+    <div style="margin-top:4px">
+      <div style="font-size:12px;font-weight:700;font-family:'Montserrat',sans-serif;letter-spacing:.02em;margin-bottom:8px;display:flex;align-items:center;gap:8px">
+        🎯 Índice de retorno — retrabalho médio por card
+        <span style="font-size:10px;background:var(--blue-bg);color:var(--blue);padding:2px 8px;border-radius:99px">sprint atual</span>
+      </div>
+      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px">
+        ${retTile('↩︎ Retorno QA (IRQ)', irq, baseQA, totRejQA, 'que chegaram ao QA')}
+        ${retTile('↩︎ Retorno de código (IRC)', irc, baseCR, totRejCode, 'que entraram em code review')}
+        <div style="background:var(--bg-header);border-radius:8px;padding:12px 14px">
+          <div style="font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)">Fator de re-estimativa sugerido</div>
+          <div style="font-size:26px;font-weight:800;color:#fff;margin:8px 0 2px;font-variant-numeric:tabular-nums">QA ${factor(irq)} <span style="color:#666;font-size:16px">/</span> Dev ${factor(irc)}</div>
+          <div style="font-size:10px;color:#AAA;line-height:1.5;margin-top:6px">Aplicar sobre a pontuação prévia do refinamento: <strong style="color:#EEE">1 + índice</strong>.${irq!==null?` Ex.: 3 SP de QA → <strong style="color:var(--accent)">${fmtIdx(3*(1+irq))} SP</strong> reais.`:''}</div>
+        </div>
+      </div>
+      <div style="font-size:9.5px;color:var(--text-muted);margin-top:6px;font-family:'Montserrat',sans-serif">
+        <strong>0 é ótimo.</strong> Faixas: 0 ótimo · ≤0,25 bom · ≤0,50 atenção · ≤1,00 ruim · &gt;1,00 crítico. Fonte: changelog do Jira (entradas em REJECTED BY QA / QA DENIED e CODE REVIEW REJECTED) ÷ cards que efetivamente chegaram a cada estágio.
+      </div>
+    </div>`;
   rejCards.sort((a, b) => b.total - a.total);
   const multi  = rejCards.filter(c => c.total >= 2);
   const single = rejCards.filter(c => c.total === 1);
@@ -1491,7 +1580,12 @@ function renderProductivity() {
     const rejQA    = rej.rejQA;
     const rejTotal = rejCode + rejQA;
     const rejPct   = (p.role === 'Dev' && rej.issues > 0) ? Math.round(rejTotal/rej.issues*100) : null;
-    const row = { name: p.name, role: p.role, issuesTotal: p.all.length, issuesDone: p.done.length, spTotal, spDone, spActive, spTodo, noSP, rejCode, rejQA, rejTotal, rejPct };
+    // Índices de retorno da pessoa (mesma regra do bloco de índice: ÷ cards que chegaram ao estágio)
+    const pb = baseByDev.get(p.name) || { qa: 0, cr: 0 };
+    const pc = rejCardByDev.get(p.name) || { rejCode: 0, rejQA: 0 };
+    const irqDev = (p.role === 'Dev' && pb.qa > 0) ? pc.rejQA / pb.qa : null;
+    const ircDev = (p.role === 'Dev' && pb.cr > 0) ? pc.rejCode / pb.cr : null;
+    const row = { name: p.name, role: p.role, issuesTotal: p.all.length, issuesDone: p.done.length, spTotal, spDone, spActive, spTodo, noSP, rejCode, rejQA, rejTotal, rejPct, irqDev, ircDev, baseQADev: pb.qa, baseCRDev: pb.cr, rejQACard: pc.rejQA, rejCodeCard: pc.rejCode };
     tot.issuesTotal += p.all.length; tot.issuesDone += p.done.length;
     tot.spTotal += spTotal; tot.spDone += spDone; tot.spActive += spActive; tot.spTodo += spTodo; tot.noSP += noSP;
     tot.rejCode += rejCode; tot.rejQA += rejQA;
@@ -1535,6 +1629,9 @@ function renderProductivity() {
       const t = [...worstRej].sort((a,b) => b.rejTotal - a.rejTotal)[0];
       insights.push(`<strong>${escHtml(t.name.split(' ')[0])}</strong> concentra o maior retrabalho: ${t.rejTotal} rejeiç${t.rejTotal===1?'ão':'ões'} (${t.rejCode} de código · ${t.rejQA} de QA). Vale revisar causa-raiz.`);
     }
+    if (irq !== null && irq > 0.5) {
+      insights.push(`<strong>Índice de retorno de QA em ${fmtIdx(irq)}</strong> (${retBand(irq).label.toLowerCase()}): em média cada card testado volta ${fmtIdx(irq)}× antes de passar. Considere pontuar QA com fator <strong>${factor(irq)}</strong> no próximo refinamento.`);
+    }
     if (multi.length) {
       insights.push(`<strong>${multi.length} card${multi.length>1?'s':''}</strong> com 2+ rejeições — foco de retrabalho da sprint: ${multi.slice(0,4).map(c=>c.key).join(', ')}${multi.length>4?'…':''}.`);
     }
@@ -1575,6 +1672,8 @@ function renderProductivity() {
       <td class="prod-nosp">${r.noSP||'0'}</td>
       <td class="prod-pct" style="color:${pctColor(pctRaw)}">${pctRaw!==null?pctRaw+'%':'—'}</td>
       <td title="${escHtml(rejTitle)}">${r.role==='Dev' ? (r.rejTotal||'0') : '—'}${r.role==='Dev' && r.rejTotal>0 ? ` <span style="color:var(--text-muted);font-size:10px">(${r.rejCode}C/${r.rejQA}QA)</span>` : ''}</td>
+      <td style="background:rgba(254,221,41,.16)" title="${r.role==='Dev' ? `${r.rejQACard} retorno(s) de QA no nível de card ÷ ${r.baseQADev} card(s) que chegaram ao QA` : 'Média da squad — retrabalho que o QA absorve'}">${r.role==='Dev' ? retPill(r.irqDev) : `${retPill(irq)} <span style="color:var(--text-muted);font-size:9px">squad</span>`}</td>
+      <td style="background:rgba(254,221,41,.16)" title="${r.role==='Dev' ? `${r.rejCodeCard} rejeição(ões) de código no nível de card ÷ ${r.baseCRDev} card(s) em code review` : ''}">${r.role==='Dev' ? retPill(r.ircDev) : '<span style="color:var(--text-disabled)">—</span>'}</td>
       <td><span style="background:${perf.color}22;color:${perf.color};font-size:10px;font-weight:700;padding:3px 8px;border-radius:99px;font-family:'Montserrat',sans-serif">${perf.label}${r.role==='Dev'&&r.rejPct!==null?` · ${r.rejPct}%`:''}</span></td>
     </tr>`;
   }).join('');
@@ -1605,6 +1704,7 @@ function renderProductivity() {
     <div style="margin-top:16px;font-size:11px;color:var(--text-muted);font-family:'Montserrat',sans-serif">✅ Nenhum card sofreu rejeição de código ou QA nesta sprint.</div>`;
 
   el.innerHTML = `
+    ${idxBlock}
     ${rejBlock}
     <div class="prod-table-wrap" style="margin-top:16px">
       <table class="prod-table">
@@ -1613,7 +1713,7 @@ function renderProductivity() {
           <th>SP atribuídos</th><th>SP entregues</th>
           <th>SP em andamento</th><th>SP não inic.</th>
           <th>Sem SP</th><th>% SP entregue</th>
-          <th>Rejeições</th><th>Performance</th>
+          <th>Rejeições</th><th style="background:rgba(254,221,41,.16)">↩︎ Retorno QA</th><th style="background:rgba(254,221,41,.16)">↩︎ Retorno código</th><th>Performance</th>
         </tr></thead>
         ${tableRows}
         <tfoot><tr>
@@ -1625,18 +1725,105 @@ function renderProductivity() {
           <td>${totQA.noSP + totDev.noSP}</td>
           <td class="prod-pct" style="color:${pctColor(totPctRaw)}">${totPctRaw!==null?totPctRaw+'%':'—'}</td>
           <td>${totDev.rejCode + totDev.rejQA || '0'}</td>
+          <td style="background:rgba(254,221,41,.16)">${retPill(irq)}</td>
+          <td style="background:rgba(254,221,41,.16)">${retPill(irc)}</td>
           <td>—</td>
         </tr></tfoot>
       </table>
       <div style="font-size:10px;color:var(--text-muted);padding:6px 4px 0;font-family:'Montserrat',sans-serif">
         SP por história-pai: <strong>QA</strong> = "Story point QA" · <strong>Dev</strong> = Story Points − parte de QA. Assim <strong>DEV + QA = 98</strong>, o mesmo total do Progresso da sprint.
-        <strong>Rejeições</strong> vem do histórico do Jira (changelog): nº de vezes que as issues do dev entraram em "CODE REVIEW REJECTED" (código) ou "REJECTED BY QA" (QA) — inclui rejeições já corrigidas e reincidências · <strong>Performance</strong> na tabela = % de rejeição por issue trabalhada (menor é melhor).
+        <strong>Rejeições</strong> vem do histórico do Jira (changelog): nº de vezes que as issues do dev entraram em "CODE REVIEW REJECTED" (código) ou "REJECTED BY QA" (QA) — inclui rejeições já corrigidas e reincidências · <strong>Performance</strong> na tabela = % de rejeição por issue trabalhada (menor é melhor) · <strong>↩︎ Retorno QA / Retorno código</strong> = retornos ÷ cards que chegaram a cada estágio, calculados no nível de <strong>card</strong> (história/tarefa/bug, sem subtarefas) para bater com o Weekly Product Hub — a coluna Rejeições inclui subtarefas e pode ficar 1–2 acima.
       </div>
     </div>
+    <div id="retorno-hist"></div>
     ${insights.length?`<div class="prod-insights">
       <div class="prod-insights-title">Leitura de produtividade</div>
       <ul class="prod-insights-list">${insights.map(i=>`<li>${i}</li>`).join('')}</ul>
     </div>`:''}`;
+
+  renderReturnHistory();
+}
+
+// ── Média histórica do índice de retorno (todas as sprints) ───────────────────
+// A busca do dashboard OE é limitada à sprint aberta (openSprints), então o histórico vem do
+// data.json público do Weekly Product Hub — mesma fonte, mesmo cálculo, squad OE (board 474).
+const RET_HIST_URL = 'https://lousada-shippify.github.io/shippify-weekly-squads-team/data.json';
+let RET_HIST_CACHE = null;
+function retHistCompute(nodes) {
+  const QA_RE = /(PENDING\s*QA|ON\s*GOING\s*QA|ON\s*TESTING|APPROVED\s*BY\s*QA|QA\s*VERIFIED|REJECTED\s*BY\s*QA|QA\s*DENIED)/i;
+  const CR_RE = /(CODE\s*REVIEW|PR\s*REVIEW|PULL\s*REQUEST)/i;
+  const map = new Map();
+  for (const n of nodes) {
+    const f = n.fields || {};
+    const st = f.status?.name || '';
+    const cat = f.status?.statusCategory?.key || 'new';
+    if (cat === 'done' && /cancel|discard|descart/i.test(st)) continue;
+    const POST_RE = /(WAITING\s*FOR\s*DEPLOY|RELEASE|CONCLU|DONE|CLOSED|RESOLVED)/i;
+    const tQA = n.touchQA === undefined ? ((n.rejQA||0) > 0 || QA_RE.test(st) || POST_RE.test(st)) : !!(n.touchQA || (n.rejQA||0) > 0);
+    const tCR = n.touchCR === undefined ? ((n.rejCode||0) > 0 || CR_RE.test(st) || QA_RE.test(st) || POST_RE.test(st)) : !!(n.touchCR || (n.rejCode||0) > 0);
+    for (const sp of (Array.isArray(f.customfield_10020) ? f.customfield_10020 : [])) {
+      if (sp.boardId !== 474) continue;
+      const k = sp.id;
+      if (!map.has(k)) map.set(k, { name: sp.name, state: sp.state, start: sp.startDate || '', baseQA:0, baseCR:0, rejQA:0, rejCode:0 });
+      const a = map.get(k);
+      if (tQA) a.baseQA++;
+      if (tCR) a.baseCR++;
+      a.rejQA += n.rejQA || 0; a.rejCode += n.rejCode || 0;
+    }
+  }
+  return [...map.values()].filter(a => a.state !== 'future').sort((a,b)=>String(a.start).localeCompare(String(b.start)));
+}
+async function renderReturnHistory() {
+  const el = document.getElementById('retorno-hist');
+  if (!el) return;
+  try {
+    if (!RET_HIST_CACHE) {
+      const r = await fetch(RET_HIST_URL + '?v=' + Date.now(), { cache: 'no-store' });
+      if (!r.ok) throw new Error('http ' + r.status);
+      const j = await r.json();
+      RET_HIST_CACHE = retHistCompute((j.squads && j.squads.OE) || []);
+    }
+    const hist = RET_HIST_CACHE;
+    if (!hist.length) { el.innerHTML = ''; return; }
+    const fmt = v => (v === null || isNaN(v)) ? '—' : v.toFixed(2).replace('.', ',');
+    const band = v => v === null ? 'var(--text-muted)' : v === 0 ? 'var(--green)' : v <= 0.25 ? 'var(--yellow-dark)' : v <= 0.5 ? 'var(--orange)' : 'var(--red)';
+    const tQA = hist.reduce((s,a)=>s+a.rejQA,0),  bQA = hist.reduce((s,a)=>s+a.baseQA,0);
+    const tCR = hist.reduce((s,a)=>s+a.rejCode,0), bCR = hist.reduce((s,a)=>s+a.baseCR,0);
+    const avgQA = bQA ? tQA/bQA : null, avgCR = bCR ? tCR/bCR : null;
+    const maxQ = Math.max(0.01, ...hist.map(a=>a.baseQA?a.rejQA/a.baseQA:0));
+    const bars = hist.map(a => { const v = a.baseQA ? a.rejQA/a.baseQA : 0;
+      return `<div style="flex:1;display:flex;flex-direction:column;justify-content:flex-end;align-items:center;gap:3px">
+        <div style="width:100%;height:${Math.max(3, v/maxQ*46)}px;background:${band(v)};border-radius:2px 2px 0 0"></div>
+        <div style="font-size:8.5px;color:var(--text-muted);text-align:center;line-height:1.2">${escHtml(a.name.replace(/^Sprint\s+/,'S'))}<br><strong style="color:${band(v)}">${fmt(v)}</strong></div>
+      </div>`; }).join('');
+    el.innerHTML = `
+      <div style="margin-top:16px;border-top:1px dashed var(--border);padding-top:14px">
+        <div style="font-size:12px;font-weight:700;font-family:'Montserrat',sans-serif;margin-bottom:8px;display:flex;align-items:center;gap:8px">
+          📈 Média histórica do índice de retorno
+          <span style="font-size:10px;background:var(--purple-bg);color:#5b4cce;padding:2px 8px;border-radius:99px">todas as sprints da OE</span>
+        </div>
+        <div style="display:grid;grid-template-columns:1fr 1fr 1.6fr;gap:10px;align-items:stretch">
+          <div style="background:var(--bg-card-el);border:1px solid var(--border);border-radius:8px;padding:10px 12px">
+            <div style="font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted)">Retorno QA — média geral</div>
+            <div style="font-size:26px;font-weight:800;color:${band(avgQA)};margin-top:2px">${fmt(avgQA)}</div>
+            <div style="font-size:9.5px;color:var(--text-muted)">${tQA} retornos ÷ ${bQA} cards testados · fator ×${(1+(avgQA||0)).toFixed(2).replace('.',',')}</div>
+          </div>
+          <div style="background:var(--bg-card-el);border:1px solid var(--border);border-radius:8px;padding:10px 12px">
+            <div style="font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted)">Retorno código — média geral</div>
+            <div style="font-size:26px;font-weight:800;color:${band(avgCR)};margin-top:2px">${fmt(avgCR)}</div>
+            <div style="font-size:9.5px;color:var(--text-muted)">${tCR} rejeições ÷ ${bCR} cards em review · fator ×${(1+(avgCR||0)).toFixed(2).replace('.',',')}</div>
+          </div>
+          <div style="background:var(--bg-card-el);border:1px solid var(--border);border-radius:8px;padding:10px 12px">
+            <div style="font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--text-muted)">Evolução do retorno de QA por sprint</div>
+            <div style="display:flex;align-items:flex-end;gap:5px;height:70px;margin-top:6px">${bars}</div>
+          </div>
+        </div>
+        <div style="font-size:9.5px;color:var(--text-muted);margin-top:6px;font-family:'Montserrat',sans-serif">Média ponderada por card (todos os cards de todas as sprints da OE). Fonte: <a href="https://lousada-shippify.github.io/shippify-weekly-squads-team/" target="_blank" style="color:var(--blue)">Weekly Product Hub</a> — mesmo cálculo, atualizado a cada 10 min.</div>
+      </div>`;
+  } catch (e) {
+    el.innerHTML = '';
+    console.warn('histórico do índice de retorno indisponível:', e && e.message);
+  }
 }
 
 // ── Filter State ─────────────────────────────────────────────────────────────

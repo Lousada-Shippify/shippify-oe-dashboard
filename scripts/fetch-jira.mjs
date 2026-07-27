@@ -29,11 +29,23 @@ const DONE_FIELDS   = ['summary','status','assignee','issuetype','priority','cus
 const JQL_ACTIVE = 'sprint in openSprints() AND project = "OE" AND statusCategory != Done ORDER BY priority ASC, updated DESC';
 const JQL_DONE   = 'sprint in openSprints() AND project = "OE" AND statusCategory = Done ORDER BY resolutiondate ASC';
 
-// Classifica um nome de status como rejeição de código, de QA, ou nenhum.
+// Estágios (BASE dos índices de retorno): a issue CHEGOU ao QA / ao code review pelo menos uma vez.
+// O denominador do índice é "cards que passaram pelo estágio", não o escopo inteiro da sprint.
+const QA_STAGE_RE = /(PENDING\s*QA|ON\s*GOING\s*QA|ON\s*TESTING|APPROVED\s*BY\s*QA|QA\s*VERIFIED|REJECTED\s*BY\s*QA|QA\s*DENIED)/i;
+const CR_STAGE_RE = /(CODE\s*REVIEW|PR\s*REVIEW|PULL\s*REQUEST)/i;
+
+// Classifica uma transição de status como rejeição de CÓDIGO, de QA, ou nenhuma.
+// Statuses reais do Jira (confirmados no changelog de OE-140): "CODE REVIEW REJECTED" e
+// "REJECTED BY QA" / "QA DENIED". São rejeições DISTINTAS e cada uma alimenta o seu índice.
+// Mesmas expressões do Weekly Product Hub (build.mjs / worker.js) — os dois dashboards devem
+// devolver exatamente o mesmo número para a mesma squad.
+const REJECT_CODE_RE = /CODE\s*REVIEW\s*REJECTED/i;
+const REJECT_QA_RE   = /REJECTED\s*BY\s*QA|QA\s*DENIED/i;
 function rejKind(statusName) {
-  const s = (statusName || '').toLowerCase();
-  if (!s.includes('reject') && !s.includes('denied') && !s.includes('rejeit')) return null;
-  return s.includes('qa') ? 'qa' : 'code';
+  const s = statusName || '';
+  if (REJECT_QA_RE.test(s)) return 'qa';
+  if (REJECT_CODE_RE.test(s)) return 'code';
+  return null;
 }
 
 async function searchAll(jql, fields) {
@@ -64,7 +76,7 @@ async function searchAll(jql, fields) {
 // Conta transições PARA status de rejeição (código/QA) por issue, via changelog em lote.
 async function fetchRejections(issueIds) {
   const rej = {};
-  for (const id of issueIds) rej[id] = { code: 0, qa: 0 };
+  for (const id of issueIds) rej[id] = { code: 0, qa: 0, tQA: false, tCR: false };
   if (!issueIds.length) return rej;
   let nextPageToken;
   for (let page = 0; page < 40; page++) {
@@ -79,11 +91,14 @@ async function fetchRejections(issueIds) {
     const data = await res.json();
     for (const entry of (data.issueChangeLogs || [])) {
       const id = entry.issueId;
-      if (!rej[id]) rej[id] = { code: 0, qa: 0 };
+      if (!rej[id]) rej[id] = { code: 0, qa: 0, tQA: false, tCR: false };
       for (const h of (entry.changeHistories || [])) {
         for (const item of (h.items || [])) {
           if (item.field !== 'status' && item.fieldId !== 'status') continue;
-          const kind = rejKind(item.toString);
+          const to = item.toString || '';
+          if (QA_STAGE_RE.test(to)) rej[id].tQA = true;
+          if (CR_STAGE_RE.test(to)) rej[id].tCR = true;
+          const kind = rejKind(to);
           if (kind === 'qa') rej[id].qa++;
           else if (kind === 'code') rej[id].code++;
         }
@@ -102,7 +117,15 @@ async function main() {
   const ids = [...active, ...done].map(i => i.id).filter(Boolean);
   let rej = {};
   try { rej = await fetchRejections(ids); } catch (e) { console.warn('rejeições:', e.message); }
-  const attach = i => { const r = rej[i.id] || { code: 0, qa: 0 }; i._rejCode = r.code; i._rejQA = r.qa; return i; };
+  const attach = i => {
+    const r = rej[i.id] || { code: 0, qa: 0, tQA: false, tCR: false };
+    i._rejCode = r.code; i._rejQA = r.qa;
+    // Base do índice de retorno: chegou ao estágio (changelog) ou já está nele agora.
+    const cur = i.fields?.status?.name || '';
+    i._touchQA = !!(r.tQA || r.qa > 0 || QA_STAGE_RE.test(cur));
+    i._touchCR = !!(r.tCR || r.code > 0 || CR_STAGE_RE.test(cur));
+    return i;
+  };
   active.forEach(attach);
   done.forEach(attach);
 
