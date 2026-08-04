@@ -1,6 +1,6 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-08-04T20:20:45.429Z",
+  "jiraGeneratedAt": "2026-08-04T21:41:33.951Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
@@ -101,220 +101,6 @@
               "key": "new",
               "colorName": "blue-gray",
               "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "51126",
-        "key": "OE-197",
-        "fields": {
-          "summary": "Improve UX of the Edit Address modal in Import",
-          "customfield_10028": 10,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10098",
-            "id": "10098",
-            "description": "Un problema o error.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
-            "name": "Error",
-            "subtask": false,
-            "avatarId": 10303,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "51116",
-            "key": "OE-194",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/51116",
-            "fields": {
-              "summary": "Fixes en la versión 3.0.0 de Import",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 5,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1234,
-              "name": "Sprint 6",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Sprint Goal\n\nObjective – Sprint Goal\nContinue building the Torre de Controle (Control Tower) for Middle Mile: add the KPI header so operation health is visible at a glance (trips, in-route, delayed, Act Now, SLA, cost/km), formalize how operators resolve alerts with structured, auditable reasons, and roll out the finalized UI layout across the Control Tower's core screens. The real-time Act Now alerts panel carried over from Sprint 5 is now blocked and needs to be unblocked to avoid slipping a second sprint.\n\nProduct and UX/UI\n\nFE layout updates on the Control Tower Main Page (OE-239), Act Now (OE-240) and Trip Detail (OE-241), per finalized Figma — To Do\nEvaluation: unify the basic-company \"comment\" modal with the incidences modal (OE-247) — In Progress\n\nMain Deliveries\n\nControl Tower KPI header — Backend (OE-273) and Frontend (OE-232) — To Do\nAct Now — structured tratativa (resolution) reasons, operator↔driver (OE-220) + backend persistence (OE-279) — To Do\n\nProgress (carried over from Sprint 5)\n\nPersist/display destination ETA via price_detail, owned by INF (OE-203) — In Progress\nAct Now panel — real-time alert updates via session channels (OE-202) — Blocked ⚠️\n\nMust Be Completed This Sprint\n\nUnblock and ship the Act Now real-time alerts panel (OE-202)\nETA persistence via price_detail (OE-203)\nKPI header, backend + frontend (OE-273, OE-232)\n\nAlso In This Sprint (maintenance / tech debt)\nReserved-points tech support (OE-290) and Import Edit Address UX (OE-197) — To Do. Vehicle assignment duplicate-plate filter fix (OE-191) — Code Review. RCD-TECHLOG order date issue (OE-93) — Rejected by QA, needs rework. Monthly planning & retrospective ceremony (OE-250).",
-              "startDate": "2026-07-28T17:44:50.000Z",
-              "endDate": "2026-08-11T17:44:41.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "emailAddress": "guilherme.santos@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
-            },
-            "displayName": "Guilherme Macedo Bento Santos",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "ON GOING QA",
-            "id": "10672",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": true,
-        "_touchCR": true
-      },
-      {
-        "id": "51566",
-        "key": "OE-241",
-        "fields": {
-          "summary": "FE: Apply updated layout to Trip Detail (nodes 576-4431 and 576-4972)",
-          "customfield_10028": 5,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-            "id": "10013",
-            "description": "Uma parte pequena e distinta do trabalho.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-            "name": "Tarefa",
-            "subtask": false,
-            "avatarId": 10318,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "50601",
-            "key": "OE-127",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/50601",
-            "fields": {
-              "summary": "[MM F3] Torre de Controle",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/1",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/highest_new.svg",
-                "name": "Highest",
-                "id": "1"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 2,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1234,
-              "name": "Sprint 6",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Sprint Goal\n\nObjective – Sprint Goal\nContinue building the Torre de Controle (Control Tower) for Middle Mile: add the KPI header so operation health is visible at a glance (trips, in-route, delayed, Act Now, SLA, cost/km), formalize how operators resolve alerts with structured, auditable reasons, and roll out the finalized UI layout across the Control Tower's core screens. The real-time Act Now alerts panel carried over from Sprint 5 is now blocked and needs to be unblocked to avoid slipping a second sprint.\n\nProduct and UX/UI\n\nFE layout updates on the Control Tower Main Page (OE-239), Act Now (OE-240) and Trip Detail (OE-241), per finalized Figma — To Do\nEvaluation: unify the basic-company \"comment\" modal with the incidences modal (OE-247) — In Progress\n\nMain Deliveries\n\nControl Tower KPI header — Backend (OE-273) and Frontend (OE-232) — To Do\nAct Now — structured tratativa (resolution) reasons, operator↔driver (OE-220) + backend persistence (OE-279) — To Do\n\nProgress (carried over from Sprint 5)\n\nPersist/display destination ETA via price_detail, owned by INF (OE-203) — In Progress\nAct Now panel — real-time alert updates via session channels (OE-202) — Blocked ⚠️\n\nMust Be Completed This Sprint\n\nUnblock and ship the Act Now real-time alerts panel (OE-202)\nETA persistence via price_detail (OE-203)\nKPI header, backend + frontend (OE-273, OE-232)\n\nAlso In This Sprint (maintenance / tech debt)\nReserved-points tech support (OE-290) and Import Edit Address UX (OE-197) — To Do. Vehicle assignment duplicate-plate filter fix (OE-191) — Code Review. RCD-TECHLOG order date issue (OE-93) — Rejected by QA, needs rework. Monthly planning & retrospective ceremony (OE-250).",
-              "startDate": "2026-07-28T17:44:50.000Z",
-              "endDate": "2026-08-11T17:44:41.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
-            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
-            "emailAddress": "robson.dias@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
-            },
-            "displayName": "Robson Dias Santana Junior",
-            "active": true,
-            "timeZone": "America/Sao_Paulo",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Sendo feito",
-            "id": "10563",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
             }
           }
         },
@@ -548,6 +334,220 @@
         "_touchCR": true
       },
       {
+        "id": "51566",
+        "key": "OE-241",
+        "fields": {
+          "summary": "FE: Apply updated layout to Trip Detail (nodes 576-4431 and 576-4972)",
+          "customfield_10028": 5,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+            "id": "10013",
+            "description": "Uma parte pequena e distinta do trabalho.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+            "name": "Tarefa",
+            "subtask": false,
+            "avatarId": 10318,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "50601",
+            "key": "OE-127",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/50601",
+            "fields": {
+              "summary": "[MM F3] Torre de Controle",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/1",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/highest_new.svg",
+                "name": "Highest",
+                "id": "1"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": 2,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1234,
+              "name": "Sprint 6",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Sprint Goal\n\nObjective – Sprint Goal\nContinue building the Torre de Controle (Control Tower) for Middle Mile: add the KPI header so operation health is visible at a glance (trips, in-route, delayed, Act Now, SLA, cost/km), formalize how operators resolve alerts with structured, auditable reasons, and roll out the finalized UI layout across the Control Tower's core screens. The real-time Act Now alerts panel carried over from Sprint 5 is now blocked and needs to be unblocked to avoid slipping a second sprint.\n\nProduct and UX/UI\n\nFE layout updates on the Control Tower Main Page (OE-239), Act Now (OE-240) and Trip Detail (OE-241), per finalized Figma — To Do\nEvaluation: unify the basic-company \"comment\" modal with the incidences modal (OE-247) — In Progress\n\nMain Deliveries\n\nControl Tower KPI header — Backend (OE-273) and Frontend (OE-232) — To Do\nAct Now — structured tratativa (resolution) reasons, operator↔driver (OE-220) + backend persistence (OE-279) — To Do\n\nProgress (carried over from Sprint 5)\n\nPersist/display destination ETA via price_detail, owned by INF (OE-203) — In Progress\nAct Now panel — real-time alert updates via session channels (OE-202) — Blocked ⚠️\n\nMust Be Completed This Sprint\n\nUnblock and ship the Act Now real-time alerts panel (OE-202)\nETA persistence via price_detail (OE-203)\nKPI header, backend + frontend (OE-273, OE-232)\n\nAlso In This Sprint (maintenance / tech debt)\nReserved-points tech support (OE-290) and Import Edit Address UX (OE-197) — To Do. Vehicle assignment duplicate-plate filter fix (OE-191) — Code Review. RCD-TECHLOG order date issue (OE-93) — Rejected by QA, needs rework. Monthly planning & retrospective ceremony (OE-250).",
+              "startDate": "2026-07-28T17:44:50.000Z",
+              "endDate": "2026-08-11T17:44:41.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
+            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
+            "emailAddress": "robson.dias@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
+            },
+            "displayName": "Robson Dias Santana Junior",
+            "active": true,
+            "timeZone": "America/Sao_Paulo",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "Sendo feito",
+            "id": "10563",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "51126",
+        "key": "OE-197",
+        "fields": {
+          "summary": "Improve UX of the Edit Address modal in Import",
+          "customfield_10028": 10,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10098",
+            "id": "10098",
+            "description": "Un problema o error.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
+            "name": "Error",
+            "subtask": false,
+            "avatarId": 10303,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "51116",
+            "key": "OE-194",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/51116",
+            "fields": {
+              "summary": "Fixes en la versión 3.0.0 de Import",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": 5,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1234,
+              "name": "Sprint 6",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Sprint Goal\n\nObjective – Sprint Goal\nContinue building the Torre de Controle (Control Tower) for Middle Mile: add the KPI header so operation health is visible at a glance (trips, in-route, delayed, Act Now, SLA, cost/km), formalize how operators resolve alerts with structured, auditable reasons, and roll out the finalized UI layout across the Control Tower's core screens. The real-time Act Now alerts panel carried over from Sprint 5 is now blocked and needs to be unblocked to avoid slipping a second sprint.\n\nProduct and UX/UI\n\nFE layout updates on the Control Tower Main Page (OE-239), Act Now (OE-240) and Trip Detail (OE-241), per finalized Figma — To Do\nEvaluation: unify the basic-company \"comment\" modal with the incidences modal (OE-247) — In Progress\n\nMain Deliveries\n\nControl Tower KPI header — Backend (OE-273) and Frontend (OE-232) — To Do\nAct Now — structured tratativa (resolution) reasons, operator↔driver (OE-220) + backend persistence (OE-279) — To Do\n\nProgress (carried over from Sprint 5)\n\nPersist/display destination ETA via price_detail, owned by INF (OE-203) — In Progress\nAct Now panel — real-time alert updates via session channels (OE-202) — Blocked ⚠️\n\nMust Be Completed This Sprint\n\nUnblock and ship the Act Now real-time alerts panel (OE-202)\nETA persistence via price_detail (OE-203)\nKPI header, backend + frontend (OE-273, OE-232)\n\nAlso In This Sprint (maintenance / tech debt)\nReserved-points tech support (OE-290) and Import Edit Address UX (OE-197) — To Do. Vehicle assignment duplicate-plate filter fix (OE-191) — Code Review. RCD-TECHLOG order date issue (OE-93) — Rejected by QA, needs rework. Monthly planning & retrospective ceremony (OE-250).",
+              "startDate": "2026-07-28T17:44:50.000Z",
+              "endDate": "2026-08-11T17:44:41.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "emailAddress": "guilherme.santos@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
+            },
+            "displayName": "Guilherme Macedo Bento Santos",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "REJECTED BY QA",
+            "id": "10568",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 1,
+        "_touchQA": true,
+        "_touchCR": true
+      },
+      {
         "id": "51132",
         "key": "OE-200",
         "fields": {
@@ -570,11 +570,11 @@
             "fields": {
               "summary": "Improve UX of the Edit Address modal in Import",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "ON GOING QA",
-                "id": "10672",
+                "name": "REJECTED BY QA",
+                "id": "10568",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -678,11 +678,11 @@
             "fields": {
               "summary": "Improve UX of the Edit Address modal in Import",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "ON GOING QA",
-                "id": "10672",
+                "name": "REJECTED BY QA",
+                "id": "10568",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
