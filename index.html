@@ -448,27 +448,73 @@ td.sub-key a { color: var(--text-muted); font-size: 11px; }
 
 /* ── Productivity Panel ── */
 .prod-panel { margin: 12px 24px 0; background: var(--bg-card); border: 1px solid var(--border); border-radius: var(--radius); box-shadow: var(--shadow); overflow: hidden; }
-.prod-table-wrap { overflow-x: auto; }
-.prod-table { width: 100%; border-collapse: collapse; font-size: 12px; }
-.prod-table thead th { padding: 8px 12px; text-align: right; font-size: 10px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; color: var(--text-muted); background: var(--bg-card-el); border-bottom: 1px solid var(--border); white-space: nowrap; font-family: var(--font); }
-.prod-table thead th:first-child { text-align: left; min-width: 150px; }
-.prod-table td { padding: 9px 12px; border-bottom: 1px solid var(--border); font-family: var(--font); vertical-align: middle; text-align: right; font-variant-numeric: tabular-nums; font-size: 12px; }
-.prod-table td:first-child { text-align: left; }
-.prod-table tfoot td { font-family: var(--font); font-weight: 700; font-size: 12px; background: var(--bg-card-el); border-top: 2px solid var(--border); border-bottom: none; }
-.prod-table tbody tr:hover td { background: var(--row-hover); }
-.prod-table tbody tr:last-child td { border-bottom: none; }
-.prod-dev { font-weight: 600; color: var(--text); }
-.prod-dev-sem { color: var(--text-muted); font-weight: 400; font-style: italic; }
-.prod-sp-done { font-weight: 700; color: var(--green); }
-.prod-sp-high { font-weight: 700; color: var(--yellow-dark); }
-.prod-nosp { color: var(--text-disabled); }
-.prod-pct { font-weight: 800; font-family: var(--font); }
 .prod-insights { padding: 14px 20px; border-top: 1px solid var(--border); background: var(--bg-card-el); }
 .prod-insights-title { font-size: 10px; font-weight: 700; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 10px; font-family: var(--font); }
 .prod-insights-list { margin: 0; padding: 0; list-style: none; display: flex; flex-direction: column; gap: 6px; }
 .prod-insights-list li { font-size: 12px; color: var(--text-muted); line-height: 1.6; font-family: var(--font); padding-left: 14px; position: relative; }
 .prod-insights-list li::before { content: '·'; position: absolute; left: 0; color: var(--green); font-weight: 900; }
 .prod-insights-list li strong { color: var(--text); }
+
+/* ── Produtividade — uma linha por pessoa (12 colunas, 4 blocos) ──────────── */
+.prod-grid { padding: 0 20px 4px; overflow-x: auto; }
+.prod-grid > .prod-row { min-width: 720px; }
+.prod-row {
+  display: grid;
+  grid-template-columns: minmax(190px,1.05fr) minmax(260px,2fr) 76px minmax(190px,1.25fr) 132px;
+  gap: 20px; align-items: center;
+  padding: 14px 0; border-bottom: 1px solid var(--border);
+}
+.prod-row.prod-head {
+  padding: 10px 0 9px; border-bottom: 2px solid var(--text-muted);
+  font-size: 10px; font-weight: 700; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.07em;
+}
+.prod-row.prod-qa { background: var(--bg-card-el); }
+.prod-row.prod-total { border-bottom: none; border-top: 2px solid var(--text); padding-top: 16px; }
+.prod-row.prod-total .pr-name { font-weight: 800; }
+.pr-name { display: flex; align-items: center; gap: 8px; font-size: 13px; font-weight: 600; color: var(--text); line-height: 1.3; }
+.pr-sub  { font-size: 11px; color: var(--text-muted); margin-top: 5px; line-height: 1.45; }
+.pr-sub strong { font-weight: 700; }
+.pr-badge {
+  flex-shrink: 0; font-size: 9px; font-weight: 700; letter-spacing: 0.05em;
+  padding: 2px 7px; border-radius: 99px;
+}
+.pr-badge-dev { background: var(--blue-bg);   color: var(--text-muted); }
+.pr-badge-qa  { background: var(--yellow-bg); color: var(--yellow-text); }
+/* barra única = 100% do escopo da pessoa */
+.pr-bar { display: flex; height: 12px; background: var(--bg-surface); overflow: hidden; }
+.pr-bar i { display: block; height: 100%; }
+.pr-done   { background: var(--green); }
+.pr-active { background: var(--yellow); }
+.pr-todo   { background: var(--bg-surface); }
+.t-done   { color: var(--green); }
+.t-active { color: var(--yellow-dark); }
+.pr-nosp {
+  flex-shrink: 0; width: 12px; height: 12px; margin-left: 4px;
+  background: repeating-linear-gradient(45deg, var(--text-muted) 0 2px, transparent 2px 4px);
+  border: 1px solid var(--text-muted);
+}
+.pr-pct { font-size: 26px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; text-align: right; }
+/* retrabalho: um quadrado por rejeição — Núcleo = código, Fluxo = QA */
+.pr-chips { display: flex; align-items: center; gap: 3px; flex-wrap: wrap; }
+.pr-chips i { display: block; width: 11px; height: 11px; flex-shrink: 0; }
+.pr-chip-code { background: var(--text); }
+.pr-chip-qa   { background: var(--yellow); }
+.pr-rejn { font-size: 12px; font-weight: 700; color: var(--text); margin-left: 5px; font-variant-numeric: tabular-nums; }
+.pr-rejn.zero { margin-left: 0; }
+.pr-perf { text-align: right; }
+.pr-pill {
+  display: inline-block; font-size: 10px; font-weight: 700;
+  padding: 4px 9px; border-radius: 99px; white-space: nowrap;
+}
+.prod-legend { display: flex; align-items: center; gap: 14px; font-size: 10px; color: var(--text-muted); font-weight: 600; }
+.prod-legend span { display: inline-flex; align-items: center; gap: 5px; }
+.prod-legend i { width: 9px; height: 9px; display: block; }
+@media (max-width: 1100px) {
+  .prod-row { grid-template-columns: minmax(150px,1fr) minmax(200px,1.6fr) 60px minmax(150px,1fr) 110px; gap: 12px; }
+  .pr-pct { font-size: 20px; }
+}
+
 </style>
 </head>
 <body>
@@ -612,7 +658,7 @@ td.sub-key a { color: var(--text-muted); font-size: 11px; }
 <!-- ── Productivity Panel ── -->
 <div class="prod-panel">
   <div class="panel-header">
-    <h2><svg class="ph-icon" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 0C11.0147 0 9 2.015 9 4.5C9 6.985 11.0147 9 13.5 9C15.9853 9 18 6.985 18 4.5C18 2.015 15.9853 0 13.5 0ZM6 1C3.7909 1 2 2.791 2 5C2 7.209 3.7909 9 6 9C6.8294 9 7.615 8.74701 8.2812 8.28101C8.7339 7.96501 8.8476 7.328 8.5312 6.875C8.2148 6.422 7.6089 6.34001 7.1562 6.65601C6.8233 6.88901 6.4162 7 6 7C4.8954 7 4 6.105 4 5C4 3.895 4.8954 3 6 3C6.3262 3 6.6246 3.07199 6.9062 3.21899C7.3962 3.47399 8.0264 3.30201 8.2812 2.81201C8.5361 2.32301 8.3337 1.69199 7.8438 1.43799C7.2787 1.14399 6.6494 1 6 1ZM13.5 2C14.8807 2 16 3.119 16 4.5C16 5.881 14.8807 7 13.5 7C12.1193 7 11 5.881 11 4.5C11 3.119 12.1193 2 13.5 2ZM3.0625 10.344C1.2284 11.101 0 12.956 0 15V17C0 17.552 0.4477 18 1 18H5C5.5523 18 6 17.552 6 17C6 16.448 5.5523 16 5 16H2V15C2 13.876 2.6667 12.844 3.433 12.39C4.1537 12.694 4.9161 12.924 5.5941 12.981C6.1445 13.028 6.6408 12.613 6.6875 12.062C6.7342 11.512 6.3365 11.046 5.7862 10.999C5.3472 10.962 4.8674 10.83 4.3125 10.594C4.1785 10.537 4.1007 10.492 3.8438 10.375C3.5919 10.26 3.3183 10.238 3.0625 10.344ZM10.0625 10.344C8.2284 11.101 7 12.956 7 15V17C7 17.552 7.4477 18 8 18H19C19.5523 18 20 17.552 20 17V15C20 13.004 18.7648 11.194 16.9375 10.406C16.6803 10.295 16.3806 10.292 16.125 10.406C15.2402 10.803 14.3782 11 13.5 11C12.6248 11 11.7598 10.792 10.8438 10.375C10.5919 10.26 10.3183 10.238 10.0625 10.344ZM10.447 12.39C11.3918 12.748 12.5309 13 13.5 13C14.4615 13 15.5535 12.765 16.4792 12.423C17.3818 12.937 18 13.899 18 15V16H9V15C9 13.835 9.6559 12.853 10.447 12.39Z" fill="currentColor"/></svg>Produtividade por Dev — Story Points × Entrega</h2>
+    <h2><svg class="ph-icon" viewBox="0 0 20 18" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M13.5 0C11.0147 0 9 2.015 9 4.5C9 6.985 11.0147 9 13.5 9C15.9853 9 18 6.985 18 4.5C18 2.015 15.9853 0 13.5 0ZM6 1C3.7909 1 2 2.791 2 5C2 7.209 3.7909 9 6 9C6.8294 9 7.615 8.74701 8.2812 8.28101C8.7339 7.96501 8.8476 7.328 8.5312 6.875C8.2148 6.422 7.6089 6.34001 7.1562 6.65601C6.8233 6.88901 6.4162 7 6 7C4.8954 7 4 6.105 4 5C4 3.895 4.8954 3 6 3C6.3262 3 6.6246 3.07199 6.9062 3.21899C7.3962 3.47399 8.0264 3.30201 8.2812 2.81201C8.5361 2.32301 8.3337 1.69199 7.8438 1.43799C7.2787 1.14399 6.6494 1 6 1ZM13.5 2C14.8807 2 16 3.119 16 4.5C16 5.881 14.8807 7 13.5 7C12.1193 7 11 5.881 11 4.5C11 3.119 12.1193 2 13.5 2ZM3.0625 10.344C1.2284 11.101 0 12.956 0 15V17C0 17.552 0.4477 18 1 18H5C5.5523 18 6 17.552 6 17C6 16.448 5.5523 16 5 16H2V15C2 13.876 2.6667 12.844 3.433 12.39C4.1537 12.694 4.9161 12.924 5.5941 12.981C6.1445 13.028 6.6408 12.613 6.6875 12.062C6.7342 11.512 6.3365 11.046 5.7862 10.999C5.3472 10.962 4.8674 10.83 4.3125 10.594C4.1785 10.537 4.1007 10.492 3.8438 10.375C3.5919 10.26 3.3183 10.238 3.0625 10.344ZM10.0625 10.344C8.2284 11.101 7 12.956 7 15V17C7 17.552 7.4477 18 8 18H19C19.5523 18 20 17.552 20 17V15C20 13.004 18.7648 11.194 16.9375 10.406C16.6803 10.295 16.3806 10.292 16.125 10.406C15.2402 10.803 14.3782 11 13.5 11C12.6248 11 11.7598 10.792 10.8438 10.375C10.5919 10.26 10.3183 10.238 10.0625 10.344ZM10.447 12.39C11.3918 12.748 12.5309 13 13.5 13C14.4615 13 15.5535 12.765 16.4792 12.423C17.3818 12.937 18 13.899 18 15V16H9V15C9 13.835 9.6559 12.853 10.447 12.39Z" fill="currentColor"/></svg>Produtividade por pessoa</h2>
     <span class="meta" id="prod-meta"></span>
   </div>
   <div id="productivity-content">
@@ -1439,11 +1485,11 @@ function renderProductivity() {
     return s.includes('reject') && s.includes('qa');
   };
   const perfInfo = pct => {
-    if (pct === null || pct === undefined) return { label: '—', color: 'var(--text-muted)' };
-    if (pct === 0)  return { label: 'Excelente', color: 'var(--green)' };
-    if (pct <= 10)  return { label: 'Boa',       color: 'var(--green)' };
-    if (pct <= 25)  return { label: 'Atenção',   color: 'var(--yellow)' };
-    return             { label: 'Crítica',    color: 'var(--red)' };
+    if (pct === null || pct === undefined) return { label: '—', color: 'var(--text-muted)', bg: 'var(--blue-bg)' };
+    if (pct === 0)  return { label: 'Excelente', color: 'var(--green)',      bg: 'var(--green-bg)' };
+    if (pct <= 10)  return { label: 'Boa',       color: 'var(--green)',      bg: 'var(--green-bg)' };
+    if (pct <= 25)  return { label: 'Atenção',   color: 'var(--yellow-text)',bg: 'var(--yellow-bg)' };
+    return             { label: 'Crítica',    color: 'var(--red-text)',   bg: 'var(--red-bg)' };
   };
 
   // ── QA status detection (language-flexible) ─────────────────────────────────
@@ -1575,15 +1621,15 @@ function renderProductivity() {
   const fmtIdx = v => (v === null || v === undefined || isNaN(v)) ? '—' : v.toFixed(2).replace('.', ',');
   // Faixas: 0 = ótimo · até 0,25 bom · até 0,50 atenção · até 1,00 ruim · acima disso crítico
   const retBand = v => {
-    if (v === null || v === undefined || isNaN(v)) return { label: 'sem base', color: 'var(--text-muted)' };
-    if (v === 0)     return { label: 'ÓTIMO',    color: 'var(--green)' };
-    if (v <= 0.25)   return { label: 'BOM',      color: 'var(--yellow-dark)' };
-    if (v <= 0.5)    return { label: 'ATENÇÃO',  color: 'var(--orange)' };
-    if (v <= 1)      return { label: 'RUIM',     color: 'var(--red)' };
-    return               { label: 'CRÍTICO',  color: 'var(--red)' };
+    if (v === null || v === undefined || isNaN(v)) return { label: 'sem base', color: 'var(--text-muted)',  bg: 'var(--blue-bg)' };
+    if (v === 0)     return { label: 'ÓTIMO',    color: 'var(--green)',      bg: 'var(--green-bg)' };
+    if (v <= 0.25)   return { label: 'BOM',      color: 'var(--yellow-text)',bg: 'var(--yellow-bg)' };
+    if (v <= 0.5)    return { label: 'ATENÇÃO',  color: 'var(--orange)',     bg: 'var(--yellow-bg)' };
+    if (v <= 1)      return { label: 'RUIM',     color: 'var(--red-text)',   bg: 'var(--red-bg)' };
+    return               { label: 'CRÍTICO',  color: 'var(--red-text)',   bg: 'var(--red-bg)' };
   };
   const retPill = v => { const b = retBand(v);
-    return `<span style="background:${b.color}1F;color:${b.color};font-size:10px;font-weight:700;padding:3px 8px;border-radius:99px;font-family: var(--font)">${fmtIdx(v)}</span>`; };
+    return `<span style="background:${b.bg};color:${b.color};font-size:10px;font-weight:700;padding:3px 8px;border-radius:99px;font-family: var(--font)">${fmtIdx(v)}</span>`; };
   const factor = v => (v === null || v === undefined || isNaN(v)) ? '—' : ('×' + (1 + v).toFixed(2).replace('.', ','));
   // Marcador na escala 0 → 1,5 (acima de 1,5 fica no fim da barra)
   const scaleMark = v => Math.min(100, Math.max(0, (v || 0) / 1.5 * 100));
@@ -1591,7 +1637,7 @@ function renderProductivity() {
     return `<div style="background:var(--bg-card-el);border:1px solid var(--border);border-left:3px solid ${b.color};border-radius:8px;padding:12px 14px">
       <div style="font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)">${title}</div>
       <div style="font-size:34px;font-weight:800;line-height:1.05;margin:4px 0 2px;color:${b.color};font-variant-numeric:tabular-nums">${fmtIdx(v)}</div>
-      <span style="background:${b.color}1F;color:${b.color};font-size:9px;font-weight:800;padding:2px 8px;border-radius:99px;letter-spacing:.04em">${b.label}</span>
+      <span style="background:${b.bg};color:${b.color};font-size:9px;font-weight:800;padding:2px 8px;border-radius:99px;letter-spacing:.04em">${b.label}</span>
       <div style="font-size:10px;color:var(--text-muted);line-height:1.45;margin-top:8px">${rejN} ${rejN===1?'retorno':'retornos'} ÷ ${base} card${base===1?'':'s'} ${hint} · ${affected} card${affected===1?'':'s'} afetado${affected===1?'':'s'}${reading?`<br><span style="color:var(--text-disabled)">${reading}</span>`:''}</div>
       <div style="display:flex;height:5px;border-radius:99px;overflow:hidden;margin-top:10px">
         <i style="flex:1;background:var(--green)"></i><i style="flex:1.5;background:var(--yellow)"></i><i style="flex:1.5;background:var(--orange)"></i><i style="flex:3;background:var(--red)"></i>
@@ -1716,34 +1762,126 @@ function renderProductivity() {
 
   const totPctRaw = (totQA.spTotal + totDev.spTotal) > 0 ? Math.round((totQA.spDone + totDev.spDone)/(totQA.spTotal + totDev.spTotal)*100) : null;
 
-  const mkRows = (rows) => rows.map(r => {
-    const pctRaw = r.spTotal > 0 ? Math.round(r.spDone/r.spTotal*100) : null;
-    const isSem  = r.name === 'Sem responsável';
-    const roleBadge = r.role === 'QA'
-      ? `<span style="background:var(--purple-bg);color:var(--yellow-text);font-size:9px;font-weight:700;padding:2px 7px;border-radius:99px;letter-spacing:.04em;font-family: var(--font)">QA</span>`
-      : `<span style="background:var(--blue-bg);color:var(--blue);font-size:9px;font-weight:700;padding:2px 7px;border-radius:99px;letter-spacing:.04em;font-family: var(--font)">Dev</span>`;
-    const perf = r.role === 'Dev' ? perfInfo(r.rejPct) : { label: '—', color: 'var(--text-muted)' };
-    const rejTitle = r.role === 'Dev' ? `${r.rejCode} rejeição(ões) de código · ${r.rejQA} rejeição(ões) de QA` : '';
-    return `<tr>
-      <td class="prod-dev ${isSem?'prod-dev-sem':''}" style="display:flex;align-items:center;gap:6px">${roleBadge}${escHtml(r.name)}</td>
-      <td>${r.issuesTotal}</td>
-      <td>${r.issuesDone}</td>
-      <td>${fmtSP(r.spTotal)}</td>
-      <td class="prod-sp-done">${fmtSP(r.spDone)}</td>
-      <td class="${r.spActive>=8?'prod-sp-high':''}">${fmtSP(r.spActive)}</td>
-      <td>${fmtSP(r.spTodo)}</td>
-      <td class="prod-nosp">${r.noSP||'0'}</td>
-      <td class="prod-pct" style="color:${pctColor(pctRaw)}">${pctRaw!==null?pctRaw+'%':'—'}</td>
-      <td title="${escHtml(rejTitle)}">${r.role==='Dev' ? (r.rejTotal||'0') : '—'}${r.role==='Dev' && r.rejTotal>0 ? ` <span style="color:var(--text-muted);font-size:10px">(${r.rejCode}C/${r.rejQA}QA)</span>` : ''}</td>
-      <td style="background:rgba(254,221,41,.16)" title="${r.role==='Dev' ? `${r.rejQACard} retorno(s) de QA no nível de card ÷ ${r.baseQADev} card(s) que chegaram ao QA` : 'Média da squad — retrabalho que o QA absorve'}">${r.role==='Dev' ? retPill(r.irqDev) : `${retPill(irq)} <span style="color:var(--text-muted);font-size:9px">squad</span>`}</td>
-      <td style="background:rgba(254,221,41,.16)" title="${r.role==='Dev' ? `${r.rejCodeCard} rejeição(ões) de código no nível de card ÷ ${r.baseCRDev} card(s) em code review` : ''}">${r.role==='Dev' ? retPill(r.ircDev) : '<span style="color:var(--text-disabled)">—</span>'}</td>
-      <td><span style="background:${perf.color}22;color:${perf.color};font-size:10px;font-weight:700;padding:3px 8px;border-radius:99px;font-family: var(--font)">${perf.label}${r.role==='Dev'&&r.rejPct!==null?` · ${r.rejPct}%`:''}</span></td>
-    </tr>`;
-  }).join('');
+  // ── Uma linha por pessoa ────────────────────────────────────────────────────
+  // As quatro colunas de SP viram uma barra única de 100% do escopo da pessoa.
+  // Os valores em SP vao embaixo; o % entregue e o numero de leitura da linha.
+  const segPct = (v, total) => total > 0 ? (v / total * 100) : 0;
 
-  // Linha única, sem seções separadas — Nataly (QA) sempre por último, apenas com o badge de papel a destacando
+  const spBar = (r) => {
+    const t = r.spTotal;
+    const seg = (v, cls) => t > 0 && v > 0 ? `<i class="${cls}" style="width:${segPct(v,t).toFixed(2)}%"></i>` : '';
+    return `<div style="display:flex;align-items:center">
+      <div class="pr-bar" style="flex:1">${seg(r.spDone,'pr-done')}${seg(r.spActive,'pr-active')}${seg(r.spTodo,'pr-todo')}</div>
+      ${r.noSP ? `<span class="pr-nosp" title="${r.noSP} issue(s) sem SP estimado"></span>` : ''}
+    </div>`;
+  };
+
+  const spLine = (r) => {
+    const bit = (v, txt, cls) => v > 0
+      ? `<strong class="${cls}">${fmtSP(v)} ${txt}</strong>`
+      : `${fmtSP(v)} ${txt}`;
+    return `${fmtSP(r.spTotal)} SP · ${bit(r.spDone,'entregues','t-done')} · ${bit(r.spActive,'em andamento','t-active')} · ${fmtSP(r.spTodo)} não iniciados`
+      + (r.noSP ? ` · <strong>${r.noSP} sem SP</strong>` : '');
+  };
+
+  // Um quadrado por rejeição: Núcleo = código, Fluxo = QA. Acima de 12, resume.
+  const rejChips = (nCode, nQA) => {
+    const tot = nCode + nQA;
+    if (!tot) return `<span class="pr-rejn zero" style="color:var(--green)">0</span> <span style="font-size:11px;color:var(--text-muted);margin-left:5px">rejeições</span>`;
+    if (tot > 12) return `<i class="pr-chip-code"></i><i class="pr-chip-qa"></i><span class="pr-rejn">${tot}</span>`;
+    return '<i class="pr-chip-code"></i>'.repeat(nCode) + '<i class="pr-chip-qa"></i>'.repeat(nQA) + `<span class="pr-rejn">${tot}</span>`;
+  };
+
+  const idxTxt = v => v === null || v === undefined || isNaN(v)
+    ? '<span style="color:var(--text-muted)">—</span>'
+    : `<strong style="color:${retBand(v).color}">${fmtIdx(v)}</strong>`;
+
+  const mkRow = (r, cls) => {
+    const pctRaw = r.spTotal > 0 ? Math.round(r.spDone / r.spTotal * 100) : null;
+    const isSem  = r.name === 'Sem responsável';
+    const isQA   = r.role === 'QA';
+    const perf   = isQA ? null : perfInfo(r.rejPct);
+
+    let rejTop, rejSub;
+    if (isQA) {
+      rejTop = `<span style="font-size:11px;color:var(--text-muted)">não se aplica a QA</span>`;
+      rejSub = `retorno QA da squad ${idxTxt(irq)}`;
+    } else if (r.rejTotal === 0 && r.baseQADev === 0 && r.baseCRDev === 0) {
+      rejTop = rejChips(0, 0);
+      rejSub = 'nenhum card chegou a review ou QA';
+    } else {
+      rejTop = rejChips(r.rejCode, r.rejQA);
+      rejSub = `retorno cód ${idxTxt(r.ircDev)} · QA ${r.baseQADev ? idxTxt(r.irqDev) : '<span style="color:var(--text-muted)">sem cards</span>'}`;
+    }
+
+    return `<div class="prod-row ${cls||''}">
+      <div>
+        <div class="pr-name">
+          <span class="pr-badge ${isQA?'pr-badge-qa':'pr-badge-dev'}">${isQA?'QA':'Dev'}</span>
+          <span${isSem?' style="font-style:italic;color:var(--text-muted)"':''}>${escHtml(r.name)}</span>
+        </div>
+        <div class="pr-sub">${r.issuesDone} de ${r.issuesTotal} issue${r.issuesTotal===1?'':'s'} concluída${r.issuesTotal===1?'':'s'}</div>
+      </div>
+      <div>
+        ${spBar(r)}
+        <div class="pr-sub">${spLine(r)}</div>
+      </div>
+      <div class="pr-pct" style="color:${pctColor(pctRaw)}">${pctRaw!==null?pctRaw+'%':'—'}</div>
+      <div>
+        <div class="pr-chips">${rejTop}</div>
+        <div class="pr-sub">${rejSub}</div>
+      </div>
+      <div class="pr-perf">${perf
+        ? `<span class="pr-pill" style="background:${perf.bg};color:${perf.color}">${perf.label}${r.rejPct!==null?` · ${r.rejPct}%`:''}</span>`
+        : '<span style="color:var(--text-muted)">—</span>'}</div>
+    </div>`;
+  };
+
+  // Nataly (QA) por último, destacada só pelo badge de papel e pela faixa clara.
   const combinedRows = [...devRows, ...qaRows];
-  const tableRows = `<tbody>${mkRows(combinedRows)}</tbody>`;
+  const totalRow = {
+    name: 'Total da squad', role: 'Dev',
+    issuesTotal: totQA.issuesTotal + totDev.issuesTotal,
+    issuesDone:  totQA.issuesDone  + totDev.issuesDone,
+    spTotal:  totQA.spTotal  + totDev.spTotal,
+    spDone:   totQA.spDone   + totDev.spDone,
+    spActive: totQA.spActive + totDev.spActive,
+    spTodo:   totQA.spTodo   + totDev.spTodo,
+    noSP: totQA.noSP + totDev.noSP,
+    rejCode: totDev.rejCode, rejQA: totDev.rejQA,
+    rejTotal: totDev.rejCode + totDev.rejQA,
+  };
+  const totPct = totalRow.spTotal > 0 ? Math.round(totalRow.spDone/totalRow.spTotal*100) : null;
+  const totalRowHtml = `<div class="prod-row prod-total">
+    <div>
+      <div class="pr-name">Total da squad</div>
+      <div class="pr-sub">${totalRow.issuesDone} de ${totalRow.issuesTotal} issues concluídas</div>
+    </div>
+    <div>
+      ${spBar(totalRow)}
+      <div class="pr-sub">${spLine(totalRow)}</div>
+    </div>
+    <div class="pr-pct" style="color:${pctColor(totPct)}">${totPct!==null?totPct+'%':'—'}</div>
+    <div>
+      <div class="pr-chips"><span class="pr-rejn zero">${totalRow.rejTotal}</span>
+        <span style="font-size:11px;color:var(--text-muted);margin-left:6px">${totalRow.rejCode} código · ${totalRow.rejQA} QA</span></div>
+      <div class="pr-sub">retorno cód ${idxTxt(irc)} · QA ${idxTxt(irq)}</div>
+    </div>
+    <div class="pr-perf"><span style="color:var(--text-muted)">—</span></div>
+  </div>`;
+
+  const prodGrid = `
+    <div class="prod-grid">
+      <div class="prod-row prod-head">
+        <div>Pessoa · Issues</div>
+        <div>Story points · 100% do escopo da pessoa</div>
+        <div style="text-align:right">% SP</div>
+        <div>Retrabalho</div>
+        <div style="text-align:right">Performance</div>
+      </div>
+      ${combinedRows.map(r => mkRow(r, r.role === 'QA' ? 'prod-qa' : '')).join('')}
+      ${totalRowHtml}
+    </div>`;
 
   // ── Cards com múltiplas rejeições (2+) e demais rejeitados ───────────────────
   const rejRow = c => `<div style="display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--border);border-left:3px solid var(--red);border-radius:8px;background:var(--bg-card)">
@@ -1769,38 +1907,23 @@ function renderProductivity() {
   el.innerHTML = `
     ${idxBlock}
     ${rejBlock}
-    <div class="prod-table-wrap" style="margin-top:16px">
-      <table class="prod-table">
-        <thead><tr>
-          <th>Pessoa / Papel</th><th>Issues atrib.</th><th>Issues concl.</th>
-          <th>SP atribuídos</th><th>SP entregues</th>
-          <th>SP em andamento</th><th>SP não inic.</th>
-          <th>Sem SP</th><th>% SP entregue</th>
-          <th>Rejeições</th><th style="background:rgba(254,221,41,.16)">↩︎ Retorno QA</th><th style="background:rgba(254,221,41,.16)">↩︎ Retorno código</th><th>Performance</th>
-        </tr></thead>
-        ${tableRows}
-        <tfoot><tr>
-          <td>TOTAL</td>
-          <td>${totQA.issuesTotal + totDev.issuesTotal}</td><td>${totQA.issuesDone + totDev.issuesDone}</td>
-          <td>${fmtSP(totQA.spTotal + totDev.spTotal)}</td>
-          <td class="prod-sp-done">${fmtSP(totQA.spDone + totDev.spDone)}</td>
-          <td>${fmtSP(totQA.spActive + totDev.spActive)}</td><td>${fmtSP(totQA.spTodo + totDev.spTodo)}</td>
-          <td>${totQA.noSP + totDev.noSP}</td>
-          <td class="prod-pct" style="color:${pctColor(totPctRaw)}">${totPctRaw!==null?totPctRaw+'%':'—'}</td>
-          <td>${totDev.rejCode + totDev.rejQA || '0'}</td>
-          <td style="background:rgba(254,221,41,.16)">${retPill(irq)}</td>
-          <td style="background:rgba(254,221,41,.16)">${retPill(irc)}</td>
-          <td>—</td>
-        </tr></tfoot>
-      </table>
-      <div style="font-size:10px;color:var(--text-muted);padding:6px 4px 0;font-family: var(--font)">
-        SP por história-pai: <strong>QA</strong> = "Story point QA" · <strong>Dev</strong> = Story Points − parte de QA. Assim <strong>DEV + QA = 98</strong>, o mesmo total do Progresso da sprint.
-        <strong>Rejeições</strong> vem do histórico do Jira (changelog): nº de vezes que as issues do dev entraram em "CODE REVIEW REJECTED" (código) ou "REJECTED BY QA" (QA) — inclui rejeições já corrigidas e reincidências · <strong>Performance</strong> na tabela = % de rejeição por issue trabalhada (menor é melhor) · <strong>↩︎ Retorno QA / Retorno código</strong> = retornos ÷ cards que chegaram a cada estágio, calculados no nível de <strong>card</strong> (história/tarefa/bug, sem subtarefas) para bater com o Weekly Product Hub — a coluna Rejeições inclui subtarefas e pode ficar 1–2 acima · <strong>escopo do índice</strong>: apenas cards da sprint aberta (subtarefas e cards sem sprint ficam fora).
+    <div style="margin-top:18px;display:flex;align-items:center;justify-content:flex-end;gap:16px;flex-wrap:wrap;padding:0 20px 2px">
+      <div class="prod-legend">
+        <span><i style="background:var(--green)"></i>Entregue</span>
+        <span><i style="background:var(--yellow)"></i>Em andamento</span>
+        <span><i style="background:var(--bg-surface)"></i>Não iniciado</span>
       </div>
     </div>
-    <div id="retorno-hist"></div>
-    ${insights.length?`<div class="prod-insights">
-      <div class="prod-insights-title">Leitura de produtividade</div>
+    ${prodGrid}
+    <div style="font-size:10px;color:var(--text-muted);padding:10px 20px 0;line-height:1.55">
+      SP por história-pai: <strong>QA</strong> = "Story point QA" · <strong>Dev</strong> = Story Points − parte de QA, então DEV + QA = ${fmtSP(totQA.spTotal + totDev.spTotal)}, o mesmo total do Progresso da sprint.
+      <strong>Rejeições</strong> vêm do changelog do Jira: nº de vezes que as issues entraram em "CODE REVIEW REJECTED" (código) ou "REJECTED BY QA" (QA), incluindo reincidências — pode ficar 1–2 acima dos índices, que são calculados no nível de card.
+      <strong>Performance</strong> = % de rejeição por issue trabalhada, menor é melhor. Escopo: apenas cards da sprint aberta.
+      A coluna <strong>Sem SP</strong> saiu da grade; quando houver valor, ela volta como marcador na barra.
+    </div>
+    ${insights.length ? `
+    <div class="prod-insights">
+      <div class="prod-insights-title">Leitura automática</div>
       <ul class="prod-insights-list">${insights.map(i=>`<li>${i}</li>`).join('')}</ul>
     </div>`:''}`;
 
