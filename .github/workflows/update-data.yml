@@ -1,22 +1,37 @@
-name: Atualizar dados do Jira
+name: Atualizar dados do Jira e publicar
+
+# Um unico workflow faz as duas coisas, na ordem certa:
+#   1) consulta o Jira e regrava o data.json (commit no main);
+#   2) publica o site no GitHub Pages via actions/deploy-pages.
+#
+# Antes o Pages usava a build automatica por branch. Como o bot comitava o
+# data.json a cada 5 min, cada commit disparava um build completo; quando o
+# build passou de 5 min, a fila parou de drenar e o deploy do modelo 4a
+# (ec029f8) ficou preso em Queued. Com deploy via Actions + concurrency
+# cancel-in-progress a fila nunca acumula.
 
 on:
   schedule:
-    - cron: "*/5 * * * *"    # a cada 5 min
-  workflow_dispatch:          # botão "Run workflow"
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
   push:
-    branches: [ main ]        # roda ao subir o repo
+    branches: [ main ]
 
 permissions:
   contents: write
+  pages: write
+  id-token: write
 
 concurrency:
-  group: update-data
+  group: pages
   cancel-in-progress: true
 
 jobs:
-  update:
+  build-deploy:
     runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -31,14 +46,32 @@ jobs:
           JIRA_API_TOKEN: ${{ secrets.JIRA_API_TOKEN }}
         run: node scripts/fetch-jira.mjs
 
-      - name: Commit se houver mudança
+      - name: Commitar o data.json se houver mudanca
         run: |
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           if [ -n "$(git status --porcelain data.json)" ]; then
             git add data.json
             git commit -m "chore: atualiza dados do Jira [skip ci]"
+            git pull --rebase --autostash origin main
             git push
           else
-            echo "Sem mudanças no data.json"
+            echo "Sem mudancas no data.json"
           fi
+
+      - name: Montar o _site
+        run: |
+          mkdir -p _site
+          cp index.html data.json _site/
+          touch _site/.nojekyll
+          ls -la _site
+
+      - uses: actions/configure-pages@v5
+
+      - uses: actions/upload-pages-artifact@v3
+        with:
+          path: _site
+
+      - name: Publicar no GitHub Pages
+        id: deploy
+        uses: actions/deploy-pages@v4
