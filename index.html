@@ -957,6 +957,17 @@ async function loadJira() {
     }
   }
 
+  // ── Apelidos de EXIBIÇÃO para contas que não são pessoas ──────────────────
+  // "Jira Triage Agent" é a conta de automação que recebe os cards de reunião/treinamento
+  // da squad; mostrar o nome do bot nos indicadores confunde a leitura (pedido de Vitor em
+  // 12/08/2026). Aplicado aqui, na ingestão, para valer em produtividade, tabela de issues,
+  // filtro de responsável, bloqueios e foco de uma vez só. A linha segue contando como dev.
+  const NAME_ALIAS = { 'Jira Triage Agent': 'Reuniões ou Treinamentos' };
+  [...active, ...done, ...subtasks].forEach(i => {
+    const a = i.fields && i.fields.assignee;
+    if (a && NAME_ALIAS[a.displayName]) a.displayName = NAME_ALIAS[a.displayName];
+  });
+
   return {active, done, subtasks, doneHasMore};
 }
 
