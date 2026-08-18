@@ -1,6 +1,6 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-08-18T10:37:14.770Z",
+  "jiraGeneratedAt": "2026-08-18T10:58:36.188Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
@@ -112,10 +112,10 @@
         "_touchCR": true
       },
       {
-        "id": "52871",
-        "key": "OE-345",
+        "id": "52355",
+        "key": "OE-298",
         "fields": {
-          "summary": "Fix the front end to use the new alert_type table and remove the manual translations",
+          "summary": "alert_type seed with the 15 alert types",
           "customfield_10028": 1,
           "issuetype": {
             "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
@@ -199,11 +199,11 @@
             "id": "3"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Sendo feito",
-            "id": "10563",
+            "name": "CODE REVIEW",
+            "id": "10565",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -216,13 +216,13 @@
         "_rejCode": 0,
         "_rejQA": 0,
         "_touchQA": false,
-        "_touchCR": false
+        "_touchCR": true
       },
       {
-        "id": "52355",
-        "key": "OE-298",
+        "id": "52871",
+        "key": "OE-345",
         "fields": {
-          "summary": "alert_type seed with the 15 alert types",
+          "summary": "Fix the front end to use the new alert_type table and remove the manual translations",
           "customfield_10028": 1,
           "issuetype": {
             "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
