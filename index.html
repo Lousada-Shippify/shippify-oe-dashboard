@@ -48,6 +48,16 @@
   --orange-bg: #FFF3D1;
   --radius: 0;
   --shadow: none;
+  /* Série de status do bloco "No que o time está trabalhando agora" — mesma
+     leitura do Weekly Product Hub: uma cor por status, ordem fixa por volume. */
+  --s1: #2D5BE3;  /* azul   */
+  --s2: #B8860B;  /* dourado escuro */
+  --s3: #A0217A;  /* magenta */
+  --s4: #B5651D;  /* laranja queimado */
+  --s5: #C0392B;  /* vermelho */
+  --s6: #1B7A4B;  /* verde  */
+  --s7: #0E6B7A;  /* petróleo */
+  --s8: #5B5B5B;  /* grafite */
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -213,20 +223,47 @@ body {
 .burndown-inner { padding: 16px 20px; position: relative; height: 230px; }
 
 /* ── SP Progress (inside burndown panel) ── */
-.burndown-sp-section { padding: 14px 20px 12px; border-bottom: 1px solid var(--border); }
-.bsp-bar { display: flex; height: 10px; border-radius: 0; overflow: hidden; background: var(--bg-surface); }
+.burndown-sp-section { padding: 14px 20px 14px; border-bottom: 1px solid var(--border); }
+.bsp-title { font-size: 13px; font-weight: 700; color: var(--text); margin: 0 0 10px; font-family: var(--font); }
+.bsp-title small { font-weight: 400; color: var(--text-muted); font-size: 11px; }
+.bsp-bar { display: flex; height: 12px; border-radius: 0; overflow: hidden; background: var(--bg-surface); }
 .bsp-seg { height: 100%; transition: width .7s ease; }
 .bsp-done   { background: var(--green); }
-.bsp-active { background: var(--yellow); }
+.bsp-active { background: var(--s1); }
 .bsp-todo   { background: var(--bg-surface); }
-.bsp-labels { display: flex; gap: 36px; margin-top: 14px; }
+.bsp-labels { display: flex; gap: 40px; margin-top: 14px; flex-wrap: wrap; }
 .bsp-label  { display: flex; flex-direction: column; gap: 4px; }
 .bsp-val    { font-size: 22px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
 .bsp-val-done   { color: var(--green); }
-.bsp-val-active { color: var(--yellow-dark); }
+.bsp-val-active { color: var(--s1); }
 .bsp-val-todo   { color: var(--text-muted); }
-.bsp-key    { font-size: 10px; color: var(--text-muted); font-weight: 600; text-transform: uppercase; letter-spacing: 0.06em; font-family: var(--font); }
-.burndown-sp-sub { font-size: 12px; color: var(--text-muted); padding: 8px 20px 0; font-family: var(--font); }
+.bsp-key    { font-size: 11px; color: var(--text-muted); font-weight: 600; font-family: var(--font); font-variant-numeric: tabular-nums; }
+
+/* ── "No que o time está trabalhando agora" — unidades de trabalho por status ── */
+.ipp { margin-top: 16px; border: 1px solid var(--border); background: var(--bg-card-el); padding: 10px 12px; }
+.ipp-head { font-size: 12px; font-weight: 700; color: var(--text); font-family: var(--font); }
+.ipp-head small { font-weight: 400; color: var(--text-muted); font-size: 11px; }
+.ipp-bar { display: flex; height: 10px; margin: 9px 0; overflow: hidden; background: var(--bg-surface); }
+.ipp-bar > div { height: 100%; }
+.ipp-legend { display: flex; flex-wrap: wrap; gap: 6px 18px; }
+.ipp-item { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-muted); font-family: var(--font); }
+.ipp-item i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
+.ipp-item b { color: var(--text); font-variant-numeric: tabular-nums; }
+
+/* ── KPIs do sprint (Scope / Completed / Remaining / % / vs. ideal) ── */
+.bd-kpis { display: grid; grid-template-columns: repeat(6, 1fr); border-bottom: 1px solid var(--border); }
+@media (max-width: 1100px) { .bd-kpis { grid-template-columns: repeat(3, 1fr); } }
+@media (max-width: 620px)  { .bd-kpis { grid-template-columns: repeat(2, 1fr); } }
+.bd-kpi { padding: 14px 16px; border-right: 1px solid var(--border); font-family: var(--font); }
+.bd-kpi:last-child { border-right: 0; }
+.bd-kpi .k-lbl { font-size: 10px; color: var(--text-muted); text-transform: uppercase; letter-spacing: 0.07em; font-weight: 700; }
+.bd-kpi .k-val { font-size: 26px; font-weight: 800; line-height: 1.15; margin-top: 6px; font-variant-numeric: tabular-nums; color: var(--text); }
+.bd-kpi .k-sub { font-size: 11px; color: var(--text-muted); margin-top: 4px; }
+.bd-kpi.crit { border-left: 3px solid var(--red); }
+.bd-kpi.crit .k-val { color: var(--red-text); }
+.bd-foot { padding: 10px 20px 14px; font-size: 12px; font-family: var(--font); }
+.bd-foot a { color: var(--text); font-weight: 600; text-decoration: none; border-bottom: 1px solid var(--yellow); }
+.bd-foot a:hover { background: var(--yellow-bg); }
 #burndown-loading {
   position: absolute; inset: 0; display: flex; align-items: center; justify-content: center;
   font-size: 12px; color: var(--text-muted); background: var(--bg-card); z-index: 2;
@@ -585,23 +622,28 @@ td.sub-key a { color: var(--text-muted); font-size: 11px; }
   </div>
   <!-- SP Progress Bar -->
   <div class="burndown-sp-section">
+    <div class="bsp-title">Progresso do sprint <small>(por SP — espelha o gadget do Jira)</small></div>
     <div class="bsp-bar">
       <div class="bsp-seg bsp-done"   id="bsp-done"   style="width:0%"></div>
       <div class="bsp-seg bsp-active" id="bsp-active" style="width:0%"></div>
       <div class="bsp-seg bsp-todo"   id="bsp-todo"   style="width:100%"></div>
     </div>
     <div class="bsp-labels">
-      <div class="bsp-label"><span class="bsp-val bsp-val-done"   id="bsp-pct-done">—</span><span class="bsp-key">Concluído</span></div>
-      <div class="bsp-label"><span class="bsp-val bsp-val-active" id="bsp-pct-active">—</span><span class="bsp-key">Em andamento</span></div>
-      <div class="bsp-label"><span class="bsp-val bsp-val-todo"   id="bsp-pct-todo">—</span><span class="bsp-key">Não iniciado</span></div>
+      <div class="bsp-label"><span class="bsp-val bsp-val-done"   id="bsp-pct-done">—</span><span class="bsp-key" id="bsp-key-done">Concluído</span></div>
+      <div class="bsp-label"><span class="bsp-val bsp-val-active" id="bsp-pct-active">—</span><span class="bsp-key" id="bsp-key-active">Em andamento</span></div>
+      <div class="bsp-label"><span class="bsp-val bsp-val-todo"   id="bsp-pct-todo">—</span><span class="bsp-key" id="bsp-key-todo">Não iniciado</span></div>
     </div>
+    <!-- Unidades de trabalho em andamento, por status (folha da árvore) -->
+    <div id="ipp-block"></div>
   </div>
-  <div class="burndown-sp-sub" id="burndown-sp-sub"></div>
+  <!-- KPIs do sprint -->
+  <div class="bd-kpis" id="bd-kpis"></div>
   <!-- Burndown Chart -->
   <div class="burndown-inner">
     <div id="burndown-loading"><span class="spinner spinner-sm" style="margin-right:6px"></span>Aguardando dados do Jira…</div>
     <canvas id="burndown-chart"></canvas>
   </div>
+  <div class="bd-foot"><a id="bd-jira-link" href="https://shippify.atlassian.net/jira/software/c/projects/OE/boards/474" target="_blank" rel="noopener">↗ Open Sprint Insights in Jira (OE) — Progresso + Burndown</a></div>
 </div>
 
 <!-- ── Main Grid ── -->
@@ -1067,44 +1109,118 @@ function renderMetrics() {
 }
 
 // ── Burndown ────────────────────────────────────────────────────────────────
+// Rótulo de status: os 3 statuses NATIVOS do Jira chegam em pt-BR pelo locale da conta;
+// os customizados já vêm em inglês maiúsculo. Traduz só exibição — as regras continuam
+// lendo o status cru.
+const STATUS_LABEL = {
+  'Tarefas pendentes': 'TO-DO',
+  'Sendo feito':       'WORKING IN PROGRESS',
+  'Concluído':         'DONE'
+};
+const stLabel = s => STATUS_LABEL[s] || String(s||'').toUpperCase();
+
+// Dias úteis entre duas datas (inclusive nas duas pontas) = duração real da sprint.
+// Parseia em horário LOCAL (new Date('YYYY-MM-DD') é UTC e erra 1 dia no fuso −3).
+function localDay(v){
+  if (v instanceof Date) { const d=new Date(v); d.setHours(0,0,0,0); return d; }
+  const p=String(v).split('T')[0].split('-').map(Number);
+  return new Date(p[0], p[1]-1, p[2]);
+}
+function workdaysBetween(start, end){
+  if(!start||!end) return 0;
+  let d=localDay(start); const t=localDay(end); let n=0;
+  while(d<=t && n<90){ const wd=d.getDay(); if(wd!==0&&wd!==6) n++; d.setDate(d.getDate()+1); }
+  return n;
+}
+// Dias úteis decorridos do início da sprint até `today` (inclusive), limitado à duração.
+function workdayIndex(start, today, max){
+  let d=localDay(start); const t=localDay(today); const cap=max||15; let n=0;
+  while(d<=t && n<cap){ const wd=d.getDay(); if(wd!==0&&wd!==6) n++; d.setDate(d.getDate()+1); }
+  return Math.max(1, n);
+}
+
 function buildBurndownData(sprintStartStr, sprintEndStr) {
   const getSP=i=>{const v=i?.fields?.customfield_10028; return(v!==null&&v!==undefined&&!isNaN(Number(v)))?Number(v):0;};
-  const isDoneCat=i=>(i.fields?.status?.statusCategory?.key||'')==='done';
-  const isActiveCat=i=>(i.fields?.status?.statusCategory?.key||'')==='indeterminate';
+  const cat=i=>(i.fields?.status?.statusCategory?.key||'');
+  const isDoneCat=i=>cat(i)==='done';
+  const isActiveCat=i=>cat(i)==='indeterminate';
 
-  const start=new Date(sprintStartStr.split('T')[0]);
-  const end=new Date(sprintEndStr.split('T')[0]);
+  const start=localDay(sprintStartStr);
+  const end=localDay(sprintEndStr);
   const now=new Date(); now.setHours(23,59,59,999);
 
   // Escopo = Story Points apenas das issues-pai do sprint (sem subtarefas) —
   // confirmado com o Jira: o painel "Progresso do sprint" sempre soma só os pais.
   const all=[...activeIssues,...doneIssues];
   const doneAll=all.filter(isDoneCat);
+  const activeAll=all.filter(isActiveCat);
   const totalSP=all.reduce((s,i)=>s+getSP(i),0);
   const doneSP=doneAll.reduce((s,i)=>s+getSP(i),0);
-  const activeSP=all.filter(isActiveCat).reduce((s,i)=>s+getSP(i),0);
+  const activeSP=activeAll.reduce((s,i)=>s+getSP(i),0);
   const todoSP=Math.max(0,totalSP-doneSP-activeSP);
+  const doneN=doneAll.length, activeN=activeAll.length, todoN=all.length-doneN-activeN;
 
+  // ── Unidades de trabalho EM ANDAMENTO, por status — FOLHA DA ÁRVORE ──────────
+  // Regra (mesma do Weekly Product Hub): toda subtarefa em andamento conta; o card
+  // conta apenas quando NÃO tem nenhuma subtarefa em andamento (não foi quebrado, ou
+  // o próprio card é a unidade — PENDING QA, BLOCKED, REJECTED BY QA…). Assim nada é
+  // contado duas vezes (história + subtarefa) e a soma reconcilia com o board.
+  const subsByParent={};
+  for(const st of (subtaskIssues||[])){
+    const pk=st.fields?.parent?.key; if(!pk) continue;
+    (subsByParent[pk]=subsByParent[pk]||[]).push(st);
+  }
+  const ipLeaf={}; let ipSubN=0, ipCardN=0;
+  for(const it of all){
+    const subsIP=(subsByParent[it.key]||[]).filter(isActiveCat);
+    for(const st of subsIP){
+      const n=st.fields?.status?.name||'—';
+      ipLeaf[n]=(ipLeaf[n]||0)+1; ipSubN++;
+    }
+    if(isActiveCat(it) && !subsIP.length){
+      const n=it.fields?.status?.name||'—';
+      ipLeaf[n]=(ipLeaf[n]||0)+1; ipCardN++;
+    }
+  }
+  const inprogByStatus=Object.entries(ipLeaf).sort((a,b)=>b[1]-a[1]);
+
+  // ── Eixo do gráfico: dias de CALENDÁRIO (start → end), como já era ───────────
   const days=[];
   const d=new Date(start);
   while(d<=end){ days.push(new Date(d)); d.setDate(d.getDate()+1); }
 
   const labels=days.map(d=>d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'}));
 
-  // Ideal (Diretriz): linear 100% → 0%
-  const ideal=days.map((_,i)=>+(100*(1-i/(days.length-1))).toFixed(1));
+  // Duração da sprint em DIAS ÚTEIS e dia útil atual — a diretriz queima só em dia
+  // útil (fica plana no fim de semana), por isso ideal ≠ reta sobre o calendário.
+  const lenWd=workdaysBetween(start,end)||days.length;
+  const dayWd=workdayIndex(start,new Date(),lenWd);
 
-  // Actual (Trabalho restante): % SP remaining per day up to today
-  const actual=days.map(day=>{
-    if(day>now) return null;
-    const doneSPByDay=doneAll.filter(i=>{
-      const rd=i.fields?.resolutiondate||i.fields?.updated;
-      return rd&&new Date(rd)<=day;
-    }).reduce((s,i)=>s+getSP(i),0);
-    return totalSP>0?+(100*(totalSP-doneSPByDay)/totalSP).toFixed(1):0;
+  // Diretriz (ideal) em SP restantes ao FIM de cada dia do calendário.
+  const ideal=days.map(day=>{
+    const elapsed=workdaysBetween(start,day);
+    return +Math.max(0,totalSP*(1-elapsed/lenWd)).toFixed(1);
   });
 
-  return {labels,ideal,actual,totalSP,doneSP,activeSP,todoSP,days};
+  // Trabalho restante (real) em SP, dia a dia até hoje.
+  const actual=days.map(day=>{
+    const dayEnd=new Date(day); dayEnd.setHours(23,59,59,999);
+    if(dayEnd>now) return null;
+    const doneSPByDay=doneAll.filter(i=>{
+      const rd=i.fields?.resolutiondate||i.fields?.updated;
+      return rd&&new Date(rd)<=dayEnd;
+    }).reduce((s,i)=>s+getSP(i),0);
+    return +(totalSP-doneSPByDay).toFixed(1);
+  });
+
+  const remaining=+(totalSP-doneSP).toFixed(1);
+  const idealToday=Math.max(0,totalSP*(1-dayWd/lenWd));
+  const vsIdeal=+(remaining-idealToday).toFixed(2);
+
+  return {labels,ideal,actual,totalSP,doneSP,activeSP,todoSP,days,
+          doneN,activeN,todoN,totalN:all.length,
+          inprogByStatus,inprogUnits:{sub:ipSubN,card:ipCardN},
+          lenWd,dayWd,remaining,idealToday,vsIdeal};
 }
 
 function renderBurndown() {
@@ -1117,31 +1233,69 @@ function renderBurndown() {
     return;
   }
 
-  const {labels,ideal,actual,totalSP,doneSP,activeSP,todoSP,days}=buildBurndownData(sprintInfo.startDate,sprintInfo.endDate);
+  const B=buildBurndownData(sprintInfo.startDate,sprintInfo.endDate);
+  const {labels,ideal,actual,totalSP,doneSP,activeSP,todoSP,days,
+         doneN,activeN,todoN,totalN,inprogByStatus,inprogUnits,
+         lenWd,dayWd,remaining,idealToday,vsIdeal}=B;
 
   // ── Barra de progresso — por STORY POINTS (não por contagem), igual ao Jira ──
   // Jira calcula "Progresso do sprint" sobre os SP do escopo (pais + subtarefas),
   // por isso "concluído" é baixo mesmo com muitas issues fechadas.
-  const fmtSP=v=>Number.isInteger(v)?String(v):v.toFixed(1).replace('.',',');
+  const fmtSP=v=>Number.isInteger(v)?String(v):Number(v).toFixed(1).replace('.',',');
+  const plural=(n,w)=>n+' '+w+(n===1?'':'s');
   if(totalSP>0){
     const pctDone  =Math.round(doneSP/totalSP*100);
     const pctActive=Math.round(activeSP/totalSP*100);
-    const pctTodo  =Math.round(todoSP/totalSP*100);
+    const pctTodo  =Math.max(0,100-pctDone-pctActive);
     document.getElementById('bsp-done').style.width   =pctDone+'%';
     document.getElementById('bsp-active').style.width =pctActive+'%';
     document.getElementById('bsp-todo').style.width   =pctTodo+'%';
     document.getElementById('bsp-pct-done').textContent   =pctDone+'%';
     document.getElementById('bsp-pct-active').textContent =pctActive+'%';
     document.getElementById('bsp-pct-todo').textContent   =pctTodo+'%';
-  }
-  if(totalSP>0){
-    const remaining=totalSP-doneSP;
-    document.getElementById('burndown-sp-sub').textContent=
-      `${fmtSP(doneSP)} pontos concluídos, ${fmtSP(remaining)} pontos para concluir`;
+    document.getElementById('bsp-key-done').textContent   =`Concluído · ${fmtSP(doneSP)} SP · ${plural(doneN,'issue')}`;
+    document.getElementById('bsp-key-active').textContent =`Em andamento · ${fmtSP(activeSP)} SP · ${plural(activeN,'issue')}`;
+    document.getElementById('bsp-key-todo').textContent   =`Não iniciado · ${fmtSP(todoSP)} SP · ${plural(todoN,'issue')}`;
   }
 
+  // ── "No que o time está trabalhando agora" — unidades de trabalho por status ──
+  const ippEl=document.getElementById('ipp-block');
+  const totU=(inprogByStatus||[]).reduce((x,kv)=>x+kv[1],0);
+  if(!totU){ ippEl.innerHTML=''; }
+  else {
+    const PAL=['var(--s1)','var(--s2)','var(--s3)','var(--s4)','var(--s5)','var(--s6)','var(--s7)','var(--s8)'];
+    const seg=inprogByStatus.map((kv,i)=>
+      `<div style="flex:${kv[1]};background:${PAL[i%PAL.length]}" title="${escHtml(stLabel(kv[0]))} · ${plural(kv[1],'unidade')} de trabalho"></div>`).join('');
+    const leg=inprogByStatus.map((kv,i)=>
+      `<span class="ipp-item"><i style="background:${PAL[i%PAL.length]}"></i>${escHtml(stLabel(kv[0]))}<b>${kv[1]}</b></span>`).join('');
+    ippEl.innerHTML=
+      `<div class="ipp">`+
+        `<div class="ipp-head">No que o time está trabalhando agora <small>· ${totU} unidades de trabalho `+
+        `(${plural(inprogUnits.sub,'subtarefa')} + ${plural(inprogUnits.card,'card')} sem quebra) — conta a subtarefa `+
+        `quando a história foi quebrada, senão o próprio card, sem contar os dois</small></div>`+
+        `<div class="ipp-bar">${seg}</div>`+
+        `<div class="ipp-legend">${leg}</div>`+
+      `</div>`;
+  }
+
+  // ── KPIs do sprint ───────────────────────────────────────────────────────────
+  const pctSP =totalSP>0?Math.round(doneSP/totalSP*100):0;
+  const pctIss=totalN>0?Math.round(doneN/totalN*100):0;
+  const pctIdeal=Math.round(dayWd/lenWd*100);
+  const behind=vsIdeal>0.5;
+  const kpi=(lbl,val,sub,cls)=>
+    `<div class="bd-kpi${cls?' '+cls:''}"><div class="k-lbl">${lbl}</div><div class="k-val">${val}</div><div class="k-sub">${sub}</div></div>`;
+  document.getElementById('bd-kpis').innerHTML=
+    kpi('Scope SP',fmtSP(totalSP),plural(totalN,'issue'))+
+    kpi('Completed SP',fmtSP(doneSP),`${doneN} issues done`)+
+    kpi('Remaining SP',fmtSP(remaining),`${todoN} to do · ${activeN} in progress`)+
+    kpi('% Done (SP)',pctSP+'%',`ideal dia ${dayWd}: ${pctIdeal}%`,behind?'crit':'')+
+    kpi('% Done (issues)',pctIss+'%','métrica do gadget Jira')+
+    kpi('vs. ideal',(vsIdeal>0.5?'+':'')+String(+vsIdeal.toFixed(2)).replace('.',',')+' SP',
+        behind?'atrás do ideal':(vsIdeal<-0.5?'à frente do ideal':'on track'),behind?'crit':'');
+
   document.getElementById('burndown-meta').textContent=
-    `${sprintInfo.name||''} · ${fmtDate(sprintInfo.startDate)} → ${fmtDate(sprintInfo.endDate)}`;
+    `${sprintInfo.name||''} · ${fmtDate(sprintInfo.startDate)} → ${fmtDate(sprintInfo.endDate)} · Day ${dayWd}/${lenWd}`;
 
   // Hide loading overlay
   document.getElementById('burndown-loading').style.display='none';
@@ -1163,30 +1317,28 @@ function renderBurndown() {
       labels,
       datasets:[
         {
-          label:'Diretriz',
+          label:'Ideal (SP remaining)',
           data:ideal,
-          borderColor:'#555555',
+          borderColor:'#8A8A8A',
           borderDash:[5,4],
           borderWidth:1.5,
           pointRadius:0,
           fill:false,
-          tension:0,
-          order:3
+          tension:0
         },
         {
-          label:'Trabalho restante',
+          label:'Actual (SP remaining)',
           data:actual,
-          borderColor:'#151515',
-          backgroundColor:'rgba(254,221,41,0.15)',
+          borderColor:'#145C35',
+          backgroundColor:'rgba(20,92,53,0.08)',
           borderWidth:2.5,
-          pointRadius:(c)=>c.dataIndex===todayIdx?5:2,
-          pointBackgroundColor:'#151515',
+          pointRadius:(c)=>c.dataIndex===todayIdx?5:2.5,
+          pointBackgroundColor:'#145C35',
           pointBorderColor:'#FEDD29',
           pointBorderWidth:(c)=>c.dataIndex===todayIdx?2:0,
           fill:true,
-          tension:0.15,
-          spanGaps:false,
-          order:1
+          tension:0,
+          spanGaps:false
         }
       ]
     },
@@ -1214,9 +1366,9 @@ function renderBurndown() {
             label:c=>{
               if(c.parsed.y===null) return null;
               const v=c.parsed.y;
-              const spAbs=totalSP>0?(v/100*totalSP).toFixed(1):v;
-              const icon=c.dataset.label==='Diretriz'?'—':'●';
-              return ` ${icon} ${c.dataset.label}: ${v}% (${spAbs} SP)`;
+              const pct=totalSP>0?Math.round(v/totalSP*100):0;
+              const icon=/Ideal/.test(c.dataset.label)?'—':'●';
+              return ` ${icon} ${c.dataset.label}: ${fmtSP(v)} SP (${pct}%)`;
             }
           }
         }
@@ -1228,15 +1380,14 @@ function renderBurndown() {
         },
         y:{
           min:0,
-          max:100,
+          suggestedMax:Math.ceil((totalSP||10)*1.05),
           grid:{color:'#DADADA',drawBorder:false},
           ticks:{
             font:{size:10,family:'Geologica, Inter, Arial, sans-serif'},
             color:'#555555',
-            stepSize:20,
-            callback:v=>v+'%'
+            callback:v=>v
           },
-          title:{display:true,text:'% SP restante',font:{size:10,family:'Geologica, Inter, Arial, sans-serif'},color:'#555555'}
+          title:{display:true,text:'SP restante',font:{size:10,family:'Geologica, Inter, Arial, sans-serif'},color:'#555555'}
         }
       },
       interaction:{mode:'nearest',axis:'x',intersect:false}
