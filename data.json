@@ -1,6 +1,6 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-08-18T12:55:59.215Z",
+  "jiraGeneratedAt": "2026-08-18T13:35:15.544Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
@@ -208,11 +208,11 @@
             "id": "3"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "ON GOING QA",
-            "id": "10672",
+            "name": "REJECTED BY QA",
+            "id": "10568",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -223,7 +223,7 @@
           }
         },
         "_rejCode": 0,
-        "_rejQA": 1,
+        "_rejQA": 2,
         "_touchQA": true,
         "_touchCR": true
       },
@@ -3351,11 +3351,11 @@
             "fields": {
               "summary": "[MM3] Control Tower — KPI header (trips, in-route, delayed, Act Now, SLA, cost/KM)",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "ON GOING QA",
-                "id": "10672",
+                "name": "REJECTED BY QA",
+                "id": "10568",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -3584,11 +3584,11 @@
             "fields": {
               "summary": "[MM3] Control Tower — KPI header (trips, in-route, delayed, Act Now, SLA, cost/KM)",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "ON GOING QA",
-                "id": "10672",
+                "name": "REJECTED BY QA",
+                "id": "10568",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
