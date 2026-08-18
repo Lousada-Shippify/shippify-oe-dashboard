@@ -1,6 +1,6 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-08-18T18:25:30.830Z",
+  "jiraGeneratedAt": "2026-08-18T19:04:11.717Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
@@ -4610,11 +4610,11 @@
             "id": "2"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "ON GOING QA",
-            "id": "10672",
+            "name": "REJECTED BY QA",
+            "id": "10568",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -4625,7 +4625,7 @@
           }
         },
         "_rejCode": 0,
-        "_rejQA": 0,
+        "_rejQA": 1,
         "_touchQA": true,
         "_touchCR": true
       }
