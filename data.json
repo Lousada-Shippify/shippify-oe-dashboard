@@ -1,6 +1,6 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-08-21T19:33:41.093Z",
+  "jiraGeneratedAt": "2026-08-21T19:50:22.759Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
@@ -208,11 +208,11 @@
             "id": "3"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "REJECTED BY QA",
-            "id": "10568",
+            "name": "ON GOING QA",
+            "id": "10672",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -1263,11 +1263,11 @@
             "fields": {
               "summary": "[ACT NOW] Treat alerts — structured handling reasons (operator ↔ driver)",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1380,11 +1380,11 @@
             "fields": {
               "summary": "[ACT NOW] Treat alerts — structured handling reasons (operator ↔ driver)",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1497,11 +1497,11 @@
             "fields": {
               "summary": "[ACT NOW] Treat alerts — structured handling reasons (operator ↔ driver)",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
