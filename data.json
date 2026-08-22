@@ -1,6 +1,6 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-08-22T03:28:21.664Z",
+  "jiraGeneratedAt": "2026-08-22T04:04:48.024Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
@@ -3993,113 +3993,6 @@
         "_touchCR": true
       },
       {
-        "id": "52366",
-        "key": "OE-299",
-        "fields": {
-          "summary": "Send the images of the incidences created by companies that can enable visibility to the driver in the app",
-          "customfield_10028": 4,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-            "id": "10013",
-            "description": "Uma parte pequena e distinta do trabalho.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-            "name": "Tarefa",
-            "subtask": false,
-            "avatarId": 10318,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "49655",
-            "key": "OE-32",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/49655",
-            "fields": {
-              "summary": "[Operation - Tech Support] Q2 2026 – Operational Fixes & Critical Corrections (From May 19th Onward)",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 2,
-          "duedate": "2026-07-07",
-          "customfield_10020": [
-            {
-              "id": 1270,
-              "name": "Sprint 7",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Sprint Goal\n\nClose out the Control Tower (Torre de Controle) foundations already in flight — KPI header, structured alert tratativa and persisted destination ETA — and open the usability layer that makes the Tower workable at real operating volume: global filters, the lane as a queryable field, expandable multi-stop trips, quick view and a standardized alert catalog. In parallel, clear a batch of client-facing fixes with direct billing, SLA and legal exposure.\n\nProduct and UX/UI\n\nDiscovery — Global filters: client, date, lane, status, alert category (OE-301). Highest priority agreed for this sprint: without filters the Tower still shows the whole history at once.\nDiscovery — Expand a trip row into its deliveries and pickups (OE-304), ending the flattened duplicate rows in the trips list.\nQuick view popup — journey, steps, evidence and event log (OE-302).\n\nMain Deliveries\n\nAlert Type Catalog — alert_type table plus the 15 seed records with translated labels and the external reference code (OE-296).\nPersist the Amazon lane in a dedicated queryable field instead of a tag (OE-303) — prerequisite for the lane filter and for any per-lane analysis.\nAct Now — structured tratativa reasons, operator ↔ driver (OE-220) + backend cadastro and persistence (OE-279).\nControl Tower KPI header — Backend (OE-273) and Frontend (OE-232).\n\nProgress (carried over from Sprint 6)\n\nKPI header, BE (OE-273) and FE (OE-232) — Code Review\nAct Now tratativa, FE (OE-220) — Code Review · BE (OE-279) — Waiting for tasks\nPersist/display destination ETA via price_detail, owned by INF (OE-203) — In Progress\nVehicle assignment duplicate-plate filter (OE-191) — Rejected by QA, needs rework ⚠️\n\nMust Be Completed This Sprint\n\nKPI header end to end (OE-273 + OE-232) — third sprint in flight, cannot slip again\nAlert tratativa end to end (OE-220 + OE-279)\nETA persistence via price_detail (OE-203)\nLane persisted in its own field (OE-303) — unblocks the global filter work\n\nAlso In This Sprint (client-facing fixes / maintenance / tech debt)\n\nReturn-task quota showing the wrong company, with invoice price divergence (OE-221). Incidence images and PDFs not reaching the driver app (OE-299). Package-size translation breaking the vehicle allocation rule (OE-295). Boticário account rename, VD ↔ OMNI inverted (OE-294). New \"H2H\" operation type and Middle Mile — Especiais rename (OE-249). Child-company selector in Import for basic parent accounts (OE-198). shippify.cl typography migration from Brother 1816 to Geologica, closing the licensing exposure (OE-293). Tech support (OE-343). Trainings and ceremonies (OE-314).",
-              "startDate": "2026-08-11T20:11:45.000Z",
-              "endDate": "2026-08-25T20:11:39.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "emailAddress": "guilherme.santos@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
-            },
-            "displayName": "Guilherme Macedo Bento Santos",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/2",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/high_new.svg",
-            "name": "High",
-            "id": "2"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10569",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "WAITING FOR DEPLOY/RELEASE",
-            "id": "10569",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 1,
-        "_touchQA": true,
-        "_touchCR": true
-      },
-      {
         "id": "52966",
         "key": "OE-352",
         "fields": {
@@ -4204,6 +4097,113 @@
         "_rejCode": 0,
         "_rejQA": 0,
         "_touchQA": false,
+        "_touchCR": true
+      },
+      {
+        "id": "52366",
+        "key": "OE-299",
+        "fields": {
+          "summary": "Send the images of the incidences created by companies that can enable visibility to the driver in the app",
+          "customfield_10028": 4,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+            "id": "10013",
+            "description": "Uma parte pequena e distinta do trabalho.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+            "name": "Tarefa",
+            "subtask": false,
+            "avatarId": 10318,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "49655",
+            "key": "OE-32",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/49655",
+            "fields": {
+              "summary": "[Operation - Tech Support] Q2 2026 – Operational Fixes & Critical Corrections (From May 19th Onward)",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": 2,
+          "duedate": "2026-07-07",
+          "customfield_10020": [
+            {
+              "id": 1270,
+              "name": "Sprint 7",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Sprint Goal\n\nClose out the Control Tower (Torre de Controle) foundations already in flight — KPI header, structured alert tratativa and persisted destination ETA — and open the usability layer that makes the Tower workable at real operating volume: global filters, the lane as a queryable field, expandable multi-stop trips, quick view and a standardized alert catalog. In parallel, clear a batch of client-facing fixes with direct billing, SLA and legal exposure.\n\nProduct and UX/UI\n\nDiscovery — Global filters: client, date, lane, status, alert category (OE-301). Highest priority agreed for this sprint: without filters the Tower still shows the whole history at once.\nDiscovery — Expand a trip row into its deliveries and pickups (OE-304), ending the flattened duplicate rows in the trips list.\nQuick view popup — journey, steps, evidence and event log (OE-302).\n\nMain Deliveries\n\nAlert Type Catalog — alert_type table plus the 15 seed records with translated labels and the external reference code (OE-296).\nPersist the Amazon lane in a dedicated queryable field instead of a tag (OE-303) — prerequisite for the lane filter and for any per-lane analysis.\nAct Now — structured tratativa reasons, operator ↔ driver (OE-220) + backend cadastro and persistence (OE-279).\nControl Tower KPI header — Backend (OE-273) and Frontend (OE-232).\n\nProgress (carried over from Sprint 6)\n\nKPI header, BE (OE-273) and FE (OE-232) — Code Review\nAct Now tratativa, FE (OE-220) — Code Review · BE (OE-279) — Waiting for tasks\nPersist/display destination ETA via price_detail, owned by INF (OE-203) — In Progress\nVehicle assignment duplicate-plate filter (OE-191) — Rejected by QA, needs rework ⚠️\n\nMust Be Completed This Sprint\n\nKPI header end to end (OE-273 + OE-232) — third sprint in flight, cannot slip again\nAlert tratativa end to end (OE-220 + OE-279)\nETA persistence via price_detail (OE-203)\nLane persisted in its own field (OE-303) — unblocks the global filter work\n\nAlso In This Sprint (client-facing fixes / maintenance / tech debt)\n\nReturn-task quota showing the wrong company, with invoice price divergence (OE-221). Incidence images and PDFs not reaching the driver app (OE-299). Package-size translation breaking the vehicle allocation rule (OE-295). Boticário account rename, VD ↔ OMNI inverted (OE-294). New \"H2H\" operation type and Middle Mile — Especiais rename (OE-249). Child-company selector in Import for basic parent accounts (OE-198). shippify.cl typography migration from Brother 1816 to Geologica, closing the licensing exposure (OE-293). Tech support (OE-343). Trainings and ceremonies (OE-314).",
+              "startDate": "2026-08-11T20:11:45.000Z",
+              "endDate": "2026-08-25T20:11:39.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "emailAddress": "guilherme.santos@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
+            },
+            "displayName": "Guilherme Macedo Bento Santos",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/2",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/high_new.svg",
+            "name": "High",
+            "id": "2"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10569",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "WAITING FOR DEPLOY/RELEASE",
+            "id": "10569",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 1,
+        "_touchQA": true,
         "_touchCR": true
       }
     ],
