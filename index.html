@@ -406,6 +406,8 @@ td.sub-key a { color: var(--text-muted); font-size: 11px; }
 
 /* ── Due Date ── */
 .due-date { white-space: nowrap; font-size: 11px; font-family: var(--font); }
+.sp-badge { display: inline-block; min-width: 22px; padding: 1px 6px; border-radius: 10px; background: rgba(14,143,173,.12); color: var(--blue); font-size: 11px; font-weight: 700; text-align: center; font-family: var(--font); }
+.sp-badge.sp-none { background: transparent; color: var(--text-disabled); font-weight: 500; }
 .due-date.overdue { color: var(--red); font-weight: 600; }
 .due-date.near    { color: var(--yellow-dark); font-weight: 600; }
 
@@ -1459,7 +1461,7 @@ function renderIssues() {
   let parents = show==='done'?doneIssues : show==='all'?allIssues : activeIssues;
   let subs    = show==='done'?subtaskIssues.filter(isDoneCat) : show==='all'?subtaskIssues : subtaskIssues.filter(i=>!isDoneCat(i));
 
-  const sortVal=(a)=>{const fa=a.fields||{}; if(sortCol==='key')return parseInt((a.key||'').replace(/\D/g,''))||0; if(sortCol==='priority')return priorityOrder(fa.priority?.name); if(sortCol==='status')return fa.status?.name||''; if(sortCol==='assignee')return fa.assignee?.displayName||'zzz'; return 0;};
+  const sortVal=(a)=>{const fa=a.fields||{}; if(sortCol==='key')return parseInt((a.key||'').replace(/\D/g,''))||0; if(sortCol==='priority')return priorityOrder(fa.priority?.name); if(sortCol==='sp'){const v=Number(fa.customfield_10028); return isNaN(v)?-1:v;} if(sortCol==='status')return fa.status?.name||''; if(sortCol==='assignee')return fa.assignee?.displayName||'zzz'; return 0;};
   const cmp=(a,b)=>{const va=sortVal(a),vb=sortVal(b); const r=(typeof va==='number')?va-vb:String(va).localeCompare(String(vb)); return sortDir==='asc'?r:-r;};
   const sortedParents=[...parents].sort(cmp);
 
@@ -1474,9 +1476,10 @@ function renderIssues() {
     opt=opt||{}; const isSub=!!opt.isSub, context=!!opt.context;
     const f=i.fields||{};
     const an=f.assignee?.displayName||'';
-    const tm=typeMeta(f.issuetype?.name);
-    const dd=f.duedate; const du=daysUntil(dd);
-    const dueCls=du!==null?(du<0?'overdue':du<=2?'near':''):'';
+    const spNum=v=>(v!==null&&v!==undefined&&!isNaN(Number(v)))?Number(v):null;
+    const spTotal=spNum(f.customfield_10028);
+    const spQA=spNum(f.customfield_10546);
+    const spTitle=spTotal===null?'Sem estimativa':(spQA!==null?`Total ${spTotal} SP · Dev ${Math.max(0,spTotal-spQA)} · QA ${spQA}`:`${spTotal} SP`);
     const col=avatarColor(an);
     const cls=[isSub?'row-sub':'', context?'row-context':'', (!isSub&&isBlocked(i))?'row-blocked':'', (!isSub&&isDone(i))?'row-done':''].filter(Boolean).join(' ');
     return `<tr class="${cls}">
@@ -1484,9 +1487,8 @@ function renderIssues() {
       <td><div class="issue-summary">${isSub?'<span class="sub-arrow">↳</span>':''}<a href="${JIRA_BASE}${i.key}" target="_blank">${escHtml(f.summary||'')}</a></div></td>
       <td><div class="assignee-chip">${an?`<span class="assignee-avatar" style="background:${col}">${initials(an)}</span><span>${escHtml(firstName(an))}</span>`:'<span style="color:var(--text-disabled);font-size:11px">—</span>'}</div></td>
       <td><span class="status-pill ${statusPillClass(f.status?.name)}">${escHtml(f.status?.name||'')}</span></td>
+      <td><span class="sp-badge ${spTotal===null?'sp-none':''}" title="${spTitle}">${spTotal===null?'—':spTotal}</span></td>
       <td><div class="priority-label"><span class="priority-dot ${priorityDotClass(f.priority?.name)}"></span>${escHtml(f.priority?.name||'—')}</div></td>
-      <td><span class="type-badge ${tm.cls}" title="${escHtml(f.issuetype?.name||'')}">${tm.lbl}</span></td>
-      <td><span class="due-date ${dueCls}">${dd?fmtDate(dd):''}</span></td>
     </tr>`;
   };
 
@@ -1519,8 +1521,8 @@ function renderIssues() {
         <th>Título</th>
         <th onclick="setSort('assignee')">Responsável ${arrow('assignee')}</th>
         <th onclick="setSort('status')">Status ${arrow('status')}</th>
+        <th onclick="setSort('sp')">SP ${arrow('sp')}</th>
         <th onclick="setSort('priority')">Prioridade ${arrow('priority')}</th>
-        <th>Tipo</th><th>Vence</th>
       </tr></thead>
       <tbody>${rowsHtml}</tbody>
     </table>`;
