@@ -1,6 +1,6 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-08-25T12:00:32.335Z",
+  "jiraGeneratedAt": "2026-08-25T12:50:40.911Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
@@ -91,11 +91,11 @@
             "id": "3"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "PENDING QA",
-            "id": "10566",
+            "name": "ON GOING QA",
+            "id": "10672",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -759,11 +759,11 @@
             "fields": {
               "summary": "[MM3] Control Tower — Quick view popup (journey, steps, evidence and event log)",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -852,11 +852,11 @@
             "fields": {
               "summary": "[MM3] Control Tower — Quick view popup (journey, steps, evidence and event log)",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -945,11 +945,11 @@
             "fields": {
               "summary": "[MM3] Control Tower — Quick view popup (journey, steps, evidence and event log)",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1038,11 +1038,11 @@
             "fields": {
               "summary": "[MM3] Control Tower — Quick view popup (journey, steps, evidence and event log)",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "PENDING QA",
-                "id": "10566",
+                "name": "ON GOING QA",
+                "id": "10672",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1547,11 +1547,11 @@
             "id": "2"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10569",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "PENDING QA",
-            "id": "10566",
+            "name": "WAITING FOR DEPLOY/RELEASE",
+            "id": "10569",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -5129,7 +5129,7 @@
             "name": "High",
             "id": "2"
           },
-          "updated": "2026-08-25T06:58:37.421-0400",
+          "updated": "2026-08-25T08:07:28.663-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
