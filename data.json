@@ -1,6 +1,6 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-08-25T12:50:40.911Z",
+  "jiraGeneratedAt": "2026-08-25T13:37:11.866Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
@@ -2083,7 +2083,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-08-12T11:27:32.519-0400",
+          "updated": "2026-08-25T09:05:10.502-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -4262,7 +4262,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-08-12T11:26:45.827-0400",
+          "updated": "2026-08-25T09:03:09.543-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -4371,7 +4371,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-08-12T11:26:44.633-0400",
+          "updated": "2026-08-25T09:03:07.845-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -4480,7 +4480,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-08-12T11:26:43.519-0400",
+          "updated": "2026-08-25T09:03:06.157-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -4589,7 +4589,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-08-12T11:26:42.613-0400",
+          "updated": "2026-08-25T09:03:04.551-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -4698,7 +4698,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-08-12T11:26:41.202-0400",
+          "updated": "2026-08-25T09:03:02.775-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -4807,7 +4807,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-08-12T11:26:40.092-0400",
+          "updated": "2026-08-25T09:03:00.651-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -5129,7 +5129,7 @@
             "name": "High",
             "id": "2"
           },
-          "updated": "2026-08-25T08:07:28.663-0400",
+          "updated": "2026-08-25T09:11:11.097-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
