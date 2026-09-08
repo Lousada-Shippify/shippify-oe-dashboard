@@ -88,7 +88,7 @@ async function fetchRejections(env, issueIds) {
   const BASE = (env.JIRA_BASE_URL || '').replace(/\/+$/, '');
   const AUTH = 'Basic ' + btoa(`${env.JIRA_EMAIL}:${env.JIRA_API_TOKEN}`);
   const rej = {};
-  const blank = () => ({ code: 0, qa: 0, tQA: false, tCR: false, blkMs: 0, blkN: 0, _blkFrom: null, hist: [] });
+  const blank = () => ({ code: 0, qa: 0, tQA: false, tCR: false, blk: [], blkN: 0, hist: [] });
   for (const id of issueIds) rej[id] = blank();
   if (!issueIds.length) return rej;
 
@@ -116,8 +116,11 @@ async function fetchRejections(env, issueIds) {
           const kind = rejKind(to);
           if (kind === 'qa') rej[id].qa++;
           else if (kind === 'code') rej[id].code++;
-          // guarda a transição para calcular tempo parado depois de ordenar por data
-          rej[id].hist.push({ t: Date.parse(h.created || '') || 0, to });
+          // guarda a transição para calcular tempo parado depois de ordenar por data.
+          // Timestamp inválido é DESCARTADO: com t=0 um bloqueio aberto virava "parado
+          // desde 1970" e somava ~57 anos ao total.
+          const t = Date.parse(h.created || '');
+          if (Number.isFinite(t) && t > 0) rej[id].hist.push({ t, to });
         }
       }
     }
@@ -125,20 +128,22 @@ async function fetchRejections(env, issueIds) {
     nextPageToken = data.nextPageToken;
   }
 
-  // Tempo parado: soma dos intervalos entre entrar num status de bloqueio e sair dele.
+  // Tempo parado: devolvemos os INTERVALOS crus [inicio, fim] em ms, não um total.
+  // O front recorta cada intervalo pela janela da sprint analisada — "parado" tem que
+  // significar parado DURANTE aquela sprint, não desde sempre. Intervalo ainda aberto
+  // vai com fim = 0 e o front fecha em min(agora, fim da sprint).
   // O bulkfetch não garante ordem, então ordenamos por data antes de fechar os intervalos.
-  // Um bloqueio ainda aberto conta até agora.
-  const now = Date.now();
   for (const id of Object.keys(rej)) {
     const r = rej[id];
     r.hist.sort((a, b) => a.t - b.t);
     let from = null;
     for (const ev of r.hist) {
       const blocked = BLOCKED_RE.test(ev.to);
-      if (blocked && from === null) { from = ev.t; r.blkN++; }
-      else if (!blocked && from !== null) { r.blkMs += Math.max(0, ev.t - from); from = null; }
+      if (blocked && from === null) from = ev.t;
+      else if (!blocked && from !== null) { if (ev.t > from) r.blk.push([from, ev.t]); from = null; }
     }
-    if (from !== null) r.blkMs += Math.max(0, now - from);
+    if (from !== null) r.blk.push([from, 0]);
+    r.blkN = r.blk.length;
     delete r.hist;
   }
   return rej;
@@ -177,9 +182,9 @@ async function buildPayload(env, sprintIds) {
   let rej = {};
   try { rej = await fetchRejections(env, ids); } catch (e) { /* fallback: sem rejeições */ }
   const attach = i => {
-    const r = rej[i.id] || { code: 0, qa: 0, tQA: false, tCR: false, blkMs: 0, blkN: 0 };
+    const r = rej[i.id] || { code: 0, qa: 0, tQA: false, tCR: false, blk: [], blkN: 0 };
     i._rejCode = r.code; i._rejQA = r.qa;
-    i._blkMs = r.blkMs || 0; i._blkN = r.blkN || 0;
+    i._blk = r.blk || []; i._blkN = r.blkN || 0;
     // Base do índice de retorno: chegou ao estágio (changelog) ou já está nele agora.
     const cur = i.fields?.status?.name || '';
     i._touchQA = !!(r.tQA || r.qa > 0 || QA_STAGE_RE.test(cur));

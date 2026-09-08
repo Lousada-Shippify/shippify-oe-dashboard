@@ -819,7 +819,7 @@ td.sub-key a { color: var(--text-muted); font-size: 11px; }
   <div class="banner-tldr" id="banner-tldr" style="color:var(--text-muted)">Buscando dados da sprint no Jira…</div>
   <div class="banner-divider"></div>
   <div class="banner-metrics">
-    <div class="banner-metric"><div class="val" id="bm-progress">—</div><div class="lbl">Concluídas</div></div>
+    <div class="banner-metric"><div class="val" id="bm-progress">—</div><div class="lbl" id="bm-progress-lbl">Concluídas</div></div>
     <div class="banner-metric"><div class="val" id="bm-days">—</div><div class="lbl">Dias úteis rest.</div></div>
     <div class="banner-metric" style="position:relative">
       <button type="button" class="sprint-filter-btn" id="sprint-filter-btn" onclick="toggleSprintMenu(event)" title="Escolher sprints para analisar o histórico">
@@ -1542,6 +1542,20 @@ function buildHistory() {
   // Sprint analisada à qual o card pertence (a mais recente entre as escolhidas).
   const homeSprint = i => sprintsOf(i).filter(sp => sp && selIds.has(sp.id)).sort((a,b)=>b.id-a.id)[0] || null;
 
+  // Janela do recorte: do início da primeira sprint escolhida ao fim da última.
+  // Tudo que é "tempo parado" é medido DENTRO dessa janela — um card que ficou em
+  // BLOCKED depois que a sprint fechou não é problema daquela sprint.
+  const now = Date.now();
+  const winFrom = Math.min(...sel.map(sp => Date.parse(sp.startDate || '') || now));
+  const winTo   = Math.min(now, Math.max(...sel.map(sp => Date.parse(sp.completeDate || sp.endDate || '') || now)));
+  // Soma a sobreposição dos intervalos de bloqueio com a janela. Intervalo aberto
+  // (fim = 0) é fechado no fim da janela.
+  const blockedMsIn = i => (i._blk || []).reduce((acc, iv) => {
+    const a = Math.max(iv[0], winFrom);
+    const b = Math.min(iv[1] > 0 ? iv[1] : winTo, winTo);
+    return acc + Math.max(0, b - a);
+  }, 0);
+
   const rework = [], carry = [], stalled = [], planning = [];
 
   for (const i of scope) {
@@ -1558,7 +1572,11 @@ function buildHistory() {
     if (later.length) carry.push({ i, tag, to: later.sort((a,b)=>a.id-b.id).map(sp=>sp.name||('Sprint '+sp.id)), open: !isDoneCat(i) });
     else if (!isDoneCat(i)) carry.push({ i, tag, to: [], open: true });
 
-    const blk = i._blkMs || 0, blkN = i._blkN || 0;
+    const blk = blockedMsIn(i);
+    const blkN = (i._blk || []).filter(iv => {
+      const a = Math.max(iv[0], winFrom), b = Math.min(iv[1] > 0 ? iv[1] : winTo, winTo);
+      return b > a;
+    }).length;
     if (blkN > 0) stalled.push({ i, tag, ms: blk, n: blkN });
 
     const sp = f.customfield_10028, dev = f.customfield_10548, qa = f.customfield_10546;
@@ -1572,7 +1590,7 @@ function buildHistory() {
   rework.sort((a, b) => b.n - a.n);
   stalled.sort((a, b) => b.ms - a.ms);
   carry.sort((a, b) => (b.to.length) - (a.to.length));
-  return { sel, scope, rework, carry, stalled, planning };
+  return { sel, scope, rework, carry, stalled, planning, winFrom, winTo };
 }
 
 function fmtDur(ms) {
@@ -1620,7 +1638,10 @@ function renderHistory() {
     `${escHtml(pl.gaps.join(' · '))} · ${escHtml(nm(pl.i))}`));
 
   const totRej = H.rework.reduce((a, r) => a + r.n, 0);
-  const totBlk = H.stalled.reduce((a, b) => a + b.ms, 0);
+  // A pior parada individual é a leitura que ajuda numa retro; somar o tempo de vários
+  // cards que ficaram parados AO MESMO TEMPO dá um número maior que a própria sprint
+  // e não significa nada — por isso o KPI é a CONTAGEM de cards, com a pior parada embaixo.
+  const worstBlk = H.stalled.length ? Math.max(...H.stalled.map(b => b.ms)) : 0;
   const names = H.sel.map(sp => sp.name || ('Sprint ' + sp.id));
   const per = H.sel.length > 1 ? ` · ${H.sel.length} sprints` : '';
 
@@ -1631,7 +1652,7 @@ function renderHistory() {
     <div class="hs-sum">
       <div><div class="n" style="color:${H.rework.length ? 'var(--red-text)' : 'var(--green)'}">${totRej}</div><div class="k">Retornos</div></div>
       <div><div class="n" style="color:${H.carry.length ? 'var(--yellow-dark)' : 'var(--green)'}">${H.carry.length}</div><div class="k">Carryover</div></div>
-      <div><div class="n" style="color:${H.stalled.length ? 'var(--orange)' : 'var(--green)'}">${fmtDur(totBlk)}</div><div class="k">Parado</div></div>
+      <div><div class="n" style="color:${H.stalled.length ? 'var(--orange)' : 'var(--green)'}">${H.stalled.length}</div><div class="k">Pararam</div>${H.stalled.length ? `<div class="k" style="font-weight:600;letter-spacing:0;text-transform:none;margin-top:3px">pior: ${fmtDur(worstBlk)}</div>` : ''}</div>
       <div><div class="n" style="color:${H.planning.length ? 'var(--yellow-dark)' : 'var(--green)'}">${H.planning.length}</div><div class="k">Gaps plan.</div></div>
     </div>
     ${sec('↩︎ Retrabalho e rejeições', reworkRows, 'Nenhum card voltou do QA ou do code review.')}
@@ -1640,7 +1661,9 @@ function renderHistory() {
     ${sec('⚑ Falhas de planejamento', planRows, 'Todos os cards saíram do refinamento pontuados e com dono.')}
     <div class="hs-foot">
       Fonte: changelog do Jira (rejeições e paradas) e campo Sprint dos cards (carryover).
-      Carryover = o card também pertence a uma sprint que começou depois, ou nunca foi concluído.
+      <strong>Pararam</strong> = cards que passaram por BLOCKED ou WAITING FOR TASKS; o tempo de cada um
+      é contado só dentro da janela da sprint analisada.
+      <strong>Carryover</strong> = o card também pertence a uma sprint que começou depois, ou nunca foi concluído.
       Escopo: apenas issues-pai das sprints escolhidas.
     </div>`;
 }
@@ -1691,6 +1714,56 @@ function renderMetrics() {
   document.getElementById('progress-label').textContent=`${pct}% completo`;
 
   let badgeHtml,badgeCls,tldr;
+  // ── Farol em modo histórico: ENTREGUE / NÃO ENTREGUE ──────────────────────
+  // Sprint encerrada não tem "risco" — ou fechou tudo o que foi programado, ou não.
+  // Pendência = card que não chegou a Done OU que arrastou para uma sprint posterior
+  // (mesma regra do carryover no painel Histórico: se foi terminado na sprint seguinte,
+  // não foi entregue NESTA). Sem isso um card do ciclo passado concluído esta semana
+  // faria uma sprint mal fechada parecer entregue.
+  if(historyMode){
+    const H = buildHistory();
+    const pend = H.carry;
+    const nomes = H.sel.map(sp=>sp.name||('Sprint '+sp.id));
+    const SVG_OK = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><circle cx="12" cy="12" r="9"/><path d="M8 12.5l2.5 2.5 5-5.5"/></svg>';
+    const SVG_NO = '<svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round" style="flex-shrink:0"><circle cx="12" cy="12" r="9"/><path d="M9 9l6 6M15 9l-6 6"/></svg>';
+    if(total===0){
+      badgeCls='sb-loading'; badgeHtml='&nbsp;Sem dados';
+      tldr=`Nenhum card encontrado em ${nomes.join(' · ')}.`;
+    } else if(pend.length===0){
+      badgeCls='sb-green'; badgeHtml=SVG_OK+' ENTREGUE';
+      tldr=`${nomes.join(' · ')}: as ${total} tarefas programadas foram finalizadas dentro da sprint.`;
+    } else {
+      const arrast = pend.filter(c=>c.to.length).length;
+      const abertas = pend.filter(c=>!c.to.length).length;
+      const partes = [];
+      if(arrast) partes.push(`${arrast} arrastou para a sprint seguinte`.replace('arrastou', arrast>1?'arrastaram':'arrastou'));
+      if(abertas) partes.push(`${abertas} não ${abertas>1?'foram concluídas':'foi concluída'}`);
+      badgeCls='sb-red'; badgeHtml=SVG_NO+' NÃO ENTREGUE';
+      tldr=`${nomes.join(' · ')}: ${pend.length} de ${total} tarefas ficaram para trás — ${partes.join(' e ')}. Detalhe no painel Histórico.`;
+    }
+    // O contador ao lado do farol passa a medir a MESMA coisa que ele: o que fechou
+    // dentro da sprint. Sem isso o banner mostrava "16/18 concluídas" (status de hoje)
+    // ao lado de "7 ficaram para trás", e os dois números pareciam brigar.
+    const entregues = Math.max(0, total - pend.length);
+    document.getElementById('bm-progress').textContent = `${entregues} / ${total>0?total:'?'}`;
+    const lblEl=document.getElementById('bm-progress-lbl');
+    if(lblEl){ lblEl.textContent='Entregues na sprint'; }
+    const bEl=document.getElementById('status-badge');
+    bEl.className='status-badge '+badgeCls;
+    bEl.innerHTML=badgeHtml;
+    bEl.title = pend.length ? 'Fechou dentro da sprint: '+entregues+' de '+total+' tarefas' : 'Todas as tarefas programadas fecharam dentro da sprint';
+    const tEl=document.getElementById('banner-tldr');
+    tEl.textContent=tldr; tEl.style.color='var(--text)';
+    // A régua do ritmo ideal não faz sentido numa sprint que já fechou.
+    const idealEl0=document.getElementById('progress-ideal');
+    if(idealEl0) idealEl0.style.display='none';
+    document.getElementById('progress-label').textContent=`${pct}% completo`;
+    return blocked;
+  }
+  const idealElShow=document.getElementById('progress-ideal');
+  if(idealElShow) idealElShow.style.display='';
+  const lblBack=document.getElementById('bm-progress-lbl');
+  if(lblBack) lblBack.textContent='Concluídas';
   if(blocked.length>=3||pct<20){
     badgeCls='sb-red'; badgeHtml=`<svg width="14" height="14" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0"><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C7.58172 4 4 7.58172 4 12C4 16.4183 7.58172 20 12 20C16.4183 20 20 16.4183 20 12C20 7.58172 16.4183 4 12 4ZM2 12C2 6.47715 6.47715 2 12 2C17.5228 2 22 6.47715 22 12C22 17.5228 17.5228 22 12 22C6.47715 22 2 17.5228 2 12Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M8.29289 8.29289C8.68342 7.90237 9.31658 7.90237 9.70711 8.29289L12 10.5858L14.2929 8.29289C14.6834 7.90237 15.3166 7.90237 15.7071 8.29289C16.0976 8.68342 16.0976 9.31658 15.7071 9.70711L13.4142 12L15.7071 14.2929C16.0976 14.6834 16.0976 15.3166 15.7071 15.7071C15.3166 16.0976 14.6834 16.0976 14.2929 15.7071L12 13.4142L9.70711 15.7071C9.31658 16.0976 8.68342 16.0976 8.29289 15.7071C7.90237 15.3166 7.90237 14.6834 8.29289 14.2929L10.5858 12L8.29289 9.70711C7.90237 9.31658 7.90237 8.68342 8.29289 8.29289Z" fill="currentColor"/></svg> Fora do Prazo`;
     tldr=`${blocked.length} issues bloqueadas e apenas ${pct}% concluído. Ação imediata necessária.`;
