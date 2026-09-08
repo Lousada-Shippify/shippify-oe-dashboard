@@ -83,6 +83,8 @@
   --avatar-bg:    #DADADA;
   --focus-ring:   rgba(21,21,21,0.10);
   --sp-badge-bg:  rgba(14,143,173,.12);
+  --track-neutral: #DADADA;
+  --fill-tag: #EDEDED;
   /* Gráfico (Chart.js lê estes tokens por getComputedStyle) */
   --chart-grid:   #DADADA;
   --chart-ideal:  #8A8A8A;
@@ -90,6 +92,17 @@
   --chart-fill:   rgba(20,92,53,0.08);
   --chart-today:  #FEDD29;
   --chart-today-ink: #151515;
+  /* ── Faixa de identidade (topo) ────────────────────────────────────────────
+     No claro ela é Puro com o lockup colorido; no escuro é Núcleo com o lockup
+     branco. Em nenhum dos dois ela acompanha --bg, por isso tem tokens próprios.
+     O subtítulo troca Fluxo por Pulso no claro: amarelo sobre branco não lê. */
+  --band-bg:         #FFFFFF;
+  --band-text:       #151515;
+  --band-text-sec:   #555555;
+  --band-accent:     #EF404C;
+  --band-btn-border: #DADADA;
+  --band-btn-hover:  rgba(21,21,21,.06);
+  --logo: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NjYuOTI5IDk2LjE1MSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA5Ni4xNTEpIHNjYWxlKDEgLTEpIj48cGF0aCBmaWxsPSIjRUY0MTRDIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiIGNsaXAtcnVsZT0iZXZlbm9kZCIgZD0iTTEzMy44MzYgODUuNDk1QzExOS4zNjkgOTMuODU3IDEwMi4xMDIgOTIuOTg4IDg4Ljg0OSA4NC43MjNMMjQuNzg3IDQ3LjY4NEw5MC4xMzYgOS45MDRDMTExLjAxMSAtMi4xNjMgMTM3LjcxMiA0Ljk3NiAxNDkuNzc5IDI1Ljg0N0MxNjEuODQ3IDQ2LjcyMyAxNTQuNzA3IDczLjQyMyAxMzMuODM2IDg1LjQ5WiIvPjxwYXRoIGZpbGw9IiMyMzFGMjAiIGQ9Ik0zMi44NzkgNDcuNjgzTDkyLjE2NCAxMy40MDdDMTExLjA3MiAyLjQ3NSAxMzUuMzQ5IDguOTY2IDE0Ni4yNzcgMjcuODc0QzE1Ny4yMDkgNDYuNzgyIDE1MC43MTggNzEuMDYgMTMxLjgxIDgxLjk4N0MxMTkuMTAzIDg5LjMzMyAxMDMuNDY0IDg5LjA2MiA5MC45OTIgODEuMjg0TDkwLjg3NyA4MS4yMTVMMzIuODc0IDQ3LjY4M1pNODguMTA5IDYuNDAxTDE2LjcwMiA0Ny42ODNMODYuNzY3IDg4LjE5M0MxMDEuNzc2IDk3LjUyNSAxMjAuNTc5IDk3LjgzMyAxMzUuODY0IDg4Ljk5OEMxNTguNjM4IDc1LjgzMSAxNjYuNDUzIDQ2LjU5MyAxNTMuMjg4IDIzLjgxOUMxNDAuMTIxIDEuMDQ1IDExMC44ODMgLTYuNzcgODguMTA5IDYuMzk2WiIvPjxwYXRoIGZpbGw9IiNGRkRGMDAiIGZpbGwtcnVsZT0iZXZlbm9kZCIgY2xpcC1ydWxlPSJldmVub2RkIiBkPSJNMTExLjkyMiAyNS43NDZDMTAyLjg2NSAyNS43NDYgOTQuNjM2IDMxLjM4NyA5MS4zNTQgMzkuODA5TDc3LjM2MSAzOS44NjRDNzUuMzI5IDM5Ljg2OSA3My4zMzggNDAuNzA1IDcxLjkwOCA0Mi4xNTRMNjAuMjkxIDUzLjkxN0w1NC40NDggNTMuOTE3QzUyLjM5OCA1My45MTcgNTAuNDcyIDU0LjcxMyA0OS4wMTkgNTYuMTU2TDM1Ljc5MyA2OS4zMDlMMjkuMDg2IDY5LjMwOUMyNy4wNzcgNjkuMzA5IDI1LjE3OCA3MC4wNzYgMjMuNzM1IDcxLjQ2OUwxMC4wMTIgODQuNzI3TDgyLjAyNyA4NC43MjdDODQuMzM0IDg0LjczMiA4Ni41IDgzLjcxMSA4Ny45NjYgODEuOTMyTDEwMC41MjEgNjYuNzE2QzEwMy45NTUgNjguNzg5IDEwNy44ODYgNjkuODgzIDExMS45MjIgNjkuODgzQzExMi4xOTggNjkuODgzIDExMi40NzggNjkuODc5IDExMi43NTkgNjkuODY5QzExOC40NSA2OS42NTggMTIzLjc4MyA2Ny4yNjMgMTI3Ljc3NyA2My4xMjFDMTMxLjc2OCA1OC45ODMgMTMzLjk3NCA1My41NjggMTMzLjk5MyA0Ny44NzJDMTM0LjAxMSA0MS45NjUgMTMxLjcyMiAzNi40MDcgMTI3LjU1MiAzMi4yMjNDMTIzLjM4MyAyOC4wNCAxMTcuODI5IDI1LjczNyAxMTEuOTI3IDI1LjczN1oiLz48cGF0aCBmaWxsPSIjMjMxRjIwIiBkPSJNODIuMDI3IDg4Ljc4MkwyMC4wMyA4OC43ODJMMCA4OC43NzdMMTQuNDAzIDc0Ljg2MkwyMC45MjIgNjguNTY0QzIzLjEyNCA2Ni40MzUgMjYuMDI1IDY1LjI2MyAyOS4wODYgNjUuMjYzTDM0LjEyNSA2NS4yNjNMMzguMjg1IDYxLjEyNkw0Ni4xNjQgNTMuMjkyQzQ4LjM4MSA1MS4wOSA1MS4zMjMgNDkuODc2IDU0LjQ0OSA0OS44NzZMNTguNiA0OS44NzZMNjIuNjY5IDQ1Ljc1N0w2OS4wMjYgMzkuMzE3QzcxLjIxIDM3LjEwNSA3NC4yNDQgMzUuODMyIDc3LjM1MiAzNS44MjNMODguNzQzIDM1Ljc3N0M5MC42NjUgMzIuMDc2IDkzLjQzNyAyOC44OTUgOTYuODkgMjYuNDYzQzEwMS4zMDcgMjMuMzUxIDEwNi41MDIgMjEuNzA1IDExMS45MjIgMjEuNzA1QzExOC45MTQgMjEuNzA1IDEyNS40NzkgMjQuNDMxIDEzMC40MTYgMjkuMzgyQzEzNS4zNTQgMzQuMzMzIDEzOC4wNjIgNDAuOTA3IDEzOC4wNDMgNDcuOUMxMzguMDI1IDU0LjY0MyAxMzUuNDE0IDYxLjA1MiAxMzAuNjkyIDY1Ljk0OEMxMjUuOTY3IDcwLjg0NCAxMTkuNjU1IDczLjY4IDExMi45MTEgNzMuOTI5QzExMi41ODQgNzMuOTQyIDExMi4yNDggNzMuOTQ3IDExMS45MjIgNzMuOTQ3QzEwOC4zNDEgNzMuOTQ3IDEwNC44MjQgNzMuMjE2IDEwMS41NzQgNzEuODE0TDkxLjA4OCA4NC41MjVDODguODQ5IDg3LjI0MiA4NS41NDQgODguNzk2IDgyLjAyNyA4OC43OTZaTTgyLjAyNyA4MC42ODZDODMuMTE3IDgwLjY4NiA4NC4xNTEgODAuMTk5IDg0Ljg0NSA3OS4zNThMOTcuNzMxIDYzLjc0MUM5OC40MDcgNjIuOTE5IDk5LjM4NiA2Mi40OTYgMTAwLjM4MyA2Mi40OTZDMTAxLjA0MSA2Mi40OTYgMTAxLjcwMyA2Mi42NzkgMTAyLjI5MSA2My4wNTJDMTA1LjA3NyA2NC44MTcgMTA4LjM3OCA2NS44MzggMTExLjkxOCA2NS44MzhDMTEyLjE0NyA2NS44MzggMTEyLjM3MyA2NS44MzggMTEyLjYwMyA2NS44MjRDMTIyLjE5NyA2NS40NjUgMTI5LjkxMSA1Ny40NjYgMTI5LjkzOCA0Ny44NjNDMTI5Ljk2NiAzNy44ODcgMTIxLjg4NCAyOS43OTEgMTExLjkxOCAyOS43OTFDMTA0LjE5OSAyOS43OTEgOTcuNjE2IDM0LjY0NiA5NS4wNSA0MS40NjhDOTQuNTEzIDQyLjg5MyA5My4xNjEgNDMuODUgOTEuNjM5IDQzLjg1NEw3Ny4zNzQgNDMuOTA5Qzc2LjQgNDMuOTA5IDc1LjQ3MSA0NC4zMDUgNzQuNzg3IDQ0Ljk5NEw2OC40MjkgNTEuNDM1TDgxLjMgNTEuNDYzQzgzLjEwMyA1MS41MDQgODQuNTI4IDUyLjk5OCA4NC40ODYgNTQuOEM4NC40ODYgNTQuOTE5IDg0LjQ3MyA1NS4wMzQgODQuNDU5IDU1LjE0OUM4NC4yMzggNTYuNzYzIDgyLjg1OSA1Ny45NTggODEuMjM2IDU3Ljk1OEw4MS4xNzIgNTcuOTU4TDU0LjQ0IDU3Ljk1OEM1My40NzQgNTcuOTU4IDUyLjU1IDU4LjM0IDUxLjg2NSA1OS4wMkw0My45ODYgNjYuODU0TDU5LjE0NyA2Ni44NDRMNTkuMTYxIDY2Ljg0NEM2MC45NDkgNjYuODQ0IDYyLjQwMiA2OC4yODggNjIuNDExIDcwLjA4MUM2Mi40MiA3MS44NzggNjAuOTcyIDczLjM0IDU5LjE3NCA3My4zNDlMMjkuMDg2IDczLjM0OUMyOC4xMzkgNzMuMzQ5IDI3LjIyOSA3My43MTcgMjYuNTQ5IDc0LjM3NUwyMC4wMyA4MC42NzNMODIuMDI3IDgwLjY3M0w4Mi4wMjcgODAuNjc3Ii8+PHBhdGggZmlsbD0iIzIzMUYyMCIgZD0iTTQyMy4zMzcgMzIuMTU5QzQxNS40IDMyLjE1OSA0MDkuNjI0IDM4LjIgNDA5LjYyNCA0Ni4xODVDNDA5LjYyNCA1NC4xNyA0MTUuMzUxIDYwLjUyOCA0MjMuMzM3IDYwLjUyOEM0MzEuMzIzIDYwLjUyOCA0MzYuOTk3IDU0LjMyNiA0MzYuOTk3IDQ2LjE4NUM0MzYuOTk3IDM4LjA0MyA0MzEuMzIzIDMyLjE1OSA0MjMuMzM3IDMyLjE1OU00MjYuMDY3IDcyLjYxOUw0MjYuMDY3IDcyLjYxNEM0MTcuOTc1IDcyLjYxNCA0MTEuOTQ1IDY5LjY3MiA0MDguNjM1IDY1LjQ3TDQwOC40MTkgNjUuNjQ5TDQwOS4yMSA2OC41NTVMNDA5LjIwMSA3MS41NjZMMzk2LjIyMiA3MS41NjZMMzk2LjIyMiAwLjExMkw0MDkuNjczIDAuMTEyTDQwOS42NzMgMjYuNDM2QzQxMy4wMzQgMjIuNjAyIDQxOC42NTggMjAuMDc4IDQyNi4wNjcgMjAuMDc4QzQ0MC4zNjEgMjAuMDc4IDQ1MC40OTcgMzAuODk5IDQ1MC40OTcgNDYuMTM5QzQ1MC40OTcgNjEuMzc4IDQ0MC4zNTMgNzIuNjE5IDQyNi4wNjcgNzIuNjE5TTQ2Ni45MjMgNzEuNTY2TDQ2Ni45MjMgNzEuNTYxTDQ1NS4wNCA3MS41NjFMNDU1LjA0IDY0Ljg2OEw0NjAuNTA1IDYwLjM3Mkw0NjAuNTA1IDIxLjEyNkw0NzQuMDA1IDIxLjEyNkw0NzQuMDA1IDY0LjQ4MkM0NzQuMDA1IDY4LjM5NCA0NzAuODMzIDcxLjU2NiA0NjYuOTIzIDcxLjU2Nk01NTMuNDI1IDcxLjU2MUw1MzkuMzU2IDM3LjQyM0w1MzkuMTI4IDM2Ljg2OUw1MjUuMTk3IDcxLjU2MUw1MTYuMjQ5IDcxLjU2MUw1MTYuMjQ5IDcxLjU2Nkw1MTUuMTk3IDcxLjU2Nkw1MTUuMTk3IDcxLjU2MUw1MTIuNzQxIDcxLjU2MUw1MTIuNzQxIDcxLjU2MUw1MDEuODUyIDcxLjU2MUw1MDEuODUyIDc1LjcxMkM1MDEuODUyIDgyLjIyNiA1MDUuNzkgODQuNTg5IDUxMS4wNDYgODQuNTg5QzUxMy40MDggODQuNTg5IDUxNS43MjEgODQuMjIyIDUxNy43NzEgODMuMzNMNTE5LjE5MiA5NC4zNjNDNTE2LjcyMyA5NS4yMDQgNTEzLjc4IDk2LjE1MSA1MDkuNjMgOTYuMTUxQzQ5NS43NjEgOTYuMTUxIDQ4OC44MjMgODcuNTM2IDQ4OC44MjMgNzYuNTAzTDQ4OC44MjMgNzEuNTY2TDQ4My4yNTYgNzEuNTY2TDQ4My4yNTYgNjQuODcyTDQ4OC43MjEgNjAuMzc2TDQ4OC43MjEgMjEuMTMxTDUwMi4yMjUgMjEuMTMxTDUwMi4yMjUgNjAuMzc2TDUxNi4yNDkgNjAuMzc2TDUxNi4yNDkgNjAuNTgxTDUzMi42MzQgMjEuMTI2TDUzMi42MzggMjEuMTI2TDUzMi42MyAyMS4xMDhMNTMxLjcyMiAxOC45MUM1MzAuMDkyIDE0Ljk3NSA1MjYuMjQ5IDEyLjQxNCA1MjEuOTkyIDEyLjQxNEw1MTIuNDcgMTIuNDE0TDUxMi40NyAwLjEwOEw1MjYuMDI4IDAuMTA4QzUzMi45MjkgMC4xMDggNTM5LjE0MyA0LjI1OSA1NDEuNzkxIDEwLjYzMUw1NjYuOTI5IDcxLjU2MVpNMzU5LjA1OSAzMi4xNTlDMzUxLjEyNCAzMi4xNTkgMzQ1LjM0NiAzOC4yIDM0NS4zNDYgNDYuMTg1QzM0NS4zNDYgNTQuMTcgMzUxLjA3NCA2MC41MjggMzU5LjA1OSA2MC41MjhDMzY3LjA0NCA2MC41MjggMzcyLjcxNyA1NC4zMjYgMzcyLjcxNyA0Ni4xODVDMzcyLjcxNyAzOC4wNDMgMzY3LjA0NCAzMi4xNTkgMzU5LjA1OSAzMi4xNTlNMzYxLjc5IDcyLjYxOUwzNjEuNzkgNzIuNjE0QzM1My42OTkgNzIuNjE0IDM0Ny42NjggNjkuNjcyIDM0NC4zNTggNjUuNDdMMzQ0LjE0MiA2NS42NDlMMzQ0LjkzMiA2OC41NTVMMzQ0LjkyMyA3MS41NjZMMzMxLjk0NSA3MS41NjZMMzMxLjk0NSAwLjExMkwzNDUuMzk3IDAuMTEyTDM0NS4zOTcgMjYuNDM2QzM0OC43NTcgMjIuNjAyIDM1NC4zOCAyMC4wNzggMzYxLjc5IDIwLjA3OEMzNzYuMDgzIDIwLjA3OCAzODYuMjE5IDMwLjg5OSAzODYuMjE5IDQ2LjEzOUMzODYuMjE5IDYxLjM3OCAzNzYuMDc4IDcyLjYxOSAzNjEuNzkgNzIuNjE5TTMxMC41NDEgODAuMDJDMzE0Ljg0OSA4MC4wMiAzMTguMzg4IDgzLjU5NiAzMTguMzE1IDg3LjkwNEMzMTguMjQyIDkyLjQzNyAzMTUuMDU2IDk1LjUxNyAzMTAuNTQxIDk1LjUxN0MzMDYuMjk4IDk1LjUxNyAzMDIuODM2IDkyLjAyOCAzMDIuODE4IDg3Ljc4NEMzMDIuOCA4My4xOTIgMzA1Ljk1MyA4MC4wMiAzMTAuNTQxIDgwLjAyTTIxMi42MTcgNjEuMjY0QzIxNy45NzcgNjEuMjY0IDIyMS40MyA1OS42MjIgMjI1LjA2MiA1NS45NThMMjMzLjMgNjIuNzM5QzIyOC45NTUgNjguNTU1IDIyMi41NDcgNzIuNjE0IDIxMi4zIDcyLjYxNEMyMDEuMzgyIDcyLjYxNCAxOTIuNjk4IDY2LjU4NyAxOTIuNjAxIDU3LjIxOEMxOTIuNjAxIDU3LjE2MyAxOTIuNTk3IDU3LjExMiAxOTIuNTk3IDU3LjA2MkMxOTIuNTk3IDQ2LjcxMyAyMDAuMzcxIDQzLjE5MiAyMTEuNDA0IDQwLjcyNEMyMTcuNTUgMzkuMzU4IDIyMC4yMyAzOC40MTEgMjIwLjIzIDM1LjczMUMyMjAuMjMgMzMuMDUxIDIxNy4yNTEgMzEuNjM1IDIxMi44MzggMzEuNjM1QzIwNy40MTMgMzEuNjM1IDIwMy45MTUgMzMuMjk0IDIwMC4yMzcgMzcuMDA5TDE5MS44OTQgMzAuMTQxQzE5Ni4yOTMgMjQuMjUyIDIwMi43ODQgMjAuMTQyIDIxMy4xNiAyMC4xNDJDMjI0LjIxNiAyMC4xNDIgMjMzLjAxIDI2LjI0NyAyMzMuMTA3IDM1LjczMUMyMzMuMTA3IDQ1LjcxMSAyMjUuOTYzIDQ5LjMzOSAyMTQuNzE4IDUyLjA2OUMyMDguNDY2IDUzLjU5MSAyMDUuMjYyIDU0LjQ4NyAyMDUuMjYyIDU3LjIxOEMyMDUuMjYyIDU5Ljc0MiAyMDguMjU1IDYxLjI2NCAyMTIuNjE3IDYxLjI2NE0zMTEuMjM1IDcxLjU2NkwzMTEuMjM1IDcxLjU2MUwyOTkuMzUxIDcxLjU2MUwyOTkuMzUxIDY0Ljg2OEwzMDQuODE4IDYwLjM3MkwzMDQuODE4IDIxLjEyNkwzMTguMzE5IDIxLjEyNkwzMTguMzE5IDY0LjQ4MkMzMTguMzE5IDY4LjM5NCAzMTUuMTQ3IDcxLjU2NiAzMTEuMjM1IDcxLjU2Nk00NjYuMjI3IDgwLjAyQzQ3MC41MzQgODAuMDIgNDc0LjA3NCA4My41OTYgNDc0LjAwMSA4Ny45MDRDNDczLjkyNyA5Mi40MzcgNDcwLjc0MiA5NS41MTcgNDY2LjIyNyA5NS41MTdDNDYxLjk4MyA5NS41MTcgNDU4LjUyNCA5Mi4wMjggNDU4LjUwMyA4Ny43ODRDNDU4LjQ4NyA4My4xOTIgNDYxLjYzOSA4MC4wMiA0NjYuMjI3IDgwLjAyTTI3Mi4wNjMgNzIuNjE0TDI3Mi4wNTggNzIuNjE0QzI2NC44MDkgNzIuNjE0IDI1OC44NTYgNjkuMDQ2IDI1NS45ODcgNjUuNDdMMjU1Ljc3MSA2NS42NDlMMjU2LjkyOSA2OS4wNTZMMjU2LjkyOSA5NS4wOThMMjQzLjQyOCA5NS4wOThMMjQzLjQyOCAyMS4xMjZMMjU2LjkyOSAyMS4xMjZMMjU2LjkyOSA0OS4zMzlDMjU2LjkyOSA1Ni4zMjYgMjYyLjE4NCA2MC4xMSAyNjguMDY4IDYwLjExQzI3My45NTIgNjAuMTEgMjc4LjM2NiA1Ni4zMjYgMjc4LjM2NiA0OS4zMzlMMjc4LjM2NiAyMS4xMjZMMjkxLjg2NyAyMS4xMjZMMjkxLjg2NyA1Mi44MDVDMjkxLjg2NyA2NC45NDEgMjgzLjYyIDcyLjYxNCAyNzIuMDYzIDcyLjYxNCIvPjwvZz48L3N2Zz4=');
 }
 
 /* ══ TEMA ESCURO ══════════════════════════════════════════════════════════════
@@ -135,12 +148,21 @@
   --avatar-bg:    #3A3A3A;
   --focus-ring:   rgba(254,221,41,0.25);
   --sp-badge-bg:  rgba(255,255,255,.10);
+  --track-neutral: #3A3A3A;
+  --fill-tag: rgba(255,255,255,.10);
   --chart-grid:   #2E2E2E;
   --chart-ideal:  #757575;
   --chart-actual: #4ECB71;
   --chart-fill:   rgba(78,203,113,0.10);
   --chart-today:  #FEDD29;
   --chart-today-ink: #EEEEEE;
+  --band-bg:         #151515;
+  --band-text:       #FFFFFF;
+  --band-text-sec:   #DADADA;
+  --band-accent:     #FEDD29;
+  --band-btn-border: #555555;
+  --band-btn-hover:  rgba(255,255,255,.10);
+  --logo: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NjYuOTI5IDk2LjE1MSI+PGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoMCA5Ni4xNTEpIHNjYWxlKDEgLTEpIj48cGF0aCBmaWxsPSIjRkZGRkZGIiBkPSJNMTQ2LjI3NiAyNy44NzRDMTM1LjM0OSA4Ljk2NiAxMTEuMDcyIDIuNDc1IDkyLjE2MyAxMy40MDdMMzIuODc5IDQ3LjY4M0wzMi44NzQgNDcuNjgzTDQ0Ljg0NCA1NC42MDNMNDYuMTY1IDUzLjI5MkM0OC4zOCA1MS4wOSA1MS4zMjMgNDkuODc2IDU0LjQ0OCA0OS44NzZMNTguNTk5IDQ5Ljg3Nkw2Mi42NjggNDUuNzU3TDY5LjAyNiAzOS4zMTZDNzEuMjEgMzcuMTA1IDc0LjI0MyAzNS44MzIgNzcuMzUyIDM1LjgyMkw4OC43NDMgMzUuNzc3QzkwLjY2NSAzMi4wNzYgOTMuNDM2IDI4Ljg5NCA5Ni44ODkgMjYuNDYzQzEwMS4zMDggMjMuMzUgMTA2LjUwMSAyMS43MDUgMTExLjkyMiAyMS43MDVDMTE4LjkxNSAyMS43MDUgMTI1LjQ3OCAyNC40MzEgMTMwLjQxNiAyOS4zODJDMTM1LjM1MyAzNC4zMzMgMTM4LjA2MSA0MC45MDcgMTM4LjA0MyA0Ny44OTlDMTM4LjAyNCA1NC42NDMgMTM1LjQxMyA2MS4wNTIgMTMwLjY5MiA2NS45NDhDMTI1Ljk2NiA3MC44NDMgMTE5LjY1NCA3My42OCAxMTIuOTEgNzMuOTI4QzExMi41ODQgNzMuOTQyIDExMi4yNDkgNzMuOTQ3IDExMS45MjIgNzMuOTQ3QzEwOC4zNCA3My45NDcgMTA0LjgyNSA3My4yMTYgMTAxLjU3MyA3MS44MTRMOTIuODY4IDgyLjM2N0MxMDUuMDA3IDg5LjA1NiAxMTkuNzMxIDg4Ljk3IDEzMS44MDkgODEuOTg3QzE1MC43MTggNzEuMDYgMTU3LjIwOCA0Ni43ODIgMTQ2LjI3NiAyNy44NzRNMjkuMDg3IDczLjM0OUMyOC4xMzkgNzMuMzQ5IDI3LjIyOCA3My43MTcgMjYuNTQ5IDc0LjM3NEwyMC4wMjkgODAuNjcyTDgyLjAyNiA4MC42NzJMODIuMDI2IDgwLjY3N0w4Mi4wMjYgODAuNjg2QzgzLjExNyA4MC42ODYgODQuMTUgODAuMTk5IDg0Ljg0NCA3OS4zNTdMOTcuNzMxIDYzLjc0MUM5OC40MDYgNjIuOTE4IDk5LjM4NiA2Mi40OTUgMTAwLjM4MyA2Mi40OTVDMTAxLjA0MSA2Mi40OTUgMTAxLjcwMyA2Mi42NzkgMTAyLjI5MSA2My4wNTFDMTA1LjA3NiA2NC44MTcgMTA4LjM3NyA2NS44MzcgMTExLjkxNyA2NS44MzdDMTEyLjE0OCA2NS44MzcgMTEyLjM3MyA2NS44MzcgMTEyLjYwMiA2NS44MjNDMTIyLjE5NyA2NS40NjUgMTI5LjkxMSA1Ny40NjYgMTI5LjkzOSA0Ny44NjJDMTI5Ljk2NSAzNy44ODcgMTIxLjg4NSAyOS43OTEgMTExLjkxNyAyOS43OTFDMTA0LjE5OCAyOS43OTEgOTcuNjE1IDM0LjY0NiA5NS4wNSA0MS40NjhDOTQuNTEyIDQyLjg5MyA5My4xNjEgNDMuODQ5IDkxLjYzOSA0My44NTRMNzcuMzc0IDQzLjkwOUM3Ni40IDQzLjkwOSA3NS40NzEgNDQuMzA0IDc0Ljc4NyA0NC45OTRMNjguNDI4IDUxLjQzNEw4MS4zIDUxLjQ2MkM4My4xMDIgNTEuNTAzIDg0LjUyOCA1Mi45OTggODQuNDg3IDU0Ljc5OUM4NC40ODcgNTQuOTE5IDg0LjQ3MiA1NS4wMzQgODQuNDU5IDU1LjE0OUM4NC4yMzkgNTYuNzYyIDgyLjg1OSA1Ny45NTggODEuMjM2IDU3Ljk1OEw4MS4xNzEgNTcuOTU4TDU0LjQzOSA1Ny45NThDNTMuNDc0IDU3Ljk1OCA1Mi41NDkgNTguMzM5IDUxLjg2NCA1OS4wMkw0My45ODYgNjYuODUzTDU5LjE0NyA2Ni44NDRMNTkuMTYgNjYuODQ0QzYwLjk0OCA2Ni44NDQgNjIuNDAxIDY4LjI4OCA2Mi40MTIgNzAuMDhDNjIuNDIxIDcxLjg3OCA2MC45NzEgNzMuMzQgNTkuMTc0IDczLjM0OVpNMTM1Ljg2MyA4OC45OThDMTIwLjU3OCA5Ny44MzMgMTAxLjc3NiA5Ny41MjUgODYuNzY3IDg4LjE5M0w4Ni4zNTUgODcuOTU1Qzg0Ljk5MyA4OC40OTQgODMuNTMyIDg4Ljc5NSA4Mi4wMjYgODguNzk1TDgyLjAyNiA4OC43ODJMMjAuMDI5IDg4Ljc4MkwwIDg4Ljc3N0wxNC40MDMgNzQuODYxTDIwLjkyMSA2OC41NjNDMjMuMTIzIDY2LjQzNSAyNi4wMjUgNjUuMjYzIDI5LjA4NyA2NS4yNjNMMzQuMTI0IDY1LjI2M0wzOC4yODUgNjEuMTI1TDM4Ljg5NyA2MC41MTZMMTYuNzAyIDQ3LjY4M0w4OC4xMDggNi40MDFMODguMTA4IDYuMzk2QzExMC44ODMgLTYuNzcgMTQwLjEyIDEuMDQ1IDE1My4yODcgMjMuODE5QzE2Ni40NTMgNDYuNTkzIDE1OC42MzggNzUuODMxIDEzNS44NjMgODguOTk4Ii8+PHBhdGggZmlsbD0iI0ZGRkZGRiIgZD0iTTQyMy4zMzcgMzIuMTU5QzQxNS40IDMyLjE1OSA0MDkuNjI0IDM4LjIgNDA5LjYyNCA0Ni4xODVDNDA5LjYyNCA1NC4xNyA0MTUuMzUxIDYwLjUyOCA0MjMuMzM3IDYwLjUyOEM0MzEuMzIzIDYwLjUyOCA0MzYuOTk3IDU0LjMyNiA0MzYuOTk3IDQ2LjE4NUM0MzYuOTk3IDM4LjA0MyA0MzEuMzIzIDMyLjE1OSA0MjMuMzM3IDMyLjE1OU00MjYuMDY3IDcyLjYxOUw0MjYuMDY3IDcyLjYxNEM0MTcuOTc1IDcyLjYxNCA0MTEuOTQ1IDY5LjY3MiA0MDguNjM1IDY1LjQ3TDQwOC40MTkgNjUuNjQ5TDQwOS4yMSA2OC41NTVMNDA5LjIwMSA3MS41NjZMMzk2LjIyMiA3MS41NjZMMzk2LjIyMiAwLjExMkw0MDkuNjczIDAuMTEyTDQwOS42NzMgMjYuNDM2QzQxMy4wMzQgMjIuNjAyIDQxOC42NTggMjAuMDc4IDQyNi4wNjcgMjAuMDc4QzQ0MC4zNjEgMjAuMDc4IDQ1MC40OTcgMzAuODk5IDQ1MC40OTcgNDYuMTM5QzQ1MC40OTcgNjEuMzc4IDQ0MC4zNTMgNzIuNjE5IDQyNi4wNjcgNzIuNjE5TTQ2Ni45MjMgNzEuNTY2TDQ2Ni45MjMgNzEuNTYxTDQ1NS4wNCA3MS41NjFMNDU1LjA0IDY0Ljg2OEw0NjAuNTA1IDYwLjM3Mkw0NjAuNTA1IDIxLjEyNkw0NzQuMDA1IDIxLjEyNkw0NzQuMDA1IDY0LjQ4MkM0NzQuMDA1IDY4LjM5NCA0NzAuODMzIDcxLjU2NiA0NjYuOTIzIDcxLjU2Nk01NTMuNDI1IDcxLjU2MUw1MzkuMzU2IDM3LjQyM0w1MzkuMTI4IDM2Ljg2OUw1MjUuMTk3IDcxLjU2MUw1MTYuMjQ5IDcxLjU2MUw1MTYuMjQ5IDcxLjU2Nkw1MTUuMTk3IDcxLjU2Nkw1MTUuMTk3IDcxLjU2MUw1MTIuNzQxIDcxLjU2MUw1MTIuNzQxIDcxLjU2MUw1MDEuODUyIDcxLjU2MUw1MDEuODUyIDc1LjcxMkM1MDEuODUyIDgyLjIyNiA1MDUuNzkgODQuNTg5IDUxMS4wNDYgODQuNTg5QzUxMy40MDggODQuNTg5IDUxNS43MjEgODQuMjIyIDUxNy43NzEgODMuMzNMNTE5LjE5MiA5NC4zNjNDNTE2LjcyMyA5NS4yMDQgNTEzLjc4IDk2LjE1MSA1MDkuNjMgOTYuMTUxQzQ5NS43NjEgOTYuMTUxIDQ4OC44MjMgODcuNTM2IDQ4OC44MjMgNzYuNTAzTDQ4OC44MjMgNzEuNTY2TDQ4My4yNTYgNzEuNTY2TDQ4My4yNTYgNjQuODcyTDQ4OC43MjEgNjAuMzc2TDQ4OC43MjEgMjEuMTMxTDUwMi4yMjUgMjEuMTMxTDUwMi4yMjUgNjAuMzc2TDUxNi4yNDkgNjAuMzc2TDUxNi4yNDkgNjAuNTgxTDUzMi42MzQgMjEuMTI2TDUzMi42MzggMjEuMTI2TDUzMi42MyAyMS4xMDhMNTMxLjcyMiAxOC45MUM1MzAuMDkyIDE0Ljk3NSA1MjYuMjQ5IDEyLjQxNCA1MjEuOTkyIDEyLjQxNEw1MTIuNDcgMTIuNDE0TDUxMi40NyAwLjEwOEw1MjYuMDI4IDAuMTA4QzUzMi45MjkgMC4xMDggNTM5LjE0MyA0LjI1OSA1NDEuNzkxIDEwLjYzMUw1NjYuOTI5IDcxLjU2MVpNMzU5LjA1OSAzMi4xNTlDMzUxLjEyNCAzMi4xNTkgMzQ1LjM0NiAzOC4yIDM0NS4zNDYgNDYuMTg1QzM0NS4zNDYgNTQuMTcgMzUxLjA3NCA2MC41MjggMzU5LjA1OSA2MC41MjhDMzY3LjA0NCA2MC41MjggMzcyLjcxNyA1NC4zMjYgMzcyLjcxNyA0Ni4xODVDMzcyLjcxNyAzOC4wNDMgMzY3LjA0NCAzMi4xNTkgMzU5LjA1OSAzMi4xNTlNMzYxLjc5IDcyLjYxOUwzNjEuNzkgNzIuNjE0QzM1My42OTkgNzIuNjE0IDM0Ny42NjggNjkuNjcyIDM0NC4zNTggNjUuNDdMMzQ0LjE0MiA2NS42NDlMMzQ0LjkzMiA2OC41NTVMMzQ0LjkyMyA3MS41NjZMMzMxLjk0NSA3MS41NjZMMzMxLjk0NSAwLjExMkwzNDUuMzk3IDAuMTEyTDM0NS4zOTcgMjYuNDM2QzM0OC43NTcgMjIuNjAyIDM1NC4zOCAyMC4wNzggMzYxLjc5IDIwLjA3OEMzNzYuMDgzIDIwLjA3OCAzODYuMjE5IDMwLjg5OSAzODYuMjE5IDQ2LjEzOUMzODYuMjE5IDYxLjM3OCAzNzYuMDc4IDcyLjYxOSAzNjEuNzkgNzIuNjE5TTMxMC41NDEgODAuMDJDMzE0Ljg0OSA4MC4wMiAzMTguMzg4IDgzLjU5NiAzMTguMzE1IDg3LjkwNEMzMTguMjQyIDkyLjQzNyAzMTUuMDU2IDk1LjUxNyAzMTAuNTQxIDk1LjUxN0MzMDYuMjk4IDk1LjUxNyAzMDIuODM2IDkyLjAyOCAzMDIuODE4IDg3Ljc4NEMzMDIuOCA4My4xOTIgMzA1Ljk1MyA4MC4wMiAzMTAuNTQxIDgwLjAyTTIxMi42MTcgNjEuMjY0QzIxNy45NzcgNjEuMjY0IDIyMS40MyA1OS42MjIgMjI1LjA2MiA1NS45NThMMjMzLjMgNjIuNzM5QzIyOC45NTUgNjguNTU1IDIyMi41NDcgNzIuNjE0IDIxMi4zIDcyLjYxNEMyMDEuMzgyIDcyLjYxNCAxOTIuNjk4IDY2LjU4NyAxOTIuNjAxIDU3LjIxOEMxOTIuNjAxIDU3LjE2MyAxOTIuNTk3IDU3LjExMiAxOTIuNTk3IDU3LjA2MkMxOTIuNTk3IDQ2LjcxMyAyMDAuMzcxIDQzLjE5MiAyMTEuNDA0IDQwLjcyNEMyMTcuNTUgMzkuMzU4IDIyMC4yMyAzOC40MTEgMjIwLjIzIDM1LjczMUMyMjAuMjMgMzMuMDUxIDIxNy4yNTEgMzEuNjM1IDIxMi44MzggMzEuNjM1QzIwNy40MTMgMzEuNjM1IDIwMy45MTUgMzMuMjk0IDIwMC4yMzcgMzcuMDA5TDE5MS44OTQgMzAuMTQxQzE5Ni4yOTMgMjQuMjUyIDIwMi43ODQgMjAuMTQyIDIxMy4xNiAyMC4xNDJDMjI0LjIxNiAyMC4xNDIgMjMzLjAxIDI2LjI0NyAyMzMuMTA3IDM1LjczMUMyMzMuMTA3IDQ1LjcxMSAyMjUuOTYzIDQ5LjMzOSAyMTQuNzE4IDUyLjA2OUMyMDguNDY2IDUzLjU5MSAyMDUuMjYyIDU0LjQ4NyAyMDUuMjYyIDU3LjIxOEMyMDUuMjYyIDU5Ljc0MiAyMDguMjU1IDYxLjI2NCAyMTIuNjE3IDYxLjI2NE0zMTEuMjM1IDcxLjU2NkwzMTEuMjM1IDcxLjU2MUwyOTkuMzUxIDcxLjU2MUwyOTkuMzUxIDY0Ljg2OEwzMDQuODE4IDYwLjM3MkwzMDQuODE4IDIxLjEyNkwzMTguMzE5IDIxLjEyNkwzMTguMzE5IDY0LjQ4MkMzMTguMzE5IDY4LjM5NCAzMTUuMTQ3IDcxLjU2NiAzMTEuMjM1IDcxLjU2Nk00NjYuMjI3IDgwLjAyQzQ3MC41MzQgODAuMDIgNDc0LjA3NCA4My41OTYgNDc0LjAwMSA4Ny45MDRDNDczLjkyNyA5Mi40MzcgNDcwLjc0MiA5NS41MTcgNDY2LjIyNyA5NS41MTdDNDYxLjk4MyA5NS41MTcgNDU4LjUyNCA5Mi4wMjggNDU4LjUwMyA4Ny43ODRDNDU4LjQ4NyA4My4xOTIgNDYxLjYzOSA4MC4wMiA0NjYuMjI3IDgwLjAyTTI3Mi4wNjMgNzIuNjE0TDI3Mi4wNTggNzIuNjE0QzI2NC44MDkgNzIuNjE0IDI1OC44NTYgNjkuMDQ2IDI1NS45ODcgNjUuNDdMMjU1Ljc3MSA2NS42NDlMMjU2LjkyOSA2OS4wNTZMMjU2LjkyOSA5NS4wOThMMjQzLjQyOCA5NS4wOThMMjQzLjQyOCAyMS4xMjZMMjU2LjkyOSAyMS4xMjZMMjU2LjkyOSA0OS4zMzlDMjU2LjkyOSA1Ni4zMjYgMjYyLjE4NCA2MC4xMSAyNjguMDY4IDYwLjExQzI3My45NTIgNjAuMTEgMjc4LjM2NiA1Ni4zMjYgMjc4LjM2NiA0OS4zMzlMMjc4LjM2NiAyMS4xMjZMMjkxLjg2NyAyMS4xMjZMMjkxLjg2NyA1Mi44MDVDMjkxLjg2NyA2NC45NDEgMjgzLjYyIDcyLjYxNCAyNzIuMDYzIDcyLjYxNCIvPjwvZz48L3N2Zz4=');
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -154,29 +176,32 @@ body {
 
 /* ── Header — faixa Núcleo ───────────────────────────────────────────────── */
 .app-header {
-  background: var(--bg-header);
-  color: var(--on-dark);
+  background: var(--band-bg);
+  color: var(--band-text);
   padding: 28px 32px 24px;
   display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
   border-bottom: 2px solid var(--yellow);
   box-shadow: none;
 }
 .header-left { display: flex; flex-direction: column; gap: 18px; min-width: 0; }
-.header-logo { display: block; height: 32px; width: auto; flex-shrink: 0; }
+.header-logo {
+  display: block; height: 32px; width: 189px; flex-shrink: 0;
+  background: var(--logo) left center / contain no-repeat;
+}
 .header-left h1 {
   font-size: 28px; font-weight: 800;
-  color: var(--on-dark);
+  color: var(--band-text);
   letter-spacing: -0.01em; line-height: 1.1;
 }
 .header-left h1 span.oe-label {
   display: block;
   font-size: 14px; font-weight: 600;
-  color: var(--yellow);
+  color: var(--band-accent);
   letter-spacing: 0; margin-top: 4px;
 }
-.header-left .subtitle { font-size: 12px; color: var(--on-dark-soft); margin-top: 6px; line-height: 1.5; }
+.header-left .subtitle { font-size: 12px; color: var(--band-text-sec); margin-top: 6px; line-height: 1.5; }
 .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; flex: none; }
-.last-updated { font-size: 12px; color: var(--on-dark-soft); text-align: right; line-height: 1.5; }
+.last-updated { font-size: 12px; color: var(--band-text-sec); text-align: right; line-height: 1.5; }
 .refresh-btn {
   background: var(--yellow);
   color: var(--ink-on-accent);
@@ -194,15 +219,105 @@ body {
 .refresh-btn.spinning svg { animation: spin .8s linear infinite; }
 /* Alternador de tema — mesma altura do Atualizar, mas discreto (contorno sobre a faixa) */
 .theme-btn {
-  background: none; color: var(--on-dark);
-  border: 1px solid #555555;
+  background: none; color: var(--band-text);
+  border: 1px solid var(--band-btn-border);
   border-radius: 0; height: 36px; width: 36px; padding: 0;
   cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
   transition: background .15s, border-color .15s;
 }
-.theme-btn:hover { background: rgba(255,255,255,.10); border-color: var(--on-dark-soft); }
+.theme-btn:hover { background: var(--band-btn-hover); border-color: var(--band-text-sec); }
 .theme-btn svg { width: 16px; height: 16px; }
 .header-actions { display: flex; align-items: center; gap: 10px; }
+
+/* ── Índice de retorno — leitura plana ─────────────────────────────────────
+   Sem caixas, sem preenchimento e sem pílulas: três colunas separadas por um
+   filete, o número como único elemento pesado e uma régua de 2px com o
+   marcador na posição do valor. */
+.ret-grid {
+  display: grid; grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+  border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+}
+.ret-col { padding: 14px 20px 16px; border-right: 1px solid var(--border); }
+.ret-col:last-child { border-right: none; }
+@media (max-width: 760px) { .ret-col { border-right: none; border-bottom: 1px solid var(--border); } }
+.ret-lbl {
+  font-size: 9px; font-weight: 800; letter-spacing: .08em; text-transform: uppercase;
+  color: var(--text-muted);
+}
+.ret-val {
+  font-size: 32px; font-weight: 800; line-height: 1; margin: 8px 0 6px;
+  font-variant-numeric: tabular-nums; display: flex; align-items: baseline; gap: 8px;
+}
+.ret-state { font-size: 9px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; }
+.ret-note { font-size: 10px; color: var(--text-muted); line-height: 1.45; }
+.ret-note em { font-style: normal; color: var(--text-disabled); }
+/* Régua 0 → 1,5: trilho neutro de 2px com um traço na posição do índice. */
+.ret-scale { position: relative; height: 2px; background: var(--track-neutral); margin: 12px 0 3px; }
+.ret-scale i { position: absolute; top: -3px; width: 2px; height: 8px; transform: translateX(-1px); }
+.ret-scale-tick { position: relative; height: 10px; font-size: 8px; color: var(--text-disabled); }
+.ret-scale-tick span { position: absolute; top: 0; }
+/* Cards de retrabalho — mesma linguagem plana: filete de 2px, sem caixa. */
+.rej-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(300px, 1fr)); gap: 0; border-top: 1px solid var(--border); }
+.rej-row {
+  display: flex; align-items: center; gap: 10px; padding: 9px 12px;
+  border-bottom: 1px solid var(--border); box-shadow: inset 2px 0 0 var(--red);
+}
+.rej-n { font-weight: 800; color: var(--red-text); font-size: 14px; min-width: 30px; text-align: center; font-variant-numeric: tabular-nums; }
+
+/* ── Filtro de sprints ─────────────────────────────────────────────────────── */
+.sprint-filter-btn {
+  display: inline-flex; align-items: center; gap: 5px;
+  background: none; border: none; padding: 0; cursor: pointer;
+  font-family: var(--font); font-size: 13px; font-weight: 800; color: var(--text);
+  line-height: 1.2;
+}
+.sprint-filter-btn:hover { color: var(--yellow-dark); }
+.sprint-filter-btn svg { width: 12px; height: 12px; opacity: .55; }
+.f-multi-menu.sprint-menu {
+  right: 0; left: auto; max-height: 340px; overflow-y: auto;
+  min-width: 272px; text-align: left;
+}
+.sprint-menu .f-multi-item.is-current { font-weight: 700; }
+.sprint-menu .sm-dates { font-size: 10px; color: var(--text-muted); margin-left: auto; padding-left: 10px; }
+.sprint-menu .sm-note { font-size: 10px; color: var(--yellow-dark); padding: 6px 8px; line-height: 1.4; }
+
+/* ── Painel Histórico (base de retrospectiva) ───────────────────────────────
+   Em modo histórico a coluna da direita fica mais larga: é uma lista de
+   evidências, não um resumo de três linhas. */
+.main-grid.history-mode { grid-template-columns: 1fr 420px; }
+@media (max-width:1100px) { .main-grid.history-mode { grid-template-columns: 1fr; } }
+#history-content { max-height: 760px; overflow-y: auto; }
+.hs-head { padding: 10px 14px; border-bottom: 1px solid var(--border); }
+.hs-head .hs-scope { font-size: 11px; color: var(--text-muted); line-height: 1.5; }
+.hs-sum { display: grid; grid-template-columns: repeat(4, 1fr); border-bottom: 1px solid var(--border); }
+.hs-sum > div { padding: 9px 10px; border-right: 1px solid var(--border); }
+.hs-sum > div:last-child { border-right: none; }
+.hs-sum .n { font-size: 19px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+.hs-sum .k { font-size: 8.5px; font-weight: 800; letter-spacing: .06em; text-transform: uppercase; color: var(--text-muted); margin-top: 4px; }
+.hs-sec { border-bottom: 1px solid var(--border); }
+.hs-sec > summary {
+  list-style: none; cursor: pointer; padding: 9px 14px;
+  display: flex; align-items: center; gap: 8px;
+  font-size: 11px; font-weight: 800; letter-spacing: .04em; text-transform: uppercase;
+}
+.hs-sec > summary::-webkit-details-marker { display: none; }
+.hs-sec > summary::before { content: '▸'; font-size: 9px; opacity: .5; transition: transform .12s; }
+.hs-sec[open] > summary::before { transform: rotate(90deg); }
+.hs-sec > summary:hover { background: var(--row-hover); }
+.hs-sec .hs-n { margin-left: auto; font-size: 12px; font-weight: 800; font-variant-numeric: tabular-nums; }
+.hs-item { padding: 8px 14px 9px 26px; border-top: 1px solid var(--border); }
+.hs-item .k { font-size: 11px; font-weight: 700; }
+.hs-item .k a { color: var(--blue); text-decoration: none; }
+.hs-item .k a:hover { text-decoration: underline; }
+.hs-item .s { font-size: 11px; color: var(--text); line-height: 1.4; margin-top: 1px; }
+.hs-item .e { font-size: 10px; color: var(--text-muted); margin-top: 3px; line-height: 1.45; }
+.hs-tag {
+  display: inline-block; font-size: 9px; font-weight: 800; letter-spacing: .04em;
+  padding: 1px 5px; margin-left: 6px; border-radius: 3px;
+  background: var(--fill-tag); color: var(--text-muted);
+}
+.hs-empty { padding: 10px 14px 12px 26px; font-size: 11px; color: var(--green); border-top: 1px solid var(--border); }
+.hs-foot { padding: 10px 14px; font-size: 10px; color: var(--text-disabled); line-height: 1.5; }
 
 /* ── Sprint Banner — faixa clara de status ── */
 .sprint-banner {
@@ -680,7 +795,7 @@ td.sub-key a { color: var(--text-muted); font-size: 11px; }
 <header class="app-header">
   <div class="header-left">
     <!-- Lockup Shippify (branco) — 32px, com área de proteção de 1x -->
-    <img class="header-logo" src="data:image/svg+xml;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iVVRGLTgiPz48c3ZnIGlkPSJMYXllcl8xIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA1NjYuOTI5MTMgOTYuMTUwOTYiPjxkZWZzPjxzdHlsZT4uY2xzLTF7ZmlsbDojZmZmO308L3N0eWxlPjwvZGVmcz48ZyBpZD0iU2hpcHBpZnktbG9nbyI+PHBhdGggY2xhc3M9ImNscy0xIiBkPSJNMTM1Ljg2MzksNy4xNTMxNmMtMTUuMjg1NjQtOC44MzU3NS0zNC4wODc2NS04LjUyNzcxLTQ5LjA5NzQxLjgwNDQ0bC0uNDExNjIuMjM3OThjLTEuMzYxMzMtLjUzOTMxLTIuODIyMDItLjg0MDIxLTQuMzI4LS44NDAyMXYuMDEzNzlIMjAuMDI5NjdMMCw3LjM3MzhsMTQuNDAyODMsMTMuOTE1NTMsNi41MTg2OCw2LjI5ODFjMi4yMDIxNSwyLjEyODQ4LDUuMTAyOTEsMy4zMDA3Miw4LjE2NDU1LDMuMzAwNzJoNS4wMzg1N2w0LjE2MDQsNC4xMzc0NS42MTIzLjYwODg5LTIyLjE5NTkyLDEyLjgzMzE5LDcxLjQwNzM1LDQxLjI4MjE3di4wMDQ4OGMyMi43NzQ0MSwxMy4xNjU5NSw1Mi4wMTIyMSw1LjM1MDg5LDY1LjE3ODQ3LTE3LjQyMzQ2LDEzLjE2NjAyLTIyLjc3MzkzLDUuMzUwODMtNTIuMDExOS0xNy40MjMzNC02NS4xNzgxWk0yOS4wODYwNywyMi44MDE3OGMtLjk0NzAyLDAtMS44NTcxOC0uMzY3NzQtMi41Mzc2LTEuMDI1MTVsLTYuNTE4OC02LjI5ODFoNjEuOTk3MTl2LS4wMTM3OWMxLjA4OTcyLDAsMi4xMjM2Ni40ODczLDIuODE3ODcsMS4zMjg2MWwxMi44ODU5OSwxNS42MTY0NmMuNjc1NzguODIyODgsMS42NTQ5MSwxLjI0NTg1LDIuNjUyNDcsMS4yNDU4NS42NTc0NywwLDEuMzE5MzQtLjE4MzksMS45MDc5Ni0uNTU2MjcsMi43ODU1Mi0xLjc2NTMyLDYuMDg2NDMtMi43ODU4Myw5LjYyNjQ2LTIuNzg1ODMuMjI5NDksMCwuNDU1MDgsMCwuNjg0ODEuMDEzNzksOS41OTM5OS4zNTg1MiwxNy4zMDgzNSw4LjM1NzU0LDE3LjMzNTgyLDE3Ljk2MTA2LjAyNzQ3LDkuOTc1NTItOC4wNTQwOCwxOC4wNzE0MS0xOC4wMjA2MywxOC4wNzE0MS03LjcxODk5LDAtMTQuMzAyLTQuODU0NzQtMTYuODY3MTktMTEuNjc2NzYtLjUzNzk2LTEuNDI1MjktMS44ODkxNi0yLjM4MTUzLTMuNDExMTMtMi4zODYwNWwtMTQuMjY0ODktLjA1NTI0Yy0uOTc0MzcsMC0xLjkwMzA4LS4zOTU0NS0yLjU4Nzg5LTEuMDg0NzhsLTYuMzU3OTEtNi40NDA0OSwxMi44NzE3LS4wMjc4M2MxLjgwMjM3LS4wNDEzOCwzLjIyNzE3LTEuNTM1NDYsMy4xODU5MS0zLjMzNzM0LDAtLjExOTUxLS4wMTM1NS0uMjM0NTYtLjAyNzQ3LS4zNDk2MS0uMjIwNTgtMS42MTM0Ni0xLjU5OTczLTIuODA4NzItMy4yMjI3OC0yLjgwODcyaC0yNi43OTYzOWMtLjk2NTcsMC0xLjg4OTY1LS4zODE1My0yLjU3NDgzLTEuMDYxOTVsLTcuODc5MjctNy44MzM1LDE1LjE2MTM4LjAwOTE2aC4wMTM5MmMxLjc4ODA5LDAsMy4yNDA3Mi0xLjQ0MzQ4LDMuMjUwMjQtMy4yMzYzMy4wMDkwMy0xLjc5NzQ5LTEuNDM5MjEtMy4yNTk0LTMuMjM2NjktMy4yNjg2MmgtMzAuMDg4MjZaTTE0Ni4yNzY1LDY4LjI3Njc1Yy0xMC45Mjc2MSwxOC45MDgxNC0zNS4yMDUwOCwyNS4zOTkwNS01NC4xMTI3OSwxNC40NjcyOWwtNTkuMjg0OTEtMzQuMjc2MzdoLS4wMDQ2NGwxMS45NzA4My02LjkyMDQxLDEuMzE5MzQsMS4zMTE2NWMyLjIxNjE5LDIuMjAyMjcsNS4xNTgwOCwzLjQxNTk1LDguMjg0MTgsMy40MTU5NWg0LjE1MTEybDQuMDY4NzMsNC4xMTkxNCw2LjM1NzkxLDYuNDQwNTVjMi4xODMzNSwyLjIxMTI0LDUuMjE3NTMsMy40ODQ2OCw4LjMyNTIsMy40OTM3MWwxMS4zOTE4NS4wNDU4NGMxLjkyMTM5LDMuNzAwODEsNC42OTMzNiw2Ljg4MjIsOC4xNDYyNCw5LjMxNDA5LDQuNDE3NDgsMy4xMTIxOCw5LjYxMjQzLDQuNzU3NjksMTUuMDMyNDcsNC43NTc2OSw2Ljk5MjQzLDAsMTMuNTU2ODgtMi43MjU3NywxOC40OTQzOC03LjY3NzEyLDQuOTM3MzgtNC45NTA5Myw3LjY0NTE0LTExLjUyNDksNy42MjY3MS0xOC41MTcyMS0uMDE4MzEtNi43NDM4NC0yLjYyOTY0LTEzLjE1MjQtNy4zNTA4My0xOC4wNDg0LTQuNzI1ODMtNC44OTU4Ny0xMS4wMzc4NC03LjczMjM2LTE3Ljc4MTc0LTcuOTgwNTktLjMyNjY2LS4wMTM3OS0uNjYyMjMtLjAxODM3LS45ODg1My0uMDE4MzctMy41ODEzLDAtNy4wOTc5LjczMDktMTAuMzQ4MDIsMi4xMzMwNmwtOC43MDU5My0xMC41NTMzNGMxMi4xMzkyOC02LjY4ODc4LDI2Ljg2MjMtNi42MDM0NSwzOC45NDEyOC4zNzk4OCwxOC45MDgwOCwxMC45MjczNywyNS4zOTkwNSwzNS4yMDQ4MywxNC40NjcxNiw1NC4xMTI5OFoiLz48cGF0aCBjbGFzcz0iY2xzLTEiIGQ9Ik0yNzIuMDYzMjksMjMuNTM3MzRoLS4wMDQ1MmMtNy4yNDk3OSwwLTEzLjIwMjc4LDMuNTY3MzktMTYuMDcxNDIsNy4xNDM5NWwtLjIxNjE0LS4xNzkzMSwxLjE1ODQzLTMuNDA2NDdWMS4wNTI3M2gtMTMuNTAxNjF2NzMuOTcyODJoMTMuNTAxNjF2LTI4LjIxMjgyYzAtNi45ODc2OCw1LjI1NDY2LTEwLjc3MTE2LDExLjEzODktMTAuNzcxMTZzMTAuMjk3NzEsMy43ODM0OCwxMC4yOTc3MSwxMC43NzExNnYyOC4yMTI4MmgxMy41MDE2MXYtMzEuNjc5MWMwLTEyLjEzNjQ2LTguMjQ3MzUtMTkuODA5MS0xOS44MDQ1OC0xOS44MDkxWk00NjYuMjI3ODcsMTYuMTMxMzVjNC4zMDYyNCwwLDcuODQ3MDMtMy41NzY1OSw3Ljc3MzMzLTcuODg0MDgtLjA3MzY1LTQuNTMyOC0zLjI1ODMyLTcuNjEyODgtNy43NzMzMy03LjYxMjg4LTQuMjQ0ODMsMC03LjcwMzcyLDMuNDg5MjQtNy43MjQyMSw3LjczMjQtLjAxNjM5LDQuNTkyNTEsMy4xMzU1NCw3Ljc2NDU2LDcuNzI0MjEsNy43NjQ1NlpNMzExLjIzNTcsMjQuNTg1NDd2LjAwNDYyaC0xMS44ODM5djYuNjkzNDJsNS40NjYzLDQuNDk2djM5LjI0NTYxaDEzLjUwMTYxVjMxLjY2OTY2YzAtMy45MTIxNS0zLjE3MTk3LTcuMDg0MTktNy4wODQwMi03LjA4NDE5Wk0yMTIuNjE3NTgsMzQuODg3NjhjNS4zNjAyNywwLDguODEzMDQsMS42NDExNywxMi40NDQ2OSw1LjMwNTExbDguMjM3OTMtNi43ODA3NmMtNC4zNDQzMi01LjgxNTM4LTEwLjc1MjQ5LTkuODc0NjgtMjAuOTk5NDYtOS44NzQ2OC0xMC45MTgyNiwwLTE5LjYwMjM2LDYuMDI2ODctMTkuNjk4OTcsMTUuMzk1ODIsMCwuMDU1MTktLjAwNDUuMTA1NzMtLjAwNDUuMTU2MywwLDEwLjM0ODM1LDcuNzczNzMsMTMuODY5NDgsMTguODA3MDIsMTYuMzM4Miw2LjE0NjIyLDEuMzY1NTUsOC44MjYxNSwyLjMxMjM1LDguODI2MTUsNC45OTI2OCwwLDIuNjc5OTQtMi45Nzg3NCw0LjA5NTg1LTcuMzkxODIsNC4wOTU4NS01LjQyNDk1LDAtOC45MjMxNy0xLjY1OTQ2LTEyLjYwMTA2LTUuMzczNzlsLTguMzQzNTQsNi44Njc4NmM0LjM5OTE2LDUuODg5MTYsMTAuODkwNDMsOS45OTg5LDIxLjI2NjM0LDkuOTk4OSwxMS4wNTU4LDAsMTkuODUwNDItNi4xMDQ4NywxOS45NDcwNC0xNS41ODg4MywwLTkuOTgwNDYtNy4xNDQxOC0xMy42MDc2Mi0xOC4zODg2OC0xNi4zMzgzMi02LjI1MjIyLTEuNTIxOS05LjQ1NjUyLTIuNDE3OTUtOS40NTY1Mi01LjE0ODg2LDAtMi41MjM4MSwyLjk5MzA2LTQuMDQ1NDksNy4zNTUzOS00LjA0NTQ5Wk0zMTAuNTQxNDcsMTYuMTMxMzVjNC4zMDc0NywwLDcuODQ3NDMtMy41NzY1OSw3Ljc3MzczLTcuODg0MDgtLjA3MzI1LTQuNTMyOC0zLjI1OTE0LTcuNjEyODgtNy43NzM3My03LjYxMjg4LTQuMjQzMjEsMC03LjcwNDU3LDMuNDg5MjQtNy43MjI5OCw3LjczMjQtLjAxODQxLDQuNTkyNTEsMy4xMzUxMiw3Ljc2NDU2LDcuNzIyOTgsNy43NjQ1NlpNMzYxLjc5MDE3LDIzLjUzMjcydi4wMDQ2MmMtOC4wOTA5NywwLTE0LjEyMjE2LDIuOTQyMTctMTcuNDMyMDcsNy4xNDM5NWwtLjIxNjExLS4xNzkzMS43OTA4Mi0yLjkwNTM0LS4wMDkzOS0zLjAxMTE1aC0xMi45Nzc2N3Y3MS40NTM0aDEzLjQ1MTI3di0yNi4zMjMzMWMzLjM2MDI1LDMuODMzODcsOC45ODI5Myw2LjM1Nzg2LDE2LjM5MzE2LDYuMzU3ODYsMTQuMjkyODUsMCwyNC40MjkyOS0xMC44MjE2OCwyNC40MjkyOS0yNi4wNjEzNXMtMTAuMTQxMzQtMjYuNDc5MzgtMjQuNDI5MjktMjYuNDc5MzhaTTM1OS4wNTk1LDYzLjk5MjIzYy03LjkzNDYyLDAtMTMuNzEzMjUtNi4wNDA1OC0xMy43MTMyNS0xNC4wMjU5OHM1LjcyODI4LTE0LjM0MzAyLDEzLjcxMzI1LTE0LjM0MzAyYzcuOTg1MzcsMCwxMy42NTgzOSw2LjIwMTcxLDEzLjY1ODM5LDE0LjM0MzAyLDAsOC4xNDE3NC01LjY3MzAyLDE0LjAyNTk4LTEzLjY1ODM5LDE0LjAyNTk4Wk01NTMuNDI1MDcsMjQuNTkwMDlsLTE0LjA2ODk1LDM0LjEzODQ2LS4yMjgyLjU1MzYtMTMuOTMwNzktMzQuNjkyMDVoLTguOTQ4MTJ2LS4wMDQ2aC0xLjA1MjAzdi4wMDQ2aC0yLjQ1NjAzdi4wMDAwMmgtMTAuODg4Mzh2LTQuMTUxMjJjMC02LjUxNDE2LDMuOTM3ODMtOC44NzcwOSw5LjE5MzcyLTguODc3MDksMi4zNjE4OSwwLDQuNjc0NjYuMzY3NzksNi43MjU0NSwxLjI1OTYybDEuNDIwMzktMTEuMDMzMTRjLTIuNDY4MzItLjg0MTI2LTUuNDExNDQtMS43ODgyOC05LjU2MjEzLTEuNzg4MjgtMTMuODY4MzgsMC0yMC44MDY2NCw4LjYxNTA2LTIwLjgwNjY0LDE5LjY0ODE4djQuOTM3MzJoLTUuNTY3MDR2Ni42OTM0N2w1LjQ2NDcsNC40OTZ2MzkuMjQ1NjZoMTMuNTA0MDZ2LTM5LjI0NTY2aDE0LjAyMzkzdi0uMjA0ODRsMTYuMzg1NzcsMzkuNDU1aC4wMDM1bC0uMDA3Ni4wMTg0MS0uOTA4NzIsMi4xOTc3NGMtMS42MjkxNiwzLjkzNDk4LTUuNDcyODUsNi40OTU3OS05LjcyOTk3LDYuNDk1NzloLTkuNTIxMjF2MTIuMzA2MzNoMTMuNTU3MjdjNi45MDE0OCwwLDEzLjExNTIxLTQuMTUxMDksMTUuNzYzNjEtMTAuNTIyODRsMjUuMTM3NDctNjAuOTMwNDZoLTEzLjUwNDA2Wk00NjYuOTIzNzgsMjQuNTg1NDd2LjAwNDYyaC0xMS44ODMxdjYuNjkzNDJsNS40NjQ2NSw0LjQ5NnYzOS4yNDU2MWgxMy40OTk5NlYzMS42Njk2NmMwLTMuOTEyMTUtMy4xNzIzNy03LjA4NDE5LTcuMDgxNTItNy4wODQxOVpNNDI2LjA2NzcyLDIzLjUzMjcydi4wMDQ2MmMtOC4wOTI2MiwwLTE0LjEyMjE2LDIuOTQyMTctMTcuNDMyNDcsNy4xNDM5NWwtLjIxNjE0LS4xNzkzMS43OTA4NC0yLjkwNTM0LS4wMDkwMi0zLjAxMTE1aC0xMi45NzgwNXY3MS40NTM0aDEzLjQ1MDg0di0yNi4zMjMzMWMzLjM2MDY3LDMuODMzODcsOC45ODQ5OCw2LjM1Nzg2LDE2LjM5Mzk4LDYuMzU3ODYsMTQuMjk0MSwwLDI0LjQyOTMyLTEwLjgyMTY4LDI0LjQyOTMyLTI2LjA2MTM1cy0xMC4xNDM0MS0yNi40NzkzOC0yNC40MjkzMi0yNi40NzkzOFpNNDIzLjMzNzQyLDYzLjk5MjIzYy03LjkzNzA1LDAtMTMuNzEyOC02LjA0MDU4LTEzLjcxMjgtMTQuMDI1OThzNS43MjY2NC0xNC4zNDMwMiwxMy43MTI4LTE0LjM0MzAyLDEzLjY1OTYxLDYuMjAxNzEsMTMuNjU5NjEsMTQuMzQzMDJjMCw4LjE0MTc0LTUuNjczNDIsMTQuMDI1OTgtMTMuNjU5NjEsMTQuMDI1OThaIi8+PC9nPjwvc3ZnPg==" alt="Shippify"/>
+    <div class="header-logo" role="img" aria-label="Shippify"></div>
     <div>
       <h1>Dashboard Produtos <span class="oe-label">Operation Experience</span></h1>
       <div class="subtitle" id="date-display">—</div>
@@ -706,7 +821,14 @@ td.sub-key a { color: var(--text-muted); font-size: 11px; }
   <div class="banner-metrics">
     <div class="banner-metric"><div class="val" id="bm-progress">—</div><div class="lbl">Concluídas</div></div>
     <div class="banner-metric"><div class="val" id="bm-days">—</div><div class="lbl">Dias úteis rest.</div></div>
-    <div class="banner-metric"><div class="val" id="bm-sprint" style="font-size:13px">—</div><div class="lbl">Sprint</div></div>
+    <div class="banner-metric" style="position:relative">
+      <button type="button" class="sprint-filter-btn" id="sprint-filter-btn" onclick="toggleSprintMenu(event)" title="Escolher sprints para analisar o histórico">
+        <span id="bm-sprint">—</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9l6 6 6-6"/></svg>
+      </button>
+      <div class="lbl">Sprint</div>
+      <div class="f-multi-menu sprint-menu" id="sprint-filter-menu" style="display:none"></div>
+    </div>
   </div>
 </div>
 
@@ -824,6 +946,11 @@ td.sub-key a { color: var(--text-muted); font-size: 11px; }
     <div class="panel-header"><h2><svg class="ph-icon" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M11.9973 1.95319C8.13125 1.95319 4.99725 5.08719 4.99725 8.95319C4.99725 10.9122 5.54225 12.0792 6.74725 13.4842C6.80325 13.5502 7.01027 13.8012 7.05927 13.8592C7.77027 14.6882 7.99725 15.1402 7.99725 15.9532V17.9532C7.99725 20.1622 9.78825 21.9532 11.9973 21.9532C14.2063 21.9532 15.9973 20.1622 15.9973 17.9532V15.9532C15.9973 15.1402 16.2242 14.6882 16.9352 13.8592C16.9842 13.8012 17.1913 13.5502 17.2473 13.4842C18.4523 12.0792 18.9973 10.9122 18.9973 8.95319C18.9973 5.08719 15.8633 1.95319 11.9973 1.95319ZM11.9973 3.95319C14.7583 3.95319 16.9973 6.19219 16.9973 8.95319C16.9973 10.3692 16.6673 11.0982 15.7473 12.1722C15.6953 12.2322 15.4573 12.4842 15.4033 12.5472C14.6903 13.3792 14.2752 14.1272 14.0942 14.9592C12.8262 14.9592 11.1652 14.9642 9.89725 14.9642C9.71625 14.1312 9.30425 13.3792 8.59125 12.5472C8.53725 12.4842 8.29925 12.2322 8.24725 12.1722C7.32725 11.0982 6.99725 10.3692 6.99725 8.95319C6.99725 6.19219 9.23625 3.95319 11.9973 3.95319ZM11.9973 5.95319C10.3403 5.95319 8.99725 7.29619 8.99725 8.95319C8.99725 9.50519 9.44525 9.95319 9.99725 9.95319C10.5493 9.95319 10.9973 9.50519 10.9973 8.95319C10.9973 8.40119 11.4453 7.95319 11.9973 7.95319C12.5493 7.95319 12.9973 7.50519 12.9973 6.95319C12.9973 6.40119 12.5493 5.95319 11.9973 5.95319ZM9.99725 16.9532C11.2333 16.9532 12.7613 16.9532 13.9973 16.9532V17.9532C13.9973 19.0582 13.1023 19.9532 11.9973 19.9532C10.8923 19.9532 9.99725 19.0582 9.99725 17.9532V16.9532Z" fill="currentColor"/></svg>Foco do Dia</h2></div>
     <div id="focus-content"><div class="loading"><span class="spinner spinner-sm"></span></div></div>
   </div>
+  <!-- Só aparece em modo histórico; substitui "Bloqueios & Atenção" e "Foco do Dia". -->
+  <div class="panel" id="history-panel" style="display:none">
+    <div class="panel-header"><h2><svg class="ph-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 12a9 9 0 1 0 3-6.7"/><path d="M3 4v5h5"/><path d="M12 8v4l3 2"/></svg>Histórico</h2></div>
+    <div id="history-content"><div class="loading"><span class="spinner spinner-sm"></span></div></div>
+  </div>
   </div>
 </div>
 
@@ -868,14 +995,21 @@ const SLACK_TOOL = 'mcp__161b720b-5bfb-412d-a3fa-0b268e06ee46__slack_search_publ
 // Jira: tenta ao vivo via proxy Cloudflare Worker (token nunca exposto no site);
 // se o Worker estiver fora do ar, cai no snapshot ./data.json (atualizado pelo
 // GitHub Action a cada 5 min). Agenda/Gmail/Slack sempre vêm do snapshot.
+const BOARD_ID_OE = 474; // board da squad OE
 const WORKER_URL = 'https://dashboard-operation-experience.vitor-lousada-t.workers.dev'; // preenchido por worker/deploy-worker.sh
 let SNAP = { jira:{active:[],done:[]}, calendar:[], emails:[], slack:'' };
 let jiraLive = false;
-async function loadSnapshot() {
-  try {
-    const r = await fetch('./data.json?t=' + Date.now(), { cache:'no-store' });
-    if (r.ok) SNAP = await r.json();
-  } catch (e) { console.warn('data.json indisponível', e); }
+async function loadSnapshot(sprintIds) {
+  const hist = Array.isArray(sprintIds) && sprintIds.length > 0;
+  // O data.json só guarda a sprint aberta; em modo histórico ele não serve de fallback.
+  if (!hist) {
+    try {
+      const r = await fetch('./data.json?t=' + Date.now(), { cache:'no-store' });
+      if (r.ok) SNAP = await r.json();
+    } catch (e) { console.warn('data.json indisponível', e); }
+  } else {
+    SNAP = { jira: { active: [], done: [] }, calendar: [], emails: [], slack: '' };
+  }
 
   // Tenta Jira ao vivo (clique em Atualizar força uma consulta nova de verdade).
   jiraLive = false;
@@ -883,7 +1017,8 @@ async function loadSnapshot() {
     try {
       const ctrl = new AbortController();
       const to = setTimeout(() => ctrl.abort(), 9000);
-      const wr = await fetch(WORKER_URL + '/jira?t=' + Date.now(), { signal: ctrl.signal, cache:'no-store' });
+      const qs = '/jira?t=' + Date.now() + (hist ? '&sprints=' + sprintIds.join(',') : '');
+      const wr = await fetch(WORKER_URL + qs, { signal: ctrl.signal, cache:'no-store' });
       clearTimeout(to);
       if (wr.ok) {
         const live = await wr.json();
@@ -895,6 +1030,9 @@ async function loadSnapshot() {
       }
     } catch (e) { console.warn('Jira ao vivo indisponível, usando snapshot:', e); }
   }
+  // Em modo histórico não há de onde tirar os dados sem o proxy: avisa em vez de
+  // mostrar uma sprint vazia como se não houvesse trabalho nela.
+  if (hist && !jiraLive) throw new Error('HISTORY_NO_PROXY');
 
   // Carimbo de atualização no cabeçalho
   try {
@@ -934,6 +1072,16 @@ let doneHasMore   = false;
 let sortCol      = 'priority';
 let sortDir      = 'asc';
 let burndownChart = null;
+
+// ── Filtro de sprints (modo histórico) ──────────────────────────────────────
+// selectedSprints vazio = sprint aberta (comportamento padrão do dash). Com uma ou
+// mais sprints marcadas o painel entra em MODO HISTÓRICO: os dados vêm do Worker
+// com ?sprints=<ids>, e a coluna da direita troca "Bloqueios & Atenção" + "Foco do
+// Dia" por um único painel "Histórico", com a base de evidências para a retro.
+let sprintCatalog  = [];        // [{id,name,state,startDate,endDate,completeDate}]
+let selectedSprints = new Set();
+let historyMode = false;
+let sprintCatalogError = null;
 
 // ── Tema claro/escuro ───────────────────────────────────────────────────────
 // Padrão = o do sistema operacional; a escolha manual é persistida no navegador.
@@ -1089,6 +1237,19 @@ async function fetchJiraPage(jql, fields, maxResults=100, cursor=null) {
   return {nodes:iss.nodes||[],hasNextPage:pi.hasNextPage||false,endCursor:pi.endCursor||null};
 }
 
+// Últimos ajustes comuns aos dois modos (aberta e histórico) antes de devolver os dados.
+// "Jira Triage Agent" é a conta de automação que recebe os cards de reunião/treinamento da
+// squad; mostrar o nome do bot confunde a leitura (pedido de Vitor em 12/08/2026). Aplicado
+// na ingestão para valer em produtividade, tabela, filtros, bloqueios e foco de uma vez só.
+function finishLoad(active, done, subtasks, doneHasMore) {
+  const NAME_ALIAS = { 'Jira Triage Agent': 'Reuniões ou Treinamentos' };
+  [...active, ...done, ...subtasks].forEach(i => {
+    const a = i.fields && i.fields.assignee;
+    if (a && NAME_ALIAS[a.displayName]) a.displayName = NAME_ALIAS[a.displayName];
+  });
+  return { active, done, subtasks, doneHasMore };
+}
+
 async function loadJira() {
   const ACTIVE_FIELDS = ['summary','status','assignee','issuetype','priority','duedate','sprint','customfield_10020','customfield_10028','customfield_10546','customfield_10548','parent'];
   const DONE_FIELDS   = ['summary','status','assignee','issuetype','priority','sprint','customfield_10020','customfield_10028','customfield_10546','customfield_10548','resolutiondate','updated','parent'];
@@ -1131,8 +1292,22 @@ async function loadJira() {
 
   done = done.filter(i => !cancelled(i));
 
+  // ── Modo histórico: o recorte é a lista de sprints escolhidas no filtro ────
+  // (não dá para usar state==='active' aqui — sprints fechadas nunca casariam).
+  if (historyMode && selectedSprints.size) {
+    const inSel = i => {
+      const sf = i.fields?.customfield_10020 || i.fields?.sprint;
+      const sps = Array.isArray(sf) ? sf : (sf ? [sf] : []);
+      return sps.some(sp => sp && selectedSprints.has(sp.id));
+    };
+    active = active.filter(inSel);
+    done   = done.filter(inSel);
+    const subsInSel = subtasks.filter(t => inSel(t) || [...active, ...done].some(i => i.key === t.fields?.parent?.key));
+    return finishLoad(active, done, subsInSel, false);
+  }
+
   // ── Sprint filter: if multiple open sprints exist, keep the OE board one ───
-  const BOARD_ID = 474; // OE board
+  const BOARD_ID = BOARD_ID_OE;
   const getActiveSprints = i => {
     const sf=i.fields?.customfield_10020||i.fields?.sprint;
     const sps=Array.isArray(sf)?sf:(sf?[sf]:[]);
@@ -1174,13 +1349,7 @@ async function loadJira() {
   // da squad; mostrar o nome do bot nos indicadores confunde a leitura (pedido de Vitor em
   // 12/08/2026). Aplicado aqui, na ingestão, para valer em produtividade, tabela de issues,
   // filtro de responsável, bloqueios e foco de uma vez só. A linha segue contando como dev.
-  const NAME_ALIAS = { 'Jira Triage Agent': 'Reuniões ou Treinamentos' };
-  [...active, ...done, ...subtasks].forEach(i => {
-    const a = i.fields && i.fields.assignee;
-    if (a && NAME_ALIAS[a.displayName]) a.displayName = NAME_ALIAS[a.displayName];
-  });
-
-  return {active, done, subtasks, doneHasMore};
+  return finishLoad(active, done, subtasks, doneHasMore);
 }
 
 // ── Calendar Fetch ──────────────────────────────────────────────────────────
@@ -1233,6 +1402,249 @@ function fmtSPNum(v){
   return (v === Math.floor(v)) ? String(v) : v.toFixed(1).replace('.', ',');
 }
 
+// ── Catálogo de sprints (para o filtro) ─────────────────────────────────────
+// Vem do Worker (/sprints → agile API do board 474). Se o proxy ainda não tiver o
+// endpoint, cai para as sprints que aparecem nos próprios cards carregados — dá para
+// listar, mas não para consultar, e o filtro avisa isso.
+async function loadSprintCatalog() {
+  sprintCatalogError = null;
+  if (WORKER_URL && !WORKER_URL.includes('REPLACE-ME')) {
+    try {
+      const ctrl = new AbortController();
+      const to = setTimeout(() => ctrl.abort(), 9000);
+      const r = await fetch(WORKER_URL + '/sprints?t=' + Date.now(), { signal: ctrl.signal, cache: 'no-store' });
+      clearTimeout(to);
+      if (r.ok) {
+        const d = await r.json();
+        if (Array.isArray(d.sprints) && d.sprints.length) {
+          sprintCatalog = d.sprints.filter(s => s && s.id);
+          return sprintCatalog;
+        }
+      }
+      sprintCatalogError = 'O proxy ainda não expõe /sprints — publique o worker atualizado.';
+    } catch (e) {
+      sprintCatalogError = 'Não foi possível falar com o proxy do Jira.';
+    }
+  }
+  // Fallback: o que der para inferir dos cards em memória.
+  const seen = new Map();
+  [...allIssues, ...subtaskIssues].forEach(i => {
+    const sf = i.fields?.customfield_10020 || i.fields?.sprint;
+    (Array.isArray(sf) ? sf : (sf ? [sf] : [])).forEach(sp => {
+      if (sp && sp.id && sp.boardId === BOARD_ID_OE) seen.set(sp.id, {
+        id: sp.id, name: sp.name, state: sp.state,
+        startDate: sp.startDate || null, endDate: sp.endDate || null, completeDate: sp.completeDate || null
+      });
+    });
+  });
+  sprintCatalog = [...seen.values()].sort((a, b) => b.id - a.id);
+  return sprintCatalog;
+}
+
+
+// ── Filtro de sprints: menu ─────────────────────────────────────────────────
+function fmtSprintRange(sp){
+  const d = v => { if(!v) return null; const [y,m,dd]=String(v).split('T')[0].split('-').map(Number);
+    return String(dd).padStart(2,'0')+'/'+String(m).padStart(2,'0'); };
+  const a=d(sp.startDate), b=d(sp.completeDate||sp.endDate);
+  return (a&&b) ? a+'–'+b : (a||b||'');
+}
+function renderSprintMenu(){
+  const m=document.getElementById('sprint-filter-menu'); if(!m) return;
+  const cur = sprintCatalog.filter(s=>s.state==='active');
+  const past= sprintCatalog.filter(s=>s.state!=='active');
+  const item = sp => {
+    const on = selectedSprints.has(sp.id);
+    return `<label class="f-multi-item${sp.state==='active'?' is-current':''}">`
+      + `<input type="checkbox" data-sprint="${sp.id}" ${on?'checked':''}>`
+      + `<span>${escHtml(sp.name||('Sprint '+sp.id))}${sp.state==='active'?' · atual':''}</span>`
+      + `<span class="sm-dates">${fmtSprintRange(sp)}</span></label>`;
+  };
+  m.innerHTML =
+    `<div class="f-multi-head"><span style="font-size:11px;color:var(--text-muted)">Sprints para analisar</span>`
+    + `<button type="button" onclick="clearSprintFilter()">Sprint atual</button></div>`
+    + (sprintCatalogError?`<div class="sm-note">${escHtml(sprintCatalogError)}</div>`:'')
+    + (cur.length?cur.map(item).join(''):'')
+    + (past.length?`<div style="font-size:9px;font-weight:800;letter-spacing:.06em;text-transform:uppercase;color:var(--text-disabled);padding:8px 8px 4px">Encerradas</div>`+past.map(item).join(''):'')
+    + (sprintCatalog.length?'':`<div class="sm-note">Nenhuma sprint encontrada.</div>`);
+  m.querySelectorAll('input[data-sprint]').forEach(cb=>{
+    cb.onchange=()=>{
+      const id=parseInt(cb.getAttribute('data-sprint'),10);
+      if(cb.checked) selectedSprints.add(id); else selectedSprints.delete(id);
+      applySprintFilter();
+    };
+  });
+}
+function toggleSprintMenu(ev){
+  ev.stopPropagation();
+  const m=document.getElementById('sprint-filter-menu'); if(!m) return;
+  const open = m.style.display!=='none';
+  if(open){ m.style.display='none'; return; }
+  renderSprintMenu(); m.style.display='block';
+  setTimeout(()=>document.addEventListener('click',closeSprintMenuOnce),0);
+}
+function closeSprintMenuOnce(e){
+  const m=document.getElementById('sprint-filter-menu');
+  if(m && !m.contains(e.target)){ m.style.display='none'; document.removeEventListener('click',closeSprintMenuOnce); }
+}
+function clearSprintFilter(){ selectedSprints.clear(); applySprintFilter(); }
+function applySprintFilter(){
+  // Só as sprints ENCERRADAS ligam o modo histórico; marcar a atual é o padrão do dash.
+  const closedSel=[...selectedSprints].filter(id=>{
+    const sp=sprintCatalog.find(x=>x.id===id); return sp && sp.state!=='active';
+  });
+  historyMode = closedSel.length>0;
+  renderSprintMenu();
+  loadData();
+}
+function updateSprintLabel(){
+  const el=document.getElementById('bm-sprint'); if(!el) return;
+  if(historyMode){
+    const names=[...selectedSprints].map(id=>{
+      const sp=sprintCatalog.find(x=>x.id===id); return sp?(sp.name||('Sprint '+id)):('Sprint '+id);
+    }).sort();
+    el.textContent = names.length===1 ? names[0] : (names.length+' sprints');
+    el.title = names.join(' · ');
+  } else {
+    const sprintInfo=findSprintInfo();
+    el.textContent = sprintInfo?.name || '—';
+    el.title = 'Sprint aberta';
+  }
+  const grid=document.querySelector('.main-grid');
+  if(grid) grid.classList.toggle('history-mode', historyMode);
+  const hp=document.getElementById('history-panel');
+  const others=[...document.querySelectorAll('#blocked-content, #focus-content')].map(e=>e.closest('.panel'));
+  if(hp) hp.style.display = historyMode ? '' : 'none';
+  others.forEach(pl=>{ if(pl) pl.style.display = historyMode ? 'none' : ''; });
+}
+
+// ── Painel Histórico — base de evidências para a retrospectiva ──────────────
+// Quatro leituras, todas ancoradas em dado do Jira (nada inferido):
+//   1. Retrabalho  — entradas em REJECTED BY QA / CODE REVIEW REJECTED (changelog).
+//   2. Carryover   — o card pertence à sprint analisada E a outra que começou depois,
+//                    ou continua sem estar Done. É o que arrastou para o ciclo seguinte.
+//   3. Paradas     — tempo somado em BLOCKED / WAITING FOR TASKS (changelog).
+//   4. Planejamento— card sem Story Points, sem responsável ou sem quebra DEV/QA.
+function buildHistory() {
+  const sel = [...selectedSprints]
+    .map(id => sprintCatalog.find(x => x.id === id))
+    .filter(Boolean)
+    .sort((a, b) => a.id - b.id);
+  const selIds = new Set(sel.map(s => s.id));
+  const startOf = sp => sp && sp.startDate ? Date.parse(sp.startDate) : null;
+  const scope = [...activeIssues, ...doneIssues];
+
+  const sprintsOf = i => {
+    const sf = i.fields?.customfield_10020 || i.fields?.sprint;
+    return Array.isArray(sf) ? sf : (sf ? [sf] : []);
+  };
+  const isDoneCat = i => (i.fields?.status?.statusCategory?.key || '') === 'done';
+  // Sprint analisada à qual o card pertence (a mais recente entre as escolhidas).
+  const homeSprint = i => sprintsOf(i).filter(sp => sp && selIds.has(sp.id)).sort((a,b)=>b.id-a.id)[0] || null;
+
+  const rework = [], carry = [], stalled = [], planning = [];
+
+  for (const i of scope) {
+    const f = i.fields || {};
+    const home = homeSprint(i);
+    const tag = home ? (home.name || ('Sprint ' + home.id)) : '';
+
+    const rq = i._rejQA || 0, rc = i._rejCode || 0;
+    if (rq + rc > 0) rework.push({ i, tag, n: rq + rc, rq, rc });
+
+    // Carryover: existe sprint posterior à "casa" do card, ou ele nunca fechou.
+    const hs = startOf(home);
+    const later = hs === null ? [] : sprintsOf(i).filter(sp => sp && sp.id !== home.id && startOf(sp) !== null && startOf(sp) > hs);
+    if (later.length) carry.push({ i, tag, to: later.sort((a,b)=>a.id-b.id).map(sp=>sp.name||('Sprint '+sp.id)), open: !isDoneCat(i) });
+    else if (!isDoneCat(i)) carry.push({ i, tag, to: [], open: true });
+
+    const blk = i._blkMs || 0, blkN = i._blkN || 0;
+    if (blkN > 0) stalled.push({ i, tag, ms: blk, n: blkN });
+
+    const sp = f.customfield_10028, dev = f.customfield_10548, qa = f.customfield_10546;
+    const gaps = [];
+    if (sp === null || sp === undefined || sp === '') gaps.push('sem Story Points');
+    else if ((dev === null || dev === undefined || dev === '') && (qa === null || qa === undefined || qa === '')) gaps.push('sem quebra DEV/QA');
+    if (!f.assignee) gaps.push('sem responsável');
+    if (gaps.length) planning.push({ i, tag, gaps });
+  }
+
+  rework.sort((a, b) => b.n - a.n);
+  stalled.sort((a, b) => b.ms - a.ms);
+  carry.sort((a, b) => (b.to.length) - (a.to.length));
+  return { sel, scope, rework, carry, stalled, planning };
+}
+
+function fmtDur(ms) {
+  if (!ms || ms < 0) return '—';
+  const h = ms / 36e5;
+  if (h < 24) return (Math.round(h * 10) / 10).toString().replace('.', ',') + 'h';
+  const d = h / 24;
+  return (Math.round(d * 10) / 10).toString().replace('.', ',') + ' dias';
+}
+
+function renderHistory() {
+  const el = document.getElementById('history-content');
+  if (!el) return;
+  if (!historyMode) { el.innerHTML = ''; return; }
+
+  const H = buildHistory();
+  if (!H.scope.length) {
+    el.innerHTML = '<div class="empty">Nenhum card encontrado nas sprints escolhidas.</div>';
+    return;
+  }
+
+  const row = (issue, tag, evid) => {
+    const f = issue.fields || {};
+    return `<div class="hs-item">
+      <div class="k"><a href="${JIRA_BASE}${issue.key}" target="_blank">${escHtml(issue.key)}</a>${tag ? `<span class="hs-tag">${escHtml(tag)}</span>` : ''}</div>
+      <div class="s">${escHtml(f.summary || '')}</div>
+      <div class="e">${evid}</div>
+    </div>`;
+  };
+  const sec = (title, items, empty) => `<details class="hs-sec"${items.length ? ' open' : ''}>
+    <summary>${title}<span class="hs-n">${items.length}</span></summary>
+    ${items.length ? items.join('') : `<div class="hs-empty">${empty}</div>`}
+  </details>`;
+
+  const nm = i => i.fields?.assignee?.displayName || 'sem responsável';
+
+  const reworkRows = H.rework.map(r => row(r.i, r.tag,
+    `<strong>${r.n}× de volta</strong> · ${r.rc} de código / ${r.rq} de QA · ${escHtml(nm(r.i))}`));
+  const carryRows = H.carry.map(c => row(c.i, c.tag,
+    (c.to.length ? `arrastou para <strong>${escHtml(c.to.join(', '))}</strong>` : 'não foi concluída na sprint')
+    + (c.open ? ` · segue em ${escHtml(c.i.fields?.status?.name || '?')}` : '') + ` · ${escHtml(nm(c.i))}`));
+  const stallRows = H.stalled.map(b => row(b.i, b.tag,
+    `parada <strong>${fmtDur(b.ms)}</strong> em ${b.n} ${b.n === 1 ? 'episódio' : 'episódios'} de bloqueio · ${escHtml(nm(b.i))}`));
+  const planRows = H.planning.map(pl => row(pl.i, pl.tag,
+    `${escHtml(pl.gaps.join(' · '))} · ${escHtml(nm(pl.i))}`));
+
+  const totRej = H.rework.reduce((a, r) => a + r.n, 0);
+  const totBlk = H.stalled.reduce((a, b) => a + b.ms, 0);
+  const names = H.sel.map(sp => sp.name || ('Sprint ' + sp.id));
+  const per = H.sel.length > 1 ? ` · ${H.sel.length} sprints` : '';
+
+  el.innerHTML = `
+    <div class="hs-head">
+      <div class="hs-scope"><strong>${escHtml(names.join(' · '))}</strong>${per}<br>${H.scope.length} cards no escopo · base para a retrospectiva</div>
+    </div>
+    <div class="hs-sum">
+      <div><div class="n" style="color:${H.rework.length ? 'var(--red-text)' : 'var(--green)'}">${totRej}</div><div class="k">Retornos</div></div>
+      <div><div class="n" style="color:${H.carry.length ? 'var(--yellow-dark)' : 'var(--green)'}">${H.carry.length}</div><div class="k">Carryover</div></div>
+      <div><div class="n" style="color:${H.stalled.length ? 'var(--orange)' : 'var(--green)'}">${fmtDur(totBlk)}</div><div class="k">Parado</div></div>
+      <div><div class="n" style="color:${H.planning.length ? 'var(--yellow-dark)' : 'var(--green)'}">${H.planning.length}</div><div class="k">Gaps plan.</div></div>
+    </div>
+    ${sec('↩︎ Retrabalho e rejeições', reworkRows, 'Nenhum card voltou do QA ou do code review.')}
+    ${sec('→ Carryover', carryRows, 'Tudo que entrou foi concluído dentro da sprint.')}
+    ${sec('⏸ Bloqueios e paradas', stallRows, 'Nenhum card passou por BLOCKED ou WAITING FOR TASKS.')}
+    ${sec('⚑ Falhas de planejamento', planRows, 'Todos os cards saíram do refinamento pontuados e com dono.')}
+    <div class="hs-foot">
+      Fonte: changelog do Jira (rejeições e paradas) e campo Sprint dos cards (carryover).
+      Carryover = o card também pertence a uma sprint que começou depois, ou nunca foi concluído.
+      Escopo: apenas issues-pai das sprints escolhidas.
+    </div>`;
+}
+
 // ── Render Metrics ──────────────────────────────────────────────────────────
 function renderMetrics() {
   const blocked=activeIssues.filter(isBlocked);
@@ -1268,8 +1680,11 @@ function renderMetrics() {
     sprintName=sprintInfo.name||'—';
     if(sprintInfo.endDate){ const d=businessDaysUntil(sprintInfo.endDate); daysLeft=d!==null?`${d}d`:'—'; }
   }
+  // "Dias restantes" não existe para sprint encerrada.
+  if(historyMode) daysLeft='—';
   const elDays=document.getElementById('mc-days'); if(elDays) elDays.textContent=daysLeft;
-  document.getElementById('bm-sprint').textContent=sprintName;
+  // Em modo histórico o rótulo da sprint é do filtro, não da sprint aberta.
+  if(!historyMode) document.getElementById('bm-sprint').textContent=sprintName;
   document.getElementById('bm-progress').textContent=`${doneLabel} / ${total>0?total:'?'}`;
   document.getElementById('bm-days').textContent=daysLeft;
   document.getElementById('progress-fill').style.width=`${pct}%`;
@@ -1424,6 +1839,14 @@ function buildBurndownData(sprintStartStr, sprintEndStr) {
 }
 
 function renderBurndown() {
+  // Burndown pressupõe UMA linha do tempo. Com várias sprints no filtro o gráfico
+  // não tem eixo possível — os KPIs acima seguem valendo, só o desenho sai.
+  if (historyMode && selectedSprints.size > 1) {
+    const bl0 = document.getElementById('burndown-loading');
+    if (bl0) { bl0.style.display='flex'; bl0.innerHTML = 'Burndown indisponível com mais de uma sprint selecionada — os KPIs acima somam o período.'; }
+    if (burndownChart) { burndownChart.destroy(); burndownChart = null; }
+    return;
+  }
   const sprintInfo=findSprintInfo();
 
   if(!sprintInfo?.startDate||!sprintInfo?.endDate){
@@ -2022,33 +2445,28 @@ function renderProductivity() {
   // Marcador na escala 0 → 1,5 (acima de 1,5 fica no fim da barra)
   const scaleMark = v => Math.min(100, Math.max(0, (v || 0) / 1.5 * 100));
   const retTile = (title, v, base, rejN, hint, affected, reading) => { const b = retBand(v);
-    return `<div style="background:var(--bg-card-el);border:1px solid var(--border);border-left:3px solid ${b.color};border-radius:8px;padding:12px 14px">
-      <div style="font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--text-muted)">${title}</div>
-      <div style="font-size:34px;font-weight:800;line-height:1.05;margin:4px 0 2px;color:${b.color};font-variant-numeric:tabular-nums">${fmtIdx(v)}</div>
-      <span style="background:${b.bg};color:${b.color};font-size:9px;font-weight:800;padding:2px 8px;border-radius:99px;letter-spacing:.04em">${b.label}</span>
-      <div style="font-size:10px;color:var(--text-muted);line-height:1.45;margin-top:8px">${rejN} ${rejN===1?'retorno':'retornos'} ÷ ${base} card${base===1?'':'s'} ${hint} · ${affected} card${affected===1?'':'s'} afetado${affected===1?'':'s'}${reading?`<br><span style="color:var(--text-disabled)">${reading}</span>`:''}</div>
-      <div style="display:flex;height:5px;border-radius:99px;overflow:hidden;margin-top:10px">
-        <i style="flex:1;background:var(--green)"></i><i style="flex:1.5;background:var(--yellow)"></i><i style="flex:1.5;background:var(--orange)"></i><i style="flex:3;background:var(--red)"></i>
-      </div>
-      <div style="position:relative;height:12px;margin-top:2px;font-size:8px">
-        <span style="position:absolute;left:${scaleMark(v)}%;transform:translateX(-50%);font-weight:800;color:${b.color}"><span style="display:block;width:2px;height:7px;background:currentColor;margin:0 auto 2px"></span>${fmtIdx(v)}</span>
-      </div>
+    return `<div class="ret-col">
+      <div class="ret-lbl">${title}</div>
+      <div class="ret-val" style="color:${b.color}">${fmtIdx(v)}<span class="ret-state">${b.label}</span></div>
+      <div class="ret-note">${rejN} ${rejN===1?'retorno':'retornos'} ÷ ${base} card${base===1?'':'s'} ${hint} · ${affected} card${affected===1?'':'s'} afetado${affected===1?'':'s'}${reading?`<br><em>${reading}</em>`:''}</div>
+      <div class="ret-scale"><i style="left:${scaleMark(v)}%;background:${b.color}"></i></div>
+      <div class="ret-scale-tick"><span style="left:0">0</span><span style="left:100%;transform:translateX(-100%)">1,5+</span></div>
     </div>`; };
   const idxBlock = `
     <div style="margin-top:4px">
       <div style="font-size:12px;font-weight:700;font-family: var(--font);letter-spacing:.02em;margin-bottom:8px;display:flex;align-items:center;gap:8px">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:14px;height:14px;flex-shrink:0;vertical-align:-2px"><circle cx="12" cy="12" r="9"/><circle cx="12" cy="12" r="5"/><circle cx="12" cy="12" r="1.2" fill="currentColor"/></svg> Índice de retorno — retrabalho médio por card
-        <span style="font-size:10px;background:var(--blue-bg);color:var(--blue);padding:2px 8px;border-radius:99px">sprint atual</span>
+        <span style="font-size:10px;font-weight:600;color:var(--text-muted)">· sprint atual</span>
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:10px">
+      <div class="ret-grid">
         ${retTile('↩︎ Retorno QA (IRQ)', irq, baseQA, totRejQA, 'que chegaram ao QA', cardsQA,
           irq!==null?`Cada card testado volta ~${fmtIdx(irq)}× antes de passar`:'')}
         ${retTile('↩︎ Retorno de código (IRC)', irc, baseCR, totRejCode, 'que entraram em code review', cardsCR,
           irc?`1 em cada ${Math.round(1/irc)} PRs volta`:(irc===0?'Nenhum PR voltou nesta sprint':''))}
-        <div style="background:var(--panel-dark);border-radius:8px;padding:12px 14px">
-          <div style="font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)">Fator de re-estimativa sugerido</div>
-          <div style="font-size:26px;font-weight:800;color:var(--on-dark);margin:8px 0 2px;font-variant-numeric:tabular-nums">QA ${factor(irq)} <span style="color:var(--on-dark-dim);font-size:16px">/</span> Dev ${factor(irc)}</div>
-          <div style="font-size:10px;color:var(--on-dark-soft);line-height:1.5;margin-top:6px">Aplicar sobre a pontuação prévia do refinamento: <strong style="color:var(--on-dark)">1 + índice</strong>.${irq!==null?` Ex.: 3 SP de QA → <strong style="color:var(--accent)">${fmtIdx(3*(1+irq))} SP</strong> reais.`:''}</div>
+        <div class="ret-col">
+          <div class="ret-lbl">Fator de re-estimativa</div>
+          <div class="ret-val">QA ${factor(irq)}<span style="color:var(--text-disabled);font-weight:600">/</span>Dev ${factor(irc)}</div>
+          <div class="ret-note">Aplicar sobre a pontuação prévia do refinamento: <strong>1 + índice</strong>.${irq!==null?` Ex.: 3 SP de QA → <strong>${fmtIdx(3*(1+irq))} SP</strong> reais.`:''}</div>
         </div>
       </div>
       <div style="font-size:9.5px;color:var(--text-muted);margin-top:6px;font-family: var(--font)">
@@ -2274,8 +2692,8 @@ function renderProductivity() {
     </div>`;
 
   // ── Cards com múltiplas rejeições (2+) e demais rejeitados ───────────────────
-  const rejRow = c => `<div style="display:flex;align-items:center;gap:10px;padding:8px 10px;border:1px solid var(--border);border-left:3px solid var(--red);border-radius:8px;background:var(--bg-card)">
-      <span style="font-weight:800;color:var(--red);font-family: var(--font);font-size:15px;min-width:32px;text-align:center">${c.total}×</span>
+  const rejRow = c => `<div class="rej-row">
+      <span class="rej-n">${c.total}×</span>
       <div style="flex:1;min-width:0">
         <div style="font-size:12px;font-weight:600;white-space:nowrap;overflow:hidden;text-overflow:ellipsis"><a href="${JIRA_BASE}${c.key}" target="_blank" style="color:var(--blue);text-decoration:none">${escHtml(c.key)}</a> · ${escHtml(c.summary)}</div>
         <div style="font-size:10px;color:var(--text-muted)">${escHtml(c.assignee)} · ${c.rejCode} de código / ${c.rejQA} de QA · agora em ${escHtml(c.status)}</div>
@@ -2285,9 +2703,9 @@ function renderProductivity() {
     <div style="margin-top:16px">
       <div style="font-size:12px;font-weight:700;font-family: var(--font);letter-spacing:.02em;margin-bottom:8px;display:flex;align-items:center;gap:8px">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" style="width:14px;height:14px;flex-shrink:0;vertical-align:-2px"><path d="M3 12a9 9 0 0 1 9-9 9 9 0 0 1 6.7 3"/><path d="M21 3v5h-5"/><path d="M21 12a9 9 0 0 1-9 9 9 9 0 0 1-6.7-3"/><path d="M3 21v-5h5"/></svg> Cards com retrabalho por rejeição
-        ${multi.length?`<span style="font-size:10px;background:var(--red-bg);color:var(--red);padding:2px 8px;border-radius:99px">${multi.length} com 2+ rejeições</span>`:''}
+        ${multi.length?`<span style="font-size:10px;font-weight:700;color:var(--red-text)">· ${multi.length} com 2+ rejeições</span>`:''}
       </div>
-      <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(300px,1fr));gap:8px">
+      <div class="rej-grid">
         ${(multi.length?multi:single).map(rejRow).join('')}
       </div>
       ${multi.length && single.length?`<div style="font-size:10px;color:var(--text-muted);margin-top:6px;font-family: var(--font)">+ ${single.length} card${single.length>1?'s':''} com 1 rejeição.</div>`:''}
@@ -2419,8 +2837,10 @@ async function loadData() {
   bl.style.display='flex';
   bl.innerHTML='<span class="spinner spinner-sm" style="margin-right:6px"></span>Aguardando dados do Jira…';
 
+  const sprintIds = historyMode ? [...selectedSprints] : null;
+
   try {
-    await loadSnapshot();
+    await loadSnapshot(sprintIds);
     const [jiraRes,calRes,emailRes,slackRes]=await Promise.allSettled([loadJira(),loadCalendar(),loadEmails(),loadSlack()]);
 
     if(jiraRes.status==='fulfilled'){
@@ -2432,10 +2852,22 @@ async function loadData() {
       renderProductivity();
       populateFilters(); restoreFilters(); renderIssues();
       renderBlocked(blockedIssues); renderFocus(blockedIssues);
+      // O catálogo só é buscado uma vez; depois o filtro reusa o que está em memória.
+      if(!sprintCatalog.length){ try{ await loadSprintCatalog(); }catch(e){} }
+      updateSprintLabel(); renderHistory();
     } else {
       console.error('Jira error:',jiraRes.reason);
-      document.getElementById('issues-table-wrap').innerHTML='<div class="error-msg" style="display:flex;align-items:center;gap:6px"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><path d="M12 8v5"/><circle cx="12" cy="17" r=".6" fill="currentColor"/><circle cx="12" cy="12" r="9"/></svg> Erro ao carregar Jira. Tente novamente.</div>';
-      (()=>{const b=document.getElementById('status-badge');b.className='status-badge sb-red';b.innerHTML='<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><path d="M12 8v5"/><circle cx="12" cy="17" r=".6" fill="currentColor"/><circle cx="12" cy="12" r="9"/></svg> Erro Jira';})();
+      const noProxy = String(jiraRes.reason&&jiraRes.reason.message||'').includes('HISTORY_NO_PROXY');
+      const errIcon='<svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><path d="M12 8v5"/><circle cx="12" cy="17" r=".6" fill="currentColor"/><circle cx="12" cy="12" r="9"/></svg>';
+      const errMsg = noProxy
+        ? 'Sprints encerradas precisam do proxy do Jira atualizado (endpoint <code>/jira?sprints=…</code>). Publique o worker novo no Cloudflare e recarregue.'
+        : 'Erro ao carregar Jira. Tente novamente.';
+      document.getElementById('issues-table-wrap').innerHTML='<div class="error-msg" style="display:flex;align-items:center;gap:6px">'+errIcon+' '+errMsg+'</div>';
+      (()=>{const b=document.getElementById('status-badge');b.className='status-badge sb-red';b.innerHTML=errIcon+' Erro Jira';})();
+      const hc=document.getElementById('history-content'); if(hc) hc.innerHTML='<div class="empty" style="padding:14px;line-height:1.5">'+errMsg+'</div>';
+      // O catálogo é o que permite voltar para a sprint atual — carrega mesmo no erro.
+      if(!sprintCatalog.length){ try{ await loadSprintCatalog(); }catch(e){} }
+      updateSprintLabel();
       document.getElementById('blocked-content').innerHTML='<div class="error-msg">Não foi possível carregar</div>';
       document.getElementById('focus-content').innerHTML='<div class="empty">Aguardando dados do Jira</div>';
       bl.innerHTML='<span style="display:inline-flex;align-items:center;gap:6px"><svg viewBox="0 0 24 24" width="14" height="14" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" style="flex-shrink:0"><path d="M12 8v5"/><circle cx="12" cy="17" r=".6" fill="currentColor"/><circle cx="12" cy="12" r="9"/></svg> Erro ao carregar dados do Jira</span>';
