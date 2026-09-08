@@ -9,11 +9,20 @@
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Geologica:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js@4.5.0/dist/chart.umd.js" integrity="sha384-iU8HYtnGQ8Cy4zl7gbNMOhsDTTKX02BTXptVP/vqAWIaTfM7isw76iyZCsjL2eVi" crossorigin="anonymous"></script>
+<!-- Tema aplicado ANTES do primeiro paint: sem isto a página pisca clara antes de
+     o script do fim do body rodar. A lógica completa vive em initTheme(). -->
+<script>
+(function(){try{
+  var t=localStorage.getItem('oe_theme');
+  if(!t) t=matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light';
+  document.documentElement.setAttribute('data-theme',t);
+}catch(e){}})();
+</script>
 <style>
 /* ── Shippify Design System — tokens ───────────────────────────────────────── */
 /* Paleta reduzida à da marca: Núcleo, Plano, Suporte, Rota, Fluxo, Pulso.      */
 /* Regra dura: o Amarelo (Fluxo) nunca é usado como cor de texto.               */
-:root {
+:root, [data-theme="light"] {
   color-scheme: light;
   --font: 'Geologica', Inter, Arial, sans-serif;
   /* Backgrounds */
@@ -59,6 +68,79 @@
   --s6: #1B7A4B;  /* verde  */
   --s7: #0E6B7A;  /* petróleo */
   --s8: #5B5B5B;  /* grafite */
+  /* Tokens de superfície escura que existem nos DOIS temas (faixa do topo, badge de
+     status, painel do fator de re-estimativa): o texto sobre elas é sempre claro. */
+  --on-dark:      #FFFFFF;
+  --on-dark-soft: #DADADA;
+  --on-dark-dim:  #8A8A8A;
+  --badge-bg:     #151515;   /* chip do status-badge, sobre o card */
+  --panel-dark:   #151515;   /* painel "fator de re-estimativa" */
+  --ink-on-accent:#151515;   /* texto sobre o amarelo Fluxo (botão Atualizar) */
+  --accent-hover: #FFE870;
+  --sb-green:     #6FD79B;   /* ok sobre a faixa escura do badge */
+  --sb-red:       #FF6675;
+  --row-sub:      #FAFAFA;   /* fundo da linha de subtarefa */
+  --avatar-bg:    #DADADA;
+  --focus-ring:   rgba(21,21,21,0.10);
+  --sp-badge-bg:  rgba(14,143,173,.12);
+  /* Gráfico (Chart.js lê estes tokens por getComputedStyle) */
+  --chart-grid:   #DADADA;
+  --chart-ideal:  #8A8A8A;
+  --chart-actual: #145C35;
+  --chart-fill:   rgba(20,92,53,0.08);
+  --chart-today:  #FEDD29;
+  --chart-today-ink: #151515;
+}
+
+/* ══ TEMA ESCURO ══════════════════════════════════════════════════════════════
+   Mesma paleta aprovada no Weekly Product Hub, para os dois painéis lerem igual:
+   superfícies #151515/#1E1E1E/#242424 e semânticas clareadas até passar 4.5:1.
+   A faixa do topo continua Núcleo nos dois temas — é a identidade do dash. */
+[data-theme="dark"] {
+  color-scheme: dark;
+  --bg:           #151515;
+  --bg-surface:   #242424;
+  --bg-card:      #1E1E1E;
+  --bg-card-el:   #242424;
+  --bg-header:    #151515;
+  --border:       #2E2E2E;
+  --row-hover:    #262626;
+  --text:         #EEEEEE;
+  --text-muted:   #AAAAAA;
+  --text-disabled:#757575;
+  --green:  #4ECB71;
+  --yellow: #FEDD29;
+  --yellow-dark: #C19D1E;
+  --yellow-text: #E0BC4A;
+  --orange: #E1773C;
+  --red:    #EF404C;
+  --red-text:#EA6789;
+  --blue:   #EEEEEE;        /* keys/links: no escuro o "Núcleo" vira o texto claro */
+  --purple: #C19D1E;
+  --accent: #FEDD29;
+  --green-bg:  rgba(78,203,113,.14);
+  --yellow-bg: rgba(193,157,30,.16);
+  --red-bg:    rgba(239,64,76,.16);
+  --red-row:   rgba(239,64,76,.07);
+  --blue-bg:   rgba(255,255,255,.08);
+  --purple-bg: rgba(193,157,30,.16);
+  --orange-bg: rgba(225,119,60,.16);
+  --s1: #6E9BFF; --s2: #E0BC4A; --s3: #E07AC4; --s4: #E1954F;
+  --s5: #F0776C; --s6: #4ECB71; --s7: #4FC3D9; --s8: #A8A8A8;
+  --badge-bg:     #2E2E2E;
+  --panel-dark:   #242424;
+  --sb-green:     #6FD79B;
+  --sb-red:       #FF6675;
+  --row-sub:      #1A1A1A;
+  --avatar-bg:    #3A3A3A;
+  --focus-ring:   rgba(254,221,41,0.25);
+  --sp-badge-bg:  rgba(255,255,255,.10);
+  --chart-grid:   #2E2E2E;
+  --chart-ideal:  #757575;
+  --chart-actual: #4ECB71;
+  --chart-fill:   rgba(78,203,113,0.10);
+  --chart-today:  #FEDD29;
+  --chart-today-ink: #EEEEEE;
 }
 * { box-sizing: border-box; margin: 0; padding: 0; }
 body {
@@ -73,7 +155,7 @@ body {
 /* ── Header — faixa Núcleo ───────────────────────────────────────────────── */
 .app-header {
   background: var(--bg-header);
-  color: #FFFFFF;
+  color: var(--on-dark);
   padding: 28px 32px 24px;
   display: flex; align-items: flex-end; justify-content: space-between; gap: 24px;
   border-bottom: 2px solid var(--yellow);
@@ -83,7 +165,7 @@ body {
 .header-logo { display: block; height: 32px; width: auto; flex-shrink: 0; }
 .header-left h1 {
   font-size: 28px; font-weight: 800;
-  color: #FFFFFF;
+  color: var(--on-dark);
   letter-spacing: -0.01em; line-height: 1.1;
 }
 .header-left h1 span.oe-label {
@@ -92,12 +174,12 @@ body {
   color: var(--yellow);
   letter-spacing: 0; margin-top: 4px;
 }
-.header-left .subtitle { font-size: 12px; color: var(--bg-surface); margin-top: 6px; line-height: 1.5; }
+.header-left .subtitle { font-size: 12px; color: var(--on-dark-soft); margin-top: 6px; line-height: 1.5; }
 .header-right { display: flex; flex-direction: column; align-items: flex-end; gap: 12px; flex: none; }
-.last-updated { font-size: 12px; color: var(--bg-surface); text-align: right; line-height: 1.5; }
+.last-updated { font-size: 12px; color: var(--on-dark-soft); text-align: right; line-height: 1.5; }
 .refresh-btn {
   background: var(--yellow);
-  color: #151515;
+  color: var(--ink-on-accent);
   border: none;
   border-radius: 0; height: 36px; padding: 0 16px;
   cursor: pointer; font-size: 13px; font-weight: 700;
@@ -106,10 +188,21 @@ body {
   display: inline-flex; align-items: center; gap: 8px;
   letter-spacing: 0.02em;
 }
-.refresh-btn:hover { background: #FFE870; }
+.refresh-btn:hover { background: var(--accent-hover); }
 .refresh-btn:disabled { opacity: .5; cursor: not-allowed; }
 .refresh-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
 .refresh-btn.spinning svg { animation: spin .8s linear infinite; }
+/* Alternador de tema — mesma altura do Atualizar, mas discreto (contorno sobre a faixa) */
+.theme-btn {
+  background: none; color: var(--on-dark);
+  border: 1px solid #555555;
+  border-radius: 0; height: 36px; width: 36px; padding: 0;
+  cursor: pointer; display: inline-flex; align-items: center; justify-content: center;
+  transition: background .15s, border-color .15s;
+}
+.theme-btn:hover { background: rgba(255,255,255,.10); border-color: var(--on-dark-soft); }
+.theme-btn svg { width: 16px; height: 16px; }
+.header-actions { display: flex; align-items: center; gap: 10px; }
 
 /* ── Sprint Banner — faixa clara de status ── */
 .sprint-banner {
@@ -126,13 +219,13 @@ body {
   font-size: 11px; font-weight: 700;
   letter-spacing: 0.05em; text-transform: uppercase;
   white-space: nowrap;
-  background: var(--bg-header);
+  background: var(--badge-bg);
 }
 .status-badge svg { width: 14px; height: 14px; flex-shrink: 0; }
-.sb-green  { color: #6FD79B; }
+.sb-green  { color: var(--sb-green); }
 .sb-yellow { color: var(--yellow); }
-.sb-red    { color: #FF6675; }
-.sb-loading { color: var(--bg-surface); }
+.sb-red    { color: var(--sb-red); }
+.sb-loading { color: var(--on-dark-soft); }
 .banner-divider { width: 1px; background: var(--border); height: 38px; flex-shrink: 0; }
 .banner-tldr {
   flex: 1; font-size: 15px; color: var(--text);
@@ -329,7 +422,7 @@ body {
   width: 150px; outline: none; transition: border-color .15s;
   font-family: var(--font);
 }
-.filter-bar input[type="text"]:focus { border-color: var(--text); box-shadow: 0 0 0 2px rgba(21,21,21,0.10); }
+.filter-bar input[type="text"]:focus { border-color: var(--text); box-shadow: 0 0 0 2px var(--focus-ring); }
 .filter-bar input[type="text"]::placeholder { color: var(--text-disabled); }
 .filter-bar select {
   padding: 5px 8px; border: 1px solid var(--border);
@@ -395,7 +488,7 @@ tr.row-done td { opacity: .55; }
 .f-multi-item { display:flex; align-items:center; gap:8px; padding:6px 8px; font-size:12px; cursor:pointer; border-radius:5px; white-space:nowrap; }
 .f-multi-item:hover { background: var(--bg-card-el); }
 .f-multi-item input { cursor:pointer; }
-tr.row-sub td { background: #FAFAFA; }
+tr.row-sub td { background: var(--row-sub); }
 tr.row-sub .issue-summary { padding-left: 16px; max-width: 262px; }
 .sub-arrow { color: var(--text-disabled); margin-right: 4px; font-weight: 700; }
 tr.row-context td { opacity: .5; }
@@ -420,11 +513,11 @@ td.sub-key a { color: var(--text-muted); font-size: 11px; }
 
 /* ── Assignee ── */
 .assignee-chip { display: inline-flex; align-items: center; gap: 5px; white-space: nowrap; }
-.assignee-avatar { width: 22px; height: 22px; border-radius: 50%; color: #151515; font-size: 9px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: var(--font); }
+.assignee-avatar { width: 22px; height: 22px; border-radius: 50%; color: var(--ink-on-accent); font-size: 9px; font-weight: 800; display: inline-flex; align-items: center; justify-content: center; flex-shrink: 0; font-family: var(--font); }
 
 /* ── Due Date ── */
 .due-date { white-space: nowrap; font-size: 11px; font-family: var(--font); }
-.sp-badge { display: inline-block; min-width: 22px; padding: 1px 6px; border-radius: 10px; background: rgba(14,143,173,.12); color: var(--blue); font-size: 11px; font-weight: 700; text-align: center; font-family: var(--font); }
+.sp-badge { display: inline-block; min-width: 22px; padding: 1px 6px; border-radius: 10px; background: var(--sp-badge-bg); color: var(--blue); font-size: 11px; font-weight: 700; text-align: center; font-family: var(--font); }
 .sp-badge.sp-none { background: transparent; color: var(--text-disabled); font-weight: 500; }
 .due-date.overdue { color: var(--red); font-weight: 600; }
 .due-date.near    { color: var(--yellow-dark); font-weight: 600; }
@@ -479,7 +572,7 @@ td.sub-key a { color: var(--text-muted); font-size: 11px; }
 .focus-item:last-child { border-bottom: none; }
 .focus-num {
   width: 22px; height: 22px; border-radius: 50%;
-  background: var(--yellow); color: #151515;
+  background: var(--yellow); color: var(--ink-on-accent);
   font-size: 11px; font-weight: 800;
   display: flex; align-items: center; justify-content: center;
   flex-shrink: 0; margin-top: 1px; font-family: var(--font);
@@ -594,9 +687,12 @@ td.sub-key a { color: var(--text-muted); font-size: 11px; }
     </div>
   </div>
   <div class="header-right">
+    <div class="header-actions">
+    <button class="theme-btn" id="btn-theme" type="button" title="Alternar entre tema claro e escuro"></button>
     <button class="refresh-btn" id="refresh-btn" onclick="loadData()">
       <svg id="refresh-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" aria-hidden="true"><path d="M21 12a9 9 0 1 1-3-6.7"/><path d="M21 4v5h-5"/></svg>Atualizar
     </button>
+    </div>
     <span class="last-updated" id="last-updated"></span>
   </div>
 </header>
@@ -838,6 +934,53 @@ let doneHasMore   = false;
 let sortCol      = 'priority';
 let sortDir      = 'asc';
 let burndownChart = null;
+
+// ── Tema claro/escuro ───────────────────────────────────────────────────────
+// Padrão = o do sistema operacional; a escolha manual é persistida no navegador.
+// Trocar de tema redesenha o burndown, porque o Chart.js congela a cor no desenho.
+const THEME_KEY='oe_theme';
+const ICO_SUN='<circle cx="12" cy="12" r="4.5"/><path d="M12 3v2M12 19v2M3 12h2M19 12h2M6 6l1.5 1.5M16.5 16.5L18 18M18 6l-1.5 1.5M7.5 16.5L6 18"/>';
+const ICO_MOON='<path d="M20 14.5A8.5 8.5 0 0 1 9.5 4a8.5 8.5 0 1 0 10.5 10.5Z"/>';
+function cssVar(name, fallback){
+  try{
+    const v=getComputedStyle(document.documentElement).getPropertyValue(name).trim();
+    return v||fallback;
+  }catch(e){ return fallback; }
+}
+function systemTheme(){
+  try{ return matchMedia('(prefers-color-scheme: dark)').matches?'dark':'light'; }
+  catch(e){ return 'light'; }
+}
+function applyTheme(t, redraw){
+  document.documentElement.setAttribute('data-theme', t);
+  const b=document.getElementById('btn-theme');
+  if(b){
+    // mostra o ícone do tema ATIVO; o clique leva ao outro
+    b.innerHTML='<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.75" '
+      +'stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">'+(t==='light'?ICO_SUN:ICO_MOON)+'</svg>';
+    const lbl = t==='light' ? 'Tema claro ativo — clique para escuro' : 'Tema escuro ativo — clique para claro';
+    b.setAttribute('aria-label', lbl); b.setAttribute('title', lbl);
+  }
+  // O burndown é o único desenho em canvas; só faz sentido redesenhar se já há dados.
+  if(redraw && typeof allIssues!=='undefined' && allIssues && allIssues.length){
+    try{ renderBurndown(); }catch(e){ console.warn('redraw do burndown falhou:',e); }
+  }
+}
+function initTheme(){
+  let saved=null; try{ saved=localStorage.getItem(THEME_KEY); }catch(e){}
+  applyTheme(saved||systemTheme(), false);
+  const b=document.getElementById('btn-theme');
+  if(b) b.onclick=()=>{
+    const next=document.documentElement.getAttribute('data-theme')==='light'?'dark':'light';
+    try{ localStorage.setItem(THEME_KEY,next); }catch(e){}
+    applyTheme(next,true);
+  };
+  // sem escolha manual salva, acompanha o sistema em tempo real
+  try{ matchMedia('(prefers-color-scheme: dark)').addEventListener('change',e=>{
+    let has=null; try{ has=localStorage.getItem(THEME_KEY); }catch(_){}
+    if(!has) applyTheme(e.matches?'dark':'light',true);
+  }); }catch(e){}
+}
 let selectedStatuses = new Set();
 
 // ── Utilities ───────────────────────────────────────────────────────────────
@@ -866,7 +1009,7 @@ function businessDaysUntil(d) {
   return count;
 }
 function initials(n) { return (n||'?').split(' ').map(p=>p[0]||'').join('').slice(0,2).toUpperCase(); }
-const AVATAR_COLORS=['#DADADA'];
+const AVATAR_COLORS=['var(--avatar-bg)'];
 function avatarColor(n) { let h=0; for(const c of(n||'')) h=(h*31+c.charCodeAt(0))%AVATAR_COLORS.length; return AVATAR_COLORS[h]; }
 function firstName(n) { return (n||'').split(' ')[0]; }
 
@@ -1368,6 +1511,18 @@ function renderBurndown() {
 
   if(burndownChart){ burndownChart.destroy(); burndownChart=null; }
 
+  // O Chart.js pinta no canvas: var(--x) não resolve lá dentro, então as cores do
+  // tema ativo são lidas aqui e passadas como valor. Por isso o gráfico é redesenhado
+  // ao trocar de tema (applyTheme chama renderBurndown de novo).
+  const C = {
+    ideal:cssVar('--chart-ideal','#8A8A8A'), actual:cssVar('--chart-actual','#145C35'),
+    fill:cssVar('--chart-fill','rgba(20,92,53,0.08)'), today:cssVar('--chart-today','#FEDD29'),
+    todayInk:cssVar('--chart-today-ink','#151515'), grid:cssVar('--chart-grid','#DADADA'),
+    tick:cssVar('--text-muted','#555555'), tipBg:cssVar('--badge-bg','#151515'),
+    tipTitle:cssVar('--on-dark','#FFFFFF'), tipBody:cssVar('--on-dark-soft','#DADADA'),
+    tipBorder:cssVar('--text-muted','#555555')
+  };
+
   burndownChart=new Chart(ctx,{
     type:'line',
     data:{
@@ -1376,7 +1531,7 @@ function renderBurndown() {
         {
           label:'Ideal (SP remaining)',
           data:ideal,
-          borderColor:'#8A8A8A',
+          borderColor:C.ideal,
           borderDash:[5,4],
           borderWidth:1.5,
           pointRadius:0,
@@ -1386,12 +1541,12 @@ function renderBurndown() {
         {
           label:'Actual (SP remaining)',
           data:actual,
-          borderColor:'#145C35',
-          backgroundColor:'rgba(20,92,53,0.08)',
+          borderColor:C.actual,
+          backgroundColor:C.fill,
           borderWidth:2.5,
           pointRadius:(c)=>c.dataIndex===todayIdx?5:2.5,
-          pointBackgroundColor:'#145C35',
-          pointBorderColor:'#FEDD29',
+          pointBackgroundColor:C.actual,
+          pointBorderColor:C.today,
           pointBorderWidth:(c)=>c.dataIndex===todayIdx?2:0,
           fill:true,
           tension:0,
@@ -1407,15 +1562,15 @@ function renderBurndown() {
         legend:{
           display:true,
           position:'bottom',
-          labels:{font:{size:11,family:'Geologica, Inter, Arial, sans-serif'},padding:14,usePointStyle:true,pointStyleWidth:10,color:'#555555'}
+          labels:{font:{size:11,family:'Geologica, Inter, Arial, sans-serif'},padding:14,usePointStyle:true,pointStyleWidth:10,color:C.tick}
         },
         tooltip:{
           mode:'index',
           intersect:false,
-          backgroundColor:'#151515',
-          titleColor:'#FFFFFF',
-          bodyColor:'#DADADA',
-          borderColor:'#555555',
+          backgroundColor:C.tipBg,
+          titleColor:C.tipTitle,
+          bodyColor:C.tipBody,
+          borderColor:C.tipBorder,
           borderWidth:1,
           padding:10,
           callbacks:{
@@ -1432,19 +1587,19 @@ function renderBurndown() {
       },
       scales:{
         x:{
-          grid:{color:'#DADADA',drawBorder:false},
-          ticks:{font:{size:10,family:'Geologica, Inter, Arial, sans-serif'},color:'#555555',maxRotation:0,autoSkip:true,maxTicksLimit:10}
+          grid:{color:C.grid,drawBorder:false},
+          ticks:{font:{size:10,family:'Geologica, Inter, Arial, sans-serif'},color:C.tick,maxRotation:0,autoSkip:true,maxTicksLimit:10}
         },
         y:{
           min:0,
           suggestedMax:Math.ceil((totalSP||10)*1.05),
-          grid:{color:'#DADADA',drawBorder:false},
+          grid:{color:C.grid,drawBorder:false},
           ticks:{
             font:{size:10,family:'Geologica, Inter, Arial, sans-serif'},
-            color:'#555555',
+            color:C.tick,
             callback:v=>v
           },
-          title:{display:true,text:'SP restante',font:{size:10,family:'Geologica, Inter, Arial, sans-serif'},color:'#555555'}
+          title:{display:true,text:'SP restante',font:{size:10,family:'Geologica, Inter, Arial, sans-serif'},color:C.tick}
         }
       },
       interaction:{mode:'nearest',axis:'x',intersect:false}
@@ -1457,14 +1612,14 @@ function renderBurndown() {
         const xPos=x.getPixelForValue(todayIdx);
         ctx.save();
         ctx.beginPath();
-        ctx.strokeStyle='#FEDD29';
+        ctx.strokeStyle=C.today;
         ctx.lineWidth=1.5;
         ctx.setLineDash([4,3]);
         ctx.moveTo(xPos,top);
         ctx.lineTo(xPos,bottom);
         ctx.stroke();
         ctx.setLineDash([]);
-        ctx.fillStyle='#151515';
+        ctx.fillStyle=C.todayInk;
         ctx.font='bold 9px Geologica,sans-serif';
         ctx.textAlign='center';
         ctx.fillText('hoje',xPos,top-4);
@@ -1596,9 +1751,9 @@ function renderBlocked(blockedIssues) {
   const SVG_USER=`<svg width="13" height="13" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;vertical-align:middle"><path fill-rule="evenodd" clip-rule="evenodd" d="M9 16C7.34315 16 6 17.3431 6 19C6 19.5523 6.44772 20 7 20H17C17.5523 20 18 19.5523 18 19C18 17.3431 16.6569 16 15 16H9ZM4 19C4 16.2386 6.23858 14 9 14H15C17.7614 14 20 16.2386 20 19C20 20.6569 18.6569 22 17 22H7C5.34315 22 4 20.6569 4 19Z" fill="currentColor"/><path fill-rule="evenodd" clip-rule="evenodd" d="M12 4C10.3431 4 9 5.34315 9 7C9 8.65685 10.3431 10 12 10C13.6569 10 15 8.65685 15 7C15 5.34315 13.6569 4 12 4ZM7 7C7 4.23858 9.23858 2 12 2C14.7614 2 17 4.23858 17 7C17 9.76142 14.7614 12 12 12C9.23858 12 7 9.76142 7 7Z" fill="currentColor"/></svg>`;
   const SVG_MEGA=`<svg width="13" height="11" viewBox="0 0 20 16" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;vertical-align:middle"><path d="M17 5.26675e-06C15.513 0.00300527 14.516 1.10502 14.406 1.18702C13.817 1.63002 13.177 2.03701 12.5 2.37501C11.078 3.08601 9.536 3.52501 8 3.78101C7.462 3.87101 6.97601 3.937 6.53101 3.969C6.27101 3.987 6.085 4.00001 6 4.00001H3.93799C1.73299 4.00001 0 5.78601 0 8.00001C0 10.209 1.791 12 4 12V13C4 14.657 5.343 16 7 16C8.657 16 10 14.657 10 13L10.006 12.659C10.848 12.901 11.71 13.229 12.5 13.625C13.173 13.962 13.82 14.373 14.406 14.812C14.516 14.895 15.63 16.009 17 16C18.642 15.989 20 14.724 20 13.125V2.87501C20 1.27601 18.662 -0.00299473 17 5.26675e-06ZM17 2.00001C17.567 2.00001 18 2.41201 18 2.87501V13.125C18 13.588 17.567 14 17 14C16.433 14 16 13.588 16 13.125C16 10.597 16 5.40301 16 2.87501C16 2.41201 16.433 2.00001 17 2.00001ZM14 3.82102C14 6.33602 13.991 9.639 13.991 12.154C13.785 12.039 13.619 11.95 13.406 11.844C11.789 11.033 10.064 10.506 8.34399 10.219C7.30799 10.046 6.486 10 6 10V6.00001C6.486 6.00001 7.30899 5.95401 8.34399 5.78101C10.063 5.49501 11.79 4.96401 13.406 4.15601C13.62 4.04901 13.793 3.93702 14 3.82102ZM3.93799 6.00001H4V10C2.895 10 2 9.10501 2 8.00001C2 6.87901 2.84899 6.00001 3.93799 6.00001ZM6 12C6.085 12 6.27101 12.013 6.53101 12.031C6.97601 12.063 7.462 12.129 8 12.219V13C8 13.552 7.552 14 7 14C6.448 14 6 13.552 6 13V12Z" fill="currentColor"/></svg>`;
   const SVG_HEART=`<svg width="13" height="13" viewBox="0 0 18 19" fill="none" xmlns="http://www.w3.org/2000/svg" style="flex-shrink:0;vertical-align:middle"><path d="M5 0C2.2386 0 0 2.239 0 5C0 7.362 1.3343 9.798 4.1875 13.594C6.9285 17.24 7.5875 17.853 8.8523 18.002C8.9371 18.012 9.0648 18.015 9.1586 18.002C10.4125 17.84 11.1008 17.208 13.8125 13.594C16.6611 9.797 18 7.353 18 5C18 2.239 15.7614 0 13 0C11.31 0 9.8288 0.869001 8.9978 1.998C8.1754 0.869001 6.69 0 5 0ZM5 2C6.6568 2 8 3.343 8 5C8 6.333 10 6.333 10 5C10 3.343 11.3431 2 13 2C14.6568 2 16 3.343 16 5C16 6.745 14.7596 8.97801 12.1875 12.406C10.0371 15.272 9.4354 15.948 9.0312 16C9.0228 16.001 8.976 16.001 8.9688 16C8.5694 15.953 7.9765 15.285 5.8125 12.406C3.2356 8.97801 2 6.754 2 5C2 3.343 3.3431 2 5 2Z" fill="currentColor"/></svg>`;
-  if(!blockedIssues.length&&!unassHigh.length){ el.innerHTML=`<div class="empty" style="color:var(--green);display:flex;align-items:center;gap:6px">${SVG_HEART.replace('currentColor','#145C35')} Sem bloqueios identificados</div>`; return; }
-  el.innerHTML=blockedIssues.map(i=>{const f=i.fields||{};return `<div class="blocked-item"><div class="blocked-key"><a href="${JIRA_BASE}${i.key}" target="_blank" style="display:inline-flex;align-items:center;gap:4px;color:var(--red)">${SVG_REMOVE.replace('currentColor','#9B1C23')} ${escHtml(i.key)}</a></div><div class="blocked-summary">${escHtml(f.summary||'')}</div><div class="blocked-assignee" style="display:flex;align-items:center;gap:4px">${f.assignee?.displayName?SVG_USER.replace('currentColor','var(--text-muted)')+' '+escHtml(f.assignee.displayName):SVG_MEGA.replace('currentColor','#92600A')+' <span style="color:#92600A">Sem responsável</span>'}</div></div>`;}).join('')
-  +unassHigh.map(i=>{const f=i.fields||{};return `<div class="blocked-item" style="border-left:2px solid #FEDD29;padding-left:10px"><div class="blocked-key"><a href="${JIRA_BASE}${i.key}" target="_blank" style="display:inline-flex;align-items:center;gap:4px;color:#92600A">${SVG_MEGA.replace('currentColor','#92600A')} ${escHtml(i.key)}</a></div><div class="blocked-summary">${escHtml(f.summary||'')}</div><div class="blocked-assignee" style="color:#92600A;display:flex;align-items:center;gap:4px">${SVG_USER.replace('currentColor','#92600A')} Sem responsável · ${escHtml(f.priority?.name||'')}</div></div>`;}).join('');
+  if(!blockedIssues.length&&!unassHigh.length){ el.innerHTML=`<div class="empty" style="color:var(--green);display:flex;align-items:center;gap:6px">${SVG_HEART.replace('currentColor','var(--green)')} Sem bloqueios identificados</div>`; return; }
+  el.innerHTML=blockedIssues.map(i=>{const f=i.fields||{};return `<div class="blocked-item"><div class="blocked-key"><a href="${JIRA_BASE}${i.key}" target="_blank" style="display:inline-flex;align-items:center;gap:4px;color:var(--red)">${SVG_REMOVE.replace('currentColor','var(--red-text)')} ${escHtml(i.key)}</a></div><div class="blocked-summary">${escHtml(f.summary||'')}</div><div class="blocked-assignee" style="display:flex;align-items:center;gap:4px">${f.assignee?.displayName?SVG_USER.replace('currentColor','var(--text-muted)')+' '+escHtml(f.assignee.displayName):SVG_MEGA.replace('currentColor','var(--yellow-dark)')+' <span style="color:var(--yellow-dark)">Sem responsável</span>'}</div></div>`;}).join('')
+  +unassHigh.map(i=>{const f=i.fields||{};return `<div class="blocked-item" style="border-left:2px solid var(--yellow);padding-left:10px"><div class="blocked-key"><a href="${JIRA_BASE}${i.key}" target="_blank" style="display:inline-flex;align-items:center;gap:4px;color:var(--yellow-dark)">${SVG_MEGA.replace('currentColor','var(--yellow-dark)')} ${escHtml(i.key)}</a></div><div class="blocked-summary">${escHtml(f.summary||'')}</div><div class="blocked-assignee" style="color:var(--yellow-dark);display:flex;align-items:center;gap:4px">${SVG_USER.replace('currentColor','var(--yellow-dark)')} Sem responsável · ${escHtml(f.priority?.name||'')}</div></div>`;}).join('');
 }
 
 // ── Render Calendar ──────────────────────────────────────────────────────────
@@ -1687,7 +1842,7 @@ function renderProductivity() {
     const v = issue?.fields?.customfield_10546;
     return (v !== null && v !== undefined) ? Number(v) : null;
   };
-  // Dev SP = Story Points do pai MENOS a parte de QA ("Story point QA").
+  // Dev SP = "Story point dev" (customfield_10548) do pai; se vazio, Story Points − QA.
   // Assim DEV + QA reconcilia exatamente com o total de Story Points do progresso (98).
   const getDevSP = issue => {
     const dev = issue?.fields?.customfield_10548;
@@ -1890,10 +2045,10 @@ function renderProductivity() {
           irq!==null?`Cada card testado volta ~${fmtIdx(irq)}× antes de passar`:'')}
         ${retTile('↩︎ Retorno de código (IRC)', irc, baseCR, totRejCode, 'que entraram em code review', cardsCR,
           irc?`1 em cada ${Math.round(1/irc)} PRs volta`:(irc===0?'Nenhum PR voltou nesta sprint':''))}
-        <div style="background:var(--bg-header);border-radius:8px;padding:12px 14px">
+        <div style="background:var(--panel-dark);border-radius:8px;padding:12px 14px">
           <div style="font-size:9px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;color:var(--accent)">Fator de re-estimativa sugerido</div>
-          <div style="font-size:26px;font-weight:800;color:#fff;margin:8px 0 2px;font-variant-numeric:tabular-nums">QA ${factor(irq)} <span style="color:#8A8A8A;font-size:16px">/</span> Dev ${factor(irc)}</div>
-          <div style="font-size:10px;color:#DADADA;line-height:1.5;margin-top:6px">Aplicar sobre a pontuação prévia do refinamento: <strong style="color:#FFFFFF">1 + índice</strong>.${irq!==null?` Ex.: 3 SP de QA → <strong style="color:var(--accent)">${fmtIdx(3*(1+irq))} SP</strong> reais.`:''}</div>
+          <div style="font-size:26px;font-weight:800;color:var(--on-dark);margin:8px 0 2px;font-variant-numeric:tabular-nums">QA ${factor(irq)} <span style="color:var(--on-dark-dim);font-size:16px">/</span> Dev ${factor(irc)}</div>
+          <div style="font-size:10px;color:var(--on-dark-soft);line-height:1.5;margin-top:6px">Aplicar sobre a pontuação prévia do refinamento: <strong style="color:var(--on-dark)">1 + índice</strong>.${irq!==null?` Ex.: 3 SP de QA → <strong style="color:var(--accent)">${fmtIdx(3*(1+irq))} SP</strong> reais.`:''}</div>
         </div>
       </div>
       <div style="font-size:9.5px;color:var(--text-muted);margin-top:6px;font-family: var(--font)">
@@ -2144,7 +2299,7 @@ function renderProductivity() {
     ${rejBlock}
     ${prodGrid}
     <div style="font-size:10px;color:var(--text-muted);padding:10px 24px 0;line-height:1.55">
-      SP por história-pai: <strong>QA</strong> = "Story point QA" · <strong>Dev</strong> = Story Points − parte de QA, então DEV + QA = ${fmtSP(totQA.spTotal + totDev.spTotal)}, o mesmo total do Progresso da sprint.
+      SP por história-pai: <strong>QA</strong> = "Story point QA" · <strong>Dev</strong> = "Story point dev" (ou Story Points − QA quando o campo está vazio), então DEV + QA = ${fmtSP(totQA.spTotal + totDev.spTotal)}, o mesmo total do Progresso da sprint.
       <strong>Rejeições</strong> vêm do changelog do Jira: nº de vezes que as issues entraram em "CODE REVIEW REJECTED" (código) ou "REJECTED BY QA" (QA), incluindo reincidências — pode ficar 1–2 acima dos índices, que são calculados no nível de card.
       <strong>Performance</strong> = % de rejeição por issue trabalhada, menor é melhor. Escopo: apenas cards da sprint aberta.
       A coluna <strong>Sem SP</strong> saiu da grade; quando houver valor, ela volta como marcador na barra.
@@ -2297,6 +2452,7 @@ async function loadData() {
 }
 
 // ── Init ─────────────────────────────────────────────────────────────────────
+initTheme();
 setupDate();
 loadData();
 </script>
