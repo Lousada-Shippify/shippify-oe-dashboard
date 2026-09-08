@@ -177,7 +177,7 @@ body {
 /* ── Métricas — régua de seis colunas, separadas por filete ── */
 .status-strip { background: var(--bg-card); border-bottom: 1px solid var(--border); padding-bottom: 24px; }
 .cards-row {
-  display: grid; grid-template-columns: repeat(6,1fr);
+  display: grid; grid-template-columns: repeat(7,1fr);
   gap: 0; margin: 24px 32px 0;
   border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
   background: var(--bg-card);
@@ -214,6 +214,23 @@ body {
 }
 /* rótulo acima do número, como na régua */
 .metric-card { display: flex; flex-direction: column; }
+
+/* ── Card KPI de Story Points (total + quebra DEV/QA) ── */
+.metric-card.sp { box-shadow: inset 3px 0 0 var(--blue); }
+.metric-card.sp .val { display: flex; align-items: baseline; gap: 6px; }
+.metric-card.sp .val .unit {
+  font-size: 11px; font-weight: 700; color: var(--text-muted);
+  text-transform: uppercase; letter-spacing: 0.06em;
+}
+.sp-split { order: 3; display: flex; gap: 14px; margin-top: 9px; }
+.sp-split > div { display: flex; flex-direction: column; gap: 2px; }
+.sp-split .k {
+  font-size: 9px; font-weight: 800; letter-spacing: 0.08em;
+  text-transform: uppercase; color: var(--text-muted);
+}
+.sp-split .v { font-size: 15px; font-weight: 800; line-height: 1; font-variant-numeric: tabular-nums; }
+.sp-split .dev .v { color: var(--blue); }
+.sp-split .qa  .v { color: var(--purple); }
 
 /* ── Burndown Panel ── */
 .burndown-panel {
@@ -614,6 +631,14 @@ td.sub-key a { color: var(--text-muted); font-size: 11px; }
     <div class="metric-card"><div class="lbl">Não Iniciadas</div><div class="val" id="mc-todo">—</div></div>
     <div class="metric-card red"><div class="lbl">Bloqueadas</div><div class="val" id="mc-blocked">—</div></div>
     <div class="metric-card neutral"><div class="lbl">Dias úteis restantes</div><div class="val" id="mc-days">—</div></div>
+    <div class="metric-card sp" title="Story Points alocados no sprint (apenas issues-pai) — quebra entre desenvolvimento e QA">
+      <div class="lbl">Story Points alocados</div>
+      <div class="val"><span id="mc-sp-total">—</span><span class="unit">SP</span></div>
+      <div class="sp-split">
+        <div class="dev"><span class="k">Dev</span><span class="v" id="mc-sp-dev">—</span></div>
+        <div class="qa"><span class="k">QA</span><span class="v" id="mc-sp-qa">—</span></div>
+      </div>
+    </div>
   </div>
 </div>
 
@@ -923,8 +948,8 @@ async function fetchJiraPage(jql, fields, maxResults=100, cursor=null) {
 }
 
 async function loadJira() {
-  const ACTIVE_FIELDS = ['summary','status','assignee','issuetype','priority','duedate','sprint','customfield_10020','customfield_10028','customfield_10546','parent'];
-  const DONE_FIELDS   = ['summary','status','assignee','issuetype','priority','sprint','customfield_10020','customfield_10028','customfield_10546','resolutiondate','updated','parent'];
+  const ACTIVE_FIELDS = ['summary','status','assignee','issuetype','priority','duedate','sprint','customfield_10020','customfield_10028','customfield_10546','customfield_10548','parent'];
+  const DONE_FIELDS   = ['summary','status','assignee','issuetype','priority','sprint','customfield_10020','customfield_10028','customfield_10546','customfield_10548','resolutiondate','updated','parent'];
 
   const JQL_ACTIVE = 'sprint in openSprints() AND project = "OE" AND statusCategory != Done ORDER BY priority ASC, updated DESC';
   const JQL_DONE   = 'sprint in openSprints() AND project = "OE" AND statusCategory = Done ORDER BY resolutiondate ASC';
@@ -1048,6 +1073,24 @@ function idealPacePct(sprintInfo) {
   return Math.max(0,Math.min(100,Math.round(elapsed/total*100)));
 }
 
+// ── Story Points: total / DEV / QA ──────────────────────────────────────────
+// Regra: o escopo é sempre issues-PAI (sem subtarefas), igual ao "Progresso do sprint".
+// QA  = customfield_10546 ("Story point QA").
+// DEV = customfield_10548 ("Story point dev") quando preenchido; senão total − QA,
+//       de modo que DEV + QA sempre reconcilie com o total de Story Points.
+function spNumOr(v, fb){ const n=Number(v); return (v!==null&&v!==undefined&&v!==''&&!isNaN(n))?n:fb; }
+function spTotalOf(i){ return spNumOr(i?.fields?.customfield_10028, 0); }
+function spQAOf(i){ return spNumOr(i?.fields?.customfield_10546, 0); }
+function spDevOf(i){
+  const dev = spNumOr(i?.fields?.customfield_10548, null);
+  if (dev !== null) return dev;
+  return Math.max(0, spTotalOf(i) - spQAOf(i));
+}
+function fmtSPNum(v){
+  if (v === null || v === undefined || isNaN(v)) return '—';
+  return (v === Math.floor(v)) ? String(v) : v.toFixed(1).replace('.', ',');
+}
+
 // ── Render Metrics ──────────────────────────────────────────────────────────
 function renderMetrics() {
   const blocked=activeIssues.filter(isBlocked);
@@ -1064,6 +1107,18 @@ function renderMetrics() {
   document.getElementById('mc-review').textContent=review.length;
   document.getElementById('mc-todo').textContent=todo.length;
   document.getElementById('mc-blocked').textContent=blocked.length;
+
+  // KPI de Story Points — apenas issues-pai (mesmo escopo do progresso do sprint)
+  const spScope=[...activeIssues,...doneIssues];
+  const spTotalAll=spScope.reduce((a,i)=>a+spTotalOf(i),0);
+  const spQAAll=spScope.reduce((a,i)=>a+spQAOf(i),0);
+  const spDevAll=spScope.reduce((a,i)=>a+spDevOf(i),0);
+  const elSpT=document.getElementById('mc-sp-total');
+  if(elSpT){
+    elSpT.textContent=fmtSPNum(spTotalAll);
+    document.getElementById('mc-sp-dev').textContent=fmtSPNum(spDevAll);
+    document.getElementById('mc-sp-qa').textContent=fmtSPNum(spQAAll);
+  }
 
   const sprintInfo=findSprintInfo();
   let daysLeft='—',sprintName='—';
@@ -1636,6 +1691,8 @@ function renderProductivity() {
   // Dev SP = Story Points do pai MENOS a parte de QA ("Story point QA").
   // Assim DEV + QA reconcilia exatamente com o total de Story Points do progresso (98).
   const getDevSP = issue => {
+    const dev = issue?.fields?.customfield_10548;
+    if (dev !== null && dev !== undefined && dev !== '' && !isNaN(Number(dev))) return Number(dev);
     const sp = getSP(issue);
     if (sp === null) return null;
     const qa = getQASP(issue) || 0;

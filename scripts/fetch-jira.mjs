@@ -23,8 +23,8 @@ if (!BASE || !EMAIL || !TOKEN) {
 
 const AUTH = 'Basic ' + Buffer.from(`${EMAIL}:${TOKEN}`).toString('base64');
 
-const ACTIVE_FIELDS = ['summary','status','assignee','issuetype','priority','duedate','customfield_10020','customfield_10028','customfield_10546','parent'];
-const DONE_FIELDS   = ['summary','status','assignee','issuetype','priority','customfield_10020','customfield_10028','customfield_10546','resolutiondate','updated','parent'];
+const ACTIVE_FIELDS = ['summary','status','assignee','issuetype','priority','duedate','customfield_10020','customfield_10028','customfield_10546','customfield_10548','parent'];
+const DONE_FIELDS   = ['summary','status','assignee','issuetype','priority','customfield_10020','customfield_10028','customfield_10546','customfield_10548','resolutiondate','updated','parent'];
 
 const JQL_ACTIVE = 'sprint in openSprints() AND project = "OE" AND statusCategory != Done ORDER BY priority ASC, updated DESC';
 const JQL_DONE   = 'sprint in openSprints() AND project = "OE" AND statusCategory = Done ORDER BY resolutiondate ASC';
