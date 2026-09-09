@@ -2348,7 +2348,14 @@ function renderProductivity() {
     const qa = getQASP(issue) || 0;
     return Math.max(0, sp - qa);
   };
-  const spSum = (arr, role) => arr.reduce((s, i) => s + ((role === 'QA' ? getQASP(i) : getDevSP(i)) ?? 0), 0);
+  // Peso por pessoa: quando a parcela de dev de um card e dividida entre os responsaveis das
+  // subtarefas, cada pessoa leva uma fracao do getDevSP do card. person.w = Map(chave -> fracao).
+  // Sem peso registrado a fracao e 1 (card sem subtarefa, e a linha de QA sempre).
+  const spSum = (arr, role, person) => arr.reduce((s, i) => {
+    const base = (role === 'QA' ? getQASP(i) : getDevSP(i)) ?? 0;
+    const w = (role === 'Dev' && person && person.w) ? (person.w.get(i.key) ?? 1) : 1;
+    return s + base * w;
+  }, 0);
 
   const fmtSP = v => {
     if (v === null || v === undefined || isNaN(v)) return '—';
@@ -2424,18 +2431,60 @@ function renderProductivity() {
   // QA attribution: TODAS as issues pai (qualquer status) → sempre Nataly (única QA da squad).
   // "SP em andamento" para a linha de QA = soma específica dos SP que estão hoje em
   // status relacionado a QA (Pending QA, On Going QA, Rejected...), não apenas status "in progress" genérico.
-  const QA_NAME = 'Nataly Brasiliano';
+  // Grafia real no Jira: "Nathaly Brasiliano" (com h). Ficava "Nataly" aqui, o que ja divergia do
+  // Weekly Product Hub e, pior, faria a exclusao por nome no rateio de dev falhar em silencio.
+  const QA_NAME = 'Nathaly Brasiliano';
+  const normName = n => String(n||'').normalize('NFD').replace(/[\u0300-\u036f]/g,'')
+    .toLowerCase().replace(/[^a-z ]/g,'').trim();
+  const isQAPerson = n => { const a = normName(n), b = normName(QA_NAME);
+    return !!a && (a === b || a.split(' ')[0] === b.split(' ')[0]); };
   const qaPerson = getPerson(QA_NAME, 'QA');
   for (const issue of mainAll) {
     addIssue(qaPerson, issue, isQAStatus);
   }
 
-  // Dev attribution: issues PAI (histórias/tarefas) → dev responsável do pai.
-  // Usa os mesmos Story Points do "Progresso da sprint" (customfield_10028 dos pais),
-  // então a soma de SP dos devs reconcilia exatamente com o total do progresso (98).
+  // Dev attribution (revisto em 09/09/2026 — alinhado com o Weekly Product Hub):
+  // QUANTO  = parcela de dev do CARD (getDevSP: Story point dev, fallback Story Points − QA).
+  //           A soma continua reconciliando com o progresso da sprint (DEV + QA = Story Points).
+  // QUEM    = responsável da SUBTAREFA quando o card tem subtarefas; senão o responsável do card.
+  //           Antes ia 100% para o responsável do pai, e no OE 80 subtarefas têm responsável
+  //           diferente do pai — o trabalho de quem só aparece na subtarefa era creditado a outra
+  //           pessoa. Rateio proporcional aos pontos das subtarefas quando existem, igual quando
+  //           não existem (no OE os pontos vivem no card, não na subtarefa).
+  // Subtarefa da QA da squad sai do rateio: o esforço dela é medido pelo Story point QA, na linha
+  // de QA. Sem isso os cards de cerimônia (PLANNING / TECH MONTHLY, uma subtarefa por pessoa)
+  // levariam parte da parcela de DEV para a linha de QA e a tabela deixaria de fechar.
+  // Classificação concluído / em andamento / não iniciado continua no nível do CARD — é o critério
+  // de entrega da squad e é o que bate com o painel "Progresso do sprint" do Jira.
+  const subsByParent = new Map();
+  for (const sub of subtaskIssues) {
+    const pk = sub.fields?.parent?.key;
+    if (!pk) continue;
+    if (!subsByParent.has(pk)) subsByParent.set(pk, []);
+    subsByParent.get(pk).push(sub);
+  }
+  const devUnits = issue => {
+    const own = issue.fields?.assignee?.displayName || 'Sem responsável';
+    const all = subsByParent.get(issue.key) || [];
+    if (!all.length) return [{ who: own, w: 1 }];
+    const devSubs = all.filter(sb => !isQAPerson(sb.fields?.assignee?.displayName || own));
+    const use = devSubs.length ? devSubs : all;
+    const spOf = sb => { const v = getSP(sb); return (v === null || isNaN(v)) ? 0 : v; };
+    const tot = use.reduce((a, sb) => a + spOf(sb), 0);
+    return use.map(sb => ({
+      who: sb.fields?.assignee?.displayName || own,
+      w: tot > 0 ? spOf(sb) / tot : 1 / use.length
+    }));
+  };
   for (const issue of mainAll) {
-    const name = issue.fields?.assignee?.displayName || 'Sem responsável';
-    addIssue(getPerson(name, 'Dev'), issue);
+    const acc = new Map();
+    for (const u of devUnits(issue)) acc.set(u.who, (acc.get(u.who) || 0) + u.w);
+    for (const [name, w] of acc) {
+      const per = getPerson(name, 'Dev');
+      per.w = per.w || new Map();
+      per.w.set(issue.key, w);
+      addIssue(per, issue);
+    }
   }
 
   // ── Rejeições — via HISTÓRICO do Jira (changelog) ────────────────────────────
@@ -2557,11 +2606,13 @@ function renderProductivity() {
   let totDev = { issuesTotal:0, issuesDone:0, spTotal:0, spDone:0, spActive:0, spTodo:0, noSP:0, rejCode:0, rejQA:0 };
 
   const buildRow = (p, tot) => {
-    const spDone   = spSum(p.done, p.role);
-    const spActive = spSum(p.active, p.role);
-    const spTodo   = spSum(p.todo, p.role);
+    const spDone   = spSum(p.done, p.role, p);
+    const spActive = spSum(p.active, p.role, p);
+    const spTodo   = spSum(p.todo, p.role, p);
     const spTotal  = spDone + spActive + spTodo;
-    const noSP     = p.all.filter(i => (p.role === 'QA' ? getQASP(i) : getSP(i)) === null).length;
+    // "sem SP" = card sem a estimativa da parcela daquela linha (QA: Story point QA; Dev: parcela
+    // de dev). Antes a linha de Dev checava getSP (Story Points total), que e outro campo.
+    const noSP     = p.all.filter(i => (p.role === 'QA' ? getQASP(i) : getDevSP(i)) === null).length;
     // Rejeições (via changelog) — só como indicador de performance para Dev.
     const rej      = p.role === 'Dev' ? (rejByDev.get(p.name) || { issues:0, rejCode:0, rejQA:0 }) : { issues:0, rejCode:0, rejQA:0 };
     const rejCode  = rej.rejCode;
