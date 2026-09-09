@@ -475,6 +475,13 @@ body {
 .ipp-item { display: inline-flex; align-items: center; gap: 6px; font-size: 11px; color: var(--text-muted); font-family: var(--font); }
 .ipp-item i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
 .ipp-item b { color: var(--text); font-variant-numeric: tabular-nums; }
+.ipp-item em { font-style: normal; color: var(--text-muted); font-variant-numeric: tabular-nums; }
+/* Duas leituras da mesma fila: quantas unidades e quanto peso (SP) em cada status. */
+.ipp-rows { margin: 9px 0; display: grid; gap: 6px; }
+.ipp-row { display: flex; align-items: center; gap: 8px; }
+.ipp-rlbl { flex: 0 0 74px; font-size: 10px; font-weight: 700; text-transform: uppercase;
+            letter-spacing: 0.06em; color: var(--text-muted); font-family: var(--font); }
+.ipp-row .ipp-bar { flex: 1; margin: 0; }
 
 /* ── KPIs do sprint (Scope / Completed / Remaining / % / vs. ideal) ── */
 .bd-kpis { display: grid; grid-template-columns: repeat(6, 1fr); border-bottom: 1px solid var(--border); }
@@ -1858,19 +1865,26 @@ function buildBurndownData(sprintStartStr, sprintEndStr) {
     const pk=st.fields?.parent?.key; if(!pk) continue;
     (subsByParent[pk]=subsByParent[pk]||[]).push(st);
   }
-  const ipLeaf={}; let ipSubN=0, ipCardN=0;
+  // SP da unidade: Story Points existem só no card (regra 1), então a subtarefa herda
+  // a fatia proporcional do pai (SP do pai / nº de subtarefas). Assim a soma das
+  // fatias de um card nunca passa do SP dele e o total continua reconciliando.
+  const ipLeaf={}; let ipSubN=0, ipCardN=0, ipSubSP=0, ipCardSP=0;
+  const ipBump=(n,sp)=>{ const e=ipLeaf[n]||(ipLeaf[n]={n:0,sp:0}); e.n++; e.sp+=sp; };
   for(const it of all){
-    const subsIP=(subsByParent[it.key]||[]).filter(isActiveCat);
+    const subsAll=(subsByParent[it.key]||[]);
+    const subsIP=subsAll.filter(isActiveCat);
+    const share=subsAll.length?getSP(it)/subsAll.length:0;
     for(const st of subsIP){
-      const n=st.fields?.status?.name||'—';
-      ipLeaf[n]=(ipLeaf[n]||0)+1; ipSubN++;
+      ipBump(st.fields?.status?.name||'—', share); ipSubN++; ipSubSP+=share;
     }
     if(isActiveCat(it) && !subsIP.length){
-      const n=it.fields?.status?.name||'—';
-      ipLeaf[n]=(ipLeaf[n]||0)+1; ipCardN++;
+      const sp=getSP(it);
+      ipBump(it.fields?.status?.name||'—', sp); ipCardN++; ipCardSP+=sp;
     }
   }
-  const inprogByStatus=Object.entries(ipLeaf).sort((a,b)=>b[1]-a[1]);
+  const inprogByStatus=Object.entries(ipLeaf)
+    .map(([k,v])=>[k,v.n,+v.sp.toFixed(2)])
+    .sort((a,b)=>b[1]-a[1]||b[2]-a[2]);
 
   // ── Eixo do gráfico: dias de CALENDÁRIO (start → end), como já era ───────────
   const days=[];
@@ -1907,7 +1921,8 @@ function buildBurndownData(sprintStartStr, sprintEndStr) {
 
   return {labels,ideal,actual,totalSP,doneSP,activeSP,todoSP,days,
           doneN,activeN,todoN,totalN:all.length,
-          inprogByStatus,inprogUnits:{sub:ipSubN,card:ipCardN},
+          inprogByStatus,
+          inprogUnits:{sub:ipSubN,card:ipCardN,subSP:+ipSubSP.toFixed(2),cardSP:+ipCardSP.toFixed(2)},
           lenWd,dayWd,remaining,idealToday,vsIdeal};
 }
 
@@ -1957,19 +1972,29 @@ function renderBurndown() {
   // ── "No que o time está trabalhando agora" — unidades de trabalho por status ──
   const ippEl=document.getElementById('ipp-block');
   const totU=(inprogByStatus||[]).reduce((x,kv)=>x+kv[1],0);
+  const totUSP=+((inprogByStatus||[]).reduce((x,kv)=>x+kv[2],0)).toFixed(1);
   if(!totU){ ippEl.innerHTML=''; }
   else {
     const PAL=['var(--s1)','var(--s2)','var(--s3)','var(--s4)','var(--s5)','var(--s6)','var(--s7)','var(--s8)'];
-    const seg=inprogByStatus.map((kv,i)=>
-      `<div style="flex:${kv[1]};background:${PAL[i%PAL.length]}" title="${escHtml(stLabel(kv[0]))} · ${plural(kv[1],'unidade')} de trabalho"></div>`).join('');
+    const tip=kv=>`${escHtml(stLabel(kv[0]))} · ${plural(kv[1],'unidade')} de trabalho · ${fmtSP(+kv[2].toFixed(1))} SP`;
+    const segU=inprogByStatus.map((kv,i)=>
+      `<div style="flex:${kv[1]};background:${PAL[i%PAL.length]}" title="${tip(kv)}"></div>`).join('');
+    const segSP=inprogByStatus.map((kv,i)=>
+      `<div style="flex:${kv[2]};background:${PAL[i%PAL.length]}" title="${tip(kv)}"></div>`).join('');
     const leg=inprogByStatus.map((kv,i)=>
-      `<span class="ipp-item"><i style="background:${PAL[i%PAL.length]}"></i>${escHtml(stLabel(kv[0]))}<b>${kv[1]}</b></span>`).join('');
+      `<span class="ipp-item"><i style="background:${PAL[i%PAL.length]}"></i>${escHtml(stLabel(kv[0]))}`+
+      `<b>${kv[1]}</b><em>· ${fmtSP(+kv[2].toFixed(1))} SP</em></span>`).join('');
     ippEl.innerHTML=
       `<div class="ipp">`+
         `<div class="ipp-head">No que o time está trabalhando agora <small>· ${totU} unidades de trabalho `+
-        `(${plural(inprogUnits.sub,'subtarefa')} + ${plural(inprogUnits.card,'card')} sem quebra) — conta a subtarefa `+
-        `quando a história foi quebrada, senão o próprio card, sem contar os dois</small></div>`+
-        `<div class="ipp-bar">${seg}</div>`+
+        `· ${fmtSP(totUSP)} SP (${plural(inprogUnits.sub,'subtarefa')} = ${fmtSP(+inprogUnits.subSP.toFixed(1))} SP `+
+        `+ ${plural(inprogUnits.card,'card')} sem quebra = ${fmtSP(+inprogUnits.cardSP.toFixed(1))} SP) — conta a subtarefa `+
+        `quando a história foi quebrada, senão o próprio card, sem contar os dois; os SP ficam no card, `+
+        `então cada subtarefa herda a fatia proporcional dele</small></div>`+
+        `<div class="ipp-rows">`+
+          `<div class="ipp-row"><span class="ipp-rlbl">Unidades</span><div class="ipp-bar">${segU}</div></div>`+
+          (totUSP>0?`<div class="ipp-row"><span class="ipp-rlbl">Story points</span><div class="ipp-bar">${segSP}</div></div>`:'')+
+        `</div>`+
         `<div class="ipp-legend">${leg}</div>`+
       `</div>`;
   }
