@@ -476,12 +476,7 @@ body {
 .ipp-item i { width: 8px; height: 8px; border-radius: 50%; display: inline-block; }
 .ipp-item b { color: var(--text); font-variant-numeric: tabular-nums; }
 .ipp-item em { font-style: normal; color: var(--text-muted); font-variant-numeric: tabular-nums; }
-/* Duas leituras da mesma fila: quantas unidades e quanto peso (SP) em cada status. */
-.ipp-rows { margin: 9px 0; display: grid; gap: 6px; }
-.ipp-row { display: flex; align-items: center; gap: 8px; }
-.ipp-rlbl { flex: 0 0 74px; font-size: 10px; font-weight: 700; text-transform: uppercase;
-            letter-spacing: 0.06em; color: var(--text-muted); font-family: var(--font); }
-.ipp-row .ipp-bar { flex: 1; margin: 0; }
+
 
 /* ── KPIs do sprint (Scope / Completed / Remaining / % / vs. ideal) ── */
 .bd-kpis { display: grid; grid-template-columns: repeat(6, 1fr); border-bottom: 1px solid var(--border); }
@@ -1979,8 +1974,6 @@ function renderBurndown() {
     const tip=kv=>`${escHtml(stLabel(kv[0]))} · ${plural(kv[1],'unidade')} de trabalho · ${fmtSP(+kv[2].toFixed(1))} SP`;
     const segU=inprogByStatus.map((kv,i)=>
       `<div style="flex:${kv[1]};background:${PAL[i%PAL.length]}" title="${tip(kv)}"></div>`).join('');
-    const segSP=inprogByStatus.map((kv,i)=>
-      `<div style="flex:${kv[2]};background:${PAL[i%PAL.length]}" title="${tip(kv)}"></div>`).join('');
     const leg=inprogByStatus.map((kv,i)=>
       `<span class="ipp-item"><i style="background:${PAL[i%PAL.length]}"></i>${escHtml(stLabel(kv[0]))}`+
       `<b>${kv[1]}</b><em>· ${fmtSP(+kv[2].toFixed(1))} SP</em></span>`).join('');
@@ -1991,10 +1984,7 @@ function renderBurndown() {
         `+ ${plural(inprogUnits.card,'card')} sem quebra = ${fmtSP(+inprogUnits.cardSP.toFixed(1))} SP) — conta a subtarefa `+
         `quando a história foi quebrada, senão o próprio card, sem contar os dois; os SP ficam no card, `+
         `então cada subtarefa herda a fatia proporcional dele</small></div>`+
-        `<div class="ipp-rows">`+
-          `<div class="ipp-row"><span class="ipp-rlbl">Unidades</span><div class="ipp-bar">${segU}</div></div>`+
-          (totUSP>0?`<div class="ipp-row"><span class="ipp-rlbl">Story points</span><div class="ipp-bar">${segSP}</div></div>`:'')+
-        `</div>`+
+        `<div class="ipp-bar">${segU}</div>`+
         `<div class="ipp-legend">${leg}</div>`+
       `</div>`;
   }
