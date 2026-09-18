@@ -1,225 +1,9 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-09-18T11:07:55.459Z",
+  "jiraGeneratedAt": "2026-09-18T14:56:09.336Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
-      {
-        "id": "52913",
-        "key": "OE-351",
-        "fields": {
-          "summary": "[Slots] Smart Notification jobs without an associated slot are shown in the process list",
-          "customfield_10028": 6,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10098",
-            "id": "10098",
-            "description": "Un problema o error.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
-            "name": "Error",
-            "subtask": false,
-            "avatarId": 10303,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "49789",
-            "key": "OE-43",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/49789",
-            "fields": {
-              "summary": "[Slots] Real-time processes visualization using Widgets.RealTimeProgress",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 3,
-          "customfield_10548": 3,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1311,
-              "name": "Sprint 9",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
-              "startDate": "2026-09-08T18:00:21.000Z",
-              "endDate": "2026-09-22T18:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
-            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
-            "emailAddress": "raphael.souza.t@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
-            },
-            "displayName": "Raphael Souza",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "PENDING QA",
-            "id": "10566",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 1,
-        "_touchQA": true,
-        "_touchCR": true
-      },
-      {
-        "id": "53504",
-        "key": "OE-438",
-        "fields": {
-          "summary": "[Tech-Support] \"Arrival at delivery point\" column empty in the report although the event exists in the timeline",
-          "customfield_10028": 4,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10098",
-            "id": "10098",
-            "description": "Un problema o error.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
-            "name": "Error",
-            "subtask": false,
-            "avatarId": 10303,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "49655",
-            "key": "OE-32",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/49655",
-            "fields": {
-              "summary": "[Operation - Tech Support] Q2 2026 – Operational Fixes & Critical Corrections (From May 19th Onward)",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 1,
-          "customfield_10548": 3,
-          "duedate": "2026-09-01",
-          "customfield_10020": [
-            {
-              "id": 1311,
-              "name": "Sprint 9",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
-              "startDate": "2026-09-08T18:00:21.000Z",
-              "endDate": "2026-09-22T18:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
-            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
-            "emailAddress": "raphael.souza.t@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
-            },
-            "displayName": "Raphael Souza",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "PENDING QA",
-            "id": "10566",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": true,
-        "_touchCR": true
-      },
       {
         "id": "53724",
         "key": "OE-462",
@@ -309,11 +93,11 @@
             "id": "3"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "REJECTED BY QA",
-            "id": "10568",
+            "name": "PENDING QA",
+            "id": "10566",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -417,124 +201,6 @@
             "id": "3"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "REJECTED BY QA",
-            "id": "10568",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 2,
-        "_touchQA": true,
-        "_touchCR": true
-      },
-      {
-        "id": "52776",
-        "key": "OE-316",
-        "fields": {
-          "summary": "Average Cost/KM — new KPI card for the Control Tower header",
-          "customfield_10028": 5,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-            "id": "10013",
-            "description": "Uma parte pequena e distinta do trabalho.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-            "name": "Tarefa",
-            "subtask": false,
-            "avatarId": 10318,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "50601",
-            "key": "OE-127",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/50601",
-            "fields": {
-              "summary": "[MM F3] Control Tower",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/1",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/highest_new.svg",
-                "name": "Highest",
-                "id": "1"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 2,
-          "customfield_10548": 3,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1311,
-              "name": "Sprint 9",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
-              "startDate": "2026-09-08T18:00:21.000Z",
-              "endDate": "2026-09-22T18:00:00.000Z"
-            },
-            {
-              "id": 1275,
-              "name": "Sprint 8",
-              "state": "closed",
-              "boardId": 474,
-              "goal": "Sprint Goal:\n\nClose out Phase 3 of Control Tower by shipping the full filtering suite (Operation Type, Shipper/Client, Active Alert, Date, Lanes), the multi-stop trip navigation (Table, QuickView, and Trip Detail), and trip-list pagination — consolidating the Middle Mile monitoring foundation ahead of the final polish phase before the September delivery.\n\nThe 5 fronts that spanned all of Phase 3:\n\nAlerts & Act Now (real-time prioritization and action queue) — from the initial Exception Control Tower concept through real-time alert delivery and UI severity coding.\nKPI Header — the executive metrics bar, from initial UI/endpoint work through SLA Day and Cost/KM cards.\nMulti-Stop Journey & Trip Detail — the evolution from single-delivery views to a full-route experience across the trips table, quick view, and trip detail page.\nGlobal & Advanced Filters — from the original filtering discovery to the complete filter suite (Operation Type, Shipper, Active Alert, Date, Lanes, Saved Filters).\nData Foundation — the backend layer (lane persistence, ETA/SLA, alert case schema, pagination) underpinning the other four fronts.",
-              "startDate": "2026-08-25T21:00:00.000Z",
-              "endDate": "2026-09-08T21:00:00.000Z",
-              "completeDate": "2026-09-08T14:14:46.635Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ae7ac16d9-c740-4495-988a-1afe75511dee",
-            "accountId": "712020:e7ac16d9-c740-4495-988a-1afe75511dee",
-            "emailAddress": "pedro.silveira.t@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/0fa1b3767ed71dde9b0c4c778d20bcde?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPS-6.png",
-              "24x24": "https://secure.gravatar.com/avatar/0fa1b3767ed71dde9b0c4c778d20bcde?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPS-6.png",
-              "16x16": "https://secure.gravatar.com/avatar/0fa1b3767ed71dde9b0c4c778d20bcde?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPS-6.png",
-              "32x32": "https://secure.gravatar.com/avatar/0fa1b3767ed71dde9b0c4c778d20bcde?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPS-6.png"
-            },
-            "displayName": "Pedro Silveira",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
@@ -551,240 +217,6 @@
         },
         "_rejCode": 0,
         "_rejQA": 2,
-        "_touchQA": true,
-        "_touchCR": true
-      },
-      {
-        "id": "53265",
-        "key": "OE-418",
-        "fields": {
-          "summary": "[CT-TripDetail] Left panel — per-delivery tabs, auto-selecting the route's current delivery",
-          "customfield_10028": 4.5,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
-            "id": "10005",
-            "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
-            "name": "História",
-            "subtask": false,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "50601",
-            "key": "OE-127",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/50601",
-            "fields": {
-              "summary": "[MM F3] Control Tower",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/1",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/highest_new.svg",
-                "name": "Highest",
-                "id": "1"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 1.5,
-          "customfield_10548": 3,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1311,
-              "name": "Sprint 9",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
-              "startDate": "2026-09-08T18:00:21.000Z",
-              "endDate": "2026-09-22T18:00:00.000Z"
-            },
-            {
-              "id": 1275,
-              "name": "Sprint 8",
-              "state": "closed",
-              "boardId": 474,
-              "goal": "Sprint Goal:\n\nClose out Phase 3 of Control Tower by shipping the full filtering suite (Operation Type, Shipper/Client, Active Alert, Date, Lanes), the multi-stop trip navigation (Table, QuickView, and Trip Detail), and trip-list pagination — consolidating the Middle Mile monitoring foundation ahead of the final polish phase before the September delivery.\n\nThe 5 fronts that spanned all of Phase 3:\n\nAlerts & Act Now (real-time prioritization and action queue) — from the initial Exception Control Tower concept through real-time alert delivery and UI severity coding.\nKPI Header — the executive metrics bar, from initial UI/endpoint work through SLA Day and Cost/KM cards.\nMulti-Stop Journey & Trip Detail — the evolution from single-delivery views to a full-route experience across the trips table, quick view, and trip detail page.\nGlobal & Advanced Filters — from the original filtering discovery to the complete filter suite (Operation Type, Shipper, Active Alert, Date, Lanes, Saved Filters).\nData Foundation — the backend layer (lane persistence, ETA/SLA, alert case schema, pagination) underpinning the other four fronts.",
-              "startDate": "2026-08-25T21:00:00.000Z",
-              "endDate": "2026-09-08T21:00:00.000Z",
-              "completeDate": "2026-09-08T14:14:46.635Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ab99afd63-178b-4e46-b864-91d3e1b625d1",
-            "accountId": "712020:b99afd63-178b-4e46-b864-91d3e1b625d1",
-            "emailAddress": "francisco.junior.t@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
-              "24x24": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
-              "16x16": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
-              "32x32": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png"
-            },
-            "displayName": "Francisco Júnior",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10675",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "CODE REVIEW APPROVED",
-            "id": "10675",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": true
-      },
-      {
-        "id": "53264",
-        "key": "OE-417",
-        "fields": {
-          "summary": "[CT-TripDetail] Header + Map — show full-route info instead of a single delivery",
-          "customfield_10028": 4,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
-            "id": "10005",
-            "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
-            "name": "História",
-            "subtask": false,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "50601",
-            "key": "OE-127",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/50601",
-            "fields": {
-              "summary": "[MM F3] Control Tower",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/1",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/highest_new.svg",
-                "name": "Highest",
-                "id": "1"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 2,
-          "customfield_10548": 2,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1311,
-              "name": "Sprint 9",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
-              "startDate": "2026-09-08T18:00:21.000Z",
-              "endDate": "2026-09-22T18:00:00.000Z"
-            },
-            {
-              "id": 1275,
-              "name": "Sprint 8",
-              "state": "closed",
-              "boardId": 474,
-              "goal": "Sprint Goal:\n\nClose out Phase 3 of Control Tower by shipping the full filtering suite (Operation Type, Shipper/Client, Active Alert, Date, Lanes), the multi-stop trip navigation (Table, QuickView, and Trip Detail), and trip-list pagination — consolidating the Middle Mile monitoring foundation ahead of the final polish phase before the September delivery.\n\nThe 5 fronts that spanned all of Phase 3:\n\nAlerts & Act Now (real-time prioritization and action queue) — from the initial Exception Control Tower concept through real-time alert delivery and UI severity coding.\nKPI Header — the executive metrics bar, from initial UI/endpoint work through SLA Day and Cost/KM cards.\nMulti-Stop Journey & Trip Detail — the evolution from single-delivery views to a full-route experience across the trips table, quick view, and trip detail page.\nGlobal & Advanced Filters — from the original filtering discovery to the complete filter suite (Operation Type, Shipper, Active Alert, Date, Lanes, Saved Filters).\nData Foundation — the backend layer (lane persistence, ETA/SLA, alert case schema, pagination) underpinning the other four fronts.",
-              "startDate": "2026-08-25T21:00:00.000Z",
-              "endDate": "2026-09-08T21:00:00.000Z",
-              "completeDate": "2026-09-08T14:14:46.635Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
-            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
-            "emailAddress": "robson.dias@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
-            },
-            "displayName": "Robson Dias Santana Junior",
-            "active": true,
-            "timeZone": "America/Sao_Paulo",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "PENDING QA",
-            "id": "10566",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 1,
-        "_rejQA": 0,
         "_touchQA": true,
         "_touchCR": true
       },
@@ -1020,6 +452,114 @@
         },
         "_rejCode": 0,
         "_rejQA": 0,
+        "_touchQA": true,
+        "_touchCR": true
+      },
+      {
+        "id": "52913",
+        "key": "OE-351",
+        "fields": {
+          "summary": "[Slots] Smart Notification jobs without an associated slot are shown in the process list",
+          "customfield_10028": 6,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10098",
+            "id": "10098",
+            "description": "Un problema o error.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
+            "name": "Error",
+            "subtask": false,
+            "avatarId": 10303,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "49789",
+            "key": "OE-43",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/49789",
+            "fields": {
+              "summary": "[Slots] Real-time processes visualization using Widgets.RealTimeProgress",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": 3,
+          "customfield_10548": 3,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1311,
+              "name": "Sprint 9",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
+              "startDate": "2026-09-08T18:00:21.000Z",
+              "endDate": "2026-09-22T18:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
+            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
+            "emailAddress": "raphael.souza.t@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
+            },
+            "displayName": "Raphael Souza",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10672",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "ON GOING QA",
+            "id": "10672",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 1,
         "_touchQA": true,
         "_touchCR": true
       },
@@ -1879,6 +1419,124 @@
         "_touchCR": true
       },
       {
+        "id": "52776",
+        "key": "OE-316",
+        "fields": {
+          "summary": "Average Cost/KM — new KPI card for the Control Tower header",
+          "customfield_10028": 5,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+            "id": "10013",
+            "description": "Uma parte pequena e distinta do trabalho.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+            "name": "Tarefa",
+            "subtask": false,
+            "avatarId": 10318,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "50601",
+            "key": "OE-127",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/50601",
+            "fields": {
+              "summary": "[MM F3] Control Tower",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/1",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/highest_new.svg",
+                "name": "Highest",
+                "id": "1"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": 2,
+          "customfield_10548": 3,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1311,
+              "name": "Sprint 9",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
+              "startDate": "2026-09-08T18:00:21.000Z",
+              "endDate": "2026-09-22T18:00:00.000Z"
+            },
+            {
+              "id": 1275,
+              "name": "Sprint 8",
+              "state": "closed",
+              "boardId": 474,
+              "goal": "Sprint Goal:\n\nClose out Phase 3 of Control Tower by shipping the full filtering suite (Operation Type, Shipper/Client, Active Alert, Date, Lanes), the multi-stop trip navigation (Table, QuickView, and Trip Detail), and trip-list pagination — consolidating the Middle Mile monitoring foundation ahead of the final polish phase before the September delivery.\n\nThe 5 fronts that spanned all of Phase 3:\n\nAlerts & Act Now (real-time prioritization and action queue) — from the initial Exception Control Tower concept through real-time alert delivery and UI severity coding.\nKPI Header — the executive metrics bar, from initial UI/endpoint work through SLA Day and Cost/KM cards.\nMulti-Stop Journey & Trip Detail — the evolution from single-delivery views to a full-route experience across the trips table, quick view, and trip detail page.\nGlobal & Advanced Filters — from the original filtering discovery to the complete filter suite (Operation Type, Shipper, Active Alert, Date, Lanes, Saved Filters).\nData Foundation — the backend layer (lane persistence, ETA/SLA, alert case schema, pagination) underpinning the other four fronts.",
+              "startDate": "2026-08-25T21:00:00.000Z",
+              "endDate": "2026-09-08T21:00:00.000Z",
+              "completeDate": "2026-09-08T14:14:46.635Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ae7ac16d9-c740-4495-988a-1afe75511dee",
+            "accountId": "712020:e7ac16d9-c740-4495-988a-1afe75511dee",
+            "emailAddress": "pedro.silveira.t@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/0fa1b3767ed71dde9b0c4c778d20bcde?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPS-6.png",
+              "24x24": "https://secure.gravatar.com/avatar/0fa1b3767ed71dde9b0c4c778d20bcde?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPS-6.png",
+              "16x16": "https://secure.gravatar.com/avatar/0fa1b3767ed71dde9b0c4c778d20bcde?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPS-6.png",
+              "32x32": "https://secure.gravatar.com/avatar/0fa1b3767ed71dde9b0c4c778d20bcde?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FPS-6.png"
+            },
+            "displayName": "Pedro Silveira",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10567",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "APPROVED BY QA",
+            "id": "10567",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 2,
+        "_touchQA": true,
+        "_touchCR": true
+      },
+      {
         "id": "53261",
         "key": "OE-414",
         "fields": {
@@ -1997,6 +1655,123 @@
         "_touchCR": true
       },
       {
+        "id": "53264",
+        "key": "OE-417",
+        "fields": {
+          "summary": "[CT-TripDetail] Header + Map — show full-route info instead of a single delivery",
+          "customfield_10028": 4,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
+            "id": "10005",
+            "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
+            "name": "História",
+            "subtask": false,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "50601",
+            "key": "OE-127",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/50601",
+            "fields": {
+              "summary": "[MM F3] Control Tower",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/1",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/highest_new.svg",
+                "name": "Highest",
+                "id": "1"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": 2,
+          "customfield_10548": 2,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1311,
+              "name": "Sprint 9",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
+              "startDate": "2026-09-08T18:00:21.000Z",
+              "endDate": "2026-09-22T18:00:00.000Z"
+            },
+            {
+              "id": 1275,
+              "name": "Sprint 8",
+              "state": "closed",
+              "boardId": 474,
+              "goal": "Sprint Goal:\n\nClose out Phase 3 of Control Tower by shipping the full filtering suite (Operation Type, Shipper/Client, Active Alert, Date, Lanes), the multi-stop trip navigation (Table, QuickView, and Trip Detail), and trip-list pagination — consolidating the Middle Mile monitoring foundation ahead of the final polish phase before the September delivery.\n\nThe 5 fronts that spanned all of Phase 3:\n\nAlerts & Act Now (real-time prioritization and action queue) — from the initial Exception Control Tower concept through real-time alert delivery and UI severity coding.\nKPI Header — the executive metrics bar, from initial UI/endpoint work through SLA Day and Cost/KM cards.\nMulti-Stop Journey & Trip Detail — the evolution from single-delivery views to a full-route experience across the trips table, quick view, and trip detail page.\nGlobal & Advanced Filters — from the original filtering discovery to the complete filter suite (Operation Type, Shipper, Active Alert, Date, Lanes, Saved Filters).\nData Foundation — the backend layer (lane persistence, ETA/SLA, alert case schema, pagination) underpinning the other four fronts.",
+              "startDate": "2026-08-25T21:00:00.000Z",
+              "endDate": "2026-09-08T21:00:00.000Z",
+              "completeDate": "2026-09-08T14:14:46.635Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
+            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
+            "emailAddress": "robson.dias@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
+            },
+            "displayName": "Robson Dias Santana Junior",
+            "active": true,
+            "timeZone": "America/Sao_Paulo",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "PENDING QA",
+            "id": "10566",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 1,
+        "_rejQA": 0,
+        "_touchQA": true,
+        "_touchCR": true
+      },
+      {
         "id": "53263",
         "key": "OE-416",
         "fields": {
@@ -2110,6 +1885,231 @@
           }
         },
         "_rejCode": 1,
+        "_rejQA": 0,
+        "_touchQA": true,
+        "_touchCR": true
+      },
+      {
+        "id": "53504",
+        "key": "OE-438",
+        "fields": {
+          "summary": "[Tech-Support] \"Arrival at delivery point\" column empty in the report although the event exists in the timeline",
+          "customfield_10028": 4,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10098",
+            "id": "10098",
+            "description": "Un problema o error.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
+            "name": "Error",
+            "subtask": false,
+            "avatarId": 10303,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "49655",
+            "key": "OE-32",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/49655",
+            "fields": {
+              "summary": "[Operation - Tech Support] Q2 2026 – Operational Fixes & Critical Corrections (From May 19th Onward)",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": 1,
+          "customfield_10548": 3,
+          "duedate": "2026-09-01",
+          "customfield_10020": [
+            {
+              "id": 1311,
+              "name": "Sprint 9",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
+              "startDate": "2026-09-08T18:00:21.000Z",
+              "endDate": "2026-09-22T18:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
+            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
+            "emailAddress": "raphael.souza.t@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
+            },
+            "displayName": "Raphael Souza",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "PENDING QA",
+            "id": "10566",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": true,
+        "_touchCR": true
+      },
+      {
+        "id": "53265",
+        "key": "OE-418",
+        "fields": {
+          "summary": "[CT-TripDetail] Left panel — per-delivery tabs, auto-selecting the route's current delivery",
+          "customfield_10028": 4.5,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
+            "id": "10005",
+            "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
+            "name": "História",
+            "subtask": false,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "50601",
+            "key": "OE-127",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/50601",
+            "fields": {
+              "summary": "[MM F3] Control Tower",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/1",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/highest_new.svg",
+                "name": "Highest",
+                "id": "1"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": 1.5,
+          "customfield_10548": 3,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1311,
+              "name": "Sprint 9",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
+              "startDate": "2026-09-08T18:00:21.000Z",
+              "endDate": "2026-09-22T18:00:00.000Z"
+            },
+            {
+              "id": 1275,
+              "name": "Sprint 8",
+              "state": "closed",
+              "boardId": 474,
+              "goal": "Sprint Goal:\n\nClose out Phase 3 of Control Tower by shipping the full filtering suite (Operation Type, Shipper/Client, Active Alert, Date, Lanes), the multi-stop trip navigation (Table, QuickView, and Trip Detail), and trip-list pagination — consolidating the Middle Mile monitoring foundation ahead of the final polish phase before the September delivery.\n\nThe 5 fronts that spanned all of Phase 3:\n\nAlerts & Act Now (real-time prioritization and action queue) — from the initial Exception Control Tower concept through real-time alert delivery and UI severity coding.\nKPI Header — the executive metrics bar, from initial UI/endpoint work through SLA Day and Cost/KM cards.\nMulti-Stop Journey & Trip Detail — the evolution from single-delivery views to a full-route experience across the trips table, quick view, and trip detail page.\nGlobal & Advanced Filters — from the original filtering discovery to the complete filter suite (Operation Type, Shipper, Active Alert, Date, Lanes, Saved Filters).\nData Foundation — the backend layer (lane persistence, ETA/SLA, alert case schema, pagination) underpinning the other four fronts.",
+              "startDate": "2026-08-25T21:00:00.000Z",
+              "endDate": "2026-09-08T21:00:00.000Z",
+              "completeDate": "2026-09-08T14:14:46.635Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ab99afd63-178b-4e46-b864-91d3e1b625d1",
+            "accountId": "712020:b99afd63-178b-4e46-b864-91d3e1b625d1",
+            "emailAddress": "francisco.junior.t@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
+              "24x24": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
+              "16x16": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
+              "32x32": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png"
+            },
+            "displayName": "Francisco Júnior",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10566",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "PENDING QA",
+            "id": "10566",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
         "_rejQA": 0,
         "_touchQA": true,
         "_touchCR": true
@@ -2764,442 +2764,6 @@
         "_touchCR": true
       },
       {
-        "id": "53762",
-        "key": "OE-480",
-        "fields": {
-          "summary": "RAPHAEL",
-          "customfield_10028": 0.75,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "53750",
-            "key": "OE-468",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/53750",
-            "fields": {
-              "summary": "[Retrospective]",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
-                "name": "Concluído",
-                "id": "10294",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
-                  "id": 3,
-                  "key": "done",
-                  "colorName": "green",
-                  "name": "Itens concluídos"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-                "id": "10013",
-                "description": "Uma parte pequena e distinta do trabalho.",
-                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-                "name": "Tarefa",
-                "subtask": false,
-                "avatarId": 10318,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1311,
-              "name": "Sprint 9",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
-              "startDate": "2026-09-08T18:00:21.000Z",
-              "endDate": "2026-09-22T18:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
-            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
-            "emailAddress": "raphael.souza.t@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
-            },
-            "displayName": "Raphael Souza",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "53761",
-        "key": "OE-479",
-        "fields": {
-          "summary": "FRANCISCO",
-          "customfield_10028": 0.75,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "53750",
-            "key": "OE-468",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/53750",
-            "fields": {
-              "summary": "[Retrospective]",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
-                "name": "Concluído",
-                "id": "10294",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
-                  "id": 3,
-                  "key": "done",
-                  "colorName": "green",
-                  "name": "Itens concluídos"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-                "id": "10013",
-                "description": "Uma parte pequena e distinta do trabalho.",
-                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-                "name": "Tarefa",
-                "subtask": false,
-                "avatarId": 10318,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1311,
-              "name": "Sprint 9",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
-              "startDate": "2026-09-08T18:00:21.000Z",
-              "endDate": "2026-09-22T18:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ab99afd63-178b-4e46-b864-91d3e1b625d1",
-            "accountId": "712020:b99afd63-178b-4e46-b864-91d3e1b625d1",
-            "emailAddress": "francisco.junior.t@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
-              "24x24": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
-              "16x16": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
-              "32x32": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png"
-            },
-            "displayName": "Francisco Júnior",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "53756",
-        "key": "OE-474",
-        "fields": {
-          "summary": "RAPHAEL",
-          "customfield_10028": 0.75,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "53749",
-            "key": "OE-467",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/53749",
-            "fields": {
-              "summary": "[Planning]",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
-                "name": "Concluído",
-                "id": "10294",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
-                  "id": 3,
-                  "key": "done",
-                  "colorName": "green",
-                  "name": "Itens concluídos"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-                "id": "10013",
-                "description": "Uma parte pequena e distinta do trabalho.",
-                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-                "name": "Tarefa",
-                "subtask": false,
-                "avatarId": 10318,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1311,
-              "name": "Sprint 9",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
-              "startDate": "2026-09-08T18:00:21.000Z",
-              "endDate": "2026-09-22T18:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
-            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
-            "emailAddress": "raphael.souza.t@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
-            },
-            "displayName": "Raphael Souza",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "53754",
-        "key": "OE-472",
-        "fields": {
-          "summary": "FRANCISCO",
-          "customfield_10028": 0.75,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "53749",
-            "key": "OE-467",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/53749",
-            "fields": {
-              "summary": "[Planning]",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
-                "name": "Concluído",
-                "id": "10294",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
-                  "id": 3,
-                  "key": "done",
-                  "colorName": "green",
-                  "name": "Itens concluídos"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-                "id": "10013",
-                "description": "Uma parte pequena e distinta do trabalho.",
-                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-                "name": "Tarefa",
-                "subtask": false,
-                "avatarId": 10318,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1311,
-              "name": "Sprint 9",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
-              "startDate": "2026-09-08T18:00:21.000Z",
-              "endDate": "2026-09-22T18:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ab99afd63-178b-4e46-b864-91d3e1b625d1",
-            "accountId": "712020:b99afd63-178b-4e46-b864-91d3e1b625d1",
-            "emailAddress": "francisco.junior.t@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
-              "24x24": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
-              "16x16": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
-              "32x32": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png"
-            },
-            "displayName": "Francisco Júnior",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
         "id": "52437",
         "key": "OE-306",
         "fields": {
@@ -3308,6 +2872,226 @@
       }
     ],
     "done": [
+      {
+        "id": "53762",
+        "key": "OE-480",
+        "fields": {
+          "summary": "RAPHAEL",
+          "customfield_10028": 0.75,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "53750",
+            "key": "OE-468",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/53750",
+            "fields": {
+              "summary": "[Retrospective]",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+                "id": "10013",
+                "description": "Uma parte pequena e distinta do trabalho.",
+                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+                "name": "Tarefa",
+                "subtask": false,
+                "avatarId": 10318,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "resolutiondate": null,
+          "customfield_10020": [
+            {
+              "id": 1311,
+              "name": "Sprint 9",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
+              "startDate": "2026-09-08T18:00:21.000Z",
+              "endDate": "2026-09-22T18:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
+            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
+            "emailAddress": "raphael.souza.t@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
+            },
+            "displayName": "Raphael Souza",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "updated": "2026-09-18T08:17:29.763-0400",
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+            "name": "Concluído",
+            "id": "10294",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+              "id": 3,
+              "key": "done",
+              "colorName": "green",
+              "name": "Itens concluídos"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "53761",
+        "key": "OE-479",
+        "fields": {
+          "summary": "FRANCISCO",
+          "customfield_10028": 0.75,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "53750",
+            "key": "OE-468",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/53750",
+            "fields": {
+              "summary": "[Retrospective]",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+                "id": "10013",
+                "description": "Uma parte pequena e distinta do trabalho.",
+                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+                "name": "Tarefa",
+                "subtask": false,
+                "avatarId": 10318,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "resolutiondate": null,
+          "customfield_10020": [
+            {
+              "id": 1311,
+              "name": "Sprint 9",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
+              "startDate": "2026-09-08T18:00:21.000Z",
+              "endDate": "2026-09-22T18:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ab99afd63-178b-4e46-b864-91d3e1b625d1",
+            "accountId": "712020:b99afd63-178b-4e46-b864-91d3e1b625d1",
+            "emailAddress": "francisco.junior.t@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
+              "24x24": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
+              "16x16": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
+              "32x32": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png"
+            },
+            "displayName": "Francisco Júnior",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "updated": "2026-09-18T08:19:08.524-0400",
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+            "name": "Concluído",
+            "id": "10294",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+              "id": 3,
+              "key": "done",
+              "colorName": "green",
+              "name": "Itens concluídos"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
       {
         "id": "53760",
         "key": "OE-478",
@@ -3749,6 +3533,116 @@
         "_touchCR": true
       },
       {
+        "id": "53756",
+        "key": "OE-474",
+        "fields": {
+          "summary": "RAPHAEL",
+          "customfield_10028": 0.75,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "53749",
+            "key": "OE-467",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/53749",
+            "fields": {
+              "summary": "[Planning]",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+                "id": "10013",
+                "description": "Uma parte pequena e distinta do trabalho.",
+                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+                "name": "Tarefa",
+                "subtask": false,
+                "avatarId": 10318,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "resolutiondate": null,
+          "customfield_10020": [
+            {
+              "id": 1311,
+              "name": "Sprint 9",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
+              "startDate": "2026-09-08T18:00:21.000Z",
+              "endDate": "2026-09-22T18:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
+            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
+            "emailAddress": "raphael.souza.t@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
+            },
+            "displayName": "Raphael Souza",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "updated": "2026-09-18T08:17:39.646-0400",
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+            "name": "Concluído",
+            "id": "10294",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+              "id": 3,
+              "key": "done",
+              "colorName": "green",
+              "name": "Itens concluídos"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
         "id": "53755",
         "key": "OE-473",
         "fields": {
@@ -3838,6 +3732,116 @@
             "id": "3"
           },
           "updated": "2026-09-09T09:10:11.283-0400",
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+            "name": "Concluído",
+            "id": "10294",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+              "id": 3,
+              "key": "done",
+              "colorName": "green",
+              "name": "Itens concluídos"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "53754",
+        "key": "OE-472",
+        "fields": {
+          "summary": "FRANCISCO",
+          "customfield_10028": 0.75,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "53749",
+            "key": "OE-467",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/53749",
+            "fields": {
+              "summary": "[Planning]",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+                "id": "10013",
+                "description": "Uma parte pequena e distinta do trabalho.",
+                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+                "name": "Tarefa",
+                "subtask": false,
+                "avatarId": 10318,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "resolutiondate": null,
+          "customfield_10020": [
+            {
+              "id": 1311,
+              "name": "Sprint 9",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Sprint Goal\n1. [MM F3] Control Tower — deliver the route-level view end to end: expandable trip rows with\nall stops, route Quick View and the new Trip Detail (header, map, per-delivery tabs and full\njourney with evidence), so Middle Mile dispatchers follow a whole route instead of a single\ndelivery.\n2. [CT-Filters] Close the filters package (date, active alert, clear filters) and guarantee that\nreal-time updates respect the active filters, so the board a dispatcher filtered stays the board\nthey are looking at.\n3. Once we confirm the discoveries for Lanes and Operation Type with the other tech teams, we\nwill move forward with the cards that have no interdependencies.\n4. Time to address the bugs left in the backlog (Tech Support and Slots items were included in\nthe current sprint).\n5. Continue the platform clean-up: finish the CDN migration validation with INF and close the\nReact 18 upgrade.\n\nMain deliveries\n- Control Tower route view: expandable trip rows, route Quick View and Trip Detail (header, map,\nper-delivery tabs, full journey + evidence carousel).\n- Control Tower filters: date, active alert and clear filters, with real-time respecting them.\n- Header decision data: Average Cost/KM card and current ETA with SLA delta.\n- Companies: high-privilege endpoint for company name change and Context Menu Pt2.\n- Backlog clean-up: Tech Support fixes (report column, Log in as Company, company hierarchy) and\nthe Slots notification defect.\n- CDN migration validation with INF and React 18 upgrade closure.\n\nSprint Constraints\n- Half of the sprint is carryover: 12 items / 52.5 SP came from Sprint 8, several already in Code\nReview or Pending QA on day 1.\n- No public holiday in Brazil within the sprint window (Sept 8th–22nd).\n- [days off / vacations to confirm]\n\nRisks\n- The Lanes and Operation Type models are still in discovery; cards depending on them may not\nstart in this sprint.\n- The end-to-end homologation of the 15 Amazon alerts depends on the alert payload being\navailable from INF.\n- The CDN migration validation depends on INF reviewing the comments on the merged PRs.\n\nValidations\n- Validation with the other tech teams regarding the Lanes and Operation Type models.\n- Validation with INF on the CDN migration PRs.\n- End-to-end homologation of the 15 Amazon alerts.",
+              "startDate": "2026-09-08T18:00:21.000Z",
+              "endDate": "2026-09-22T18:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ab99afd63-178b-4e46-b864-91d3e1b625d1",
+            "accountId": "712020:b99afd63-178b-4e46-b864-91d3e1b625d1",
+            "emailAddress": "francisco.junior.t@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
+              "24x24": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
+              "16x16": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
+              "32x32": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png"
+            },
+            "displayName": "Francisco Júnior",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "updated": "2026-09-18T08:19:16.619-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -4492,7 +4496,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-09-17T10:18:00.247-0400",
+          "updated": "2026-09-18T10:16:19.901-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -4601,7 +4605,7 @@
             "name": "High",
             "id": "2"
           },
-          "updated": "2026-09-18T06:25:56.589-0400",
+          "updated": "2026-09-18T10:16:22.322-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -4719,7 +4723,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-09-17T13:00:00.397-0400",
+          "updated": "2026-09-18T10:16:17.581-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -4838,7 +4842,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-09-17T10:18:09.262-0400",
+          "updated": "2026-09-18T10:16:29.860-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -4957,7 +4961,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-09-17T10:18:10.184-0400",
+          "updated": "2026-09-18T10:16:30.914-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -5432,7 +5436,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-09-17T10:33:41.711-0400",
+          "updated": "2026-09-18T10:16:26.201-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -5907,7 +5911,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-09-17T10:17:52.714-0400",
+          "updated": "2026-09-18T10:16:12.486-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -6015,7 +6019,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-09-17T10:17:52.275-0400",
+          "updated": "2026-09-18T10:16:11.963-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -7442,7 +7446,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-09-17T10:17:55.119-0400",
+          "updated": "2026-09-18T10:16:15.210-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -8215,7 +8219,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-09-17T10:18:05.008-0400",
+          "updated": "2026-09-18T10:16:25.710-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
