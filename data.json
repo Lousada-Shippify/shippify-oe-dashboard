@@ -1,6 +1,6 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-09-22T00:46:49.441Z",
+  "jiraGeneratedAt": "2026-09-22T05:25:37.888Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
@@ -4401,7 +4401,7 @@
             "name": "High",
             "id": "2"
           },
-          "updated": "2026-09-21T20:33:59.606-0400",
+          "updated": "2026-09-22T00:50:48.768-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
