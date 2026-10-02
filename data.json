@@ -1,9 +1,554 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-10-02T17:56:38.572Z",
+  "jiraGeneratedAt": "2026-10-02T21:37:34.843Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
+      {
+        "id": "54162",
+        "key": "OE-565",
+        "fields": {
+          "summary": "RAPHAEL",
+          "customfield_10028": 1,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "54156",
+            "key": "OE-559",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/54156",
+            "fields": {
+              "summary": "[Monthly]",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+                "id": "10013",
+                "description": "Uma parte pequena e distinta do trabalho.",
+                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+                "name": "Tarefa",
+                "subtask": false,
+                "avatarId": 10318,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1348,
+              "name": "Sprint 10",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Deliver a Control Tower operators can trust without refreshing, and settle the three open models blocking the next sprint, while clearing carried-over defects.\n\n- Show live trip, KPI and tab data page-wide, with one company filter and real progress behind it\n- Give every alert a readable, exportable action history, on the card and in full\n- Decide the route sequencing model so the parser, migrations and alerts can move\n- Define how operators and drivers talk in-platform, with every exchange on record\n- Prove whether Mercado Livre routes can import without an Amazon-specific path",
+              "startDate": "2026-09-22T04:00:00.000Z",
+              "endDate": "2026-10-06T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
+            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
+            "emailAddress": "raphael.souza.t@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
+            },
+            "displayName": "Raphael Souza",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "Sendo feito",
+            "id": "10563",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "54161",
+        "key": "OE-564",
+        "fields": {
+          "summary": "NATHALY",
+          "customfield_10028": 1,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "54156",
+            "key": "OE-559",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/54156",
+            "fields": {
+              "summary": "[Monthly]",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+                "id": "10013",
+                "description": "Uma parte pequena e distinta do trabalho.",
+                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+                "name": "Tarefa",
+                "subtask": false,
+                "avatarId": 10318,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1348,
+              "name": "Sprint 10",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Deliver a Control Tower operators can trust without refreshing, and settle the three open models blocking the next sprint, while clearing carried-over defects.\n\n- Show live trip, KPI and tab data page-wide, with one company filter and real progress behind it\n- Give every alert a readable, exportable action history, on the card and in full\n- Decide the route sequencing model so the parser, migrations and alerts can move\n- Define how operators and drivers talk in-platform, with every exchange on record\n- Prove whether Mercado Livre routes can import without an Amazon-specific path",
+              "startDate": "2026-09-22T04:00:00.000Z",
+              "endDate": "2026-10-06T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4a697d1-aea4-46b3-a80a-38d4e85f987b",
+            "accountId": "712020:d4a697d1-aea4-46b3-a80a-38d4e85f987b",
+            "emailAddress": "nathaly.brasiliano.t@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/3349a30809d575b9398435f085ef95e9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNB-4.png",
+              "24x24": "https://secure.gravatar.com/avatar/3349a30809d575b9398435f085ef95e9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNB-4.png",
+              "16x16": "https://secure.gravatar.com/avatar/3349a30809d575b9398435f085ef95e9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNB-4.png",
+              "32x32": "https://secure.gravatar.com/avatar/3349a30809d575b9398435f085ef95e9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNB-4.png"
+            },
+            "displayName": "Nathaly Brasiliano",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "Sendo feito",
+            "id": "10563",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "54160",
+        "key": "OE-563",
+        "fields": {
+          "summary": "FRANCISCO",
+          "customfield_10028": 1,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "54156",
+            "key": "OE-559",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/54156",
+            "fields": {
+              "summary": "[Monthly]",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+                "id": "10013",
+                "description": "Uma parte pequena e distinta do trabalho.",
+                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+                "name": "Tarefa",
+                "subtask": false,
+                "avatarId": 10318,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1348,
+              "name": "Sprint 10",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Deliver a Control Tower operators can trust without refreshing, and settle the three open models blocking the next sprint, while clearing carried-over defects.\n\n- Show live trip, KPI and tab data page-wide, with one company filter and real progress behind it\n- Give every alert a readable, exportable action history, on the card and in full\n- Decide the route sequencing model so the parser, migrations and alerts can move\n- Define how operators and drivers talk in-platform, with every exchange on record\n- Prove whether Mercado Livre routes can import without an Amazon-specific path",
+              "startDate": "2026-09-22T04:00:00.000Z",
+              "endDate": "2026-10-06T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ab99afd63-178b-4e46-b864-91d3e1b625d1",
+            "accountId": "712020:b99afd63-178b-4e46-b864-91d3e1b625d1",
+            "emailAddress": "francisco.junior.t@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
+              "24x24": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
+              "16x16": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
+              "32x32": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png"
+            },
+            "displayName": "Francisco Júnior",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "Sendo feito",
+            "id": "10563",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "54158",
+        "key": "OE-561",
+        "fields": {
+          "summary": "ROBSON",
+          "customfield_10028": 1,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "54156",
+            "key": "OE-559",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/54156",
+            "fields": {
+              "summary": "[Monthly]",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+                "id": "10013",
+                "description": "Uma parte pequena e distinta do trabalho.",
+                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+                "name": "Tarefa",
+                "subtask": false,
+                "avatarId": 10318,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1348,
+              "name": "Sprint 10",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Deliver a Control Tower operators can trust without refreshing, and settle the three open models blocking the next sprint, while clearing carried-over defects.\n\n- Show live trip, KPI and tab data page-wide, with one company filter and real progress behind it\n- Give every alert a readable, exportable action history, on the card and in full\n- Decide the route sequencing model so the parser, migrations and alerts can move\n- Define how operators and drivers talk in-platform, with every exchange on record\n- Prove whether Mercado Livre routes can import without an Amazon-specific path",
+              "startDate": "2026-09-22T04:00:00.000Z",
+              "endDate": "2026-10-06T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
+            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
+            "emailAddress": "robson.dias@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
+            },
+            "displayName": "Robson Dias Santana Junior",
+            "active": true,
+            "timeZone": "America/Sao_Paulo",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "Sendo feito",
+            "id": "10563",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "54157",
+        "key": "OE-560",
+        "fields": {
+          "summary": "GUILHERME",
+          "customfield_10028": 1,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "54156",
+            "key": "OE-559",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/54156",
+            "fields": {
+              "summary": "[Monthly]",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+                "id": "10013",
+                "description": "Uma parte pequena e distinta do trabalho.",
+                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+                "name": "Tarefa",
+                "subtask": false,
+                "avatarId": 10318,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1348,
+              "name": "Sprint 10",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Deliver a Control Tower operators can trust without refreshing, and settle the three open models blocking the next sprint, while clearing carried-over defects.\n\n- Show live trip, KPI and tab data page-wide, with one company filter and real progress behind it\n- Give every alert a readable, exportable action history, on the card and in full\n- Decide the route sequencing model so the parser, migrations and alerts can move\n- Define how operators and drivers talk in-platform, with every exchange on record\n- Prove whether Mercado Livre routes can import without an Amazon-specific path",
+              "startDate": "2026-09-22T04:00:00.000Z",
+              "endDate": "2026-10-06T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "emailAddress": "guilherme.santos@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
+            },
+            "displayName": "Guilherme Macedo Bento Santos",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "Sendo feito",
+            "id": "10563",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
       {
         "id": "53918",
         "key": "OE-490",
@@ -92,11 +637,11 @@
             "id": "3"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10567",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "REJECTED BY QA",
-            "id": "10568",
+            "name": "APPROVED BY QA",
+            "id": "10567",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -109,6 +654,77 @@
         "_rejCode": 0,
         "_rejQA": 1,
         "_touchQA": true,
+        "_touchCR": true
+      },
+      {
+        "id": "54075",
+        "key": "OE-530",
+        "fields": {
+          "summary": "[DISC-SPIKE] Mercado Livre Middle Mile import and task creation model",
+          "customfield_10028": 6,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+            "id": "10013",
+            "description": "Uma parte pequena e distinta do trabalho.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+            "name": "Tarefa",
+            "subtask": false,
+            "avatarId": 10318,
+            "hierarchyLevel": 0
+          },
+          "customfield_10546": 1,
+          "customfield_10548": 5,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1348,
+              "name": "Sprint 10",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Deliver a Control Tower operators can trust without refreshing, and settle the three open models blocking the next sprint, while clearing carried-over defects.\n\n- Show live trip, KPI and tab data page-wide, with one company filter and real progress behind it\n- Give every alert a readable, exportable action history, on the card and in full\n- Decide the route sequencing model so the parser, migrations and alerts can move\n- Define how operators and drivers talk in-platform, with every exchange on record\n- Prove whether Mercado Livre routes can import without an Amazon-specific path",
+              "startDate": "2026-09-22T04:00:00.000Z",
+              "endDate": "2026-10-06T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "emailAddress": "guilherme.santos@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
+            },
+            "displayName": "Guilherme Macedo Bento Santos",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10674",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "ON GOING REVIEW",
+            "id": "10674",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
         "_touchCR": true
       },
       {
@@ -216,77 +832,6 @@
         "_rejCode": 0,
         "_rejQA": 0,
         "_touchQA": true,
-        "_touchCR": true
-      },
-      {
-        "id": "54075",
-        "key": "OE-530",
-        "fields": {
-          "summary": "[DISC-SPIKE] Mercado Livre Middle Mile import and task creation model",
-          "customfield_10028": 6,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-            "id": "10013",
-            "description": "Uma parte pequena e distinta do trabalho.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-            "name": "Tarefa",
-            "subtask": false,
-            "avatarId": 10318,
-            "hierarchyLevel": 0
-          },
-          "customfield_10546": 1,
-          "customfield_10548": 5,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1348,
-              "name": "Sprint 10",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Deliver a Control Tower operators can trust without refreshing, and settle the three open models blocking the next sprint, while clearing carried-over defects.\n\n- Show live trip, KPI and tab data page-wide, with one company filter and real progress behind it\n- Give every alert a readable, exportable action history, on the card and in full\n- Decide the route sequencing model so the parser, migrations and alerts can move\n- Define how operators and drivers talk in-platform, with every exchange on record\n- Prove whether Mercado Livre routes can import without an Amazon-specific path",
-              "startDate": "2026-09-22T04:00:00.000Z",
-              "endDate": "2026-10-06T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "emailAddress": "guilherme.santos@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
-            },
-            "displayName": "Guilherme Macedo Bento Santos",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10674",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "ON GOING REVIEW",
-            "id": "10674",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
         "_touchCR": true
       },
       {
@@ -744,11 +1289,11 @@
             "fields": {
               "summary": "[CT-History] Full history modal — timeline, date filter, search and PDF/XLSX/CSV export (v1)",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10567",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "APPROVED BY QA",
+                "id": "10567",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -852,11 +1397,11 @@
             "fields": {
               "summary": "[CT-History] Full history modal — timeline, date filter, search and PDF/XLSX/CSV export (v1)",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10567",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "APPROVED BY QA",
+                "id": "10567",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -960,11 +1505,11 @@
             "fields": {
               "summary": "[CT-History] Full history modal — timeline, date filter, search and PDF/XLSX/CSV export (v1)",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10567",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "APPROVED BY QA",
+                "id": "10567",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1068,11 +1613,11 @@
             "fields": {
               "summary": "[CT-History] Full history modal — timeline, date filter, search and PDF/XLSX/CSV export (v1)",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10567",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "APPROVED BY QA",
+                "id": "10567",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2215,767 +2760,6 @@
         "_touchCR": false
       },
       {
-        "id": "54162",
-        "key": "OE-565",
-        "fields": {
-          "summary": "RAPHAEL",
-          "customfield_10028": 1,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "54156",
-            "key": "OE-559",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/54156",
-            "fields": {
-              "summary": "[Monthly]",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-                "id": "10013",
-                "description": "Uma parte pequena e distinta do trabalho.",
-                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-                "name": "Tarefa",
-                "subtask": false,
-                "avatarId": 10318,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1348,
-              "name": "Sprint 10",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Deliver a Control Tower operators can trust without refreshing, and settle the three open models blocking the next sprint, while clearing carried-over defects.\n\n- Show live trip, KPI and tab data page-wide, with one company filter and real progress behind it\n- Give every alert a readable, exportable action history, on the card and in full\n- Decide the route sequencing model so the parser, migrations and alerts can move\n- Define how operators and drivers talk in-platform, with every exchange on record\n- Prove whether Mercado Livre routes can import without an Amazon-specific path",
-              "startDate": "2026-09-22T04:00:00.000Z",
-              "endDate": "2026-10-06T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
-            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
-            "emailAddress": "raphael.souza.t@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
-            },
-            "displayName": "Raphael Souza",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "54161",
-        "key": "OE-564",
-        "fields": {
-          "summary": "NATHALY",
-          "customfield_10028": 1,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "54156",
-            "key": "OE-559",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/54156",
-            "fields": {
-              "summary": "[Monthly]",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-                "id": "10013",
-                "description": "Uma parte pequena e distinta do trabalho.",
-                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-                "name": "Tarefa",
-                "subtask": false,
-                "avatarId": 10318,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1348,
-              "name": "Sprint 10",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Deliver a Control Tower operators can trust without refreshing, and settle the three open models blocking the next sprint, while clearing carried-over defects.\n\n- Show live trip, KPI and tab data page-wide, with one company filter and real progress behind it\n- Give every alert a readable, exportable action history, on the card and in full\n- Decide the route sequencing model so the parser, migrations and alerts can move\n- Define how operators and drivers talk in-platform, with every exchange on record\n- Prove whether Mercado Livre routes can import without an Amazon-specific path",
-              "startDate": "2026-09-22T04:00:00.000Z",
-              "endDate": "2026-10-06T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4a697d1-aea4-46b3-a80a-38d4e85f987b",
-            "accountId": "712020:d4a697d1-aea4-46b3-a80a-38d4e85f987b",
-            "emailAddress": "nathaly.brasiliano.t@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/3349a30809d575b9398435f085ef95e9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNB-4.png",
-              "24x24": "https://secure.gravatar.com/avatar/3349a30809d575b9398435f085ef95e9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNB-4.png",
-              "16x16": "https://secure.gravatar.com/avatar/3349a30809d575b9398435f085ef95e9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNB-4.png",
-              "32x32": "https://secure.gravatar.com/avatar/3349a30809d575b9398435f085ef95e9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNB-4.png"
-            },
-            "displayName": "Nathaly Brasiliano",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "54160",
-        "key": "OE-563",
-        "fields": {
-          "summary": "FRANCISCO",
-          "customfield_10028": 1,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "54156",
-            "key": "OE-559",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/54156",
-            "fields": {
-              "summary": "[Monthly]",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-                "id": "10013",
-                "description": "Uma parte pequena e distinta do trabalho.",
-                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-                "name": "Tarefa",
-                "subtask": false,
-                "avatarId": 10318,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1348,
-              "name": "Sprint 10",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Deliver a Control Tower operators can trust without refreshing, and settle the three open models blocking the next sprint, while clearing carried-over defects.\n\n- Show live trip, KPI and tab data page-wide, with one company filter and real progress behind it\n- Give every alert a readable, exportable action history, on the card and in full\n- Decide the route sequencing model so the parser, migrations and alerts can move\n- Define how operators and drivers talk in-platform, with every exchange on record\n- Prove whether Mercado Livre routes can import without an Amazon-specific path",
-              "startDate": "2026-09-22T04:00:00.000Z",
-              "endDate": "2026-10-06T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ab99afd63-178b-4e46-b864-91d3e1b625d1",
-            "accountId": "712020:b99afd63-178b-4e46-b864-91d3e1b625d1",
-            "emailAddress": "francisco.junior.t@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
-              "24x24": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
-              "16x16": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png",
-              "32x32": "https://secure.gravatar.com/avatar/b217e76dcd21b96765b3f0b551d67707?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FFJ-2.png"
-            },
-            "displayName": "Francisco Júnior",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "54159",
-        "key": "OE-562",
-        "fields": {
-          "summary": "JAIME",
-          "customfield_10028": 1,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "54156",
-            "key": "OE-559",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/54156",
-            "fields": {
-              "summary": "[Monthly]",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-                "id": "10013",
-                "description": "Uma parte pequena e distinta do trabalho.",
-                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-                "name": "Tarefa",
-                "subtask": false,
-                "avatarId": 10318,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1348,
-              "name": "Sprint 10",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Deliver a Control Tower operators can trust without refreshing, and settle the three open models blocking the next sprint, while clearing carried-over defects.\n\n- Show live trip, KPI and tab data page-wide, with one company filter and real progress behind it\n- Give every alert a readable, exportable action history, on the card and in full\n- Decide the route sequencing model so the parser, migrations and alerts can move\n- Define how operators and drivers talk in-platform, with every exchange on record\n- Prove whether Mercado Livre routes can import without an Amazon-specific path",
-              "startDate": "2026-09-22T04:00:00.000Z",
-              "endDate": "2026-10-06T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=629914491648f20069636052",
-            "accountId": "629914491648f20069636052",
-            "emailAddress": "jaime.pizarro@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
-              "24x24": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
-              "16x16": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
-              "32x32": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png"
-            },
-            "displayName": "Jaime Pizarro",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "54158",
-        "key": "OE-561",
-        "fields": {
-          "summary": "ROBSON",
-          "customfield_10028": 1,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "54156",
-            "key": "OE-559",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/54156",
-            "fields": {
-              "summary": "[Monthly]",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-                "id": "10013",
-                "description": "Uma parte pequena e distinta do trabalho.",
-                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-                "name": "Tarefa",
-                "subtask": false,
-                "avatarId": 10318,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1348,
-              "name": "Sprint 10",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Deliver a Control Tower operators can trust without refreshing, and settle the three open models blocking the next sprint, while clearing carried-over defects.\n\n- Show live trip, KPI and tab data page-wide, with one company filter and real progress behind it\n- Give every alert a readable, exportable action history, on the card and in full\n- Decide the route sequencing model so the parser, migrations and alerts can move\n- Define how operators and drivers talk in-platform, with every exchange on record\n- Prove whether Mercado Livre routes can import without an Amazon-specific path",
-              "startDate": "2026-09-22T04:00:00.000Z",
-              "endDate": "2026-10-06T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
-            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
-            "emailAddress": "robson.dias@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
-            },
-            "displayName": "Robson Dias Santana Junior",
-            "active": true,
-            "timeZone": "America/Sao_Paulo",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "54157",
-        "key": "OE-560",
-        "fields": {
-          "summary": "GUILHERME",
-          "customfield_10028": 1,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "54156",
-            "key": "OE-559",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/54156",
-            "fields": {
-              "summary": "[Monthly]",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-                "id": "10013",
-                "description": "Uma parte pequena e distinta do trabalho.",
-                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-                "name": "Tarefa",
-                "subtask": false,
-                "avatarId": 10318,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1348,
-              "name": "Sprint 10",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Deliver a Control Tower operators can trust without refreshing, and settle the three open models blocking the next sprint, while clearing carried-over defects.\n\n- Show live trip, KPI and tab data page-wide, with one company filter and real progress behind it\n- Give every alert a readable, exportable action history, on the card and in full\n- Decide the route sequencing model so the parser, migrations and alerts can move\n- Define how operators and drivers talk in-platform, with every exchange on record\n- Prove whether Mercado Livre routes can import without an Amazon-specific path",
-              "startDate": "2026-09-22T04:00:00.000Z",
-              "endDate": "2026-10-06T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "emailAddress": "guilherme.santos@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
-            },
-            "displayName": "Guilherme Macedo Bento Santos",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "54156",
-        "key": "OE-559",
-        "fields": {
-          "summary": "[Monthly]",
-          "customfield_10028": 6,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-            "id": "10013",
-            "description": "Uma parte pequena e distinta do trabalho.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-            "name": "Tarefa",
-            "subtask": false,
-            "avatarId": 10318,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "52145",
-            "key": "OE-289",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/52145",
-            "fields": {
-              "summary": "Meetings",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/5",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/lowest_new.svg",
-                "name": "Lowest",
-                "id": "5"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1348,
-              "name": "Sprint 10",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Deliver a Control Tower operators can trust without refreshing, and settle the three open models blocking the next sprint, while clearing carried-over defects.\n\n- Show live trip, KPI and tab data page-wide, with one company filter and real progress behind it\n- Give every alert a readable, exportable action history, on the card and in full\n- Decide the route sequencing model so the parser, migrations and alerts can move\n- Define how operators and drivers talk in-platform, with every exchange on record\n- Prove whether Mercado Livre routes can import without an Amazon-specific path",
-              "startDate": "2026-09-22T04:00:00.000Z",
-              "endDate": "2026-10-06T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Afe75c88a-74b5-48f4-b0eb-fde41a15174d",
-            "accountId": "712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d",
-            "avatarUrls": {
-              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/48",
-              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/24",
-              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/16",
-              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/32"
-            },
-            "displayName": "Jira Triage Agent",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "app"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
         "id": "54068",
         "key": "OE-524",
         "fields": {
@@ -3824,6 +3608,224 @@
             "id": "2"
           },
           "updated": "2026-09-28T12:59:31.828-0400",
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+            "name": "Concluído",
+            "id": "10294",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+              "id": 3,
+              "key": "done",
+              "colorName": "green",
+              "name": "Itens concluídos"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "54159",
+        "key": "OE-562",
+        "fields": {
+          "summary": "JAIME",
+          "customfield_10028": 1,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "54156",
+            "key": "OE-559",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/54156",
+            "fields": {
+              "summary": "[Monthly]",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+                "id": "10013",
+                "description": "Uma parte pequena e distinta do trabalho.",
+                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+                "name": "Tarefa",
+                "subtask": false,
+                "avatarId": 10318,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "resolutiondate": null,
+          "customfield_10020": [
+            {
+              "id": 1348,
+              "name": "Sprint 10",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Deliver a Control Tower operators can trust without refreshing, and settle the three open models blocking the next sprint, while clearing carried-over defects.\n\n- Show live trip, KPI and tab data page-wide, with one company filter and real progress behind it\n- Give every alert a readable, exportable action history, on the card and in full\n- Decide the route sequencing model so the parser, migrations and alerts can move\n- Define how operators and drivers talk in-platform, with every exchange on record\n- Prove whether Mercado Livre routes can import without an Amazon-specific path",
+              "startDate": "2026-09-22T04:00:00.000Z",
+              "endDate": "2026-10-06T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=629914491648f20069636052",
+            "accountId": "629914491648f20069636052",
+            "emailAddress": "jaime.pizarro@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
+              "24x24": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
+              "16x16": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
+              "32x32": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png"
+            },
+            "displayName": "Jaime Pizarro",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "updated": "2026-10-02T16:21:05.023-0400",
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+            "name": "Concluído",
+            "id": "10294",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+              "id": 3,
+              "key": "done",
+              "colorName": "green",
+              "name": "Itens concluídos"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "54156",
+        "key": "OE-559",
+        "fields": {
+          "summary": "[Monthly]",
+          "customfield_10028": 6,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+            "id": "10013",
+            "description": "Uma parte pequena e distinta do trabalho.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+            "name": "Tarefa",
+            "subtask": false,
+            "avatarId": 10318,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "52145",
+            "key": "OE-289",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/52145",
+            "fields": {
+              "summary": "Meetings",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/5",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/lowest_new.svg",
+                "name": "Lowest",
+                "id": "5"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "resolutiondate": null,
+          "customfield_10020": [
+            {
+              "id": 1348,
+              "name": "Sprint 10",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Deliver a Control Tower operators can trust without refreshing, and settle the three open models blocking the next sprint, while clearing carried-over defects.\n\n- Show live trip, KPI and tab data page-wide, with one company filter and real progress behind it\n- Give every alert a readable, exportable action history, on the card and in full\n- Decide the route sequencing model so the parser, migrations and alerts can move\n- Define how operators and drivers talk in-platform, with every exchange on record\n- Prove whether Mercado Livre routes can import without an Amazon-specific path",
+              "startDate": "2026-09-22T04:00:00.000Z",
+              "endDate": "2026-10-06T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Afe75c88a-74b5-48f4-b0eb-fde41a15174d",
+            "accountId": "712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d",
+            "avatarUrls": {
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/48",
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/24",
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/16",
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/32"
+            },
+            "displayName": "Jira Triage Agent",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "app"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "updated": "2026-10-02T16:21:25.468-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -6453,7 +6455,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-10-01T14:22:40.964-0400",
+          "updated": "2026-10-02T17:07:46.987-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -6725,11 +6727,11 @@
             "fields": {
               "summary": "[CT-History] Full history modal — timeline, date filter, search and PDF/XLSX/CSV export (v1)",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10567",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "APPROVED BY QA",
+                "id": "10567",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
