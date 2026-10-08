@@ -1,15 +1,15 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-10-07T20:49:00.342Z",
+  "jiraGeneratedAt": "2026-10-08T00:27:01.267Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
       {
-        "id": "54318",
-        "key": "OE-576",
+        "id": "54844",
+        "key": "OE-670",
         "fields": {
-          "summary": "[Support] Identify the sender of an unexpected push notification — shipper 660531 (Sep 20)",
-          "customfield_10028": 2,
+          "summary": "RevisarOE-353",
+          "customfield_10028": null,
           "issuetype": {
             "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
             "id": "10013",
@@ -20,8 +20,45 @@
             "avatarId": 10318,
             "hierarchyLevel": 0
           },
+          "parent": {
+            "id": "53001",
+            "key": "OE-353",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/53001",
+            "fields": {
+              "summary": "[Monitor] MM | Changes to driver and vehicle assignment in tasks",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
           "customfield_10546": null,
-          "customfield_10548": 2,
+          "customfield_10548": null,
           "duedate": null,
           "customfield_10020": [
             {
@@ -35,18 +72,18 @@
             }
           ],
           "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
-            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
-            "emailAddress": "robson.dias@shippify.co",
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=629914491648f20069636052",
+            "accountId": "629914491648f20069636052",
+            "emailAddress": "jaime.pizarro@shippify.co",
             "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
+              "48x48": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
+              "24x24": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
+              "16x16": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
+              "32x32": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png"
             },
-            "displayName": "Robson Dias Santana Junior",
+            "displayName": "Jaime Pizarro",
             "active": true,
-            "timeZone": "America/Sao_Paulo",
+            "timeZone": "America/New_York",
             "accountType": "atlassian"
           },
           "priority": {
@@ -161,6 +198,185 @@
               "key": "new",
               "colorName": "blue-gray",
               "name": "Itens Pendentes"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "54565",
+        "key": "OE-594",
+        "fields": {
+          "summary": "Dash Import does not support semicolon-delimited (;) CSV files",
+          "customfield_10028": 3,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10098",
+            "id": "10098",
+            "description": "Un problema o error.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
+            "name": "Error",
+            "subtask": false,
+            "avatarId": 10303,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "51116",
+            "key": "OE-194",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/51116",
+            "fields": {
+              "summary": "Fixes in Import version 3.0.0",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": 1,
+          "customfield_10548": 2,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1414,
+              "name": "Sprint 11",
+              "state": "active",
+              "boardId": 474,
+              "goal": "",
+              "startDate": "2026-10-06T22:25:04.020Z",
+              "endDate": "2026-10-20T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "emailAddress": "guilherme.santos@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
+            },
+            "displayName": "Guilherme Macedo Bento Santos",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10675",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "CODE REVIEW APPROVED",
+            "id": "10675",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": true
+      },
+      {
+        "id": "54318",
+        "key": "OE-576",
+        "fields": {
+          "summary": "[Support] Identify the sender of an unexpected push notification — shipper 660531 (Sep 20)",
+          "customfield_10028": 2,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+            "id": "10013",
+            "description": "Uma parte pequena e distinta do trabalho.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+            "name": "Tarefa",
+            "subtask": false,
+            "avatarId": 10318,
+            "hierarchyLevel": 0
+          },
+          "customfield_10546": null,
+          "customfield_10548": 2,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1414,
+              "name": "Sprint 11",
+              "state": "active",
+              "boardId": 474,
+              "goal": "",
+              "startDate": "2026-10-06T22:25:04.020Z",
+              "endDate": "2026-10-20T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
+            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
+            "emailAddress": "robson.dias@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
+            },
+            "displayName": "Robson Dias Santana Junior",
+            "active": true,
+            "timeZone": "America/Sao_Paulo",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "Sendo feito",
+            "id": "10563",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
             }
           }
         },
@@ -2555,114 +2771,6 @@
         "_rejQA": 0,
         "_touchQA": false,
         "_touchCR": false
-      },
-      {
-        "id": "54565",
-        "key": "OE-594",
-        "fields": {
-          "summary": "Dash Import does not support semicolon-delimited (;) CSV files",
-          "customfield_10028": 3,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10098",
-            "id": "10098",
-            "description": "Un problema o error.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
-            "name": "Error",
-            "subtask": false,
-            "avatarId": 10303,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "51116",
-            "key": "OE-194",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/51116",
-            "fields": {
-              "summary": "Fixes in Import version 3.0.0",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 1,
-          "customfield_10548": 2,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1414,
-              "name": "Sprint 11",
-              "state": "active",
-              "boardId": 474,
-              "goal": "",
-              "startDate": "2026-10-06T22:25:04.020Z",
-              "endDate": "2026-10-20T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "emailAddress": "guilherme.santos@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
-            },
-            "displayName": "Guilherme Macedo Bento Santos",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "CODE REVIEW",
-            "id": "10565",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": true
       },
       {
         "id": "54621",
