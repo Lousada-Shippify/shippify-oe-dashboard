@@ -1,6 +1,6 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-10-15T19:56:11.305Z",
+  "jiraGeneratedAt": "2026-10-15T22:46:27.258Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
@@ -112,10 +112,10 @@
         "_touchCR": true
       },
       {
-        "id": "54473",
-        "key": "OE-590",
+        "id": "54941",
+        "key": "OE-673",
         "fields": {
-          "summary": "General review of Dash repos: remove public-read ACL and S3 URLs in favor of CDN (shippify-web-res)",
+          "summary": "[NETWORK] Script to assign Middle Mile network (ID 1932) to existing drivers and tasks",
           "customfield_10028": 2,
           "issuetype": {
             "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
@@ -127,8 +127,261 @@
             "avatarId": 10318,
             "hierarchyLevel": 0
           },
+          "parent": {
+            "id": "49852",
+            "key": "OE-74",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/49852",
+            "fields": {
+              "summary": "Monitor Changes and Improvements",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
           "customfield_10546": null,
           "customfield_10548": null,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1414,
+              "name": "Sprint 11",
+              "state": "active",
+              "boardId": 474,
+              "goal": "",
+              "startDate": "2026-10-06T22:25:04.020Z",
+              "endDate": "2026-10-20T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=629914491648f20069636052",
+            "accountId": "629914491648f20069636052",
+            "emailAddress": "jaime.pizarro@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
+              "24x24": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
+              "16x16": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
+              "32x32": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png"
+            },
+            "displayName": "Jaime Pizarro",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "Sendo feito",
+            "id": "10563",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "54844",
+        "key": "OE-670",
+        "fields": {
+          "summary": "RevisarOE-353",
+          "customfield_10028": null,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+            "id": "10013",
+            "description": "Uma parte pequena e distinta do trabalho.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+            "name": "Tarefa",
+            "subtask": false,
+            "avatarId": 10318,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "53001",
+            "key": "OE-353",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/53001",
+            "fields": {
+              "summary": "[Monitor] MM | Changes to driver and vehicle assignment in tasks",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1414,
+              "name": "Sprint 11",
+              "state": "active",
+              "boardId": 474,
+              "goal": "",
+              "startDate": "2026-10-06T22:25:04.020Z",
+              "endDate": "2026-10-20T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=629914491648f20069636052",
+            "accountId": "629914491648f20069636052",
+            "emailAddress": "jaime.pizarro@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
+              "24x24": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
+              "16x16": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
+              "32x32": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png"
+            },
+            "displayName": "Jaime Pizarro",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "CODE REVIEW",
+            "id": "10565",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": true
+      },
+      {
+        "id": "54722",
+        "key": "OE-614",
+        "fields": {
+          "summary": "[MM3] PoC — Jelou APP conversation contract gate (ADR 11.11)",
+          "customfield_10028": 3,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+            "id": "10013",
+            "description": "Uma parte pequena e distinta do trabalho.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+            "name": "Tarefa",
+            "subtask": false,
+            "avatarId": 10318,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "50601",
+            "key": "OE-127",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/50601",
+            "fields": {
+              "summary": "[MM F3] Control Tower",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/1",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/highest_new.svg",
+                "name": "Highest",
+                "id": "1"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": 3,
           "duedate": null,
           "customfield_10020": [
             {
@@ -163,11 +416,11 @@
             "id": "3"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10569",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "WAITING FOR DEPLOY/RELEASE",
-            "id": "10569",
+            "name": "Sendo feito",
+            "id": "10563",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -179,115 +432,8 @@
         },
         "_rejCode": 0,
         "_rejQA": 0,
-        "_touchQA": true,
-        "_touchCR": true
-      },
-      {
-        "id": "54735",
-        "key": "OE-618",
-        "fields": {
-          "summary": "[MM3-Import] Mercado Livre import — timezone-aware dates and dateFormat (D1 + D4)",
-          "customfield_10028": 6,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
-            "id": "10005",
-            "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
-            "name": "História",
-            "subtask": false,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "54734",
-            "key": "OE-617",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/54734",
-            "fields": {
-              "summary": "[MM3] Mercado Livre Middle Mile support — import and task creation",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 2,
-          "customfield_10548": 1,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1414,
-              "name": "Sprint 11",
-              "state": "active",
-              "boardId": 474,
-              "goal": "",
-              "startDate": "2026-10-06T22:25:04.020Z",
-              "endDate": "2026-10-20T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "emailAddress": "guilherme.santos@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
-            },
-            "displayName": "Guilherme Macedo Bento Santos",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10673",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "CODE REVIEW REJECTED",
-            "id": "10673",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 1,
-        "_rejQA": 0,
         "_touchQA": false,
-        "_touchCR": true
+        "_touchCR": false
       },
       {
         "id": "54688",
@@ -312,11 +458,11 @@
             "fields": {
               "summary": "[MM3] Control Tower KPI header & trip tabs — counter tooltips and readable 7-day average",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10675",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "CODE REVIEW",
-                "id": "10565",
+                "name": "CODE REVIEW APPROVED",
+                "id": "10675",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -378,11 +524,11 @@
             "id": "3"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10675",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "CODE REVIEW",
-            "id": "10565",
+            "name": "CODE REVIEW APPROVED",
+            "id": "10675",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -420,11 +566,11 @@
             "fields": {
               "summary": "[MM3] Control Tower KPI header & trip tabs — counter tooltips and readable 7-day average",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10675",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "CODE REVIEW",
-                "id": "10565",
+                "name": "CODE REVIEW APPROVED",
+                "id": "10675",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -486,11 +632,11 @@
             "id": "3"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10675",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "CODE REVIEW",
-            "id": "10565",
+            "name": "CODE REVIEW APPROVED",
+            "id": "10675",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -528,11 +674,11 @@
             "fields": {
               "summary": "[MM3] Control Tower KPI header & trip tabs — counter tooltips and readable 7-day average",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10675",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "CODE REVIEW",
-                "id": "10565",
+                "name": "CODE REVIEW APPROVED",
+                "id": "10675",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -594,11 +740,118 @@
             "id": "3"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10675",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "CODE REVIEW",
-            "id": "10565",
+            "name": "CODE REVIEW APPROVED",
+            "id": "10675",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": true
+      },
+      {
+        "id": "54504",
+        "key": "OE-592",
+        "fields": {
+          "summary": "[MM3] Act Now card — per-alert content for the badge and existing fields (ETA, scheduled arrival, escalation) + VRID in the identification line",
+          "customfield_10028": 5,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
+            "id": "10005",
+            "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
+            "name": "História",
+            "subtask": false,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "50601",
+            "key": "OE-127",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/50601",
+            "fields": {
+              "summary": "[MM F3] Control Tower",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/1",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/highest_new.svg",
+                "name": "Highest",
+                "id": "1"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": 2,
+          "customfield_10548": 3,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1414,
+              "name": "Sprint 11",
+              "state": "active",
+              "boardId": 474,
+              "goal": "",
+              "startDate": "2026-10-06T22:25:04.020Z",
+              "endDate": "2026-10-20T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
+            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
+            "emailAddress": "raphael.souza.t@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
+            },
+            "displayName": "Raphael Souza",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10674",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "ON GOING REVIEW",
+            "id": "10674",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -701,11 +954,11 @@
             "id": "3"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10675",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "CODE REVIEW",
-            "id": "10565",
+            "name": "CODE REVIEW APPROVED",
+            "id": "10675",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -716,6 +969,113 @@
           }
         },
         "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": true
+      },
+      {
+        "id": "54735",
+        "key": "OE-618",
+        "fields": {
+          "summary": "[MM3-Import] Mercado Livre import — timezone-aware dates and dateFormat (D1 + D4)",
+          "customfield_10028": 6,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
+            "id": "10005",
+            "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
+            "name": "História",
+            "subtask": false,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "54734",
+            "key": "OE-617",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/54734",
+            "fields": {
+              "summary": "[MM3] Mercado Livre Middle Mile support — import and task creation",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": 2,
+          "customfield_10548": 4,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1414,
+              "name": "Sprint 11",
+              "state": "active",
+              "boardId": 474,
+              "goal": "",
+              "startDate": "2026-10-06T22:25:04.020Z",
+              "endDate": "2026-10-20T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "emailAddress": "guilherme.santos@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
+            },
+            "displayName": "Guilherme Macedo Bento Santos",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10673",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "CODE REVIEW REJECTED",
+            "id": "10673",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 1,
         "_rejQA": 0,
         "_touchQA": false,
         "_touchCR": true
@@ -1261,437 +1621,6 @@
         "_touchCR": true
       },
       {
-        "id": "54622",
-        "key": "OE-598",
-        "fields": {
-          "summary": "[MM3] Journey & trip detail — full warehouse names, check-in/check-out labels and consistent dates",
-          "customfield_10028": 3,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
-            "id": "10005",
-            "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
-            "name": "História",
-            "subtask": false,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "50601",
-            "key": "OE-127",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/50601",
-            "fields": {
-              "summary": "[MM F3] Control Tower",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/1",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/highest_new.svg",
-                "name": "Highest",
-                "id": "1"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 1,
-          "customfield_10548": 1,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1414,
-              "name": "Sprint 11",
-              "state": "active",
-              "boardId": 474,
-              "goal": "",
-              "startDate": "2026-10-06T22:25:04.020Z",
-              "endDate": "2026-10-20T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "emailAddress": "guilherme.santos@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
-            },
-            "displayName": "Guilherme Macedo Bento Santos",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10569",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "WAITING FOR DEPLOY/RELEASE",
-            "id": "10569",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 1,
-        "_rejQA": 0,
-        "_touchQA": true,
-        "_touchCR": true
-      },
-      {
-        "id": "54701",
-        "key": "OE-612",
-        "fields": {
-          "summary": "[CT-Journey] FE — Rename Chegada/Entregue to Check-in/Check-out in journey, expanded row and evidence (PT/ES/EN)",
-          "customfield_10028": null,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "54622",
-            "key": "OE-598",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/54622",
-            "fields": {
-              "summary": "[MM3] Journey & trip detail — full warehouse names, check-in/check-out labels and consistent dates",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10569",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "WAITING FOR DEPLOY/RELEASE",
-                "id": "10569",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-                  "id": 4,
-                  "key": "indeterminate",
-                  "colorName": "yellow",
-                  "name": "Em andamento"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
-                "id": "10005",
-                "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
-                "name": "História",
-                "subtask": false,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1414,
-              "name": "Sprint 11",
-              "state": "active",
-              "boardId": 474,
-              "goal": "",
-              "startDate": "2026-10-06T22:25:04.020Z",
-              "endDate": "2026-10-20T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "emailAddress": "guilherme.santos@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
-            },
-            "displayName": "Guilherme Macedo Bento Santos",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10569",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "WAITING FOR DEPLOY/RELEASE",
-            "id": "10569",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": true,
-        "_touchCR": true
-      },
-      {
-        "id": "54702",
-        "key": "OE-613",
-        "fields": {
-          "summary": "[CT-Journey] FE — Single DD/MM HH:mm date formatter for trip detail (with and without driver)",
-          "customfield_10028": null,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "54622",
-            "key": "OE-598",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/54622",
-            "fields": {
-              "summary": "[MM3] Journey & trip detail — full warehouse names, check-in/check-out labels and consistent dates",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10569",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "WAITING FOR DEPLOY/RELEASE",
-                "id": "10569",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-                  "id": 4,
-                  "key": "indeterminate",
-                  "colorName": "yellow",
-                  "name": "Em andamento"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
-                "id": "10005",
-                "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
-                "name": "História",
-                "subtask": false,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1414,
-              "name": "Sprint 11",
-              "state": "active",
-              "boardId": 474,
-              "goal": "",
-              "startDate": "2026-10-06T22:25:04.020Z",
-              "endDate": "2026-10-20T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "emailAddress": "guilherme.santos@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
-            },
-            "displayName": "Guilherme Macedo Bento Santos",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10569",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "WAITING FOR DEPLOY/RELEASE",
-            "id": "10569",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": true,
-        "_touchCR": true
-      },
-      {
-        "id": "54700",
-        "key": "OE-611",
-        "fields": {
-          "summary": "[CT-Journey] FE — Full stop names (warehouse + city) with 2-line label and tooltip",
-          "customfield_10028": null,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "54622",
-            "key": "OE-598",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/54622",
-            "fields": {
-              "summary": "[MM3] Journey & trip detail — full warehouse names, check-in/check-out labels and consistent dates",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10569",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "WAITING FOR DEPLOY/RELEASE",
-                "id": "10569",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-                  "id": 4,
-                  "key": "indeterminate",
-                  "colorName": "yellow",
-                  "name": "Em andamento"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
-                "id": "10005",
-                "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
-                "name": "História",
-                "subtask": false,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1414,
-              "name": "Sprint 11",
-              "state": "active",
-              "boardId": 474,
-              "goal": "",
-              "startDate": "2026-10-06T22:25:04.020Z",
-              "endDate": "2026-10-20T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "emailAddress": "guilherme.santos@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
-            },
-            "displayName": "Guilherme Macedo Bento Santos",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10569",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "WAITING FOR DEPLOY/RELEASE",
-            "id": "10569",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": true,
-        "_touchCR": true
-      },
-      {
         "id": "54691",
         "key": "OE-603",
         "fields": {
@@ -1800,221 +1729,6 @@
         "_touchCR": true
       },
       {
-        "id": "54504",
-        "key": "OE-592",
-        "fields": {
-          "summary": "[MM3] Act Now card — per-alert content for the badge and existing fields (ETA, scheduled arrival, escalation) + VRID in the identification line",
-          "customfield_10028": 5,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
-            "id": "10005",
-            "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
-            "name": "História",
-            "subtask": false,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "50601",
-            "key": "OE-127",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/50601",
-            "fields": {
-              "summary": "[MM F3] Control Tower",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/1",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/highest_new.svg",
-                "name": "Highest",
-                "id": "1"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 2,
-          "customfield_10548": 3,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1414,
-              "name": "Sprint 11",
-              "state": "active",
-              "boardId": 474,
-              "goal": "",
-              "startDate": "2026-10-06T22:25:04.020Z",
-              "endDate": "2026-10-20T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
-            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
-            "emailAddress": "raphael.souza.t@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
-            },
-            "displayName": "Raphael Souza",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "CODE REVIEW",
-            "id": "10565",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": true
-      },
-      {
-        "id": "54844",
-        "key": "OE-670",
-        "fields": {
-          "summary": "RevisarOE-353",
-          "customfield_10028": null,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-            "id": "10013",
-            "description": "Uma parte pequena e distinta do trabalho.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-            "name": "Tarefa",
-            "subtask": false,
-            "avatarId": 10318,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "53001",
-            "key": "OE-353",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/53001",
-            "fields": {
-              "summary": "[Monitor] MM | Changes to driver and vehicle assignment in tasks",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1414,
-              "name": "Sprint 11",
-              "state": "active",
-              "boardId": 474,
-              "goal": "",
-              "startDate": "2026-10-06T22:25:04.020Z",
-              "endDate": "2026-10-20T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=629914491648f20069636052",
-            "accountId": "629914491648f20069636052",
-            "emailAddress": "jaime.pizarro@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
-              "24x24": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
-              "16x16": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
-              "32x32": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png"
-            },
-            "displayName": "Jaime Pizarro",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Sendo feito",
-            "id": "10563",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
         "id": "54730",
         "key": "OE-615",
         "fields": {
@@ -2120,114 +1834,6 @@
         "_rejQA": 0,
         "_touchQA": false,
         "_touchCR": true
-      },
-      {
-        "id": "54722",
-        "key": "OE-614",
-        "fields": {
-          "summary": "[MM3] PoC — Jelou APP conversation contract gate (ADR 11.11)",
-          "customfield_10028": 3,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-            "id": "10013",
-            "description": "Uma parte pequena e distinta do trabalho.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-            "name": "Tarefa",
-            "subtask": false,
-            "avatarId": 10318,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "50601",
-            "key": "OE-127",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/50601",
-            "fields": {
-              "summary": "[MM F3] Control Tower",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/1",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/highest_new.svg",
-                "name": "Highest",
-                "id": "1"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": 3,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1414,
-              "name": "Sprint 11",
-              "state": "active",
-              "boardId": 474,
-              "goal": "",
-              "startDate": "2026-10-06T22:25:04.020Z",
-              "endDate": "2026-10-20T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
-            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
-            "emailAddress": "robson.dias@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
-            },
-            "displayName": "Robson Dias Santana Junior",
-            "active": true,
-            "timeZone": "America/Sao_Paulo",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Sendo feito",
-            "id": "10563",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
       },
       {
         "id": "54733",
@@ -3199,114 +2805,6 @@
         "_rejQA": 0,
         "_touchQA": false,
         "_touchCR": true
-      },
-      {
-        "id": "54941",
-        "key": "OE-673",
-        "fields": {
-          "summary": "[NETWORK] Script to assign Middle Mile network (ID 1932) to existing drivers and tasks",
-          "customfield_10028": 2,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-            "id": "10013",
-            "description": "Uma parte pequena e distinta do trabalho.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-            "name": "Tarefa",
-            "subtask": false,
-            "avatarId": 10318,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "49852",
-            "key": "OE-74",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/49852",
-            "fields": {
-              "summary": "Monitor Changes and Improvements",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1414,
-              "name": "Sprint 11",
-              "state": "active",
-              "boardId": 474,
-              "goal": "",
-              "startDate": "2026-10-06T22:25:04.020Z",
-              "endDate": "2026-10-20T04:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=629914491648f20069636052",
-            "accountId": "629914491648f20069636052",
-            "emailAddress": "jaime.pizarro@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
-              "24x24": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
-              "16x16": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
-              "32x32": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png"
-            },
-            "displayName": "Jaime Pizarro",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
       },
       {
         "id": "54738",
@@ -7839,6 +7337,333 @@
         "_touchCR": true
       },
       {
+        "id": "54702",
+        "key": "OE-613",
+        "fields": {
+          "summary": "[CT-Journey] FE — Single DD/MM HH:mm date formatter for trip detail (with and without driver)",
+          "customfield_10028": null,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "54622",
+            "key": "OE-598",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/54622",
+            "fields": {
+              "summary": "[MM3] Journey & trip detail — full warehouse names, check-in/check-out labels and consistent dates",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
+                "id": "10005",
+                "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
+                "name": "História",
+                "subtask": false,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "resolutiondate": null,
+          "customfield_10020": [
+            {
+              "id": 1414,
+              "name": "Sprint 11",
+              "state": "active",
+              "boardId": 474,
+              "goal": "",
+              "startDate": "2026-10-06T22:25:04.020Z",
+              "endDate": "2026-10-20T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "emailAddress": "guilherme.santos@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
+            },
+            "displayName": "Guilherme Macedo Bento Santos",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "updated": "2026-10-15T16:38:54.628-0400",
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+            "name": "Concluído",
+            "id": "10294",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+              "id": 3,
+              "key": "done",
+              "colorName": "green",
+              "name": "Itens concluídos"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": true,
+        "_touchCR": true
+      },
+      {
+        "id": "54701",
+        "key": "OE-612",
+        "fields": {
+          "summary": "[CT-Journey] FE — Rename Chegada/Entregue to Check-in/Check-out in journey, expanded row and evidence (PT/ES/EN)",
+          "customfield_10028": null,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "54622",
+            "key": "OE-598",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/54622",
+            "fields": {
+              "summary": "[MM3] Journey & trip detail — full warehouse names, check-in/check-out labels and consistent dates",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
+                "id": "10005",
+                "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
+                "name": "História",
+                "subtask": false,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "resolutiondate": null,
+          "customfield_10020": [
+            {
+              "id": 1414,
+              "name": "Sprint 11",
+              "state": "active",
+              "boardId": 474,
+              "goal": "",
+              "startDate": "2026-10-06T22:25:04.020Z",
+              "endDate": "2026-10-20T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "emailAddress": "guilherme.santos@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
+            },
+            "displayName": "Guilherme Macedo Bento Santos",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "updated": "2026-10-15T16:38:49.376-0400",
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+            "name": "Concluído",
+            "id": "10294",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+              "id": 3,
+              "key": "done",
+              "colorName": "green",
+              "name": "Itens concluídos"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": true,
+        "_touchCR": true
+      },
+      {
+        "id": "54700",
+        "key": "OE-611",
+        "fields": {
+          "summary": "[CT-Journey] FE — Full stop names (warehouse + city) with 2-line label and tooltip",
+          "customfield_10028": null,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "54622",
+            "key": "OE-598",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/54622",
+            "fields": {
+              "summary": "[MM3] Journey & trip detail — full warehouse names, check-in/check-out labels and consistent dates",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
+                "id": "10005",
+                "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
+                "name": "História",
+                "subtask": false,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "resolutiondate": null,
+          "customfield_10020": [
+            {
+              "id": 1414,
+              "name": "Sprint 11",
+              "state": "active",
+              "boardId": 474,
+              "goal": "",
+              "startDate": "2026-10-06T22:25:04.020Z",
+              "endDate": "2026-10-20T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "emailAddress": "guilherme.santos@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
+            },
+            "displayName": "Guilherme Macedo Bento Santos",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "updated": "2026-10-15T16:38:56.755-0400",
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+            "name": "Concluído",
+            "id": "10294",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+              "id": 3,
+              "key": "done",
+              "colorName": "green",
+              "name": "Itens concluídos"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": true,
+        "_touchCR": true
+      },
+      {
         "id": "54698",
         "key": "OE-610",
         "fields": {
@@ -8275,6 +8100,114 @@
         "_touchCR": false
       },
       {
+        "id": "54622",
+        "key": "OE-598",
+        "fields": {
+          "summary": "[MM3] Journey & trip detail — full warehouse names, check-in/check-out labels and consistent dates",
+          "customfield_10028": 3,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
+            "id": "10005",
+            "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
+            "name": "História",
+            "subtask": false,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "50601",
+            "key": "OE-127",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/50601",
+            "fields": {
+              "summary": "[MM F3] Control Tower",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/1",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/highest_new.svg",
+                "name": "Highest",
+                "id": "1"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": 1,
+          "customfield_10548": 1,
+          "resolutiondate": null,
+          "customfield_10020": [
+            {
+              "id": 1414,
+              "name": "Sprint 11",
+              "state": "active",
+              "boardId": 474,
+              "goal": "",
+              "startDate": "2026-10-06T22:25:04.020Z",
+              "endDate": "2026-10-20T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "emailAddress": "guilherme.santos@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
+            },
+            "displayName": "Guilherme Macedo Bento Santos",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "updated": "2026-10-15T16:37:17.501-0400",
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+            "name": "Concluído",
+            "id": "10294",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+              "id": 3,
+              "key": "done",
+              "colorName": "green",
+              "name": "Itens concluídos"
+            }
+          }
+        },
+        "_rejCode": 1,
+        "_rejQA": 0,
+        "_touchQA": true,
+        "_touchCR": true
+      },
+      {
         "id": "54621",
         "key": "OE-597",
         "fields": {
@@ -8471,6 +8404,78 @@
             "id": "3"
           },
           "updated": "2026-10-15T10:04:36.197-0400",
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+            "name": "Concluído",
+            "id": "10294",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+              "id": 3,
+              "key": "done",
+              "colorName": "green",
+              "name": "Itens concluídos"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": true,
+        "_touchCR": true
+      },
+      {
+        "id": "54473",
+        "key": "OE-590",
+        "fields": {
+          "summary": "General review of Dash repos: remove public-read ACL and S3 URLs in favor of CDN (shippify-web-res)",
+          "customfield_10028": 2,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+            "id": "10013",
+            "description": "Uma parte pequena e distinta do trabalho.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+            "name": "Tarefa",
+            "subtask": false,
+            "avatarId": 10318,
+            "hierarchyLevel": 0
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "resolutiondate": null,
+          "customfield_10020": [
+            {
+              "id": 1414,
+              "name": "Sprint 11",
+              "state": "active",
+              "boardId": 474,
+              "goal": "",
+              "startDate": "2026-10-06T22:25:04.020Z",
+              "endDate": "2026-10-20T04:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
+            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
+            "emailAddress": "robson.dias@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
+            },
+            "displayName": "Robson Dias Santana Junior",
+            "active": true,
+            "timeZone": "America/Sao_Paulo",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "updated": "2026-10-15T16:13:40.548-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
