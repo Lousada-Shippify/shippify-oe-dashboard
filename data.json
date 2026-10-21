@@ -1,6 +1,6 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-10-21T00:11:32.967Z",
+  "jiraGeneratedAt": "2026-10-21T04:39:46.661Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
@@ -521,10 +521,10 @@
             "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Afe75c88a-74b5-48f4-b0eb-fde41a15174d",
             "accountId": "712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d",
             "avatarUrls": {
-              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/48",
-              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/24",
-              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/16",
-              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/32"
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/e8bc0a37-fe88-4f1c-bf49-78ce03cec15d/48",
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/e8bc0a37-fe88-4f1c-bf49-78ce03cec15d/24",
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/e8bc0a37-fe88-4f1c-bf49-78ce03cec15d/16",
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/e8bc0a37-fe88-4f1c-bf49-78ce03cec15d/32"
             },
             "displayName": "Jira Triage Agent",
             "active": true,
@@ -1064,10 +1064,10 @@
             "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Afe75c88a-74b5-48f4-b0eb-fde41a15174d",
             "accountId": "712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d",
             "avatarUrls": {
-              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/48",
-              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/24",
-              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/16",
-              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/32"
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/e8bc0a37-fe88-4f1c-bf49-78ce03cec15d/48",
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/e8bc0a37-fe88-4f1c-bf49-78ce03cec15d/24",
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/e8bc0a37-fe88-4f1c-bf49-78ce03cec15d/16",
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/e8bc0a37-fe88-4f1c-bf49-78ce03cec15d/32"
             },
             "displayName": "Jira Triage Agent",
             "active": true,
@@ -1716,10 +1716,10 @@
             "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Afe75c88a-74b5-48f4-b0eb-fde41a15174d",
             "accountId": "712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d",
             "avatarUrls": {
-              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/48",
-              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/24",
-              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/16",
-              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/0b8941d9-0bdc-40a6-a180-4160ede6227e/32"
+              "48x48": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/e8bc0a37-fe88-4f1c-bf49-78ce03cec15d/48",
+              "24x24": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/e8bc0a37-fe88-4f1c-bf49-78ce03cec15d/24",
+              "16x16": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/e8bc0a37-fe88-4f1c-bf49-78ce03cec15d/16",
+              "32x32": "https://avatar-management--avatars.us-west-2.prod.public.atl-paas.net/712020:fe75c88a-74b5-48f4-b0eb-fde41a15174d/e8bc0a37-fe88-4f1c-bf49-78ce03cec15d/32"
             },
             "displayName": "Jira Triage Agent",
             "active": true,
