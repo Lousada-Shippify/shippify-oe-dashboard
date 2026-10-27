@@ -1,6 +1,6 @@
 {
   "generatedAt": null,
-  "jiraGeneratedAt": "2026-10-27T10:57:17.461Z",
+  "jiraGeneratedAt": "2026-10-27T16:07:56.323Z",
   "_nota": "Repositorio publico: sem dados pessoais. Apenas Jira, preenchido pelo GitHub Action.",
   "jira": {
     "active": [
@@ -107,17 +107,17 @@
             }
           }
         },
-        "_rejCode": 0,
+        "_rejCode": 1,
         "_rejQA": 0,
         "_touchQA": false,
         "_touchCR": true
       },
       {
-        "id": "55366",
-        "key": "OE-697",
+        "id": "55412",
+        "key": "OE-710",
         "fields": {
-          "summary": "[JELOU] [PHASE 0] Security: credentials, SQL injection and chat authentication",
-          "customfield_10028": 2,
+          "summary": "[Route Suggestions v2] Task search by ID via direct-search endpoint",
+          "customfield_10028": 3,
           "issuetype": {
             "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
             "id": "10005",
@@ -126,6 +126,258 @@
             "name": "História",
             "subtask": false,
             "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "55409",
+            "key": "OE-707",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/55409",
+            "fields": {
+              "summary": "[Route Suggestions v2] Migrate Dash suggestions screen to Route Suggestions v2",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": 1,
+          "customfield_10548": 2,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1415,
+              "name": "Sprint 12",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
+              "startDate": "2026-10-20T22:00:00.000Z",
+              "endDate": "2026-11-03T23:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "emailAddress": "guilherme.santos@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
+            },
+            "displayName": "Guilherme Macedo Bento Santos",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "Sendo feito",
+            "id": "10563",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "55411",
+        "key": "OE-709",
+        "fields": {
+          "summary": "[Route Suggestions v2] Map and scope aligned with v2 rules",
+          "customfield_10028": 4,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
+            "id": "10005",
+            "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
+            "name": "História",
+            "subtask": false,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "55409",
+            "key": "OE-707",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/55409",
+            "fields": {
+              "summary": "[Route Suggestions v2] Migrate Dash suggestions screen to Route Suggestions v2",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": 1,
+          "customfield_10548": 3,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1415,
+              "name": "Sprint 12",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
+              "startDate": "2026-10-20T22:00:00.000Z",
+              "endDate": "2026-11-03T23:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
+            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
+            "emailAddress": "raphael.souza.t@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
+            },
+            "displayName": "Raphael Souza",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "Tarefas pendentes",
+            "id": "10013",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+              "id": 2,
+              "key": "new",
+              "colorName": "blue-gray",
+              "name": "Itens Pendentes"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "53693",
+        "key": "OE-443",
+        "fields": {
+          "summary": "[F1] Audit class parity between legacy and new UIKIT",
+          "customfield_10028": 2,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+            "id": "10013",
+            "description": "Uma parte pequena e distinta do trabalho.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+            "name": "Tarefa",
+            "subtask": false,
+            "avatarId": 10318,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "53690",
+            "key": "OE-440",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/53690",
+            "fields": {
+              "summary": "New UIKIT aligned to the new Design System",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
           },
           "customfield_10546": 0,
           "customfield_10548": 2,
@@ -180,42 +432,42 @@
         "_rejCode": 0,
         "_rejQA": 0,
         "_touchQA": false,
-        "_touchCR": true
+        "_touchCR": false
       },
       {
-        "id": "55382",
-        "key": "OE-698",
+        "id": "55131",
+        "key": "OE-685",
         "fields": {
-          "summary": "[SEC-1] Remove hardcoded Jelou, Talktolk and Slack credentials from Shippify-server",
-          "customfield_10028": null,
+          "summary": "[F1] Turn the OE-608 audit appendix into a per-class inventory",
+          "customfield_10028": 1,
           "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+            "id": "10013",
+            "description": "Uma parte pequena e distinta do trabalho.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+            "name": "Tarefa",
+            "subtask": false,
+            "avatarId": 10318,
+            "hierarchyLevel": 0
           },
           "parent": {
-            "id": "55366",
-            "key": "OE-697",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/55366",
+            "id": "53690",
+            "key": "OE-440",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/53690",
             "fields": {
-              "summary": "[JELOU] [PHASE 0] Security: credentials, SQL injection and chat authentication",
+              "summary": "New UIKIT aligned to the new Design System",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Sendo feito",
-                "id": "10563",
+                "name": "Tarefas pendentes",
+                "id": "10013",
                 "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-                  "id": 4,
-                  "key": "indeterminate",
-                  "colorName": "yellow",
-                  "name": "Em andamento"
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
                 }
               },
               "priority": {
@@ -225,18 +477,18 @@
                 "id": "3"
               },
               "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
-                "id": "10005",
-                "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
-                "name": "História",
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
                 "subtask": false,
-                "hierarchyLevel": 0
+                "hierarchyLevel": 1
               }
             }
           },
           "customfield_10546": null,
-          "customfield_10548": null,
+          "customfield_10548": 1,
           "duedate": null,
           "customfield_10020": [
             {
@@ -249,7 +501,21 @@
               "endDate": "2026-11-03T23:00:00.000Z"
             }
           ],
-          "assignee": null,
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
+            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
+            "emailAddress": "robson.dias@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
+            },
+            "displayName": "Robson Dias Santana Junior",
+            "active": true,
+            "timeZone": "America/Sao_Paulo",
+            "accountType": "atlassian"
+          },
           "priority": {
             "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
             "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
@@ -275,6 +541,76 @@
         "_rejQA": 0,
         "_touchQA": false,
         "_touchCR": false
+      },
+      {
+        "id": "55366",
+        "key": "OE-697",
+        "fields": {
+          "summary": "[JELOU] [PHASE 0] Security: credentials, SQL injection and chat authentication",
+          "customfield_10028": 2,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
+            "id": "10005",
+            "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
+            "name": "História",
+            "subtask": false,
+            "hierarchyLevel": 0
+          },
+          "customfield_10546": 0,
+          "customfield_10548": 2,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1415,
+              "name": "Sprint 12",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
+              "startDate": "2026-10-20T22:00:00.000Z",
+              "endDate": "2026-11-03T23:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
+            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
+            "emailAddress": "robson.dias@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
+            },
+            "displayName": "Robson Dias Santana Junior",
+            "active": true,
+            "timeZone": "America/Sao_Paulo",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "CODE REVIEW",
+            "id": "10565",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": true
       },
       {
         "id": "54620",
@@ -374,11 +710,11 @@
             "id": "3"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10564",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "REJECTED BY QA",
-            "id": "10568",
+            "name": "BLOCKED",
+            "id": "10564",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -391,457 +727,6 @@
         "_rejCode": 0,
         "_rejQA": 3,
         "_touchQA": true,
-        "_touchCR": true
-      },
-      {
-        "id": "55387",
-        "key": "OE-703",
-        "fields": {
-          "summary": "[SEC-6] Remove hardcoded keys and the silent key fallback from driver-chat",
-          "customfield_10028": null,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "55366",
-            "key": "OE-697",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/55366",
-            "fields": {
-              "summary": "[JELOU] [PHASE 0] Security: credentials, SQL injection and chat authentication",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Sendo feito",
-                "id": "10563",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-                  "id": 4,
-                  "key": "indeterminate",
-                  "colorName": "yellow",
-                  "name": "Em andamento"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
-                "id": "10005",
-                "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
-                "name": "História",
-                "subtask": false,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1415,
-              "name": "Sprint 12",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
-              "startDate": "2026-10-20T22:00:00.000Z",
-              "endDate": "2026-11-03T23:00:00.000Z"
-            }
-          ],
-          "assignee": null,
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Sendo feito",
-            "id": "10563",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "55365",
-        "key": "OE-696",
-        "fields": {
-          "summary": "[Monitor] [MM] Driver rest lock — block trip assignment when the legal inter-shift rest is not met (Middle Mile only)",
-          "customfield_10028": null,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
-            "id": "10005",
-            "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
-            "name": "História",
-            "subtask": false,
-            "hierarchyLevel": 0
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1415,
-              "name": "Sprint 12",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
-              "startDate": "2026-10-20T22:00:00.000Z",
-              "endDate": "2026-11-03T23:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
-            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
-            "emailAddress": "robson.dias@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
-            },
-            "displayName": "Robson Dias Santana Junior",
-            "active": true,
-            "timeZone": "America/Sao_Paulo",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Sendo feito",
-            "id": "10563",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "55364",
-        "key": "OE-695",
-        "fields": {
-          "summary": "[Monitor] [MM] Driver overlap lock — block assigning a driver who is on an overlapping trip (Middle Mile only)",
-          "customfield_10028": 3,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-            "id": "10013",
-            "description": "Uma parte pequena e distinta do trabalho.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-            "name": "Tarefa",
-            "subtask": false,
-            "avatarId": 10318,
-            "hierarchyLevel": 0
-          },
-          "customfield_10546": 1,
-          "customfield_10548": 2,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1415,
-              "name": "Sprint 12",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
-              "startDate": "2026-10-20T22:00:00.000Z",
-              "endDate": "2026-11-03T23:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
-            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
-            "emailAddress": "robson.dias@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
-            },
-            "displayName": "Robson Dias Santana Junior",
-            "active": true,
-            "timeZone": "America/Sao_Paulo",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Sendo feito",
-            "id": "10563",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "55134",
-        "key": "OE-688",
-        "fields": {
-          "summary": "[F1] Centralize in UIKIT V1 the classes duplicated across the Control Tower MFEs",
-          "customfield_10028": 3,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-            "id": "10013",
-            "description": "Uma parte pequena e distinta do trabalho.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-            "name": "Tarefa",
-            "subtask": false,
-            "avatarId": 10318,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "53690",
-            "key": "OE-440",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/53690",
-            "fields": {
-              "summary": "New UIKIT aligned to the new Design System",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 1,
-          "customfield_10548": 2,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1415,
-              "name": "Sprint 12",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
-              "startDate": "2026-10-20T22:00:00.000Z",
-              "endDate": "2026-11-03T23:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
-            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
-            "emailAddress": "robson.dias@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
-            },
-            "displayName": "Robson Dias Santana Junior",
-            "active": true,
-            "timeZone": "America/Sao_Paulo",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Sendo feito",
-            "id": "10563",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "54941",
-        "key": "OE-673",
-        "fields": {
-          "summary": "[NETWORK] Script to assign Middle Mile network (ID 1932) to existing drivers and tasks",
-          "customfield_10028": 2,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-            "id": "10013",
-            "description": "Uma parte pequena e distinta do trabalho.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-            "name": "Tarefa",
-            "subtask": false,
-            "avatarId": 10318,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "49852",
-            "key": "OE-74",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/49852",
-            "fields": {
-              "summary": "Monitor Changes and Improvements",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1415,
-              "name": "Sprint 12",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
-              "startDate": "2026-10-20T22:00:00.000Z",
-              "endDate": "2026-11-03T23:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
-            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
-            "emailAddress": "raphael.souza.t@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
-            },
-            "displayName": "Raphael Souza",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "CODE REVIEW",
-            "id": "10565",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
         "_touchCR": true
       },
       {
@@ -947,17 +832,17 @@
             }
           }
         },
-        "_rejCode": 0,
+        "_rejCode": 1,
         "_rejQA": 0,
         "_touchQA": false,
-        "_touchCR": false
+        "_touchCR": true
       },
       {
-        "id": "54737",
-        "key": "OE-620",
+        "id": "55134",
+        "key": "OE-688",
         "fields": {
-          "summary": "[MM3-Import] Register the 11 missing Mercado Livre sites",
-          "customfield_10028": null,
+          "summary": "[F1] Centralize in UIKIT V1 the classes duplicated across the Control Tower MFEs",
+          "customfield_10028": 3,
           "issuetype": {
             "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
             "id": "10013",
@@ -969,11 +854,11 @@
             "hierarchyLevel": 0
           },
           "parent": {
-            "id": "54734",
-            "key": "OE-617",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/54734",
+            "id": "53690",
+            "key": "OE-440",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/53690",
             "fields": {
-              "summary": "[MM3] Mercado Livre Middle Mile support — import and task creation",
+              "summary": "New UIKIT aligned to the new Design System",
               "status": {
                 "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
                 "description": "",
@@ -1005,8 +890,8 @@
               }
             }
           },
-          "customfield_10546": null,
-          "customfield_10548": null,
+          "customfield_10546": 1,
+          "customfield_10548": 2,
           "duedate": null,
           "customfield_10020": [
             {
@@ -1020,18 +905,18 @@
             }
           ],
           "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "emailAddress": "guilherme.santos@shippify.co",
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
+            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
+            "emailAddress": "robson.dias@shippify.co",
             "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
+              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
             },
-            "displayName": "Guilherme Macedo Bento Santos",
+            "displayName": "Robson Dias Santana Junior",
             "active": true,
-            "timeZone": "America/New_York",
+            "timeZone": "America/Sao_Paulo",
             "accountType": "atlassian"
           },
           "priority": {
@@ -1041,17 +926,17 @@
             "id": "3"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
+            "name": "Sendo feito",
+            "id": "10563",
             "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
             }
           }
         },
@@ -1404,6 +1289,114 @@
         "_touchCR": true
       },
       {
+        "id": "54941",
+        "key": "OE-673",
+        "fields": {
+          "summary": "[NETWORK] Script to assign Middle Mile network (ID 1932) to existing drivers and tasks",
+          "customfield_10028": 2,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+            "id": "10013",
+            "description": "Uma parte pequena e distinta do trabalho.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+            "name": "Tarefa",
+            "subtask": false,
+            "avatarId": 10318,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "49852",
+            "key": "OE-74",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/49852",
+            "fields": {
+              "summary": "Monitor Changes and Improvements",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1415,
+              "name": "Sprint 12",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
+              "startDate": "2026-10-20T22:00:00.000Z",
+              "endDate": "2026-11-03T23:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
+            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
+            "emailAddress": "raphael.souza.t@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
+            },
+            "displayName": "Raphael Souza",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "CODE REVIEW",
+            "id": "10565",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": true
+      },
+      {
         "id": "55414",
         "key": "OE-712",
         "fields": {
@@ -1728,11 +1721,705 @@
         "_touchCR": false
       },
       {
-        "id": "55131",
-        "key": "OE-685",
+        "id": "55513",
+        "key": "OE-724",
         "fields": {
-          "summary": "[F1] Turn the OE-608 audit appendix into a per-class inventory",
-          "customfield_10028": 1,
+          "summary": "CLONE - RAPHAEL",
+          "customfield_10028": 0.75,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "55508",
+            "key": "OE-719",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/55508",
+            "fields": {
+              "summary": "[Planning]",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+                "id": "10013",
+                "description": "Uma parte pequena e distinta do trabalho.",
+                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+                "name": "Tarefa",
+                "subtask": false,
+                "avatarId": 10318,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1415,
+              "name": "Sprint 12",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
+              "startDate": "2026-10-20T22:00:00.000Z",
+              "endDate": "2026-11-03T23:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
+            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
+            "emailAddress": "raphael.souza.t@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
+            },
+            "displayName": "Raphael Souza",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "Tarefas pendentes",
+            "id": "10013",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+              "id": 2,
+              "key": "new",
+              "colorName": "blue-gray",
+              "name": "Itens Pendentes"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "55512",
+        "key": "OE-723",
+        "fields": {
+          "summary": "CLONE - NATHALY",
+          "customfield_10028": 0.75,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "55508",
+            "key": "OE-719",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/55508",
+            "fields": {
+              "summary": "[Planning]",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+                "id": "10013",
+                "description": "Uma parte pequena e distinta do trabalho.",
+                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+                "name": "Tarefa",
+                "subtask": false,
+                "avatarId": 10318,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1415,
+              "name": "Sprint 12",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
+              "startDate": "2026-10-20T22:00:00.000Z",
+              "endDate": "2026-11-03T23:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4a697d1-aea4-46b3-a80a-38d4e85f987b",
+            "accountId": "712020:d4a697d1-aea4-46b3-a80a-38d4e85f987b",
+            "emailAddress": "nathaly.brasiliano.t@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/3349a30809d575b9398435f085ef95e9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNB-4.png",
+              "24x24": "https://secure.gravatar.com/avatar/3349a30809d575b9398435f085ef95e9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNB-4.png",
+              "16x16": "https://secure.gravatar.com/avatar/3349a30809d575b9398435f085ef95e9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNB-4.png",
+              "32x32": "https://secure.gravatar.com/avatar/3349a30809d575b9398435f085ef95e9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNB-4.png"
+            },
+            "displayName": "Nathaly Brasiliano",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "Tarefas pendentes",
+            "id": "10013",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+              "id": 2,
+              "key": "new",
+              "colorName": "blue-gray",
+              "name": "Itens Pendentes"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "55511",
+        "key": "OE-722",
+        "fields": {
+          "summary": "CLONE - JAIME",
+          "customfield_10028": 0.75,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "55508",
+            "key": "OE-719",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/55508",
+            "fields": {
+              "summary": "[Planning]",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+                "id": "10013",
+                "description": "Uma parte pequena e distinta do trabalho.",
+                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+                "name": "Tarefa",
+                "subtask": false,
+                "avatarId": 10318,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1415,
+              "name": "Sprint 12",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
+              "startDate": "2026-10-20T22:00:00.000Z",
+              "endDate": "2026-11-03T23:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=629914491648f20069636052",
+            "accountId": "629914491648f20069636052",
+            "emailAddress": "jaime.pizarro@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
+              "24x24": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
+              "16x16": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
+              "32x32": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png"
+            },
+            "displayName": "Jaime Pizarro",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "Tarefas pendentes",
+            "id": "10013",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+              "id": 2,
+              "key": "new",
+              "colorName": "blue-gray",
+              "name": "Itens Pendentes"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "55510",
+        "key": "OE-721",
+        "fields": {
+          "summary": "CLONE - ROBSON",
+          "customfield_10028": 0.75,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "55508",
+            "key": "OE-719",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/55508",
+            "fields": {
+              "summary": "[Planning]",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+                "id": "10013",
+                "description": "Uma parte pequena e distinta do trabalho.",
+                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+                "name": "Tarefa",
+                "subtask": false,
+                "avatarId": 10318,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1415,
+              "name": "Sprint 12",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
+              "startDate": "2026-10-20T22:00:00.000Z",
+              "endDate": "2026-11-03T23:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
+            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
+            "emailAddress": "robson.dias@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
+            },
+            "displayName": "Robson Dias Santana Junior",
+            "active": true,
+            "timeZone": "America/Sao_Paulo",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "Tarefas pendentes",
+            "id": "10013",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+              "id": 2,
+              "key": "new",
+              "colorName": "blue-gray",
+              "name": "Itens Pendentes"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "55382",
+        "key": "OE-698",
+        "fields": {
+          "summary": "[SEC-1] Remove hardcoded Jelou, Talktolk and Slack credentials from Shippify-server",
+          "customfield_10028": null,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "55366",
+            "key": "OE-697",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/55366",
+            "fields": {
+              "summary": "[JELOU] [PHASE 0] Security: credentials, SQL injection and chat authentication",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "CODE REVIEW",
+                "id": "10565",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+                  "id": 4,
+                  "key": "indeterminate",
+                  "colorName": "yellow",
+                  "name": "Em andamento"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
+                "id": "10005",
+                "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
+                "name": "História",
+                "subtask": false,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1415,
+              "name": "Sprint 12",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
+              "startDate": "2026-10-20T22:00:00.000Z",
+              "endDate": "2026-11-03T23:00:00.000Z"
+            }
+          ],
+          "assignee": null,
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "Sendo feito",
+            "id": "10563",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "55387",
+        "key": "OE-703",
+        "fields": {
+          "summary": "[SEC-6] Remove hardcoded keys and the silent key fallback from driver-chat",
+          "customfield_10028": null,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "55366",
+            "key": "OE-697",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/55366",
+            "fields": {
+              "summary": "[JELOU] [PHASE 0] Security: credentials, SQL injection and chat authentication",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "CODE REVIEW",
+                "id": "10565",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+                  "id": 4,
+                  "key": "indeterminate",
+                  "colorName": "yellow",
+                  "name": "Em andamento"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
+                "id": "10005",
+                "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
+                "name": "História",
+                "subtask": false,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1415,
+              "name": "Sprint 12",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
+              "startDate": "2026-10-20T22:00:00.000Z",
+              "endDate": "2026-11-03T23:00:00.000Z"
+            }
+          ],
+          "assignee": null,
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "Sendo feito",
+            "id": "10563",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "55365",
+        "key": "OE-696",
+        "fields": {
+          "summary": "[Monitor] [MM] Driver rest lock — block trip assignment when the legal inter-shift rest is not met (Middle Mile only)",
+          "customfield_10028": null,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
+            "id": "10005",
+            "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
+            "name": "História",
+            "subtask": false,
+            "hierarchyLevel": 0
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "duedate": null,
+          "customfield_10020": [
+            {
+              "id": 1415,
+              "name": "Sprint 12",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
+              "startDate": "2026-10-20T22:00:00.000Z",
+              "endDate": "2026-11-03T23:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
+            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
+            "emailAddress": "robson.dias@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
+              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
+            },
+            "displayName": "Robson Dias Santana Junior",
+            "active": true,
+            "timeZone": "America/Sao_Paulo",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/",
+            "name": "Sendo feito",
+            "id": "10563",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
+              "id": 4,
+              "key": "indeterminate",
+              "colorName": "yellow",
+              "name": "Em andamento"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
+        "_touchCR": false
+      },
+      {
+        "id": "55364",
+        "key": "OE-695",
+        "fields": {
+          "summary": "[Monitor] [MM] Driver overlap lock — block assigning a driver who is on an overlapping trip (Middle Mile only)",
+          "customfield_10028": 3,
           "issuetype": {
             "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
             "id": "10013",
@@ -1743,45 +2430,8 @@
             "avatarId": 10318,
             "hierarchyLevel": 0
           },
-          "parent": {
-            "id": "53690",
-            "key": "OE-440",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/53690",
-            "fields": {
-              "summary": "New UIKIT aligned to the new Design System",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": 1,
+          "customfield_10546": 1,
+          "customfield_10548": 2,
           "duedate": null,
           "customfield_10020": [
             {
@@ -1858,11 +2508,11 @@
             "fields": {
               "summary": "[JELOU] [PHASE 0] Security: credentials, SQL injection and chat authentication",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Sendo feito",
-                "id": "10563",
+                "name": "CODE REVIEW",
+                "id": "10565",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -1952,11 +2602,11 @@
             "fields": {
               "summary": "[JELOU] [PHASE 0] Security: credentials, SQL injection and chat authentication",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Sendo feito",
-                "id": "10563",
+                "name": "CODE REVIEW",
+                "id": "10565",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2046,11 +2696,11 @@
             "fields": {
               "summary": "[JELOU] [PHASE 0] Security: credentials, SQL injection and chat authentication",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Sendo feito",
-                "id": "10563",
+                "name": "CODE REVIEW",
+                "id": "10565",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2140,11 +2790,11 @@
             "fields": {
               "summary": "[JELOU] [PHASE 0] Security: credentials, SQL injection and chat authentication",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Sendo feito",
-                "id": "10563",
+                "name": "CODE REVIEW",
+                "id": "10565",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2234,11 +2884,11 @@
             "fields": {
               "summary": "[JELOU] [PHASE 0] Security: credentials, SQL injection and chat authentication",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Sendo feito",
-                "id": "10563",
+                "name": "CODE REVIEW",
+                "id": "10565",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2328,11 +2978,11 @@
             "fields": {
               "summary": "[MM3] Alerts auto-resolved when the trip is concluded or cancelled — finalization reason in the log",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10564",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "BLOCKED",
+                "id": "10564",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2446,11 +3096,11 @@
             "fields": {
               "summary": "[MM3] Alerts auto-resolved when the trip is concluded or cancelled — finalization reason in the log",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10564",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "BLOCKED",
+                "id": "10564",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2564,11 +3214,11 @@
             "fields": {
               "summary": "[MM3] Alerts auto-resolved when the trip is concluded or cancelled — finalization reason in the log",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10564",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "BLOCKED",
+                "id": "10564",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2682,11 +3332,11 @@
             "fields": {
               "summary": "[MM3] Alerts auto-resolved when the trip is concluded or cancelled — finalization reason in the log",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10568",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10564",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "REJECTED BY QA",
-                "id": "10568",
+                "name": "BLOCKED",
+                "id": "10564",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -2778,114 +3428,6 @@
         "_touchCR": true
       },
       {
-        "id": "53693",
-        "key": "OE-443",
-        "fields": {
-          "summary": "[F1] Audit class parity between legacy and new UIKIT",
-          "customfield_10028": 2,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-            "id": "10013",
-            "description": "Uma parte pequena e distinta do trabalho.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-            "name": "Tarefa",
-            "subtask": false,
-            "avatarId": 10318,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "53690",
-            "key": "OE-440",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/53690",
-            "fields": {
-              "summary": "New UIKIT aligned to the new Design System",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 0,
-          "customfield_10548": 2,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1415,
-              "name": "Sprint 12",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
-              "startDate": "2026-10-20T22:00:00.000Z",
-              "endDate": "2026-11-03T23:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
-            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
-            "emailAddress": "robson.dias@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
-            },
-            "displayName": "Robson Dias Santana Junior",
-            "active": true,
-            "timeZone": "America/Sao_Paulo",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Sendo feito",
-            "id": "10563",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
         "id": "55574",
         "key": "OE-738",
         "fields": {
@@ -2926,113 +3468,6 @@
               "32x32": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png"
             },
             "displayName": "Jaime Pizarro",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "55412",
-        "key": "OE-710",
-        "fields": {
-          "summary": "[Route Suggestions v2] Task search by ID via direct-search endpoint",
-          "customfield_10028": 3,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
-            "id": "10005",
-            "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
-            "name": "História",
-            "subtask": false,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "55409",
-            "key": "OE-707",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/55409",
-            "fields": {
-              "summary": "[Route Suggestions v2] Migrate Dash suggestions screen to Route Suggestions v2",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 1,
-          "customfield_10548": 2,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1415,
-              "name": "Sprint 12",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
-              "startDate": "2026-10-20T22:00:00.000Z",
-              "endDate": "2026-11-03T23:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "emailAddress": "guilherme.santos@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
-            },
-            "displayName": "Guilherme Macedo Bento Santos",
             "active": true,
             "timeZone": "America/New_York",
             "accountType": "atlassian"
@@ -3297,113 +3732,6 @@
           },
           "customfield_10546": null,
           "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1415,
-              "name": "Sprint 12",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
-              "startDate": "2026-10-20T22:00:00.000Z",
-              "endDate": "2026-11-03T23:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
-            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
-            "emailAddress": "raphael.souza.t@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
-            },
-            "displayName": "Raphael Souza",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "55411",
-        "key": "OE-709",
-        "fields": {
-          "summary": "[Route Suggestions v2] Map and scope aligned with v2 rules",
-          "customfield_10028": 4,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10005",
-            "id": "10005",
-            "description": "Funcionalidade ou recurso expressado como um objetivo do usuário.",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/story.svg",
-            "name": "História",
-            "subtask": false,
-            "hierarchyLevel": 0
-          },
-          "parent": {
-            "id": "55409",
-            "key": "OE-707",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/55409",
-            "fields": {
-              "summary": "[Route Suggestions v2] Migrate Dash suggestions screen to Route Suggestions v2",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
-                "id": "10000",
-                "description": "Uma coleção de bugs, histórias e tarefas.",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
-                "name": "Epic",
-                "subtask": false,
-                "hierarchyLevel": 1
-              }
-            }
-          },
-          "customfield_10546": 1,
-          "customfield_10548": 3,
           "duedate": null,
           "customfield_10020": [
             {
@@ -4136,442 +4464,6 @@
             "active": true,
             "timeZone": "America/New_York",
             "accountType": "app"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "55513",
-        "key": "OE-724",
-        "fields": {
-          "summary": "CLONE - RAPHAEL",
-          "customfield_10028": 0.75,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "55508",
-            "key": "OE-719",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/55508",
-            "fields": {
-              "summary": "[Planning]",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
-                "name": "Concluído",
-                "id": "10294",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
-                  "id": 3,
-                  "key": "done",
-                  "colorName": "green",
-                  "name": "Itens concluídos"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-                "id": "10013",
-                "description": "Uma parte pequena e distinta do trabalho.",
-                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-                "name": "Tarefa",
-                "subtask": false,
-                "avatarId": 10318,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1415,
-              "name": "Sprint 12",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
-              "startDate": "2026-10-20T22:00:00.000Z",
-              "endDate": "2026-11-03T23:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A6283947b-4ee6-4aff-87da-3ee553995b21",
-            "accountId": "712020:6283947b-4ee6-4aff-87da-3ee553995b21",
-            "emailAddress": "raphael.souza.t@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/2de6e0ca03f763dcc577931e45650622?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRS-5.png"
-            },
-            "displayName": "Raphael Souza",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "55512",
-        "key": "OE-723",
-        "fields": {
-          "summary": "CLONE - NATHALY",
-          "customfield_10028": 0.75,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "55508",
-            "key": "OE-719",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/55508",
-            "fields": {
-              "summary": "[Planning]",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
-                "name": "Concluído",
-                "id": "10294",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
-                  "id": 3,
-                  "key": "done",
-                  "colorName": "green",
-                  "name": "Itens concluídos"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-                "id": "10013",
-                "description": "Uma parte pequena e distinta do trabalho.",
-                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-                "name": "Tarefa",
-                "subtask": false,
-                "avatarId": 10318,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1415,
-              "name": "Sprint 12",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
-              "startDate": "2026-10-20T22:00:00.000Z",
-              "endDate": "2026-11-03T23:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4a697d1-aea4-46b3-a80a-38d4e85f987b",
-            "accountId": "712020:d4a697d1-aea4-46b3-a80a-38d4e85f987b",
-            "emailAddress": "nathaly.brasiliano.t@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/3349a30809d575b9398435f085ef95e9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNB-4.png",
-              "24x24": "https://secure.gravatar.com/avatar/3349a30809d575b9398435f085ef95e9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNB-4.png",
-              "16x16": "https://secure.gravatar.com/avatar/3349a30809d575b9398435f085ef95e9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNB-4.png",
-              "32x32": "https://secure.gravatar.com/avatar/3349a30809d575b9398435f085ef95e9?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FNB-4.png"
-            },
-            "displayName": "Nathaly Brasiliano",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "55511",
-        "key": "OE-722",
-        "fields": {
-          "summary": "CLONE - JAIME",
-          "customfield_10028": 0.75,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "55508",
-            "key": "OE-719",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/55508",
-            "fields": {
-              "summary": "[Planning]",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
-                "name": "Concluído",
-                "id": "10294",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
-                  "id": 3,
-                  "key": "done",
-                  "colorName": "green",
-                  "name": "Itens concluídos"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-                "id": "10013",
-                "description": "Uma parte pequena e distinta do trabalho.",
-                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-                "name": "Tarefa",
-                "subtask": false,
-                "avatarId": 10318,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1415,
-              "name": "Sprint 12",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
-              "startDate": "2026-10-20T22:00:00.000Z",
-              "endDate": "2026-11-03T23:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=629914491648f20069636052",
-            "accountId": "629914491648f20069636052",
-            "emailAddress": "jaime.pizarro@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
-              "24x24": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
-              "16x16": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png",
-              "32x32": "https://secure.gravatar.com/avatar/4278e93ac939efd51f568971388d2932?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FJP-3.png"
-            },
-            "displayName": "Jaime Pizarro",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-            "name": "Medium",
-            "id": "3"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Tarefas pendentes",
-            "id": "10013",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-              "id": 2,
-              "key": "new",
-              "colorName": "blue-gray",
-              "name": "Itens Pendentes"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "55510",
-        "key": "OE-721",
-        "fields": {
-          "summary": "CLONE - ROBSON",
-          "customfield_10028": 0.75,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "55508",
-            "key": "OE-719",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/55508",
-            "fields": {
-              "summary": "[Planning]",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
-                "name": "Concluído",
-                "id": "10294",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
-                  "id": 3,
-                  "key": "done",
-                  "colorName": "green",
-                  "name": "Itens concluídos"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
-                "name": "Medium",
-                "id": "3"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
-                "id": "10013",
-                "description": "Uma parte pequena e distinta do trabalho.",
-                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
-                "name": "Tarefa",
-                "subtask": false,
-                "avatarId": 10318,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1415,
-              "name": "Sprint 12",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
-              "startDate": "2026-10-20T22:00:00.000Z",
-              "endDate": "2026-11-03T23:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3Ad4f96918-6726-4cc8-b3df-143ed4028267",
-            "accountId": "712020:d4f96918-6726-4cc8-b3df-143ed4028267",
-            "emailAddress": "robson.dias@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "24x24": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "16x16": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png",
-              "32x32": "https://secure.gravatar.com/avatar/791accfab122302e30c02d87cf1cf1cf?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FRJ-0.png"
-            },
-            "displayName": "Robson Dias Santana Junior",
-            "active": true,
-            "timeZone": "America/Sao_Paulo",
-            "accountType": "atlassian"
           },
           "priority": {
             "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
@@ -5549,11 +5441,11 @@
             "id": "2"
           },
           "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
             "description": "",
             "iconUrl": "https://shippify.atlassian.net/",
-            "name": "Sendo feito",
-            "id": "10563",
+            "name": "CODE REVIEW",
+            "id": "10565",
             "statusCategory": {
               "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
               "id": 4,
@@ -5566,115 +5458,6 @@
         "_rejCode": 0,
         "_rejQA": 0,
         "_touchQA": false,
-        "_touchCR": false
-      },
-      {
-        "id": "55346",
-        "key": "OE-693",
-        "fields": {
-          "summary": "Vehicle company edit is not saved and assigning a trip with a company vehicle fails",
-          "customfield_10028": 2,
-          "issuetype": {
-            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
-            "id": "10014",
-            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
-            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
-            "name": "Subtarefa",
-            "subtask": true,
-            "avatarId": 10316,
-            "hierarchyLevel": -1
-          },
-          "parent": {
-            "id": "55091",
-            "key": "OE-679",
-            "self": "https://shippify.atlassian.net/rest/api/3/issue/55091",
-            "fields": {
-              "summary": "Atribuir veículo / Motoristas - Middle Mile",
-              "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
-                "description": "",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
-                "name": "Concluído",
-                "id": "10294",
-                "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
-                  "id": 3,
-                  "key": "done",
-                  "colorName": "green",
-                  "name": "Itens concluídos"
-                }
-              },
-              "priority": {
-                "self": "https://shippify.atlassian.net/rest/api/3/priority/2",
-                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/high_new.svg",
-                "name": "High",
-                "id": "2"
-              },
-              "issuetype": {
-                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10098",
-                "id": "10098",
-                "description": "Un problema o error.",
-                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
-                "name": "Error",
-                "subtask": false,
-                "avatarId": 10303,
-                "hierarchyLevel": 0
-              }
-            }
-          },
-          "customfield_10546": null,
-          "customfield_10548": null,
-          "duedate": null,
-          "customfield_10020": [
-            {
-              "id": 1415,
-              "name": "Sprint 12",
-              "state": "active",
-              "boardId": 474,
-              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
-              "startDate": "2026-10-20T22:00:00.000Z",
-              "endDate": "2026-11-03T23:00:00.000Z"
-            }
-          ],
-          "assignee": {
-            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
-            "emailAddress": "guilherme.santos@shippify.co",
-            "avatarUrls": {
-              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
-              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
-            },
-            "displayName": "Guilherme Macedo Bento Santos",
-            "active": true,
-            "timeZone": "America/New_York",
-            "accountType": "atlassian"
-          },
-          "priority": {
-            "self": "https://shippify.atlassian.net/rest/api/3/priority/2",
-            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/high_new.svg",
-            "name": "High",
-            "id": "2"
-          },
-          "status": {
-            "self": "https://shippify.atlassian.net/rest/api/3/status/10567",
-            "description": "",
-            "iconUrl": "https://shippify.atlassian.net/",
-            "name": "APPROVED BY QA",
-            "id": "10567",
-            "statusCategory": {
-              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
-              "id": 4,
-              "key": "indeterminate",
-              "colorName": "yellow",
-              "name": "Em andamento"
-            }
-          }
-        },
-        "_rejCode": 0,
-        "_rejQA": 0,
-        "_touchQA": true,
         "_touchCR": true
       },
       {
@@ -5825,7 +5608,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-10-21T08:10:15.358-0400",
+          "updated": "2026-10-27T08:06:58.251-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -5933,7 +5716,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-10-21T08:15:17.797-0400",
+          "updated": "2026-10-27T08:06:57.861-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -5977,11 +5760,11 @@
             "fields": {
               "summary": "[JELOU] [PHASE 0] Security: credentials, SQL injection and chat authentication",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10563",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10565",
                 "description": "",
                 "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Sendo feito",
-                "id": "10563",
+                "name": "CODE REVIEW",
+                "id": "10565",
                 "statusCategory": {
                   "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/4",
                   "id": 4,
@@ -6048,6 +5831,116 @@
         "_rejQA": 0,
         "_touchQA": false,
         "_touchCR": false
+      },
+      {
+        "id": "55346",
+        "key": "OE-693",
+        "fields": {
+          "summary": "Vehicle company edit is not saved and assigning a trip with a company vehicle fails",
+          "customfield_10028": 2,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10014",
+            "id": "10014",
+            "description": "Uma pequena parte do trabalho que faz parte de uma tarefa maior.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10316?size=medium",
+            "name": "Subtarefa",
+            "subtask": true,
+            "avatarId": 10316,
+            "hierarchyLevel": -1
+          },
+          "parent": {
+            "id": "55091",
+            "key": "OE-679",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/55091",
+            "fields": {
+              "summary": "Atribuir veículo / Motoristas - Middle Mile",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/2",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/high_new.svg",
+                "name": "High",
+                "id": "2"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10098",
+                "id": "10098",
+                "description": "Un problema o error.",
+                "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10303?size=medium",
+                "name": "Error",
+                "subtask": false,
+                "avatarId": 10303,
+                "hierarchyLevel": 0
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "resolutiondate": null,
+          "customfield_10020": [
+            {
+              "id": 1415,
+              "name": "Sprint 12",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
+              "startDate": "2026-10-20T22:00:00.000Z",
+              "endDate": "2026-11-03T23:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "emailAddress": "guilherme.santos@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
+            },
+            "displayName": "Guilherme Macedo Bento Santos",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/2",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/high_new.svg",
+            "name": "High",
+            "id": "2"
+          },
+          "updated": "2026-10-27T10:09:40.871-0400",
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+            "name": "Concluído",
+            "id": "10294",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+              "id": 3,
+              "key": "done",
+              "colorName": "green",
+              "name": "Itens concluídos"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": true,
+        "_touchCR": true
       },
       {
         "id": "55344",
@@ -6138,7 +6031,7 @@
             "name": "High",
             "id": "2"
           },
-          "updated": "2026-10-26T15:48:10.076-0400",
+          "updated": "2026-10-27T10:09:41.319-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -6210,7 +6103,7 @@
             "name": "High",
             "id": "2"
           },
-          "updated": "2026-10-26T15:48:08.073-0400",
+          "updated": "2026-10-27T08:49:25.798-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -6254,17 +6147,17 @@
             "fields": {
               "summary": "[MM3-Import] Register the 11 missing Mercado Livre sites",
               "status": {
-                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
                 "description": "",
-                "iconUrl": "https://shippify.atlassian.net/",
-                "name": "Tarefas pendentes",
-                "id": "10013",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+                "name": "Concluído",
+                "id": "10294",
                 "statusCategory": {
-                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
-                  "id": 2,
-                  "key": "new",
-                  "colorName": "blue-gray",
-                  "name": "Itens Pendentes"
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+                  "id": 3,
+                  "key": "done",
+                  "colorName": "green",
+                  "name": "Itens concluídos"
                 }
               },
               "priority": {
@@ -6320,7 +6213,7 @@
             "name": "Medium",
             "id": "3"
           },
-          "updated": "2026-10-26T15:50:31.311-0400",
+          "updated": "2026-10-27T10:09:44.259-0400",
           "status": {
             "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
             "description": "",
@@ -6339,6 +6232,115 @@
         "_rejCode": 2,
         "_rejQA": 2,
         "_touchQA": true,
+        "_touchCR": true
+      },
+      {
+        "id": "54737",
+        "key": "OE-620",
+        "fields": {
+          "summary": "[MM3-Import] Register the 11 missing Mercado Livre sites",
+          "customfield_10028": null,
+          "issuetype": {
+            "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10013",
+            "id": "10013",
+            "description": "Uma parte pequena e distinta do trabalho.",
+            "iconUrl": "https://shippify.atlassian.net/rest/api/2/universal_avatar/view/type/issuetype/avatar/10318?size=medium",
+            "name": "Tarefa",
+            "subtask": false,
+            "avatarId": 10318,
+            "hierarchyLevel": 0
+          },
+          "parent": {
+            "id": "54734",
+            "key": "OE-617",
+            "self": "https://shippify.atlassian.net/rest/api/3/issue/54734",
+            "fields": {
+              "summary": "[MM3] Mercado Livre Middle Mile support — import and task creation",
+              "status": {
+                "self": "https://shippify.atlassian.net/rest/api/3/status/10013",
+                "description": "",
+                "iconUrl": "https://shippify.atlassian.net/",
+                "name": "Tarefas pendentes",
+                "id": "10013",
+                "statusCategory": {
+                  "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/2",
+                  "id": 2,
+                  "key": "new",
+                  "colorName": "blue-gray",
+                  "name": "Itens Pendentes"
+                }
+              },
+              "priority": {
+                "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+                "name": "Medium",
+                "id": "3"
+              },
+              "issuetype": {
+                "self": "https://shippify.atlassian.net/rest/api/3/issuetype/10000",
+                "id": "10000",
+                "description": "Uma coleção de bugs, histórias e tarefas.",
+                "iconUrl": "https://shippify.atlassian.net/images/icons/issuetypes/epic.svg",
+                "name": "Epic",
+                "subtask": false,
+                "hierarchyLevel": 1
+              }
+            }
+          },
+          "customfield_10546": null,
+          "customfield_10548": null,
+          "resolutiondate": null,
+          "customfield_10020": [
+            {
+              "id": 1415,
+              "name": "Sprint 12",
+              "state": "active",
+              "boardId": 474,
+              "goal": "Make Middle Mile trip assignment safe and compliant, and restore route suggestions for dispatchers.\n\n• Block assigning drivers without legal rest or on overlapping trips, and vehicles or trailers that are inactive or in use\n• Route suggestions working again on v2, open to every company type, with task search by ID\n• Complete Middle Mile imports (every Amazon stop, missing Mercado Livre sites) and prove the Rotogram model on real files\n• Secure the driver chat ahead of the Jelou integration\n• Lay the new UIKIT foundation and fix Control Tower history and Automations defects\n\n** Holidays: 02/11 and 03/11 (Ecuador) and 02/11 (Brasil)**",
+              "startDate": "2026-10-20T22:00:00.000Z",
+              "endDate": "2026-11-03T23:00:00.000Z"
+            }
+          ],
+          "assignee": {
+            "self": "https://shippify.atlassian.net/rest/api/3/user?accountId=712020%3A44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "accountId": "712020:44503dcc-c0a5-4359-b7ae-725d0eb06f85",
+            "emailAddress": "guilherme.santos@shippify.co",
+            "avatarUrls": {
+              "48x48": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "24x24": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "16x16": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png",
+              "32x32": "https://secure.gravatar.com/avatar/096543257fabc22fef410d94d96013dc?d=https%3A%2F%2Favatar-management--avatars.us-west-2.prod.public.atl-paas.net%2Finitials%2FGS-5.png"
+            },
+            "displayName": "Guilherme Macedo Bento Santos",
+            "active": true,
+            "timeZone": "America/New_York",
+            "accountType": "atlassian"
+          },
+          "priority": {
+            "self": "https://shippify.atlassian.net/rest/api/3/priority/3",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/priorities/medium_new.svg",
+            "name": "Medium",
+            "id": "3"
+          },
+          "updated": "2026-10-27T10:19:49.885-0400",
+          "status": {
+            "self": "https://shippify.atlassian.net/rest/api/3/status/10294",
+            "description": "",
+            "iconUrl": "https://shippify.atlassian.net/images/icons/status_generic.gif",
+            "name": "Concluído",
+            "id": "10294",
+            "statusCategory": {
+              "self": "https://shippify.atlassian.net/rest/api/3/statuscategory/3",
+              "id": 3,
+              "key": "done",
+              "colorName": "green",
+              "name": "Itens concluídos"
+            }
+          }
+        },
+        "_rejCode": 0,
+        "_rejQA": 0,
+        "_touchQA": false,
         "_touchCR": true
       }
     ]
