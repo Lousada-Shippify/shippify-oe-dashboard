@@ -34,7 +34,7 @@ WORKER_URL="$(echo "$DEPLOY_OUT" | grep -Eo 'https://[a-zA-Z0-9.-]+\.workers\.de
 if [ -z "$WORKER_URL" ]; then
   echo ""
   echo "!! Não consegui detectar a URL automaticamente no log acima."
-  echo "   Copie a URL que aparece depois de 'Published oe-dashboard-jira' (termina em .workers.dev)"
+  echo "   Copie a URL que aparece depois de 'Deployed dashboard-operation-experience' (termina em .workers.dev)"
   echo "   e rode manualmente:"
   echo '   sed -i "" "s#https://REPLACE-ME.workers.dev#SUA_URL_AQUI#" ../index.html'
   exit 0
