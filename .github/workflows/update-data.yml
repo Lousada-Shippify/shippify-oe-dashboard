@@ -27,11 +27,9 @@ concurrency:
   cancel-in-progress: true
 
 jobs:
-  build-deploy:
+  # 1) Jira -> data.json (commit no main) e empacota o _site como artifact do Pages.
+  build:
     runs-on: ubuntu-latest
-    environment:
-      name: github-pages
-      url: ${{ steps.deploy.outputs.page_url }}
     steps:
       - uses: actions/checkout@v4
 
@@ -72,6 +70,27 @@ jobs:
         with:
           path: _site
 
+  # 2) Publica em job separado. No mesmo job, o deploy-pages consultava a lista de
+  #    artifacts menos de 1 s depois do upload e as vezes recebia "Found 0 artifact(s)"
+  #    (a API demora a refletir o upload). Entre jobs isso nao acontece; mesmo assim,
+  #    se falhar, espera 20 s e tenta de novo uma vez.
+  deploy:
+    needs: build
+    runs-on: ubuntu-latest
+    environment:
+      name: github-pages
+      url: ${{ steps.deploy.outputs.page_url || steps.deploy-retry.outputs.page_url }}
+    steps:
       - name: Publicar no GitHub Pages
         id: deploy
+        continue-on-error: true
+        uses: actions/deploy-pages@v4
+
+      - name: Esperar antes de tentar de novo
+        if: steps.deploy.outcome == 'failure'
+        run: sleep 20
+
+      - name: Publicar no GitHub Pages (nova tentativa)
+        id: deploy-retry
+        if: steps.deploy.outcome == 'failure'
         uses: actions/deploy-pages@v4
